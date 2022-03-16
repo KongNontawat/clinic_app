@@ -1,0 +1,111 @@
+{
+  "_from": "@ckeditor/ckeditor5-build-classic",
+  "_id": "@ckeditor/ckeditor5-build-classic@33.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-OyWPhUwi44OzMefReKUKWk8joKnmLJPEcB+GpEeonsB11AjGNFJejQirsDBnp0oryLxpt2/zq9APyABFVs9oBA==",
+  "_location": "/@ckeditor/ckeditor5-build-classic",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@ckeditor/ckeditor5-build-classic",
+    "name": "@ckeditor/ckeditor5-build-classic",
+    "escapedName": "@ckeditor%2fckeditor5-build-classic",
+    "scope": "@ckeditor",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-33.0.0.tgz",
+  "_shasum": "2fba5c9f8b182c65cda71cfdd3397df95c23d07e",
+  "_spec": "@ckeditor/ckeditor5-build-classic",
+  "_where": "D:\\Xampp\\htdocs\\clinic_app",
+  "author": {
+    "name": "CKSource",
+    "url": "http://cksource.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/ckeditor/ckeditor5/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@ckeditor/ckeditor5-adapter-ckfinder": "^33.0.0",
+    "@ckeditor/ckeditor5-autoformat": "^33.0.0",
+    "@ckeditor/ckeditor5-basic-styles": "^33.0.0",
+    "@ckeditor/ckeditor5-block-quote": "^33.0.0",
+    "@ckeditor/ckeditor5-ckfinder": "^33.0.0",
+    "@ckeditor/ckeditor5-cloud-services": "^33.0.0",
+    "@ckeditor/ckeditor5-easy-image": "^33.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^33.0.0",
+    "@ckeditor/ckeditor5-essentials": "^33.0.0",
+    "@ckeditor/ckeditor5-heading": "^33.0.0",
+    "@ckeditor/ckeditor5-image": "^33.0.0",
+    "@ckeditor/ckeditor5-indent": "^33.0.0",
+    "@ckeditor/ckeditor5-link": "^33.0.0",
+    "@ckeditor/ckeditor5-list": "^33.0.0",
+    "@ckeditor/ckeditor5-media-embed": "^33.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^33.0.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^33.0.0",
+    "@ckeditor/ckeditor5-table": "^33.0.0",
+    "@ckeditor/ckeditor5-typing": "^33.0.0"
+  },
+  "deprecated": false,
+  "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
+  "devDependencies": {
+    "@ckeditor/ckeditor5-core": "^33.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^28.0.1",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^28.0.1",
+    "@ckeditor/ckeditor5-theme-lark": "^33.0.0",
+    "css-loader": "^5.2.7",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=5.7.1"
+  },
+  "files": [
+    "build",
+    "ckeditor5-metadata.json"
+  ],
+  "homepage": "https://ckeditor.com/ckeditor-5",
+  "keywords": [
+    "ckeditor5-build",
+    "ckeditor",
+    "ckeditor5",
+    "ckeditor 5",
+    "wysiwyg",
+    "rich text",
+    "editor",
+    "html",
+    "contentEditable",
+    "editing",
+    "operational transformation",
+    "ot",
+    "collaboration",
+    "collaborative",
+    "real-time",
+    "framework"
+  ],
+  "license": "GPL-2.0-or-later",
+  "main": "./build/ckeditor.js",
+  "name": "@ckeditor/ckeditor5-build-classic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckeditor/ckeditor5.git",
+    "directory": "packages/ckeditor5-build-classic"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "preversion": "npm run build"
+  },
+  "version": "33.0.0"
+}

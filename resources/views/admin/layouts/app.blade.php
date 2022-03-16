@@ -13,6 +13,7 @@
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/kanit_thai/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
     @yield('style')
 </head>
 
@@ -26,6 +27,7 @@
     <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('js/admin/main.js') }}"></script>
+    <script src="{{ asset('js/admin/custom.js') }}"></script>
     @yield('script')
 
 </body>

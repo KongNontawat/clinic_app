@@ -28,7 +28,6 @@
     <script src="{{ asset('js/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('js/admin/main.js') }}"></script>
     <script src="{{ asset('js/admin/custom.js') }}"></script>
-    <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
 
     @yield('script')
 
@@ -45,6 +44,7 @@
 <script src="{{ asset('js/chart.js/dist/chart.min.js') }}"></script>
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
+<script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
 -->
 
 <!-- Other Style

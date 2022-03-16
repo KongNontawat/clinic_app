@@ -26,7 +26,7 @@
                                         <a href="#0">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Menu
+                                        
                                     </li>
                                 </ol>
                             </nav>

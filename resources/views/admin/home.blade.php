@@ -64,7 +64,7 @@
 
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
                     <a href="#!" class="menu-box text-dark d-flex flex-column justify-content-center p-4 border bg-white rounded-3">
-                        <i class="fa-solid fa-book fa-3x"></i>
+                    <i class="fa-solid fa-user-gear fa-3x"></i>
                         <h4 class="text-center mt-3">Logs Activity</h4>
                         <p class="text-center mt-2">Lorem ipsum dolor sit amet consectetur</p>
                     </a>

@@ -42,7 +42,7 @@
       <li class="nav-item ">
         <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon">
-          <i class="fa-solid fa-book"></i>
+          <i class="fa-solid fa-user-gear"></i>
           </span>
           <span class="text">Logs Activity</span>
         </a>

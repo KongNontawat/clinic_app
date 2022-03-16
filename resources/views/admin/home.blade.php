@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
+@section('style')
 
+@endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->
 <main class="main-wrapper">

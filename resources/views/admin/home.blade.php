@@ -6,7 +6,7 @@
 
     <!-- ========== section start ========== -->
     <section class="section">
-    <!-- Navbar -->
+        <!-- Navbar -->
         @include('admin.components.navbar')
         <div class="container-fluid">
             <!-- ========== title-wrapper start ========== -->
@@ -26,7 +26,7 @@
                                         <a href="#0">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        
+
                                     </li>
                                 </ol>
                             </nav>
@@ -36,8 +36,20 @@
             </div><!-- title-wrapper -->
 
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 menu-box d-flex justify-content-center p-4">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
+                    <a href="#!" class="menu-box text-dark d-flex flex-column justify-content-center p-4 border bg-white rounded-3">
+                        <i class="fa-solid fa-house-chimney fa-3x"></i>
+                        <h4 class="text-center mt-3">Home Page</h4>
+                        <p class="text-center mt-2">Lorem ipsum dolor sit amet consectetur</p>
+                    </a>
+                </div>
 
+                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
+                    <a href="#!" class="menu-box text-dark d-flex flex-column justify-content-center p-4 border bg-white rounded-3">
+                        <i class="fa-solid fa-chart-line fa-3x"></i>
+                        <h4 class="text-center mt-3">Dashboard Page</h4>
+                        <p class="text-center mt-2">Lorem ipsum dolor sit amet consectetur</p>
+                    </a>
                 </div>
             </div>
         </div><!-- end container-fluid -->

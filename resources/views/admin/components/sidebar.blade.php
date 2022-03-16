@@ -1,7 +1,7 @@
 <aside class="sidebar-nav-wrapper">
   <div class="navbar-logo">
     <a href="index.html">
-      <img src="assets/images/logo/logo.svg" alt="logo" />
+      <img src="{{asset('image/logo overflow.png')}}" alt="logo" width="170"/>
     </a>
   </div>
   <nav class="sidebar-nav">

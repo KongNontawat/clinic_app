@@ -61,7 +61,7 @@
                       <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" class="@error('email') is-invalid @enderror" required autocomplete="email" autofocus />
                       @error('email')
                       <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                        <p>{{ $message }}</p>
                       </span>
                       @enderror
                     </div>
@@ -73,7 +73,7 @@
                       <input type="password" id="password" placeholder="Password" name="password" required class="@error('password') is-invalid @enderror" autocomplete="current-password" />
                       @error('password')
                       <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                        <p>{{ $message }}</p>
                       </span>
                       @enderror
                     </div>

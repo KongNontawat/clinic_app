@@ -1,0 +1,27 @@
+.dataTables_filter {
+  display: none;
+}
+.dataTables_wrapper .dataTables_paginate,
+.dataTables_wrapper .dataTables_info{
+  margin-top: 1.3rem!important;
+}
+.dataTables_length select {
+  padding: 6px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.247);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.dataTables_length select {
+  min-width: 4rem;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  margin: 0 3px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button .page-link {
+  border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.active {
+  background-color: #4A6CF7;
+}

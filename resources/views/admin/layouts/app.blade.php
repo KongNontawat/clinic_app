@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome/all.min.css') }}">
-    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="{{ asset('css/kanit_thai/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
@@ -28,12 +28,20 @@
     <script src="{{ asset('js/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('js/admin/main.js') }}"></script>
     <script src="{{ asset('js/admin/custom.js') }}"></script>
-
+    
     @yield('script')
 
 </body>
 
 </html>
+
+<!-- Other Style
+<link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/aos/dist/aos.css') }}">
+-->
 
 <!-- Other Script
 <script src="{{ asset('js/select2/dist/js/select2.min.js') }}"></script>
@@ -45,12 +53,4 @@
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
--->
-
-<!-- Other Style
-<link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/aos/dist/aos.css') }}">
 -->

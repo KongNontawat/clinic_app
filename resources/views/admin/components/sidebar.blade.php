@@ -1,36 +1,74 @@
 <aside class="sidebar-nav-wrapper">
   <div class="navbar-logo">
-    <a href="index.html">
-      <img src="{{asset('image/logo overflow.png')}}" alt="logo" width="170"/>
+    <a href="{{route('/home')}}">
+      <img src="{{asset('image/logo_overflow.png')}}" alt="logo" width="170"/>
     </a>
   </div>
   <nav class="sidebar-nav">
-    <ul>
-      <li class="nav-item active">
-        <a href="#!" class="d-flex justify-content-center">
-          <span class="icon">
-            <i class="fa-solid fa-house-chimney"></i>
-          </span>
-          <span class="">Home</span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_1" aria-controls="ddmenu_1" aria-expanded="false" aria-label="Toggle navigation">
+    <ul id="sidebar-menu">
+
+      <li class="nav-item dashboard">
+        <a href="{{route('dashboard.index')}}">
           <span class="icon">
           <i class="fa-solid fa-chart-line"></i>
           </span>
           <span class="text">Dashboard</span>
         </a>
-       
       </li>
+
       <li class="nav-item ">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2" aria-controls="ddmenu_2" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="#!">
+          <span class="icon">
+          <i class="fa-solid fa-calendar-days"></i>
+          </span>
+          <span class="text">Schedule</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a href="#!">
+          <span class="icon">
+          <i class="fa-solid fa-clipboard-list"></i>
+          </span>
+          <span class="text">Appointment</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a href="#!">
+          <span class="icon">
+          <i class="fa-solid fa-calendar-check"></i>
+          </span>
+          <span class="text">Booking and Queue</span>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item patient">
+        <a href="{{route('patient.patient')}}">
           <span class="icon">
           <i class="fa-solid fa-users"></i>
           </span>
           <span class="text">Patient</span>
         </a>
+      </li> -->
+
+      <li class="nav-item nav-item-has-children patient">
+        <a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item-patient">
+          <span class="icon">
+            <i class="fa-solid fa-users"></i>
+          </span>
+          <span class="text">Patient</span>
+        </a>
+        <ul id="menu-item-patient" class="collapse dropdown-nav">
+          <li>
+            <a href="{{route('patient.patient')}}" class="menu-item-patient"> Patient List </a>
+          </li>
+          <li>
+            <a href="#!"> Member Group </a>
+          </li>
+        </ul>
       </li>
+
       <li class="nav-item">
         <a href="#">
           <span class="icon">
@@ -39,25 +77,17 @@
           <span class="text">Doctor</span>
         </a>
       </li>
+
       <li class="nav-item ">
         <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon">
-          <i class="fa-solid fa-user-gear"></i>
-          </span>
-          <span class="text">Logs Activity</span>
-        </a>
-        
-      </li>
-      <li class="nav-item ">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon">
-          <i class="fa-solid fa-user "></i>
+          <i class="fa-solid fa-circle-user"></i>
           </span>
           <span class="text">User</span>
         </a>
-      
       </li>
-      <span class="divider">
+
+      <!-- <span class="divider">
         <hr />
       </span>
       <li class="nav-item">
@@ -69,27 +99,8 @@
           </span>
           <span class="text">UI Elements </span>
         </a>
-       
-      </li>
-      <li class="nav-item nav-item-has-children">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55" aria-controls="ddmenu_55" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.83325 19.25V17.4167H18.3333V19.25H1.83325ZM18.3333 7.33333V4.58333H16.4999V7.33333H18.3333ZM18.3333 2.75C18.8195 2.75 19.2858 2.94315 19.6296 3.28697C19.9734 3.63079 20.1666 4.0971 20.1666 4.58333V7.33333C20.1666 7.81956 19.9734 8.28588 19.6296 8.6297C19.2858 8.97351 18.8195 9.16667 18.3333 9.16667H16.4999V11.9167C16.4999 12.8891 16.1136 13.8218 15.426 14.5094C14.7383 15.197 13.8057 15.5833 12.8333 15.5833H7.33325C6.36079 15.5833 5.42816 15.197 4.74053 14.5094C4.05289 13.8218 3.66659 12.8891 3.66659 11.9167V2.75H18.3333ZM14.6666 4.58333H5.49992V11.9167C5.49992 12.4029 5.69307 12.8692 6.03689 13.213C6.38071 13.5568 6.84702 13.75 7.33325 13.75H12.8333C13.3195 13.75 13.7858 13.5568 14.1296 13.213C14.4734 12.8692 14.6666 12.4029 14.6666 11.9167V4.58333Z" />
-            </svg>
-          </span>
-          <span class="text">Icons</span>
-        </a>
-        <ul id="ddmenu_55" class="collapse dropdown-nav">
-          <li>
-            <a href="icons.html"> LineIcons </a>
-          </li>
-          <li>
-            <a href="mdi-icons.html"> MDI Icons </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item nav-item-has-children">
+      </li> -->
+      <!-- <li class="nav-item nav-item-has-children">
         <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5" aria-controls="ddmenu_5" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,21 +127,16 @@
       </li>
       <span class="divider">
         <hr />
-      </span>
+      </span> -->
 
       <li class="nav-item">
-        <a href="notification.html">
-          <span class="icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z" />
-            </svg>
-          </span>
-          <span class="text">Notifications</span>
+        <a href="#!" style="justify-content:center;">
+          <span class="text-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</span>
         </a>
       </li>
     </ul>
   </nav>
-  <div class="promo-box">
+  <!-- <div class="promo-box">
     <span class="text-danger">Logout</span>
-  </div>
+  </div> -->
 </aside>

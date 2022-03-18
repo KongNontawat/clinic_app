@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin.home');
+Route::get('/login', function () {
+    return view('auth.login');
 });
 
-Route::get('/', function () {
-    return view('admin.home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('/admin');
 
-// Auth::routes();
+Route::get('/dashboard', function () {
+    return view('admin.dashboard.index');
+})->name('dashboard.index');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/patient', function () {
+    return view('admin.patient.patient_list');
+})->name('patient.patient');
+Route::get('/patient/add', function () {
+    return view('admin.patient.patient_add');
+})->name('patient.patient_add');
+
+
+Auth::routes();
+

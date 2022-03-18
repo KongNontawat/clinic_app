@@ -12,17 +12,19 @@
     mainWrapper.classList.toggle("active");
 
     if (document.body.clientWidth > 1200) {
-      if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
-        menuToggleButtonIcon.classList.remove("lni-chevron-left");
-        menuToggleButtonIcon.classList.add("lni-menu");
+      if (menuToggleButtonIcon.classList.contains("fa-angles-left")) {
+        menuToggleButtonIcon.classList.remove("fa-angles-left");
+        menuToggleButtonIcon.classList.add("fa-bars");
+        console.log(menuToggleButtonIcon)
       } else {
-        menuToggleButtonIcon.classList.remove("lni-menu");
-        menuToggleButtonIcon.classList.add("lni-chevron-left");
+        menuToggleButtonIcon.classList.remove("fa-bars");
+        menuToggleButtonIcon.classList.add("fa-angles-left");
+        console.log(menuToggleButtonIcon)
       }
     } else {
-      if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
-        menuToggleButtonIcon.classList.remove("lni-chevron-left");
-        menuToggleButtonIcon.classList.add("lni-menu");
+      if (menuToggleButtonIcon.classList.contains("fa-angles-left")) {
+        menuToggleButtonIcon.classList.remove("fa-angles-left");
+        menuToggleButtonIcon.classList.add("fa-bars");
       }
     }
   });

@@ -17,8 +17,6 @@
 </head>
 
 <body>
-
-    @include('components.sidebar')
     <div class="overlay"></div>
     @yield('content')
 

@@ -226,10 +226,6 @@
                      
                     </a>
                 </div>
-                
-
-                
-
             </div>
 
         </div><!-- end container-fluid -->

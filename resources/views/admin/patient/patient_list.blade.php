@@ -47,7 +47,6 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="card-style mb-3">
-              <h6 class="mb-10">Data Table</h6>
               <form action="" class="mb-4">
                 <div class="row gy-3 gx-2">
 
@@ -59,13 +58,21 @@
                   </div>
 
                   <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="input-style-3 mb-0">
+                      <input type="text" placeholder="ID Card Number" class="bg-transparent" id="search_idcard">
+                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2">
                     <div class="form-floating">
                       <select class="form-select" id="search_group" aria-label="Floating label select example">
                         <option selected value="">All</option>
-                        <option value="vip 1">VIP 1</option>
+                        <option value="vip">VIP</option>
                         <option value="vip 2">VIP 2</option>
                         <option value="old member">Old Member</option>
-                        <option value="normal member">Normal Member</option>
+                        <option value="normal member">Normal</option>
+                        <option value="new member">New Member</option>
                       </select>
                       <label for="search_group"><i class="fa-solid fa-elevator"></i> Member Group</label>
                     </div>
@@ -96,14 +103,16 @@
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-4 col-xl-2 text-end">
+                  <!-- <div class="col-sm-6 col-md-4 col-xl-2 text-end">
                     <a href="#!" class="main-btn light-btn btn-hover border col-12">
                       <i class="fa-solid fa-magnifying-glass mr-5"></i> Search
                     </a>
-                  </div>
+                  </div> -->
 
                 </div>
               </form>
+
+              <!-- Table  -->
               <div class="table-wrapper table-responsive pb-3">
                 <table class="table table-hover">
                   <thead>
@@ -121,9 +130,6 @@
                         <h6>Sex</h6>
                       </th>
                       <th>
-                        <h6>Birth Date</h6>
-                      </th>
-                      <th>
                         <h6>Age</h6>
                       </th>
                       <th>
@@ -131,6 +137,9 @@
                       </th>
                       <th>
                         <h6>Line</h6>
+                      </th>
+                      <th>
+                        <h6>Group</h6>
                       </th>
                       <th>
                         <h6>Created_at</h6>
@@ -154,10 +163,10 @@
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
-                      <td>18-03-2022</td>
                       <td>19</td>
                       <td>064-487-0915</td>
                       <td><i class="fa-solid fa-triangle-exclamation fs-5 text-warning"></i></td>
+                      <td class="text-success" >VIP </td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
@@ -188,10 +197,10 @@
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>
-                      <td>14-05-2000</td>
                       <td>21</td>
                       <td>310-777-2549</td>
                       <td><i class="fa-solid fa-check text-success fs-5"></i></td>
+                      <td class="text-success" >VIP </td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
@@ -223,10 +232,10 @@
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
-                      <td>08-01-1992</td>
                       <td>30</td>
                       <td>951-283-5747</td>
                       <td><i class="fa-solid fa-check text-success fs-5"></i></td>
+                      <td class="text-warning" >Old  Member</td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
@@ -257,10 +266,10 @@
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>
-                      <td>20-11-1990</td>
                       <td>19</td>
                       <td>661-294-2052</td>
                       <td><i class="fa-solid fa-check text-success fs-5"></i></td>
+                      <td class="text-primary" >VIP 2</td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
@@ -292,10 +301,10 @@
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
-                      <td>20-07-1980</td>
                       <td>19</td>
                       <td>0614-547-1408</td>
                       <td><i class="fa-solid fa-check text-success fs-5"></i></td>
+                      <td class="text-primary" >VIP 2</td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
@@ -326,10 +335,10 @@
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>
-                      <td>18-03-2022</td>
                       <td>19</td>
                       <td>064-487-0915</td>
                       <td><i class="fa-solid fa-check text-success fs-5"></i></td>
+                      <td class="text-danger" >New Member</td>
                       <td>18-03-2022</td>
                       <td>
                         <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
@@ -464,7 +473,7 @@ $(function() {
         "previous": "<i class='fa-solid fa-angles-left'></i>"
       }
     },
-    "lengthMenu": [2, 5, 10, 75, 100],
+    "lengthMenu": [5, 10, 75, 100],
     "search": {
     "caseInsensitive": true
   }
@@ -472,8 +481,11 @@ $(function() {
   $('#search_name').on('keyup', function() {
     datatable.column(1).search(this.value).draw();
   });
+  $('#search_idcard').on('keyup', function() {
+    datatable.column(2).search(this.value).draw();
+  });
   $('#search_group').on('change', function() {
-    datatable.column(3).search(this.value, true, true, true).draw();
+    datatable.column(7).search(this.value).draw();
   });
   $('#search_status').on('change', function() {
     regex = '\\b' + this.value + '\\b';

@@ -28,7 +28,7 @@
             <div class="auth-cover">
               <div class="title text-center">
                 <img src="{{asset('image/Logo_Beauty_Care1.png')}}" alt="" width="120"/>
-                <h2 class="text-center text-primary mt-3">Welcome To Beauty Care</h2>
+                <h2 class="text-center mt-4">Welcome To Beauty Care</h2>
 
               </div>
               <div class="cover-image">

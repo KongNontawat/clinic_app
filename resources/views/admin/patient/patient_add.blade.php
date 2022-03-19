@@ -31,7 +31,7 @@
                     <a href="#!">Patients</a>
                   </li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Patients Add New
+                    Add New Patients 
                   </li>
                 </ol>
               </nav>
@@ -43,25 +43,52 @@
       <!-- ========== Form-wrapper start ========== -->
       <div class="form-layout-wrapper">
             <div class="row">
-              <div class="col-12">
+              <div class="12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-25">Shipping Address</h6>
+                  <h6 class="mb-25">Add New Patients </h6>
                   <form action="#">
                     <div class="row">
-                      <div class="col-12">
+
+                      <div class="col-sm-6 col-md-2">
+                        <div class="select-style-1">
+                          <label>Title</label>
+                          <div class="select-position">
+                            <select class="light-bg">
+                              <option value="">Mr.</option>
+                              <option value="">Ms.</option>
+                              <option value="">Mrs.</option>
+                              <option value="">Miss</option>
+                              <option value="">Dr.</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name</label>
                           <input type="text" placeholder="John">
                         </div>
                       </div>
                       <!-- end col -->
-                      <div class="col-12">
+
+                      <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name</label>
                           <input type="text" placeholder="Doe">
                         </div>
                       </div>
                       <!-- end col -->
+
+                      <div class="col-sm-6 col-md-2">
+                        <div class="input-style-1">
+                          <label>Nick Name</label>
+                          <input type="text" placeholder="Doe">
+                        </div>
+                      </div>
+                      <!-- end col -->
+
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Phone Number</label>
@@ -69,13 +96,15 @@
                         </div>
                       </div>
                       <!-- end col -->
+
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address</label>
-                          <input type="text" placeholder="4971  Green Avenue, Hayward, California">
+                          <textarea name="" id="" cols="30" rows="4"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
+
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>City</label>
@@ -83,6 +112,7 @@
                         </div>
                       </div>
                       <!-- end col -->
+
                       <div class="col-sm-6">
                         <div class="select-style-1">
                           <label>State</label>
@@ -98,6 +128,7 @@
                         <!-- end select -->
                       </div>
                       <!-- end col -->
+
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Zip Code</label>
@@ -105,6 +136,7 @@
                         </div>
                       </div>
                       <!-- end col -->
+
                       <div class="col-12">
                         <div class="
                             form-check
@@ -117,86 +149,27 @@
                         </div>
                       </div>
                       <!-- end col -->
-                      <div class="col-12">
-                        <div class="
-                            button-group
-                            d-flex
-                            justify-content-center
-                            flex-wrap
-                          ">
-                          <button class="main-btn primary-btn btn-hover m-2">
-                            Save Address
+
+                      <div class="col-12 mt-4">
+                        <div class="button-group">
+                          <button class="main-btn danger-btn mx-2 p-2">
+                            <i class="fa-solid fa-xmark"></i> Cancel
                           </button>
-                          <button class="main-btn danger-btn-outline m-2">
-                            Cancel
+                          <button class="main-btn light-btn mx-2 p-2">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+                          </button>
+                          <button class="main-btn primary-btn btn-hover">
+                            <i class="fa-solid fa-floppy-disk"></i> Submit
                           </button>
                         </div>
                       </div>
+                      
                     </div>
                     <!-- end row -->
                   </form>
                 </div>
                 <!-- end card -->
-                <div class="card-style mb-30">
-                  <h6 class="mb-15">Sign up Form</h6>
-                  <p class="text-sm mb-25">
-                    Start creating the best possible user experience for you
-                    customers.
-                  </p>
-                  <form action="#">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label> Name</label>
-                          <input type="text" placeholder="Name">
-                        </div>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label>Email</label>
-                          <input type="email" placeholder="Email">
-                        </div>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label>Password</label>
-                          <input type="password" placeholder="Password">
-                        </div>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-12">
-                        <div class="form-check checkbox-style mb-30">
-                          <input class="form-check-input" type="checkbox" value="" id="checkbox-not-robot">
-                          <label class="form-check-label" for="checkbox-not-robot">
-                            I am not a Robot</label>
-                        </div>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-12">
-                        <div class="
-                            button-group
-                            d-flex
-                            justify-content-center
-                            flex-wrap
-                          ">
-                          <button class="
-                              main-btn
-                              primary-btn
-                              btn-hover
-                              w-100
-                              text-center
-                            ">
-                            Sign Up
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- end row -->
-                  </form>
-                </div>
-                <!-- end card -->
+
               </div>
             </div>
             <!-- end row -->

@@ -1393,10 +1393,10 @@ h6,
 .input-style-1 input,
 .input-style-1 textarea {
 	width: 100%;
-	background: rgba(239, 239, 239, 0.5);
+	background: rgba(239, 239, 239, 0.411);
 	border: 1px solid #e5e5e5;
 	border-radius: 4px;
-	padding: 16px;
+	padding: 10px;
 	color: #5d657b;
 	resize: none;
 	transition: all 0.3s;
@@ -1406,6 +1406,7 @@ h6,
 .input-style-1 textarea:focus {
 	border-color: #4a6cf7;
 	background: #fff;
+	box-shadow: 0 0 4px #4a6df75d;
 }
 .input-style-1 input[type="date"],
 .input-style-1 input[type="time"],
@@ -1476,10 +1477,10 @@ h6,
 .input-style-3 input,
 .input-style-3 textarea {
 	width: 100%;
-	background: rgba(239, 239, 239, 0.5);
+	background: rgba(239, 239, 239, 0.411);
+	padding: 10px;
 	border: 1px solid #e5e5e5;
 	border-radius: 4px;
-	padding: 16px;
 	padding-left: 45px;
 	color: #5d657b;
 	resize: none;
@@ -1489,6 +1490,7 @@ h6,
 .input-style-3 textarea:focus {
 	border-color: #4a6cf7;
 	background: #fff;
+	box-shadow: 0 0 4px #4a6df75d;
 }
 .input-style-3 .icon {
 	position: absolute;
@@ -1496,6 +1498,10 @@ h6,
 	top: 0;
 	height: 100%;
 	padding: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #5d657b;
 }
 
 
@@ -1545,7 +1551,7 @@ select.form-select {
 	background: transparent;
 	border: 1px solid #e5e5e5;
 	border-radius: 5px;
-	padding: 16px;
+	padding: 10px;
 	padding-right: 38px;
 	color: #5d657b;
 	appearance: none;

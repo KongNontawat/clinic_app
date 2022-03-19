@@ -2214,6 +2214,7 @@ select.form-select:focus {
 .header .header-right .profile-box .profile-info .info .image img {
 	width: 100%;
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 /* ========== Dashboards css ================= */

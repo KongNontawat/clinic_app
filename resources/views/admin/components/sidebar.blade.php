@@ -16,7 +16,7 @@
         </a>
       </li>
 
-      <li class="nav-item ">
+      <!-- <li class="nav-item ">
         <a href="#!">
           <span class="icon">
           <i class="fa-solid fa-calendar-days"></i>
@@ -41,7 +41,7 @@
           </span>
           <span class="text">Booking and Queue</span>
         </a>
-      </li>
+      </li> -->
 
       <!-- <li class="nav-item patient">
         <a href="{{route('patient.patient')}}">

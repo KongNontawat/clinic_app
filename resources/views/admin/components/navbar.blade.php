@@ -4,16 +4,20 @@
         <div class="row">
           <div class="col-lg-5 col-md-5 col-6">
             <div class="header-left d-flex align-items-center">
-              <div class="menu-toggle-btn mr-20">
+              <div class="menu-toggle-btn mr-30">
                 <button id="menu-toggle" class="main-btn light-btn rounded-md btn-hover py-2 d-flex align-items-center">
                   <i class="fa-solid fa-bars"></i>
                 </button>
               </div>
-              <div class="header-search d-none d-md-flex">
-                <form action="#">
-                  <input type="text" placeholder="Search..." />
-                  <button><i class="lni lni-search-alt"></i></button>
-                </form>
+              <div class="header-menu d-none d-md-flex">
+                <a href="#!" class="text-dark d-flex align-items-center mx-2 mx-lg-3">
+                <i class="fa-solid fa-house me-1"></i> Menu
+                </a>
+
+                <a href="#!" class="text-dark d-flex align-items-center mx-2 mx-lg-3">
+                  <i class="fa-solid fa-user-plus me-1"></i> New Patient
+                </a>
+
               </div>
             </div>
           </div>

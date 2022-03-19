@@ -1,0 +1,10 @@
+@media only screen and (min-width: 1200px) {
+	.bg-white {
+        background: none !important;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.menu-box{
+        width: auto;
+    }
+}

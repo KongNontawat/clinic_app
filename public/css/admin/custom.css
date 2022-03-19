@@ -29,3 +29,14 @@
   height: 200px;
   width: 200px;
 }
+.menu a:hover{
+    transition: .3s;
+    background: #fff !important;
+    top:5px;
+}
+.menu a:hover svg{
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+

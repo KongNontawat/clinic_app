@@ -27,13 +27,12 @@
           <div class="auth-cover-wrapper bg-primary-100">
             <div class="auth-cover">
               <div class="title text-center">
-                <h1 class="text-primary mb-10">Welcome Back</h1>
-                <p class="text-medium">
-                  Sign in to your Existing account to continue
-                </p>
+                <img src="{{asset('image/Logo_Beauty_Care1.png')}}" alt="" width="120"/>
+                <h2 class="text-center text-primary mt-3">Welcome To Beauty Care</h2>
+
               </div>
               <div class="cover-image">
-                <img src="https://demo.plainadmin.com/assets/images/auth/signin-image.svg" alt="" />
+                <img src="{{asset('image/vector.png')}}" alt="" />
               </div>
               <div class="shape-image">
                 <img src="https://demo.plainadmin.com/assets/images/auth/shape.svg" alt="" />
@@ -45,13 +44,9 @@
         <div class="col-lg-6">
           <div class="signin-wrapper">
             <div class="form-wrapper">
-              <img src="{{asset('image/logo_overflow.png')}}" alt="" width="300"
-                class="mx-auto d-block mb-3 mb-md-4 mb-lx-5 img-fluid">
-              <h2 class="mb-15">Sign In Form</h2>
-              <p class="text-sm mb-25">
-                Start creating the best possible user experience for you
-                customers.
-              </p>
+              <img src="{{asset('image/LogoBeautyCare.png')}}" alt="" width="300"
+                class="mx-auto d-block mb-3 mb-md-4 mb-lx-5 img-fluid" style="transform: translateY(-2rem);">
+              <h2 class="mb-15 mt-4 text-center">Login Form</h2>
               <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="row">

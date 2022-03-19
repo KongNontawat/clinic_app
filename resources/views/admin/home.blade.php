@@ -48,7 +48,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 ">
                     <a href="#!" class="menu-box text-dark d-flex flex-column justify-content-center p-4 border bg-white rounded-3">
                     <svg class="mx-auto" style="width: 100px;"  id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 59.2"><path d="M2.4,29.7c5.2-8.1,5.3-10.1,5.3-10.1C9.8,1.7,24.4.4,28.5.4h1.4c3,0,21.3.7,21.4,19.4h0c0,15.8-6.1,17.3-8.3,22.2a24.8,24.8,0,0,0-1.6,12.9,2.3,2.3,0,0,1-1.1,2.4c-4.9,2.8-15.7,2.8-20.6,0a2.7,2.7,0,0,1-1.2-2.3v-7c0-1-1.4-1.1-1.9-1.1h-1c-2,0-7.4-.3-7.8-2.8s0-9.3,0-9.3a43,43,0,0,1-4.6-2.2A2.1,2.1,0,0,1,2.4,29.7Z" transform="translate(-2 -0.4)" style="fill:#c6c6c6"/><polygon points="56 3.1 56 23 42.2 23 35.6 27.7 35.6 23 32.1 23 32.1 3.1 56 3.1" style="fill:#db5743"/><polygon points="54.2 1.4 54.2 21.7 40.2 21.7 33.4 26.5 33.4 21.7 29.9 21.7 29.9 1.4 54.2 1.4" style="fill:#f87670"/><path d="M49.3,10.2H46V6.9a1.1,1.1,0,0,0-1.1-1.1H43.2a1.1,1.1,0,0,0-1.1,1.1v3.3H38.8a1.1,1.1,0,0,0-1.1,1.1V13a1.1,1.1,0,0,0,1.1,1.1h3.3v3.3a1.1,1.1,0,0,0,1.1,1.1h1.7A1.1,1.1,0,0,0,46,17.4V14.1h3.3A1.1,1.1,0,0,0,50.4,13V11.3A1.1,1.1,0,0,0,49.3,10.2Z" transform="translate(-2 -0.4)" style="fill:#fff"/></svg>
-                        <h4 class="text-center mt-3">Patient Img-png</h4>
+                        <h4 class="text-center mt-3">Patients</h4>
                     </a>
                 </div>
 

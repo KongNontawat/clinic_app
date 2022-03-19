@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('style')
-
+<link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
 @endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->

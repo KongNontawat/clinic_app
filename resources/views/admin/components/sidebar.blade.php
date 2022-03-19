@@ -1,9 +1,10 @@
 <aside class="sidebar-nav-wrapper">
-  <div class="navbar-logo">
+  <div class="navbar-logo mb-4">
     <a href="{{route('/home')}}">
-      <img src="{{asset('image/logo_overflow.png')}}" alt="logo" width="170"/>
+      <img src="{{asset('image/LogoBeautyCare.png')}}" alt="logo" width="190"/>
     </a>
   </div>
+  <hr class="m-0" style="border: 1px solid #E2E8EC;">
   <nav class="sidebar-nav">
     <ul id="sidebar-menu">
 

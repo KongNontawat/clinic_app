@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +30,10 @@ Route::get('/dashboard', function () {
 Route::get('/patient', function () {
     return view('admin.patient.patient_list');
 })->name('patient.patient');
+
 Route::get('/patient/add', function () {
-    return view('admin.patient.patient_add');
+    $provinces = DB::table('provinces')->get();
+    return view('admin.patient.patient_add',compact('provinces'));
 })->name('patient.patient_add');
 
 

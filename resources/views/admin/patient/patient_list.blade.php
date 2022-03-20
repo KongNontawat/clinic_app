@@ -372,8 +372,10 @@
         </div>
         <!-- end row -->
       </div>
+      <!-- ========== tables-wrapper end ========== -->
 
-      <div class="card-style">
+      <!-- Import And Export -->
+      <!-- <div class="card-style">
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-file-export"></i> Export To : </span>
@@ -407,8 +409,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- ========== tables-wrapper end ========== -->
+      </div> -->
 
     </div><!-- end container-fluid -->
   </section>
@@ -424,86 +425,5 @@
 <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
-<script>
-var minDate, maxDate;
-
-
-// Custom filtering function which will search data in column four between two values
-$.fn.dataTable.ext.search.push(
-  function(settings, data, dataIndex) {
-    var min = minDate.val();
-    var max = maxDate.val();
-    var date = new Date(data[8]);
-
-    if (
-      (min === '' && max === '') ||
-      (min === '' && data[8] <= max) ||
-      (min <= data[8] && max === '') ||
-      (min <= data[8] && data[8] <= max)
-    ) {
-      return true;
-    }
-    return false;
-  }
-);
-
-$(function() {
-  $('.patient a.menu-item-patient').addClass('active')
-  $('.patient').addClass('active')
-  $('.patient ul').addClass('show ')
-
-  $("#min").flatpickr({
-    altInput: true,
-    altFormat: "j F Y",
-    dateFormat: "d-m-Y",
-  });
-  $("#max").flatpickr({
-    altInput: true,
-    altFormat: "j F Y",
-    dateFormat: "d-m-Y",
-  });
-
-  minDate = $('#min');
-  maxDate = $('#max');
-
-  var datatable = $('.table').DataTable({
-    "language": {
-      "paginate": {
-        "next": "<i class='fa-solid fa-angles-right'></i>",
-        "previous": "<i class='fa-solid fa-angles-left'></i>"
-      }
-    },
-    "lengthMenu": [5, 10, 75, 100],
-    "search": {
-    "caseInsensitive": true
-  }
-  });
-  $('#search_name').on('keyup', function() {
-    datatable.column(1).search(this.value).draw();
-  });
-  $('#search_idcard').on('keyup', function() {
-    datatable.column(2).search(this.value).draw();
-  });
-  $('#search_group').on('change', function() {
-    datatable.column(7).search(this.value).draw();
-  });
-  $('#search_status').on('change', function() {
-    regex = '\\b' + this.value + '\\b';
-    datatable.column(9).search(regex, true, false).draw();
-  });
-  $('#min, #max').on('change', function() {
-    datatable.draw();
-  });
-
-
-  $('.table-responsive').on('show.bs.dropdown', function() {
-    $('.table-responsive').css("overflow", "inherit");
-  });
-
-  $('.table-responsive').on('hide.bs.dropdown', function() {
-    $('.table-responsive').css("overflow", "auto");
-  })
-
-})
-</script>
+<script src="{{ asset('js/admin/patient.js') }}"></script>
 @endsection

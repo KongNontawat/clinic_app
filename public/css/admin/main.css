@@ -1412,7 +1412,8 @@ h6,
 .input-style-1 input[type="time"],
 .input-style-1 textarea[type="date"],
 .input-style-1 textarea[type="time"] {
-	background: transparent;
+	background: rgba(239, 239, 239, 0.411);
+
 }
 
 .input-style-2 {

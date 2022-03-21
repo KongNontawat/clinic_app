@@ -16,7 +16,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="title d-flex align-items-center flex-wrap mb-30">
-              <h2 class="me-4"><small class="text-muted"><i class="fa-solid fa-users"></i> Patients</small> / Add New
+              <h2 class=""><a href=""><small class="text-muted"><i class="fa-solid fa-users"></i>Patients / </small></a> Add New
                 Patient</h2>
             </div>
           </div>
@@ -36,14 +36,14 @@
 
               <nav class="ms-2">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="nav-link active py-3 px-3 px-md-4" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i
+                  <button class="nav-link active py-3 px-3 px-md-4" id="nav-general-tab" data-bs-toggle="tab" data-bs-target="#nav-general"
+                    type="button" role="tab" aria-controls="nav-general" aria-selected="true"><i
                       class="fa-solid fa-user-pen"></i> Patient General Info</button>
-                  <button class="nav-link py-3 px-3 px-md-4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i
+                  <button class="nav-link py-3 px-3 px-md-4" id="nav-medical-info-tab" data-bs-toggle="tab" data-bs-target="#nav-medical-info"
+                    type="button" role="tab" aria-controls="nav-medical-info" aria-selected="false"><i
                       class="fa-solid fa-book-medical"></i> Patient Medical Info</button>
-                  <button class="nav-link py-3 px-3 px-md-4" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i
+                  <button class="nav-link py-3 px-3 px-md-4" id="nav-emc-tab" data-bs-toggle="tab" data-bs-target="#nav-emc"
+                    type="button" role="tab" aria-controls="nav-emc" aria-selected="false"><i
                       class="fa-solid fa-triangle-exclamation"></i> Emergency Contact</button>
                 </div>
               </nav>
@@ -52,7 +52,7 @@
                 <div class="tab-content" id="nav-tabContent">
 
                   <!-- Tab 1 -->
-                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
                     <h4 class="mb-25 text-primary"><i class="fa-solid fa-user-pen"></i> Add New Patients </h4>
                     <div class="row">
 
@@ -296,7 +296,7 @@
                   </div>
 
                   <!-- Tab 2 -->
-                  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                  <div class="tab-pane fade" id="nav-medical-info" role="tabpanel" aria-labelledby="nav-medical-info-tab">
                     <h4 class="mb-25 text-success"> <i class="fa-solid fa-book-medical"></i> Patient Medical Info </h4>
                     <div class="row">
 
@@ -603,7 +603,7 @@
                   </div>
 
                   <!-- Tab 3 -->
-                  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                  <div class="tab-pane fade" id="nav-emc" role="tabpanel" aria-labelledby="nav-emc-tab">
                     <h4 class="mb-25 text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Emergency Contact</h4>
                     <div class="row">
 

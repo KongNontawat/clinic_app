@@ -35,6 +35,10 @@ Route::get('/patient/add', function () {
     return view('admin.patient.patient_add');
 })->name('patient.patient_add');
 
+Route::get('/patient/detail', function () {
+    return view('admin.patient.patient_detail');
+})->name('patient.patient_detail');
+
 
 Auth::routes();
 

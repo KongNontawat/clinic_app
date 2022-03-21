@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome/all.min.css') }}">
-    <!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/kanit_thai/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">

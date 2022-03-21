@@ -16,7 +16,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="title d-flex align-items-center flex-wrap mb-30">
-              <h2 class="h2"> <a href=""><small class="text-muted"><i class="fa-solid fa-users"></i>Patients /
+              <h2 class="h2"> <a href=""><small class="text-muted"><i class="fa-solid fa-users"></i> Patients /
                   </small></a>
                 Patient Details</h2>
             </div>
@@ -46,20 +46,44 @@
               <table class="table table-striped mt-3">
                 <tbody>
                   <tr>
-                    <th scope="row" class=" fw-normal">FULL NAME :</th>
-                    <td class="text-end ">Mr. Nontawat Sangkromsawang</td>
+                    <th scope="row" class=" fw-normal">FULL NAME:</th>
+                    <td class="">Mr. Nontawat Sangkromsawang</td>
                   </tr>
                   <tr>
-                    <th scope="row" class=" fw-normal">ID card :</th>
-                    <td class="text-end ">1199900862730</td>
+                    <th scope="row" class=" fw-normal">ID card:</th>
+                    <td class="">1199900862730</td>
                   </tr>
                   <tr>
-                    <th scope="row" class=" fw-normal">AGE :</th>
-                    <td class="text-end ">19</td>
+                    <th scope="row" class=" fw-normal">BIRTH DATE:</th>
+                    <td class="">10-09-2002</td>
                   </tr>
                   <tr>
-                    <th scope="row" class=" fw-normal">SEX :</th>
-                    <td class="text-end ">Male</td>
+                    <th scope="row" class=" fw-normal">AGE:</th>
+                    <td class="">19</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">SEX:</th>
+                    <td class="">Male</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">PHONE:</th>
+                    <td class="">064-487-0915</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">BloodGroup:</th>
+                    <td class="">B</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">DRUG ALLERGIES:</th>
+                    <td class="">-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">CONGENITAL_DISEASE:</th>
+                    <td class="">-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class=" fw-normal">NOTE:</th>
+                    <td class="">-</td>
                   </tr>
                 </tbody>
               </table>

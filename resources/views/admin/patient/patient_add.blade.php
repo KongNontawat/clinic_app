@@ -74,7 +74,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>First Name</label>
+                          <label>First Name <span class="text-danger">*</span></label>
                           <input type="text" placeholder="Nontawat">
                         </div>
                       </div>

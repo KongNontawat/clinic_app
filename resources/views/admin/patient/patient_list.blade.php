@@ -19,7 +19,7 @@
         <div class="row align-items-center mb-20">
           <div class="col-md-6">
             <div class="title">
-              <h2 class="me-4"><i class="fa-solid fa-users"></i> Patients</h2>
+              <h2 class=""><a href=""><i class="fa-solid fa-users"></i> Patients</a></h2>
             </div>
           </div>
           <!-- end col -->
@@ -144,7 +144,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><span class="text-primary">CH0023</span></td>
+                      <td><a href="{{route('patient.patient_detail')}}" class="text-primary">CH0023</a> </td>
                       <td>นาย นนทวัฒน์ แสงความสว่าง</td>
                       <td>1199900862730</td>
                       <td>

@@ -138,30 +138,32 @@
                         </div>
                       </div>
                     </div>
-                    <i class="lni lni-chevron-down"></i>
+                    <i class="fa-solid fa-caret-down text-light"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>
                       <a href="#0">
-                        <i class="lni lni-user"></i> View Profile
+                      <i class="fa-solid fa-user me-2"></i> View Profile
                       </a>
                     </li>
                     <li>
                       <a href="#0">
-                        <i class="lni lni-alarm"></i> Notifications
+                      <i class="fa-solid fa-bell me-2"></i> Notifications
                       </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
+                     <a href="#0"> <i class="fa-solid fa-message me-2"></i> Messages </a>
                     </li>
                     <li>
-                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
+                      <a href="#0"> <i class="fa-solid fa-gear me-2"></i> Settings </a>
                     </li>
                     <li>
-                      <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                      <!-- <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
+                      </a> -->
+                      <a href="#0" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <i class="fa-solid fa-right-from-bracket me-2"></i>  Logout
                       </a>
-                    
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                       </form>
@@ -175,4 +177,37 @@
           </div>
         </div>
       </header>
+
+
+
+      <!-- Modal -->
+      <div class="follow-up-modal" >
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content card-style text-center">
+            <div class="modal-body">
+              <div class="image mb-30">
+              <i class="fa-solid fa-right-from-bracket" style="font-size: 72px;"></i>
+              </div>
+              <div class="content mb-30">
+                <h2 class="mb-15">Logout</h2>
+                <p class="text-sm text-medium">
+                  Are you sure you want to log out?
+                </p>
+              </div>
+              <div class="action d-flex flex-wrap justify-content-center">
+                <a
+                  href="#0"
+                  class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 "
+                >
+                  Cancel
+                </a>
+                <a class="main-btn danger-btn rounded-md square-btn btn-hover m-1" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" type="button" class="btn btn-primary">Yes</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- ========== header end ========== -->

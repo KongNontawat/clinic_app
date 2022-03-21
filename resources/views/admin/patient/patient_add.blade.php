@@ -58,7 +58,7 @@
 
                       <div class="col-sm-6 col-md-2">
                         <div class="select-style-1">
-                          <label>Title</label>
+                          <label>Title </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">Mr.</option>
@@ -74,7 +74,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>First Name <span class="text-danger">*</span></label>
+                          <label>First Name <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Nontawat">
                         </div>
                       </div>
@@ -82,7 +82,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Last Name</label>
+                          <label>Last Name <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Sangkromsawang">
                         </div>
                       </div>
@@ -90,7 +90,7 @@
 
                       <div class="col-sm-6 col-md-2">
                         <div class="input-style-1">
-                          <label>Nick Name</label>
+                          <label>Nick Name <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Kong">
                         </div>
                       </div>
@@ -98,7 +98,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label><i class="fa-solid fa-address-card"></i> ID Card Number</label>
+                          <label><i class="fa-solid fa-address-card"></i> ID Card Number <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="1199900862730">
                         </div>
                       </div>
@@ -106,7 +106,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Date of Birth</label>
+                          <label>Date of Birth <span class="text-danger">*</span> </label>
                           <input type="date">
                         </div>
                       </div>
@@ -114,7 +114,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Age</label>
+                          <label>Age <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="19" style="max-width: 200px;">
                         </div>
                       </div>
@@ -130,7 +130,7 @@
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input" type="radio" value="" id="radio-2" name="sex">
                             <label class="form-check-label" for="radio-2">
-                              <i class="fa-solid fa-venus"></i> Female</label>
+                              <i class="fa-solid fa-venus"></i> Female </label>
                           </div>
                         </div>
                       </div>
@@ -138,21 +138,21 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>Phone Number</label>
+                          <label>Phone Number <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="617-802-1898">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>Email</label>
+                          <label>Email <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="kongnontawat.dev@gmail.com">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>ID Line</label>
+                          <label>ID Line <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="6178021898">
                         </div>
                       </div>
@@ -160,7 +160,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Nationality </label>
+                          <label>Nationality <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Thai">
                         </div>
                       </div>
@@ -168,7 +168,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Race </label>
+                          <label>Race <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Thai">
                         </div>
                       </div>
@@ -176,7 +176,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Religion </label>
+                          <label>Religion <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Buddhism">
                         </div>
                       </div>
@@ -184,7 +184,7 @@
 
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label>Address</label>
+                          <label>Address <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="4"></textarea>
                         </div>
                       </div>
@@ -192,7 +192,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="select-style-1">
-                          <label>Province</label>
+                          <label>Province <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">ขอนแก่น</option>
@@ -205,7 +205,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="select-style-1">
-                          <label>District</label>
+                          <label>District <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">เมือง</option>
@@ -221,7 +221,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="select-style-1">
-                          <label>Sub District</label>
+                          <label>Sub District <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">ในเมือง</option>
@@ -237,7 +237,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>Zip Code</label>
+                          <label>Zip Code <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="40000">
                         </div>
                       </div>
@@ -245,7 +245,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>Country  </label>
+                          <label>Country  <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Thailand">
                         </div>
                       </div>
@@ -253,7 +253,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
+                          <label><i class="fa-solid fa-id-badge"></i> Occupation <span class="text-danger">*</span> </label>
                           <input type="text" placeholder="Student">
                         </div>
                       </div>
@@ -261,7 +261,7 @@
 
                       <div class="col-sm-6 col-md-3">
                         <div class="select-style-1">
-                          <label><i class="fa-solid fa-people-group"></i> Member Group</label>
+                          <label><i class="fa-solid fa-people-group"></i> Member Group <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">Normal</option>
@@ -302,7 +302,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Weight </label>
+                          <label>Weight <span class="text-muted">(kg)</span> </label>
                           <input type="text" placeholder="177">
                         </div>
                       </div>
@@ -310,7 +310,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Height </label>
+                          <label>Height <span class="text-muted">(cm)</span> </label>
                           <input type="text" placeholder="75">
                         </div>
                       </div>
@@ -318,7 +318,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="select-style-1">
-                        <label>Blood Group  </label>
+                        <label>Blood Group   </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">A</option>
@@ -343,7 +343,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Food Allergies  </label>
+                          <label>Food Allergies </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -351,7 +351,7 @@
 
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label>Congenital Disease</label>
+                          <label>Congenital Disease </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
@@ -359,7 +359,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">smoker</label>
+                          <label for="">Smoker</label>
                         </div>
                       </div>
 
@@ -368,17 +368,17 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-regularly" name="smoker">
                               <label class="form-check-label" for="smoker-regularly">
-                              <i class="fa-solid fa-check"></i> regularly</label>
+                              <i class="fa-solid fa-check"></i> Regularly</label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-once" name="smoker">
                               <label class="form-check-label" for="smoker-once">
-                              <i class="fa-solid fa-clock"></i> once in a while</label>
+                              <i class="fa-solid fa-clock"></i> Once in a while </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-no" name="smoker">
                               <label class="form-check-label" for="smoker-no">
-                              <i class="fa-solid fa-xmark"></i> No</label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -388,7 +388,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">drinks</label>
+                          <label for="">Drinks</label>
                         </div>
                       </div>
 
@@ -397,12 +397,12 @@
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
                             <label class="form-check-label" for="drinks-regularly">
-                            <i class="fa-solid fa-check"></i> regularly</label>
+                            <i class="fa-solid fa-check"></i> Regularly </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-once" name="drinks">
                             <label class="form-check-label" for="drinks-once">
-                            <i class="fa-solid fa-clock"></i> once in a while</label>
+                            <i class="fa-solid fa-clock"></i> Once in a while </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-no" name="drinks">
@@ -417,7 +417,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">high blood pressure  </label>
+                          <label for="">High blood pressure   </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -426,12 +426,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="high_blood-yes" name="high_blood">
                               <label class="form-check-label" for="high_blood-yes">
-                              <i class="fa-solid fa-check"></i> Yes</label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="high_blood-no" name="high_blood">
                               <label class="form-check-label" for="high_blood-no">
-                              <i class="fa-solid fa-xmark"></i> No</label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -439,7 +439,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Diabetic </label>
+                          <label for="">Diabetic  </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -448,12 +448,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes</label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No</label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -461,7 +461,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">bleed tendency</label>
+                          <label for="">Bleed tendency </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -470,12 +470,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes</label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No</label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -483,7 +483,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">heart deisease  </label>
+                          <label for="">Heart deisease  <span class="text-danger">*</span> </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -492,12 +492,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes</label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No</label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -505,7 +505,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">female_pregnant</label>
+                          <label for="">Female Pregnant </label>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -513,7 +513,7 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes</label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
@@ -527,7 +527,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Register Chanel</label>
+                          <label for="">Register Chanel </label>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -535,7 +535,7 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-building-user"></i> Walk-in</label>
+                              <i class="fa-solid fa-building-user"></i> Walk-in </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
@@ -545,7 +545,7 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-globe"></i> Online</label>
+                              <i class="fa-solid fa-globe"></i> Online </label>
                             </div>
                           </div>
                       </div>
@@ -554,21 +554,21 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>high_risk_diseases </label>
+                          <label>High Risk Diseases  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>surgery </label>
+                          <label>Surgery  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>accident </label>
+                          <label>Accident  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -576,14 +576,14 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>medical_history  </label>
+                          <label>Medical History  </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>current_medication   </label>
+                          <label>Current Medication </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
@@ -625,7 +625,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>First Name</label>
+                          <label>First Name </label>
                           <input type="text" placeholder="Nontawat">
                         </div>
                       </div>
@@ -641,7 +641,7 @@
 
                       <div class="col-sm-6 col-md-2">
                         <div class="select-style-1" style="max-width: 200px;">
-                          <label>Relation</label>
+                          <label>Relation </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">Dad</option>
@@ -658,7 +658,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Phone</label>
+                          <label>Phone </label>
                           <input type="text" placeholder="064-487-0915">
                         </div>
                       </div>

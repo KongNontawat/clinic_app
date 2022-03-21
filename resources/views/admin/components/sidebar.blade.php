@@ -52,7 +52,6 @@
           <span class="text">Patient</span>
         </a>
       </li> -->
-
       <li class="nav-item nav-item-has-children patient">
         <a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item-patient">
           <span class="icon">

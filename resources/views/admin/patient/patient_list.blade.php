@@ -16,28 +16,17 @@
     <div class="container-fluid">
       <!-- ========== title-wrapper start ========== -->
       <div class="title-wrapper pt-30">
-        <div class="row align-items-center">
+        <div class="row align-items-center mb-20">
           <div class="col-md-6">
-            <div class="title d-flex align-items-center flex-wrap mb-30">
+            <div class="title">
               <h2 class="me-4"><i class="fa-solid fa-users"></i> Patients</h2>
-              <a href="{{route('patient.patient_add')}}" class="main-btn primary-btn btn-hover btn-sm">
-                <i class="fa-solid fa-plus mr-5"></i> Add new Patient</a>
             </div>
           </div>
           <!-- end col -->
-          <div class="col-md-6">
-            <div class="breadcrumb-wrapper mb-30">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="#!">Home</a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Patients
-                  </li>
-                </ol>
-              </nav>
-            </div>
+          <div class="col-md-6 text-end">
+            <a href="{{route('patient.patient_add')}}" class="main-btn primary-btn btn-hover btn-sm">
+                <i class="fa-solid fa-plus mr-5"></i> Add new Patient
+            </a>
           </div><!-- end col -->
         </div> <!-- end row -->
       </div><!-- title-wrapper -->

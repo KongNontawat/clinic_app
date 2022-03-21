@@ -22,24 +22,11 @@
           </div>
           <!-- end col -->
           <div class="col-md-6">
-            <div class="breadcrumb-wrapper mb-30">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="#!">Home</a>
-                  </li>
-                  <li class="breadcrumb-item">
-                    <a href="#!">Patients</a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Add New Patients
-                  </li>
-                </ol>
-              </nav>
-            </div>
+            
           </div><!-- end col -->
         </div> <!-- end row -->
-      </div><!-- title-wrapper -->
+      </div>
+      <!-- title-wrapper -->
 
       <!-- ========== Form-wrapper start ========== -->
       <div class="form-layout-wrapper">
@@ -51,7 +38,7 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active py-3 px-3 px-md-4" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
                     type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i
-                      class="fa-solid fa-user-pen"></i> Patient Normal Info</button>
+                      class="fa-solid fa-user-pen"></i> Patient General Info</button>
                   <button class="nav-link py-3 px-3 px-md-4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
                     type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i
                       class="fa-solid fa-book-medical"></i> Patient Medical Info</button>
@@ -136,12 +123,12 @@
                       <div class="col-sm-6 col-md-3 d-flex align-items-center">
                         <div class="input-style-1 d-flex mt-2">
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-2" type="radio" value="" id="radio-1" name="sex">
+                            <input class="form-check-input" type="radio" value="" id="radio-1" name="sex">
                             <label class="form-check-label" for="radio-1">
                               <i class="fa-solid fa-mars"></i> Male</label>
                           </div>
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-2" type="radio" value="" id="radio-2" name="sex">
+                            <input class="form-check-input" type="radio" value="" id="radio-2" name="sex">
                             <label class="form-check-label" for="radio-2">
                               <i class="fa-solid fa-venus"></i> Female</label>
                           </div>
@@ -274,6 +261,23 @@
                       </div>
                       <!-- end col -->
 
+                      <div class="col-sm-6 col-md-3">
+                        <div class="select-style-1">
+                          <label><i class="fa-solid fa-people-group"></i> Member Group</label>
+                          <div class="select-position">
+                            <select class="light-bg">
+                              <option value="">Normal</option>
+                              <option value="">New Member</option>
+                              <option value="">Old Member</option>
+                              <option value="">VIP1</option>
+                              <option value="">VIP2</option>
+                              <option value="">VVIP</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
                       <div class="col-12">
                         <p><i class="fa-solid fa-image"></i> Image profile</p>
                         <img
@@ -362,7 +366,7 @@
                       </div>
 
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-regularly" name="smoker">
                               <label class="form-check-label" for="smoker-regularly">
@@ -391,7 +395,7 @@
                       </div>
 
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
                             <label class="form-check-label" for="drinks-regularly">
@@ -420,7 +424,7 @@
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="high_blood-yes" name="high_blood">
                               <label class="form-check-label" for="high_blood-yes">
@@ -442,7 +446,7 @@
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
@@ -464,7 +468,7 @@
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
-                          <div class="d-flex align-items-center justify-content-end">
+                          <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
@@ -486,7 +490,7 @@
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
@@ -507,7 +511,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
@@ -517,6 +521,33 @@
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
                               <i class="fa-solid fa-xmark"></i> No</label>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- end col -->  
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Register Chanel</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <label class="form-check-label" for="diabetic-yes">
+                              <i class="fa-solid fa-building-user"></i> Walk-in</label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-phone"></i> Call phone</label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-globe"></i> Online</label>
                             </div>
                           </div>
                       </div>
@@ -646,14 +677,14 @@
                 <hr class="my-3" style="border: 1px solid #E2E8EC;">
                 <div class="row">
                   <div class="col-12 mt-4">
-                    <div class="button-group d-flex align-items-end">
-                      <button class="main-btn danger-btn p-2 mx-2">
+                    <div class="button-group d-flex flex-wrap align-items-end">
+                      <button class="main-btn danger-btn p-2 mx-2 mb-3">
                         <i class="fa-solid fa-xmark"></i> Cancel
                       </button>
-                      <button class="main-btn light-btn p-2 mx-2">
+                      <button class="main-btn light-btn p-2 mx-2 mb-3">
                         <i class="fa-solid fa-arrow-rotate-left"></i> Reset
                       </button>
-                      <button class="main-btn primary-btn btn-hover mx-2">
+                      <button class="main-btn primary-btn btn-hover mx-2 mb-3">
                         <i class="fa-solid fa-floppy-disk"></i> Submit
                       </button>
                     </div>

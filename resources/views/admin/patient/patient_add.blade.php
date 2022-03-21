@@ -359,7 +359,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">smoker<span class="text-danger">*</span> </label>
+                          <label for="">Smoker<span class="text-danger">*</span> </label>
                         </div>
                       </div>
 
@@ -368,12 +368,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-regularly" name="smoker">
                               <label class="form-check-label" for="smoker-regularly">
-                              <i class="fa-solid fa-check"></i> regularly<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Regularly<span class="text-danger">*</span> </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-once" name="smoker">
                               <label class="form-check-label" for="smoker-once">
-                              <i class="fa-solid fa-clock"></i> once in a while<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-clock"></i> Once in a while<span class="text-danger">*</span> </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-no" name="smoker">
@@ -388,7 +388,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">drinks<span class="text-danger">*</span> </label>
+                          <label for="">Drinks<span class="text-danger">*</span> </label>
                         </div>
                       </div>
 
@@ -397,12 +397,12 @@
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
                             <label class="form-check-label" for="drinks-regularly">
-                            <i class="fa-solid fa-check"></i> regularly<span class="text-danger">*</span> </label>
+                            <i class="fa-solid fa-check"></i> Regularly<span class="text-danger">*</span> </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-once" name="drinks">
                             <label class="form-check-label" for="drinks-once">
-                            <i class="fa-solid fa-clock"></i> once in a while<span class="text-danger">*</span> </label>
+                            <i class="fa-solid fa-clock"></i> Once in a while<span class="text-danger">*</span> </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-no" name="drinks">
@@ -417,7 +417,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">high blood pressure  <span class="text-danger">*</span> </label>
+                          <label for="">High blood pressure  <span class="text-danger">*</span> </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -461,7 +461,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">bleed tendency<span class="text-danger">*</span> </label>
+                          <label for="">Bleed tendency<span class="text-danger">*</span> </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -483,7 +483,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">heart deisease  <span class="text-danger">*</span> </label>
+                          <label for="">Heart deisease  <span class="text-danger">*</span> </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -505,7 +505,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">female_pregnant<span class="text-danger">*</span> </label>
+                          <label for="">Female Pregnant<span class="text-danger">*</span> </label>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -554,21 +554,21 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>high_risk_diseases <span class="text-danger">*</span> </label>
+                          <label>High Risk Diseases <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>surgery <span class="text-danger">*</span> </label>
+                          <label>Surgery <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>accident <span class="text-danger">*</span> </label>
+                          <label>Accident <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -576,14 +576,14 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>medical_history  <span class="text-danger">*</span> </label>
+                          <label>Medical History  <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>current_medication   <span class="text-danger">*</span> </label>
+                          <label>Current Medication   <span class="text-danger">*</span> </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>

@@ -2,34 +2,35 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name') }}</title>
+  <link rel="icon" href="{{ asset('image/Logo_Beauty_Care1.png') }}" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{{ config('app.name') }}</title>
 
-    <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome/all.min.css') }}">
-    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/kanit_thai/index.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
-    @yield('style')
+  <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/fontawesome/all.min.css') }}">
+  <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/kanit_thai/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
+  @yield('style')
 </head>
 
 <body>
 
-    @include('admin.components.sidebar')
-    <div class="overlay"></div>
-    @yield('content')
+  @include('admin.components.sidebar')
+  <div class="overlay"></div>
+  @yield('content')
 
-    <script src="{{ asset('jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome/all.min.js') }}"></script>
-    <script src="{{ asset('js/admin/main.js') }}"></script>
-    <script src="{{ asset('js/admin/custom.js') }}"></script>
-    
-    @yield('script')
+  <script src="{{ asset('jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/fontawesome/all.min.js') }}"></script>
+  <script src="{{ asset('js/admin/main.js') }}"></script>
+  <script src="{{ asset('js/admin/custom.js') }}"></script>
+
+  @yield('script')
 
 </body>
 

@@ -14,6 +14,7 @@ body {
 	font-style: normal;
 	overflow-x: hidden;
 	background: #f1f5f9;
+	
 }
 
 * {
@@ -2036,7 +2037,7 @@ select.form-select:focus {
 /* ========== header css ========== */
 .header {
 	padding: 30px 0;
-	background: #fff;
+	background: #0E185F;
 }
 .header .header-left .menu-toggle-btn .main-btn {
 	padding: 0px 15px;
@@ -2224,9 +2225,6 @@ select.form-select:focus {
 }
 .header .header-right .profile-box .profile-info .info .image {
 	border: 2px solid #f9f9f9;
-	-webkit-box-shadow: 0px 21px 25px rgba(218, 223, 227, 0.8);
-	-moz-box-shadow: 0px 21px 25px rgba(218, 223, 227, 0.8);
-	box-shadow: 0px 21px 25px rgba(218, 223, 227, 0.8);
 	width: 46px;
 	height: 46px;
 	border-radius: 50%;

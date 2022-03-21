@@ -10,11 +10,11 @@
                   </button>
                 </div>
                 <div class="header-menu d-none d-md-flex">
-                  <a href="#!" class="text-dark d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="text-light d-flex align-items-center mx-2 mx-lg-3">
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
-                  <a href="#!" class="text-dark d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="text-light d-flex align-items-center mx-2 mx-lg-3">
                     <i class="fa-solid fa-user-plus me-1"></i> New Patient
                   </a>
 
@@ -131,7 +131,7 @@
                   <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="profile-info">
                       <div class="info">
-                        <h6>John Doe</h6>
+                        <h6 class="text-light">John Doe</h6>
                         <div class="image">
                           <img src="{{asset('/image/download.jpg')}}" alt="" />
                           <span class="status"></span>

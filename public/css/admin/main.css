@@ -1136,13 +1136,41 @@ h6,
 	color: #4a6cf7;
 	font-weight: 400;
 }
-.table .icon.orange {
-	background: #FFE7E3;
+.card-style .icon {
+	max-width: 80px;
+	width: 100%;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	background: rgba(74, 108, 247, 0.1);
+	color: #4a6cf7;
+	font-weight: 400;
+}
+.icon.orange {
+	background: #FCEBDB;
 	color: #FF3E1D;
 }
-.table .icon.sky {
-	background: #E0F7FC;
-	color: #03C3EC;
+.icon.sky {
+	background: #CCF3FE;
+	color: #00C1F8;
+}
+.icon.success {
+	background: #D3EADD;
+	color: #219653;
+}
+.icon.warning {
+	background: #FDF4CC;
+	color: orange;
+}
+.icon.red {
+	background: #F7CCCC;
+	color: #D50100;
+}
+.icon.primary {
+	background: #DBE2FD;
+	color: #4A6CF7;
 }
 /* =========== tables css =========== */
 .table {
@@ -1170,6 +1198,10 @@ h6,
 }
 .table tbody tr:first-child > * {
 	padding-top: 20px;
+}
+.card-style .table.table-striped tbody tr > * {
+	padding: 8px 4px;
+	border-bottom: 1px solid #e6e6e6;
 }
 .table tbody tr:last-child > * {
 	border-bottom-color: transparent;

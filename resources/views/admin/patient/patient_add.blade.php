@@ -16,7 +16,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="title d-flex align-items-center flex-wrap mb-30">
-              <h2 class=""><a href=""><small class="text-muted"><i class="fa-solid fa-users"></i>Patients / </small></a> Add New
+              <h2 class=""><a href=""><small class="text-muted"><i class="fa-solid fa-users"></i> Patients / </small></a> Add New
                 Patient</h2>
             </div>
           </div>

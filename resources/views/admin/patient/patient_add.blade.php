@@ -302,7 +302,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Weight  </label>
+                          <label>Weight <span class="text-muted">(kg)</span> </label>
                           <input type="text" placeholder="177">
                         </div>
                       </div>
@@ -310,7 +310,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Height  </label>
+                          <label>Height <span class="text-muted">(cm)</span> </label>
                           <input type="text" placeholder="75">
                         </div>
                       </div>

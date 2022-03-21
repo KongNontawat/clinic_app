@@ -32,8 +32,7 @@ Route::get('/patient', function () {
 })->name('patient.patient');
 
 Route::get('/patient/add', function () {
-    $provinces = DB::table('provinces')->get();
-    return view('admin.patient.patient_add',compact('provinces'));
+    return view('admin.patient.patient_add');
 })->name('patient.patient_add');
 
 

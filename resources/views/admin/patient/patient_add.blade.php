@@ -195,9 +195,7 @@
                           <label>Province</label>
                           <div class="select-position">
                             <select class="light-bg">
-                              @foreach($provinces AS $row)
-                              <option value="">{{$row->name_th}}</option>
-                              @endforeach
+                              <option value="">ขอนแก่น</option>
                             </select>
                           </div>
                         </div>

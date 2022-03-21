@@ -302,7 +302,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Weight <span class="text-danger">*</span> </label>
+                          <label>Weight  </label>
                           <input type="text" placeholder="177">
                         </div>
                       </div>
@@ -310,7 +310,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Height <span class="text-danger">*</span> </label>
+                          <label>Height  </label>
                           <input type="text" placeholder="75">
                         </div>
                       </div>
@@ -318,7 +318,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="select-style-1">
-                        <label>Blood Group  <span class="text-danger">*</span> </label>
+                        <label>Blood Group   </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">A</option>
@@ -335,7 +335,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Drug Allergies  <span class="text-danger">*</span> </label>
+                          <label>Drug Allergies  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -343,7 +343,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Food Allergies  <span class="text-danger">*</span> </label>
+                          <label>Food Allergies </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -351,7 +351,7 @@
 
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label>Congenital Disease<span class="text-danger">*</span> </label>
+                          <label>Congenital Disease </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
@@ -359,7 +359,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Smoker<span class="text-danger">*</span> </label>
+                          <label for="">Smoker</label>
                         </div>
                       </div>
 
@@ -368,17 +368,17 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-regularly" name="smoker">
                               <label class="form-check-label" for="smoker-regularly">
-                              <i class="fa-solid fa-check"></i> Regularly<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Regularly</label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-once" name="smoker">
                               <label class="form-check-label" for="smoker-once">
-                              <i class="fa-solid fa-clock"></i> Once in a while<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-clock"></i> Once in a while </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="smoker-no" name="smoker">
                               <label class="form-check-label" for="smoker-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -388,7 +388,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Drinks<span class="text-danger">*</span> </label>
+                          <label for="">Drinks</label>
                         </div>
                       </div>
 
@@ -397,17 +397,17 @@
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
                             <label class="form-check-label" for="drinks-regularly">
-                            <i class="fa-solid fa-check"></i> Regularly<span class="text-danger">*</span> </label>
+                            <i class="fa-solid fa-check"></i> Regularly </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-once" name="drinks">
                             <label class="form-check-label" for="drinks-once">
-                            <i class="fa-solid fa-clock"></i> Once in a while<span class="text-danger">*</span> </label>
+                            <i class="fa-solid fa-clock"></i> Once in a while </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input pe-1" type="radio" value="" id="drinks-no" name="drinks">
                             <label class="form-check-label" for="drinks-no">
-                            <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                            <i class="fa-solid fa-xmark"></i> No</label>
                           </div>
                         </div>
                       </div>
@@ -417,7 +417,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">High blood pressure  <span class="text-danger">*</span> </label>
+                          <label for="">High blood pressure   </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -426,12 +426,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="high_blood-yes" name="high_blood">
                               <label class="form-check-label" for="high_blood-yes">
-                              <i class="fa-solid fa-check"></i> Yes<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="high_blood-no" name="high_blood">
                               <label class="form-check-label" for="high_blood-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -439,7 +439,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Diabetic <span class="text-danger">*</span> </label>
+                          <label for="">Diabetic  </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -448,12 +448,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -461,7 +461,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Bleed tendency<span class="text-danger">*</span> </label>
+                          <label for="">Bleed tendency </label>
                         </div>
                       </div>
                       <!-- end col -->
@@ -470,12 +470,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -492,12 +492,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
                       </div>
@@ -505,7 +505,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Female Pregnant<span class="text-danger">*</span> </label>
+                          <label for="">Female Pregnant </label>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -513,12 +513,12 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-check"></i> Yes<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-xmark"></i> No<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-xmark"></i> No</label>
                             </div>
                           </div>
                       </div>
@@ -527,7 +527,7 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label for="">Register Chanel<span class="text-danger">*</span> </label>
+                          <label for="">Register Chanel </label>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -535,17 +535,17 @@
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
-                              <i class="fa-solid fa-building-user"></i> Walk-in<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-building-user"></i> Walk-in </label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-phone"></i> Call phone<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-phone"></i> Call phone</label>
                             </div>
                             <div class="form-check radio-style me-4">
                               <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
-                              <i class="fa-solid fa-globe"></i> Online<span class="text-danger">*</span> </label>
+                              <i class="fa-solid fa-globe"></i> Online </label>
                             </div>
                           </div>
                       </div>
@@ -554,21 +554,21 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>High Risk Diseases <span class="text-danger">*</span> </label>
+                          <label>High Risk Diseases  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Surgery <span class="text-danger">*</span> </label>
+                          <label>Surgery  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Accident <span class="text-danger">*</span> </label>
+                          <label>Accident  </label>
                           <textarea name="" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
@@ -576,14 +576,14 @@
 
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Medical History  <span class="text-danger">*</span> </label>
+                          <label>Medical History  </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Current Medication   <span class="text-danger">*</span> </label>
+                          <label>Current Medication </label>
                           <textarea name="" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
@@ -591,7 +591,7 @@
 
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label>Note : <span class="text-danger">*</span> </label>
+                          <label>Note : </label>
                           <textarea name="" id="" cols="30" rows="5"></textarea>
                         </div>
                       </div>
@@ -609,7 +609,7 @@
 
                     <div class="col-sm-6 col-md-2">
                         <div class="select-style-1">
-                          <label>Title<span class="text-danger">*</span> </label>
+                          <label>Title</label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">Mr.</option>
@@ -625,7 +625,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>First Name<span class="text-danger">*</span> </label>
+                          <label>First Name </label>
                           <input type="text" placeholder="Nontawat">
                         </div>
                       </div>
@@ -633,7 +633,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Last Name<span class="text-danger">*</span> </label>
+                          <label>Last Name</label>
                           <input type="text" placeholder="Sangkromsawang">
                         </div>
                       </div>
@@ -641,7 +641,7 @@
 
                       <div class="col-sm-6 col-md-2">
                         <div class="select-style-1" style="max-width: 200px;">
-                          <label>Relation<span class="text-danger">*</span> </label>
+                          <label>Relation </label>
                           <div class="select-position">
                             <select class="light-bg">
                               <option value="">Dad</option>
@@ -658,7 +658,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Phone<span class="text-danger">*</span> </label>
+                          <label>Phone </label>
                           <input type="text" placeholder="064-487-0915">
                         </div>
                       </div>

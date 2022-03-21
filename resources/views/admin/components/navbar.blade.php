@@ -158,10 +158,12 @@
                       <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
                     </li>
                     <li>
-                      <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                      <!-- <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
+                      </a> -->
+                      <a href="#0" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Logout
                       </a>
-                    
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                       </form>
@@ -175,4 +177,26 @@
           </div>
         </div>
       </header>
+
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ออกจากระบบ</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              คุณต้องการออกจากระบบหรือไม่ ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ไม่</button>
+              <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" type="button" class="btn btn-primary">ใช่</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- ========== header end ========== -->

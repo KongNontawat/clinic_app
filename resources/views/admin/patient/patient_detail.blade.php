@@ -40,7 +40,7 @@
                 alt="" class="img-fluid mx-auto d-block" style="max-width: 200px;">
               <h5 class="text-center mt-3 fw-normal text-primary">HR00783</h5>
               <h4 class="text-center mt-2">Mr. Nontawat Sangkromsawang <small class="text-muted">(Kong)</small></h4>
-              <div class="icon primary mx-auto mt-2">
+              <div class="label-icon primary mx-auto mt-2">
                 Normal
               </div>
               <table class="table table-striped mt-3">

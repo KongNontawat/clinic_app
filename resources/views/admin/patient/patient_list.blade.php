@@ -148,7 +148,7 @@
                       <td>นาย นนทวัฒน์ แสงความสว่าง</td>
                       <td>1199900862730</td>
                       <td>
-                        <div class="icon sky">
+                        <div class="label-icon sky">
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
@@ -182,7 +182,7 @@
                       <td>นาง สุนภาพัฒน์ ชัยรมณ์</td>
                       <td>1199900862730</td>
                       <td>
-                        <div class="icon orange">
+                        <div class="label-icon orange">
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>
@@ -217,7 +217,7 @@
                       <td>นาย ฐาปนา ทองดอนง้าว</td>
                       <td>3453440862730</td>
                       <td>
-                        <div class="icon sky">
+                        <div class="label-icon sky">
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
@@ -251,7 +251,7 @@
                       <td>นาง สุนวลไย มนัสศิริเพ็ญ</td>
                       <td>23427598347958</td>
                       <td>
-                        <div class="icon orange">
+                        <div class="label-icon orange">
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>
@@ -286,7 +286,7 @@
                       <td>นาย ทวีวุฒิ โสมคำ</td>
                       <td>2143425647556</td>
                       <td>
-                        <div class="icon sky">
+                        <div class="label-icon sky">
                           <i class="fa-solid fa-mars me-1"></i> Male
                         </div>
                       </td>
@@ -320,7 +320,7 @@
                       <td>นาง ณัฐฐาพร หมื่นแก้ว</td>
                       <td>1199900862730</td>
                       <td>
-                        <div class="icon orange">
+                        <div class="label-icon orange">
                           <i class="fa-solid fa-venus me-1"></i> Female
                         </div>
                       </td>

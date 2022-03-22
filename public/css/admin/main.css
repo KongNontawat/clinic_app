@@ -1136,7 +1136,7 @@ h6,
 	color: #4a6cf7;
 	font-weight: 400;
 }
-.card-style .icon {
+.card-style .label-icon {
 	max-width: 80px;
 	width: 100%;
 	border-radius: 5px;
@@ -1148,27 +1148,27 @@ h6,
 	color: #4a6cf7;
 	font-weight: 400;
 }
-.icon.orange {
+.label-icon.orange {
 	background: #FCEBDB;
 	color: #FF3E1D;
 }
-.icon.sky {
+.label-icon.sky {
 	background: #CCF3FE;
 	color: #00C1F8;
 }
-.icon.success {
+.label-icon.success {
 	background: #D3EADD;
 	color: #219653;
 }
-.icon.warning {
+.label-icon.warning {
 	background: #FDF4CC;
 	color: orange;
 }
-.icon.red {
+.label-icon.red {
 	background: #F7CCCC;
 	color: #D50100;
 }
-.icon.primary {
+.label-icon.primary {
 	background: #DBE2FD;
 	color: #4A6CF7;
 }

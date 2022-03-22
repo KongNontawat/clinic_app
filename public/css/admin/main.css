@@ -2037,8 +2037,9 @@ select.form-select:focus {
 /* ========== header css ========== */
 .header {
 	padding: 30px 0;
+	background: #fff;
 	/* background: #21325E; */
-	background: linear-gradient(270deg, rgba(0,193,248,1) 0%, rgba(74,108,247,1) 100%);
+	/* background: linear-gradient(270deg, rgba(0,193,248,1) 0%, rgba(74,108,247,1) 100%); */
 }
 .header .header-left .menu-toggle-btn .main-btn {
 	padding: 0px 15px;

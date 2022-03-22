@@ -10,11 +10,11 @@
                   </button>
                 </div>
                 <div class="header-menu d-none d-md-flex">
-                  <a href="#!" class="text-light d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3">
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
-                  <a href="#!" class="text-light d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3">
                     <i class="fa-solid fa-user-plus me-1"></i> New Patient
                   </a>
 
@@ -26,7 +26,7 @@
                 <!-- notification start -->
                 <div class="notification-box ml-15 d-none d-md-flex">
                   <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-bell"></i>
                     <span>2</span>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
@@ -76,7 +76,7 @@
                 <!-- message start -->
                 <div class="header-message-box ml-15 d-none d-md-flex">
                   <button class="dropdown-toggle" type="button" id="message" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-message"></i>
                     <span>3</span>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="message">
@@ -132,7 +132,7 @@
                   <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="profile-info">
                       <div class="info">
-                        <h6 class="text-light">John Doe</h6>
+                        <h6>John Doe</h6>
                         <div class="image">
                           <img src="{{asset('/image/download.jpg')}}" alt="" />
                           <span class="status"></span>
@@ -144,16 +144,16 @@
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>
                       <a href="#0">
-                      <i class="fa-solid fa-user me-2"></i> View Profile
+                        <i class="fa-solid fa-user me-2"></i> View Profile
                       </a>
                     </li>
                     <li>
                       <a href="#0">
-                      <i class="fa-solid fa-bell me-2"></i> Notifications
+                        <i class="fa-solid fa-bell me-2"></i> Notifications
                       </a>
                     </li>
                     <li>
-                     <a href="#0"> <i class="fa-solid fa-message me-2"></i> Messages </a>
+                      <a href="#0"> <i class="fa-solid fa-message me-2"></i> Messages </a>
                     </li>
                     <li>
                       <a href="#0"> <i class="fa-solid fa-gear me-2"></i> Settings </a>
@@ -163,7 +163,7 @@
                         {{ __('Logout') }}
                       </a> -->
                       <a href="#0" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      <i class="fa-solid fa-right-from-bracket me-2"></i>  Logout
+                        <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -182,33 +182,30 @@
 
 
       <!-- Modal -->
-      <div class="follow-up-modal" >
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content card-style text-center">
-            <div class="modal-body">
-              <div class="image mb-30">
-              <i class="fa-solid fa-right-from-bracket" style="font-size: 72px;"></i>
-              </div>
-              <div class="content mb-30">
-                <h2 class="mb-15">Logout</h2>
-                <p class="text-sm text-medium">
-                  Are you sure you want to log out?
-                </p>
-              </div>
-              <div class="action d-flex flex-wrap justify-content-center">
-                <a
-                  href="#0"
-                  class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 "
-                >
-                  Cancel
-                </a>
-                <a class="main-btn danger-btn rounded-md square-btn btn-hover m-1" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" type="button" class="btn btn-primary">Yes</a>
+      <div class="follow-up-modal">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content card-style text-center">
+              <div class="modal-body">
+                <div class="image mb-30">
+                  <i class="fa-solid fa-right-from-bracket" style="font-size: 72px;"></i>
+                </div>
+                <div class="content mb-30">
+                  <h2 class="mb-15">Logout</h2>
+                  <p class="text-sm text-medium">
+                    Are you sure you want to log out?
+                  </p>
+                </div>
+                <div class="action d-flex flex-wrap justify-content-center">
+                  <a class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 " data-bs-dismiss="modal">
+                    Cancel
+                  </a>
+                  <a class="main-btn danger-btn rounded-md square-btn btn-hover m-1" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" type="button" class="btn btn-primary">Yes</a>
 
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
       <!-- ========== header end ========== -->

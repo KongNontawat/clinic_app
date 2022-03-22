@@ -38,7 +38,6 @@
 
 <!-- Other Style
 <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/aos/dist/aos.css') }}">

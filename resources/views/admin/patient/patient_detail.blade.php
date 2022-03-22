@@ -33,6 +33,7 @@
       <!-- ========== table-wrapper start ========== -->
       <div class="table-layout-wrapper">
         <div class="row gx-2">
+
           <div class="col-md-4 col-xl-3">
             <div class="card-style mb-30">
               <img
@@ -112,6 +113,7 @@
                 <!-- Tap 1 -->
                 <div class="tab-pane fade show active" id="nav-general" role="tabpanel"
                   aria-labelledby="nav-general-tab">
+                  <h4 class="mb-25 text-primary"><i class="fa-solid fa-user"></i> General</h4>
                   1Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, amet pariatur! Unde voluptas aut,
                   aliquid ad tenetur molestiae. Sint repudiandae eligendi debitis hic! Corporis, aut sunt. Expedita
                   ratione

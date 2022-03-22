@@ -42,14 +42,14 @@
                   <div class="col-sm-6 col-md-4 col-xl-2">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name">
-                      <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                      <span class="icon"> <i class="fa-solid fa-magnifying-glass me-1"></i></span>
                     </div>
                   </div>
 
                   <div class="col-sm-6 col-md-4 col-xl-2">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="ID Card Number" class="bg-transparent" id="search_idcard">
-                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus me-1"></i></span>
                     </div>
                   </div>
 
@@ -63,7 +63,7 @@
                         <option value="normal member">Normal</option>
                         <option value="new member">New Member</option>
                       </select>
-                      <label for="search_group"><i class="fa-solid fa-elevator"></i> Member Group</label>
+                      <label for="search_group"><i class="fa-solid fa-elevator me-1"></i> Member Group</label>
                     </div>
                   </div>
 
@@ -74,14 +74,14 @@
                         <option value="normal" class="text-success">Normal</option>
                         <option value="abnormal" class="text-danger">Abnormal</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
                     </div>
                   </div>
 
                   <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
                     <div class="form-floating">
                       <input type="text" id="min" name="min" class="form-control bg-transparent">
-                      <label for="floatingSelect"><i class="fa-solid fa-clock"></i> Start Date</label>
+                      <label for="floatingSelect"><i class="fa-solid fa-clock me-1"></i> Start Date</label>
                     </div>
                   </div>
 

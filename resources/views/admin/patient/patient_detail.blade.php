@@ -30,6 +30,7 @@
       </div>
       <!-- title-wrapper -->
 
+
       <!-- ========== table-wrapper start ========== -->
       <div class="table-layout-wrapper">
         <div class="row gx-2">
@@ -103,6 +104,8 @@
             </nav>
             <div class="card-style border-top-0">
               <div class="tab-content" id="nav-tabContent">
+
+
                 <!-- Tap 1 -->
                 <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
                   <div class="d-flex justify-content-between">
@@ -110,10 +113,7 @@
                  <a href="#!"><button type="button" style="height: 40px;" class="btn btn-primary btn-hover"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</button></a>
                   </div>
                   <!-- Tab 1 -->
-                  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
-
                     <div class="row">
-
                       <div class="col-sm-6 col-md-2">
                         <div class="select-style-1">
                           <label>Title </label>
@@ -353,14 +353,253 @@
 
                   <!-- Tap 2 -->
                   <div class="tab-pane fade" id="nav-medical" role="tabpanel" aria-labelledby="nav-medical-tab">
-                    2Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, amet pariatur! Unde voluptas aut,
-                    aliquid ad tenetur molestiae. Sint repudiandae eligendi debitis hic! Corporis, aut sunt. Expedita
-                    ratione
-                    rerum provident culpa vero laboriosam obcaecati quaerat amet? Deleniti quo recusandae, voluptates,
-                    reiciendis illum ipsam rerum architecto praesentium illo ab sequi, qui debitis laboriosam cum adipisci
-                    numquam quod? Sed iusto, consectetur distinctio doloribus ad optio? Obcaecati illo, impedit et
-                    quisquam
-                    corrupti rerum.
+                    <!-- Tab 2 -->
+                  
+                    <div class="d-flex justify-content-between">
+                    <h4 class="mb-25 text-success"> <i class="fa-solid fa-book-medical"></i> Patient Medical Info </h4>
+                 <a href="#!"><button type="button" style="height: 40px;" class="btn btn-primary btn-hover"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</button></a>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                        <div class="select-style-1">
+                        <label>Blood Group   </label>
+                          <div class="select-position">
+                            <select class="light-bg">
+                              <option value="">A</option>
+                              <option value="">B</option>
+                              <option value="">O</option>
+                              <option value="">AB</option>
+                              <option value="">AB-</option>
+                              <option value="">AB+</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label>Drug Allergies  </label>
+                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label>Food Allergies </label>
+                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-12">
+                        <div class="input-style-1">
+                          <label>Congenital Disease </label>
+                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Smoker</label>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <hr class="m-0 mb-3">
+
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Drinks</label>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                          <div class="form-check radio-style me-4">
+                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
+                            <label class="form-check-label" for="drinks-regularly">
+                            <i class="fa-solid fa-check"></i> Regularly </label>
+                          </div>
+                          <div class="form-check radio-style me-4">
+                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-once" name="drinks">
+                            <label class="form-check-label" for="drinks-once">
+                            <i class="fa-solid fa-clock"></i> Once in a while </label>
+                          </div>
+                          <div class="form-check radio-style me-4">
+                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-no" name="drinks">
+                            <label class="form-check-label" for="drinks-no">
+                            <i class="fa-solid fa-xmark"></i> No</label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <hr class="m-0 mb-3">
+
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">High blood pressure   </label>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="high_blood-yes" name="high_blood">
+                              <label class="form-check-label" for="high_blood-yes">
+                              <i class="fa-solid fa-check"></i> Yes </label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="high_blood-no" name="high_blood">
+                              <label class="form-check-label" for="high_blood-no">
+                              <i class="fa-solid fa-xmark"></i> No </label>
+                            </div>
+                          </div>
+                      </div>
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Diabetic  </label>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <label class="form-check-label" for="diabetic-yes">
+                              <i class="fa-solid fa-check"></i> Yes </label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-xmark"></i> No </label>
+                            </div>
+                          </div>
+                      </div>
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Bleed tendency </label>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6">
+                          <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <label class="form-check-label" for="diabetic-yes">
+                              <i class="fa-solid fa-check"></i> Yes </label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-xmark"></i> No </label>
+                            </div>
+                          </div>
+                      </div>
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Heart deisease  <span class="text-danger">*</span> </label>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <label class="form-check-label" for="diabetic-yes">
+                              <i class="fa-solid fa-check"></i> Yes </label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-xmark"></i> No </label>
+                            </div>
+                          </div>
+                      </div>
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label for="">Female Pregnant </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <label class="form-check-label" for="diabetic-yes">
+                              <i class="fa-solid fa-check"></i> Yes </label>
+                            </div>
+                            <div class="form-check radio-style me-4">
+                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <label class="form-check-label" for="diabetic-no">
+                              <i class="fa-solid fa-xmark"></i> No</label>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- end col --> 
+
+                      <!-- end col -->  
+                      <hr class="m-0 mb-3">
+
+                      <div class="col-sm-6 col-md-4">
+                        <div class="input-style-1">
+                          <label>High Risk Diseases  </label>
+                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6 col-md-4">
+                        <div class="input-style-1">
+                          <label>Surgery  </label>
+                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6 col-md-4">
+                        <div class="input-style-1">
+                          <label>Accident  </label>
+                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label>Medical History  </label>
+                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label>Current Medication </label>
+                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-12">
+                        <div class="input-style-1">
+                          <label>Note : </label>
+                          <textarea name="" id="" cols="30" rows="5"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+
+                    </div>
+                    <!-- end row -->
+                  </div>
                   </div>
 
                   <!-- Tap 3 -->

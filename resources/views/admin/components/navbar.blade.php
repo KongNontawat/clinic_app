@@ -26,7 +26,7 @@
                 <!-- notification start -->
                 <div class="notification-box ml-15 d-none d-md-flex">
                   <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="lni lni-alarm"></i>
+                  <i class="fa-solid fa-bell"></i>
                     <span>2</span>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
@@ -76,7 +76,7 @@
                 <!-- message start -->
                 <div class="header-message-box ml-15 d-none d-md-flex">
                   <button class="dropdown-toggle" type="button" id="message" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="lni lni-envelope"></i>
+                  <i class="fa-solid fa-message"></i>
                     <span>3</span>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="message">
@@ -122,7 +122,8 @@
                 <!-- filter start -->
                 <div class="filter-box ml-15 d-none d-md-flex">
                   <button class="" type="button" id="filter">
-                    <i class="lni lni-funnel"></i>
+                    <!-- <i class="lni lni-funnel"></i> -->
+                    <i class="fa-solid fa-filter"></i>
                   </button>
                 </div>
                 <!-- filter end -->

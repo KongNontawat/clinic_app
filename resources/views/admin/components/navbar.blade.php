@@ -134,7 +134,7 @@
                       <div class="info">
                         <h6>John Doe</h6>
                         <div class="image">
-                          <img src="{{asset('/image/download.jpg')}}" alt="" />
+                          <img src="{{asset('/image/profile.png')}}" alt="" />
                           <span class="status"></span>
                         </div>
                       </div>

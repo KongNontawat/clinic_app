@@ -35,9 +35,10 @@
         <div class="row gx-2">
           <div class="col-md-4 col-xl-3">
             <div class="card-style mb-30">
-              <img
+              <!-- <img
                 src="https://previews.123rf.com/images/djvstock/djvstock1705/djvstock170517800/79273286-nurse-avatar-profile-icon-vector-illustration-graphic-design.jpg"
-                alt="" class="img-fluid mx-auto d-block" style="max-width: 200px;">
+                alt="" class="img-fluid mx-auto d-block" style="max-width: 200px;"> -->
+                <img src="{{asset('/image/profile.png')}}" class="rounded mx-auto d-block" style="width: 80%;" alt="" />
               <h5 class="text-center mt-3 fw-normal text-primary">HR00783</h5>
               <h4 class="text-center mt-2">Mr. Nontawat Sangkromsawang <small class="text-muted">(Kong)</small></h4>
               <div class="label-icon primary mx-auto mt-2">

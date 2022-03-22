@@ -10,11 +10,11 @@
                   </button>
                 </div>
                 <div class="header-menu d-none d-md-flex">
-                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
-                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3">
+                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-user-plus me-1"></i> New Patient
                   </a>
 
@@ -139,7 +139,7 @@
                         </div>
                       </div>
                     </div>
-                    <i class="fa-solid fa-caret-down text-light"></i>
+                    <i class="fa-solid fa-caret-down "></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>

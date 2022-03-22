@@ -42,14 +42,14 @@
                   <div class="col-sm-6 col-md-4 col-xl-2">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name">
-                      <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                      <span class="icon"> <i class="fa-solid fa-magnifying-glass me-2"></i></span>
                     </div>
                   </div>
 
                   <div class="col-sm-6 col-md-4 col-xl-2">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="ID Card Number" class="bg-transparent" id="search_idcard">
-                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus me-2"></i></span>
                     </div>
                   </div>
 

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('style')
-<link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
 @endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->
@@ -706,22 +707,12 @@
 
 @endsection
 @section('script')
-
+<script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('js/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
+<script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
+<script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
+<script src="{{ asset('js/admin/patient/patient_add.js') }}"></script>
 <script>
-$(function() {
-  $('.patient').addClass('active')
-  $('.patient ul').addClass('show ')
-
-
-
-
-})
-var loadFile = function(event) {
-  var output = document.getElementById('image-output');
-  output.src = URL.createObjectURL(event.target.files[0]);
-  output.onload = function() {
-    URL.revokeObjectURL(output.src) // free memory
-  }
-};
 </script>
 @endsection

@@ -414,5 +414,5 @@
 <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
-<script src="{{ asset('js/admin/patient.js') }}"></script>
+<script src="{{ asset('js/admin/patient/patient.js') }}"></script>
 @endsection

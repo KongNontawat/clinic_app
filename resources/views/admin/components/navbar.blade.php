@@ -10,11 +10,11 @@
                   </button>
                 </div>
                 <div class="header-menu d-none d-md-flex">
-                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
+                  <a href="{{route('/home')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
-                  <a href="#!" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
+                  <a href="{{route('patient.patient_add')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-user-plus me-1"></i> New Patient
                   </a>
 
@@ -134,7 +134,7 @@
                       <div class="info">
                         <h6>John Doe</h6>
                         <div class="image">
-                          <img src="{{asset('/image/profile.png')}}" alt="" />
+                          <img src="{{asset('/image/p farm.jpg')}}" alt="" />
                           <span class="status"></span>
                         </div>
                       </div>

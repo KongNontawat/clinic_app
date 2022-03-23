@@ -31,7 +31,7 @@
 
       <!-- ========== Form-wrapper start ========== -->
       <div class="form-layout-wrapper">
-        <form action="#">
+        <form action="#" id="form_add_patient">
           <div class="row">
             <div class="12">
 
@@ -59,9 +59,9 @@
 
                       <div class="col-sm-6 col-md-2">
                         <div class="select-style-1">
-                          <label>Title </label>
+                          <label>Title <span class="text-danger">*</span></label>
                           <div class="select-position">
-                            <select class="light-bg">
+                            <select class="light-bg" required="required">
                               <option value="">Mr.</option>
                               <option value="">Ms.</option>
                               <option value="">Mrs.</option>
@@ -76,7 +76,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="Nontawat">
+                          <input type="text" placeholder="Nontawat" required="required" data-parsley-maxlength="100">
                         </div>
                       </div>
                       <!-- end col -->
@@ -84,15 +84,15 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="Sangkromsawang">
+                          <input type="text" placeholder="Sangkromsawang" required="required" data-parsley-maxlength="255">
                         </div>
                       </div>
                       <!-- end col -->
 
                       <div class="col-sm-6 col-md-2">
                         <div class="input-style-1">
-                          <label>Nick Name <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="Kong">
+                          <label>Nick Name </label>
+                          <input type="text" placeholder="Kong" data-parsley-maxlength="50">
                         </div>
                       </div>
                       <!-- end col -->
@@ -100,7 +100,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-address-card"></i> ID Card Number <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="1199900862730">
+                          <input type="number" placeholder="1199900862730" required="required" data-parsley-minlength="13" data-parsley-maxlength="13">
                         </div>
                       </div>
                       <!-- end col -->
@@ -108,7 +108,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Date of Birth <span class="text-danger">*</span> </label>
-                          <input type="date">
+                          <input type="date" required="required">
                         </div>
                       </div>
                       <!-- end col -->
@@ -116,7 +116,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Age <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="19" style="max-width: 200px;">
+                          <input type="number" placeholder="19" style="max-width: 200px;" required="required" data-parsley-minlength="0" data-parsley-maxlength="100">
                         </div>
                       </div>
                       <!-- end col -->
@@ -124,14 +124,14 @@
                       <div class="col-sm-6 col-md-3 d-flex align-items-center">
                         <div class="input-style-1 d-flex mt-2">
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input" type="radio" value="" id="radio-1" name="sex">
+                            <input class="form-check-input" type="radio" value="male" id="radio-1" name="sex" required="required">
                             <label class="form-check-label" for="radio-1">
-                              <i class="fa-solid fa-mars"></i> Male</label>
+                              <i class="fa-solid fa-mars"></i> Male <span class="text-danger">*</span> </label>
                           </div>
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input" type="radio" value="" id="radio-2" name="sex">
+                            <input class="form-check-input" type="radio" value="female" id="radio-2" name="sex" >
                             <label class="form-check-label" for="radio-2">
-                              <i class="fa-solid fa-venus"></i> Female </label>
+                              <i class="fa-solid fa-venus"></i> Female <span class="text-danger">*</span> </label>
                           </div>
                         </div>
                       </div>
@@ -140,28 +140,28 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Phone Number <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="617-802-1898">
+                          <input type="number" placeholder="617-802-1898" required="required" data-parsley-minlength="9" data-parsley-maxlength="13">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>Email <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="kongnontawat.dev@gmail.com">
+                          <label>Email </label>
+                          <input type="email" placeholder="kongnontawat.dev@gmail.com" data-parsley-trigger="change" data-parsley-maxlength="255">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label>ID Line <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="6178021898">
+                          <label>ID Line</label>
+                          <input type="text" placeholder="6178021898" data-parsley-maxlength="255">
                         </div>
                       </div>
                       <!-- end col -->
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Nationality <span class="text-danger">*</span> </label>
+                          <label>Nationality </label>
                           <input type="text" placeholder="Thai">
                         </div>
                       </div>
@@ -169,7 +169,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Race <span class="text-danger">*</span> </label>
+                          <label>Race </label>
                           <input type="text" placeholder="Thai">
                         </div>
                       </div>
@@ -177,7 +177,7 @@
 
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
-                          <label>Religion <span class="text-danger">*</span> </label>
+                          <label>Religion </label>
                           <input type="text" placeholder="Buddhism">
                         </div>
                       </div>
@@ -186,7 +186,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address <span class="text-danger">*</span> </label>
-                          <textarea name="" id="" cols="30" rows="4"></textarea>
+                          <textarea name="" id="" cols="30" rows="4" required="required"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -195,7 +195,7 @@
                         <div class="select-style-1">
                           <label>Province <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg">
+                            <select class="light-bg" required="required">
                               <option value="">ขอนแก่น</option>
                             </select>
                           </div>
@@ -208,7 +208,7 @@
                         <div class="select-style-1">
                           <label>District <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg">
+                            <select class="light-bg" required="required">
                               <option value="">เมือง</option>
                               <option value="">California</option>
                               <option value="">New York</option>
@@ -224,7 +224,7 @@
                         <div class="select-style-1">
                           <label>Sub District <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg">
+                            <select class="light-bg" required="required">
                               <option value="">ในเมือง</option>
                               <option value="">California</option>
                               <option value="">New York</option>
@@ -239,7 +239,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="40000">
+                          <input type="text" placeholder="40000" required="required" data-parsley-maxlength="10" data-parsley-minlength="6">
                         </div>
                       </div>
                       <!-- end col -->
@@ -247,14 +247,14 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country  <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="Thailand">
+                          <input type="text" placeholder="Thailand" required="required">
                         </div>
                       </div>
                       <!-- end col -->
 
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
-                          <label><i class="fa-solid fa-id-badge"></i> Occupation <span class="text-danger">*</span> </label>
+                          <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
                           <input type="text" placeholder="Student">
                         </div>
                       </div>
@@ -264,8 +264,8 @@
                         <div class="select-style-1">
                           <label><i class="fa-solid fa-people-group"></i> Member Group <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg">
-                              <option value="">Normal</option>
+                            <select class="light-bg" required="required">
+                              <option value="" selected>Normal</option>
                               <option value="">New Member</option>
                               <option value="">Old Member</option>
                               <option value="">VIP1</option>

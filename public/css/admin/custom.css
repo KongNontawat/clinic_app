@@ -42,3 +42,6 @@
   margin-bottom: 10px;
 }
 
+.parsley-errors-list {
+  color: red;
+}

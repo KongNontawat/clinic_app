@@ -364,7 +364,7 @@
       <!-- ========== tables-wrapper end ========== -->
 
       <!-- Import And Export -->
-      <!-- <div class="card-style">
+      <div class="card-style">
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-file-export"></i> Export To : </span>
@@ -398,7 +398,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
     </div><!-- end container-fluid -->
   </section>
@@ -414,5 +414,6 @@
 <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/admin/patient/patient.js') }}"></script>
 @endsection

@@ -10,7 +10,7 @@
                   </button>
                 </div>
                 <div class="header-menu d-none d-md-flex">
-                  <a href="{{route('/home')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
+                  <a href="{{route('admin.home')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
@@ -132,7 +132,7 @@
                   <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="profile-info">
                       <div class="info">
-                        <h6>John Doe</h6>
+                        <h6> {{Auth::user()->name}}</h6>
                         <div class="image">
                           <img src="{{asset('/image/p farm.jpg')}}" alt="" />
                           <span class="status"></span>

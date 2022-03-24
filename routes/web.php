@@ -19,9 +19,21 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/home');
+Route::get('/', function() {
+    return view('home');
+})->name('/');
+Route::get('/home', function() {
+    return view('home');
+})->name('home');
+Route::get('/detail', function() {
+    return view('detail');
+})->name('detail');
+
+
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('/admin');
+Route::get('/admin/home', function () {
+    return view('admin.home');
+})->name('admin.home');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard.index');

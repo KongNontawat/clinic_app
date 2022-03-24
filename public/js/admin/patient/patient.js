@@ -67,6 +67,12 @@ $(function() {
     $('#min, #max').on('change', function() {
       datatable.draw();
     });
+
+
+    var id_card = new Cleave('#search_idcard', {
+      delimiter: ' ',
+      blocks: [1, 4, 5,2,1]
+  });
   
   })
 })

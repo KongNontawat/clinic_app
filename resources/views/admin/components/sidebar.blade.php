@@ -1,6 +1,6 @@
 <aside class="sidebar-nav-wrapper">
   <div class="navbar-logo mb-4">
-    <a href="{{route('/home')}}">
+    <a href="{{route('admin.home')}}">
       <img src="{{asset('image/LogoBeautyCare.png')}}" alt="logo" width="190"/>
     </a>
   </div>
@@ -16,7 +16,7 @@
           <span class="text">Dashboard</span>
         </a>
       </li>
-<!-- 
+
       <li class="nav-item ">
         <a href="#!">
           <span class="icon">
@@ -35,7 +35,7 @@
         </a>
       </li>
 
-      <li class="nav-item ">
+      <!-- <li class="nav-item ">
         <a href="#!">
           <span class="icon">
           <i class="fa-solid fa-calendar-check"></i>
@@ -86,6 +86,33 @@
           <span class="text">User</span>
         </a>
       </li>
+
+      <!-- <li class="nav-item ">
+        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon">
+          <i class="fa-solid fa-file-invoice"></i>
+          </span>
+          <span class="text">Billing</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon">
+          <i class="fa-solid fa-wallet"></i>
+          </span>
+          <span class="text">Payment</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon">
+          <i class="fa-solid fa-gear"></i>
+          </span>
+          <span class="text">Setting</span>
+        </a>
+      </li> -->
 
       <!-- <span class="divider">
         <hr />

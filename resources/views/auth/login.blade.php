@@ -108,6 +108,10 @@
                             ">
                         Sign In
                       </button>
+
+                      <div class="text-center">
+                        <a href="{{route('register')}}" class="mt-4 btn btn-link">Register?</a>
+                      </div>
                     </div>
                   </div>
                 </div>

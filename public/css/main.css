@@ -39,11 +39,14 @@ html {
     width: 100%;
 	height: 100%;
 }
-
-body, p {
-	color: #6c717b; 
-	font: 400 1rem/1.625rem "Open Sans", sans-serif;
+body {
+	font-family: "kanit", sans-serif !important;
+	font-weight: normal;
+	font-style: normal;
+	overflow-x: hidden;
+	
 }
+
 
 h1 {
 	color: #191e47;
@@ -508,8 +511,8 @@ a:hover {
 /*     Introduction     */
 /************************/
 .basic-1 {
-	padding-top: 9.25rem;
-	padding-bottom: 8.75rem;
+	padding-top: 3.25rem;
+	padding-bottom: 2.75rem;
 }
 
 .basic-1 h2 {

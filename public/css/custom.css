@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.services_column{
+  background: #f9fafe;
+  width: 500px;;
+  height: 500px;
+}

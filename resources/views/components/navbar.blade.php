@@ -3,7 +3,7 @@
 	<div class="container">
 
 		<!-- Image Logo -->
-		<a class="navbar-brand logo-image" href="index.html"><img src="	https://technext.github.io/yavin/images/logo.svg" alt="alternative"></a>
+		<a class="navbar-brand logo-image" href="index.html"><img src="{{asset('/image/LogoBeautyCare.png')}}" alt="alternative"></a>
 
 		<!-- Text Logo - Use this if you don't have a graphic logo -->
 		<!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -29,7 +29,7 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown01">
-						<li><a class="dropdown-item" href="article.html"><i class="fa-solid fa-caret-down"></i> Filler</a></li>
+						<li><a class="dropdown-item d-flex justify-content-between" href="article.html">Filler <i class="fa-solid fa-caret-down"></i></a></li>
 						<li>
 							<div class="dropdown-divider"></div>
 						</li>
@@ -49,7 +49,7 @@
 					</ul>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#projects">About me</a>
+					<a class="nav-link" href="#projects">Contact</a>
 				</li>
 			</ul>
 			<!-- <span class="nav-item">

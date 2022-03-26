@@ -6,4 +6,17 @@ body { font-family: sans-serif; }
   background: #f9fafe;
   width: 500px;;
   height: 500px;
+  margin: 0;
+}
+.Logo img{
+  width: 200px;
+  height: 200px;
+}
+li{
+  font-size: 16px;
+  font-weight: 300 !important;  
+}
+.dropdown-menu ul li{
+  font-size: 16px;
+  font-weight: 300 !important;
 }

@@ -317,8 +317,8 @@ a:hover {
 }
 
 .navbar .logo-image img {
-    width: 124px;
-	height: 32px;
+    width: 150px;
+	height: 50px;
 }
 
 .navbar .logo-text {
@@ -396,7 +396,7 @@ a:hover {
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
 	color: #191e47;
-	font-weight: 600;
+	font-weight: 300;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
 	text-decoration: none;

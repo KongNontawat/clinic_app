@@ -314,9 +314,13 @@
                           <label><i class="fa-solid fa-people-group"></i> Member Group <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg text-capitalize" required="required" name="group_id">
+                              if(count($patient_group) >= 0)
                               @foreach($patient_group as $group)
                               <option class="text-capitalize" value="{{$group->patient_group_id}}">{{$group->group_name}}</option>
                               @endforeach
+                              @else 
+                              <option value="1">Normal</option>
+                              @endif
                             </select>
                           </div>
                         </div>

@@ -15,35 +15,46 @@
 		<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav ms-auto navbar-nav-scroll">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{ route('home') }}">#Home</a>
+					<a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('detail') }}">#Details</a>
+					<a class="nav-link" href="{{ route('detail') }}">Promotion</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#services">Services</a>
+					<a class="nav-link" href="#projects">Blog</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#projects">Projects</a>
+					<a class="nav-link" href="#projects">Review</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown01">
-						<li><a class="dropdown-item" href="article.html">Article Details</a></li>
+						<li><a class="dropdown-item" href="article.html"><i class="fa-solid fa-caret-down"></i> Filler</a></li>
 						<li>
 							<div class="dropdown-divider"></div>
 						</li>
-						<li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
+						<li><a class="dropdown-item" href="terms.html">Body Fat</a></li>
 						<li>
 							<div class="dropdown-divider"></div>
 						</li>
-						<li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+						<li><a class="dropdown-item" href="privacy.html">Botox</a></li>
+						<li>
+							<div class="dropdown-divider"></div>
+						</li>
+						<li><a class="dropdown-item" href="privacy.html">Meso Fat</a></li>
+						<li>
+							<div class="dropdown-divider"></div>
+						</li>
+						<li><a class="dropdown-item" href="privacy.html">Laser</a></li>
 					</ul>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#projects">About me</a>
+				</li>
 			</ul>
-			<span class="nav-item">
+			<!-- <span class="nav-item">
 				<a class="btn-outline-sm" href="#contact">Contact us</a>
-			</span>
+			</span> -->
 		</div> <!-- end of navbar-collapse -->
 	</div> <!-- end of container -->
 </nav> <!-- end of navbar -->

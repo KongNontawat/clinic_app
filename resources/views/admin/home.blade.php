@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('style')
 <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 @endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->
@@ -40,7 +41,7 @@
 
             <div class="row g-2">
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 menu">
-                    <a href="#!" class="menu-box bg-white text-dark d-flex flex-column justify-content-center py-4 rounded-3">
+                    <a href="{{route('/')}}" target="_blank" class="menu-box bg-white text-dark d-flex flex-column justify-content-center py-4 rounded-3">
                     <svg class="mx-auto" style="width: 100px;" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.7 59.6"><path d="M3.3,24.8,29,.6a1.5,1.5,0,0,1,2,0L56.7,24.8a1.4,1.4,0,0,1-1,2.5H4.3A1.4,1.4,0,0,1,3.3,24.8Z" transform="translate(-0.6 -0.2)" style="fill:#7a8e9b"/><rect x="4.6" y="27.1" width="49.6" height="31.09" style="fill:#c6c6c6"/><path d="M30,36.6a6,6,0,0,0-6,6V58.4H36V42.6A6,6,0,0,0,30,36.6Z" transform="translate(-0.6 -0.2)" style="fill:#fff"/><path d="M14.5,36.6a3.7,3.7,0,0,0-3.6,3.7v9.1h7.3V40.3A3.7,3.7,0,0,0,14.5,36.6Z" transform="translate(-0.6 -0.2)" style="fill:#fff"/><path d="M35.5,14.4a5.5,5.5,0,0,0-11,0v7.3h11Z" transform="translate(-0.6 -0.2)" style="fill:#fff"/><path d="M45.4,36.6a3.7,3.7,0,0,0-3.6,3.7v9.1h7.3V40.3A3.7,3.7,0,0,0,45.4,36.6Z" transform="translate(-0.6 -0.2)" style="fill:#fff"/><path d="M33.8,49.4a.9.9,0,0,1-.9.9.9.9,0,1,1,0-1.8A.9.9,0,0,1,33.8,49.4Z" transform="translate(-0.6 -0.2)" style="fill:#525c6b"/><path d="M10.9,50.1h7.3a.8.8,0,0,0,.7-.7V40.3a4.4,4.4,0,0,0-4.4-4.4,4.4,4.4,0,0,0-4.3,4.4v9.1A.8.8,0,0,0,10.9,50.1Zm.7-1.4V43.6h5.9v5.1Zm2.9-11.4a2.9,2.9,0,0,1,3,3v1.9H11.6V40.3A2.9,2.9,0,0,1,14.5,37.3Z" transform="translate(-0.6 -0.2)" style="fill:#525c6b"/><path d="M24.5,22.4h11a.7.7,0,0,0,.7-.7V14.4a6.2,6.2,0,0,0-12.4,0v7.3A.7.7,0,0,0,24.5,22.4Zm.7-1.4V15.1h9.6V21ZM30,9.6a4.9,4.9,0,0,1,4.8,4.2H25.2A4.9,4.9,0,0,1,30,9.6Z" transform="translate(-0.6 -0.2)" style="fill:#525c6b"/><path d="M41.8,50.1h7.3a.8.8,0,0,0,.7-.7V40.3a4.4,4.4,0,0,0-4.4-4.4,4.4,4.4,0,0,0-4.3,4.4v9.1A.8.8,0,0,0,41.8,50.1Zm.7-1.4V43.6h5.9v5.1Zm2.9-11.4a2.9,2.9,0,0,1,3,3v1.9H42.5V40.3A2.9,2.9,0,0,1,45.4,37.3Z" transform="translate(-0.6 -0.2)" style="fill:#525c6b"/><path d="M36.7,57V42.9a7,7,0,0,0-6.3-7,6.8,6.8,0,0,0-7.1,6.7V57H1.4a.8.8,0,0,0-.8.7v2H59.4v-2a.8.8,0,0,0-.8-.7Zm-12-14.4a5.2,5.2,0,0,1,6-5.2,5.3,5.3,0,0,1,4.6,5.4V57H24.7Z" transform="translate(-0.6 -0.2)" style="fill:#525c6b"/></svg>
                         <h4 class="text-center mt-3">Home Page</h4>
                     </a>
@@ -197,7 +198,7 @@
     @include('admin.components.footer')
 </main>
 <!-- ======== main-wrapper end =========== -->
-
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 @endsection
 @section('script')
 @endsection

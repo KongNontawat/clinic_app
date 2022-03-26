@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class PatientController extends Controller
@@ -26,7 +27,9 @@ class PatientController extends Controller
 
 	public function view_detail(Patient $patient)
 	{
-		return view('admin.patient.patient_detail');
+		$provinces = DB::table('provinces')->get(['id','name_th']);
+		$patient_group = DB::table('patient_group')->get(['patient_group_id','group_name']);
+		return view('admin.patient.patient_detail',compact(['provinces','patient_group']));
 	}
 
 	public function create()
@@ -49,7 +52,8 @@ class PatientController extends Controller
 			'lname' => 'required',
 			'sex' => 'required',
 			'birthdate' => 'required',
-			'phone' => 'required'
+			'age' => 'min:0|max:3',
+			'phone' => 'required|max:13|min:9'
 		]);
 
 		DB::beginTransaction();
@@ -159,7 +163,14 @@ class PatientController extends Controller
 			//9. Create logs
 			$logs_patient = DB::table('logs_patient')->insert([
 				'patient_id' => $patient->patient_id,
-				'activity' => 'Create New Account',
+				'activity' => 'Create New Account ID:'.$patient->patient_id,
+				'logs_detail' => '-',
+				'logs_status' => 'success'
+			]);
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Create Account Patient ID:'.$patient->patient_id. ' OPD_ID:'.$patient->opd_id,
 				'logs_detail' => '-',
 				'logs_status' => 'success'
 			]);
@@ -168,6 +179,19 @@ class PatientController extends Controller
 			return redirect(route('admin.patient'));
 
 		} catch (Exception  $e) {
+			$logs_patient = DB::table('logs_patient')->insert([
+				'patient_id' => $patient->patient_id,
+				'activity' => 'Fail! Create New Account ID:'.$patient->patient_id,
+				'logs_detail' => 'something is wrong',
+				'logs_status' => 'fail'
+			]);
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Fail! Create Account Patient ID:'.$patient->patient_id,
+				'logs_detail' => 'something is wrong',
+				'logs_status' => 'fail'
+			]);
 			DB::rollback();
 			return redirect()->back();
 		}

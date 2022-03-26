@@ -42,11 +42,10 @@ $(function () {
             url: "../../get_district/" + province_id,
             method: "get",
         }).done(function (res) {
-            console.log(res);
             let html = `<option disabled selected>Please your District</option>`;
             $.each(res, function (index, row) {
                 html += `
-        <option value="${row.id}">${row.name_th}</option>
+        <option value="${row.id}" {{ old('district_id') == ${row.id} ? "selected" :""}}>${row.name_th}</option>
         `;
             });
             $("#district_select").html(html);
@@ -58,11 +57,10 @@ $(function () {
             url: "../../get_subdistrict/" + district_id,
             method: "get",
         }).done(function (res) {
-            console.log(res);
             let html = `<option disabled selected>Please your Subdistrict</option>`;
             $.each(res, function (index, row) {
                 html += `
-        <option value="${row.id}" data-id="${row.zip_code}">${row.name_th}</option>
+        <option value="${row.id}" data-id="${row.zip_code}" {{ old('subdistrict_id') == ${row.id} ? "selected" :""}}>${row.name_th}</option>
         `;
             });
             $("#subdistrict_select").html(html);
@@ -74,13 +72,57 @@ $(function () {
         let zip_code = $("#subdistrict_select option[value=" + zip + "]").attr(
             "data-id"
         );
-        console.log(zip_code);
         $("#zip_code").val(zip_code);
     });
 
-    $('#province_select').select2();
-    $('#district_select').select2();
-    $('#subdistrict_select').select2();
+    $("#emc_province_select").on("change", function () {
+        let province_id = $(this).val();
+        $.ajax({
+            url: "../../get_district/" + province_id,
+            method: "get",
+        }).done(function (res) {
+            let html = `<option disabled selected>Please your District</option>`;
+            $.each(res, function (index, row) {
+                html += `
+        <option value="${row.id}" {{ old('emc_district_id') == ${row.id} ? "selected" :""}}>${row.name_th}</option>
+        `;
+            });
+            $("#emc_district_select").html(html);
+        });
+    });
+    $("#emc_district_select").on("change", function () {
+        let district_id = $(this).val();
+        $.ajax({
+            url: "../../get_subdistrict/" + district_id,
+            method: "get",
+        }).done(function (res) {
+            let html = `<option disabled selected>Please your Subdistrict</option>`;
+            $.each(res, function (index, row) {
+                html += `
+        <option value="${row.id}" data-id="${row.zip_code}" {{ old('subdistrict_id') == ${row.id} ? "selected" :""}}>${row.name_th}</option>
+        `;
+            });
+            $("#emc_subdistrict_select").html(html);
+        });
+    });
+
+    $("#emc_subdistrict_select").on("change", function () {
+        let zip = $(this).val();
+        let zip_code = $("#emc_subdistrict_select option[value=" + zip + "]").attr(
+            "data-id"
+        );
+        console.log(zip_code);
+        $("#emc_zip_code").val(zip_code);
+        $('#emc_country').val('ไทย')
+    });
+
+    $("#province_select").select2();
+    $("#district_select").select2();
+    $("#subdistrict_select").select2();
+
+    $("#emc_province_select").select2();
+    $("#emc_district_select").select2();
+    $("#emc_subdistrict_select").select2();
 
     $("#form_add_patient")
         .parsley()
@@ -91,4 +133,8 @@ $(function () {
         .on("form:submit", function () {
             return true; // Don't submit form for this demo
         });
+        
+    $(document).on("select2:open", () => {
+        document.querySelector(".select2-search__field").focus();
+    });
 });

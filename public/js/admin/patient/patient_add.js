@@ -43,7 +43,7 @@ $(function () {
             method: "get",
         }).done(function (res) {
             console.log(res);
-            let html = ``;
+            let html = `<option disabled selected>Please your District</option>`;
             $.each(res, function (index, row) {
                 html += `
         <option value="${row.id}">${row.name_th}</option>
@@ -59,7 +59,7 @@ $(function () {
             method: "get",
         }).done(function (res) {
             console.log(res);
-            let html = ``;
+            let html = `<option disabled selected>Please your Subdistrict</option>`;
             $.each(res, function (index, row) {
                 html += `
         <option value="${row.id}" data-id="${row.zip_code}">${row.name_th}</option>
@@ -69,12 +69,18 @@ $(function () {
         });
     });
 
-    $("#subdistrict_select").on('change', function() {
-      let zip = $(this).val();
-      let zip_code = $("#subdistrict_select option[value="+zip+ "]").attr('data-id');
-      console.log(zip_code)
-      $("#zip_code").val(zip_code);
-    })
+    $("#subdistrict_select").on("change", function () {
+        let zip = $(this).val();
+        let zip_code = $("#subdistrict_select option[value=" + zip + "]").attr(
+            "data-id"
+        );
+        console.log(zip_code);
+        $("#zip_code").val(zip_code);
+    });
+
+    $('#province_select').select2();
+    $('#district_select').select2();
+    $('#subdistrict_select').select2();
 
     $("#form_add_patient")
         .parsley()

@@ -33,7 +33,8 @@ class PatientController extends Controller
 	{
 		// Get Collection Address id
 		$provinces = DB::table('provinces')->get(['id','name_th']);
-		return view('admin.patient.patient_add', compact('provinces'));
+		$patient_group = DB::table('patient_group')->get(['patient_group_id','group_name']);
+		return view('admin.patient.patient_add', compact(['provinces','patient_group']));
 	}
 
 	public function store(Request $req)
@@ -187,16 +188,4 @@ class PatientController extends Controller
 		//
 	}
 
-	public function get_district()
-	{
-		// Get Collection Address id
-		$districts = DB::table('amphures')->get(['id','name_th']);
-    return response()->json($districts);
-	}
-	public function get_subdistrict()
-	{
-		// Get Collection Address id
-		$subdistricts = DB::table('districts')->get(['id','name_th']);
-    return response()->json($subdistricts);
-	}
 }

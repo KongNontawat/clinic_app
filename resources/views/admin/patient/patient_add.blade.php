@@ -2,6 +2,47 @@
 @section('style')
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
+
+<style>
+  .select2 {
+    width: 100%;
+  }
+  .selection {
+    display: block;
+  }
+  .select2-selection__arrow {
+    display: none;
+  }
+  .select2-container--default .select2-selection--single {
+  width: 100%;
+
+	  background-color: #fff;
+    border: none;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+  width: 100%;
+	background: transparent;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	padding: 10px;
+	padding-right: 38px;
+	color: #5d657b;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+  color: #212529;
+	background-color: #F8F8F8;
+	/* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); */
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+  }
+</style>
 @endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->
@@ -207,6 +248,7 @@
                           <label>Province <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="province_id" id="province_select">
+                              <option disabled selected>Please your Province</option>
                               @foreach($provinces as $province)
                               <option value="{{$province->id}}">{{$province->name_th}}</option>
                               @endforeach
@@ -222,7 +264,7 @@
                           <label>District <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="district_id" id="district_select">
-                              <option value="346">เมือง</option>
+                              <option disabled selected>Please your District</option>
                             </select>
                           </div>
                         </div>
@@ -235,7 +277,7 @@
                           <label>Sub District <span class="text-danger">*</span> </label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="subdistrict_id" id="subdistrict_select">
-                              <option value="350101">ในเมือง</option>
+                              <option disabled selected>Please your Subdistrict</option>
                             </select>
                           </div>
                         </div>
@@ -262,7 +304,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
-                          <input type="text" value="นักศึกษา" name="occupation" class="form-control">
+                          <input type="text" value="พนักงาน" name="occupation" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -271,13 +313,10 @@
                         <div class="select-style-1">
                           <label><i class="fa-solid fa-people-group"></i> Member Group <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg" required="required" name="group_id">
-                              <option value="1" selected>Normal</option>
-                              <option value="">New Member</option>
-                              <option value="">Old Member</option>
-                              <option value="">VIP1</option>
-                              <option value="">VIP2</option>
-                              <option value="">VVIP</option>
+                            <select class="light-bg text-capitalize" required="required" name="group_id">
+                              @foreach($patient_group as $group)
+                              <option class="text-capitalize" value="{{$group->patient_group_id}}">{{$group->group_name}}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>

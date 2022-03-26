@@ -14,7 +14,7 @@
                     <i class="fa-solid fa-house me-1"></i> Menu
                   </a>
 
-                  <a href="{{route('patient.patient_add')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
+                  <a href="{{route('admin.patient.add')}}" class="d-flex align-items-center mx-2 mx-lg-3 text-dark">
                     <i class="fa-solid fa-user-plus me-1"></i> New Patient
                   </a>
 

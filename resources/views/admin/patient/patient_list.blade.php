@@ -24,7 +24,7 @@
           </div>
           <!-- end col -->
           <div class="col-md-6 text-end">
-            <a href="{{route('patient.patient_add')}}" class="main-btn primary-btn btn-hover btn-sm">
+            <a href="{{route('admin.patient.add')}}" class="main-btn primary-btn btn-hover btn-sm">
                 <i class="fa-solid fa-plus mr-5"></i> Add new Patient
             </a>
           </div><!-- end col -->
@@ -60,7 +60,7 @@
                         <option value="vip">VIP</option>
                         <option value="vip 2">VIP 2</option>
                         <option value="old member">Old Member</option>
-                        <option value="normal member">Normal</option>
+                        <option value="normal">Normal</option>
                         <option value="new member">New Member</option>
                       </select>
                       <label for="search_group"><i class="fa-solid fa-elevator me-1"></i> Member Group</label>
@@ -143,25 +143,44 @@
                     <!-- end table row-->
                   </thead>
                   <tbody>
+                    @foreach($patients AS $patient)
                     <tr>
-                      <td><a href="{{route('patient.patient_detail')}}" class="text-primary">CH0023</a> </td>
-                      <td>นาย นนทวัฒน์ แสงความสว่าง</td>
-                      <td>1199900862730</td>
+                      <td><a href="{{route('admin.patient.detail')}}" class="text-primary">{{$patient->opd_id}}</a> </td>
+                      <td>{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</td>
+                      <td>{{$patient->id_card}}</td>
                       <td>
-                        <div class="label-icon sky">
-                          <i class="fa-solid fa-mars me-1"></i> Male
+                        @if($patient->sex == 'male')
+                        <div class="label-icon sky text-capitalize">
+                          <i class="fa-solid fa-mars me-1"></i> {{$patient->sex}} 
                         </div>
+                        @else
+                        <div class="label-icon orange text-capitalize">
+                          <i class="fa-solid fa-venus me-1"></i> {{$patient->sex}} 
+                        </div>
+                        @endif
                       </td>
-                      <td>19</td>
-                      <td>064-487-0915</td>
-                      <td><i class="fa-solid fa-triangle-exclamation fs-5 text-warning"></i></td>
-                      <td class="text-success" >VIP </td>
-                      <td>18-03-2022</td>
+                      <td class="ps-2">{{\Carbon\Carbon::parse($patient->birthdate)->diff(\Carbon\Carbon ::now())->y}}</td>
+                      <!-- <td>{{substr($patient->phone,0,3)}}-{{substr($patient->phone,3,3)}}-{{substr($patient->phone,6)}}</td> -->
+                      <td>{{$patient->phone}}</td>
                       <td>
-                        <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
+                        @if($patient->id_line == null)
+                        <i class="fa-solid fa-triangle-exclamation fs-5 text-warning"></i>
+                        @else 
+                        <i class="fa-solid fa-check fs-5 text-success"></i>
+                        @endif
+                      </td>
+                      <td class="text-success text-capitalize" >{{$patient->group_name}}</td>
+                      <td>{{\Carbon\Carbon::parse($patient->created_at)->format('d-m-Y')}}</td>
+                      <td>
+                        @if($patient->patient_status == 1)
+                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i
                             class="fa-solid fa-check"></i> Normal</a>
+                        @else 
+                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i
+                            class="fa-solid fa-xmark"></i> Abnormal</a>
+                        @endif
                       </td>
-                      <td>
+                      <td class="text-center">
                         <div class="dropdown dropstart">
                           <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -177,179 +196,7 @@
                         </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td><span class="text-primary">CH0028</span></td>
-                      <td>นาง สุนภาพัฒน์ ชัยรมณ์</td>
-                      <td>1199900862730</td>
-                      <td>
-                        <div class="label-icon orange">
-                          <i class="fa-solid fa-venus me-1"></i> Female
-                        </div>
-                      </td>
-                      <td>21</td>
-                      <td>310-777-2549</td>
-                      <td><i class="fa-solid fa-check text-success fs-5"></i></td>
-                      <td class="text-success" >VIP </td>
-                      <td>18-03-2022</td>
-                      <td>
-                        <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
-                          <i class="fa-solid fa-xmark"></i> Abnormal
-                        </a>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </a>
-
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="text-primary">CH0021</span></td>
-                      <td>นาย ฐาปนา ทองดอนง้าว</td>
-                      <td>3453440862730</td>
-                      <td>
-                        <div class="label-icon sky">
-                          <i class="fa-solid fa-mars me-1"></i> Male
-                        </div>
-                      </td>
-                      <td>30</td>
-                      <td>951-283-5747</td>
-                      <td><i class="fa-solid fa-check text-success fs-5"></i></td>
-                      <td class="text-warning" >Old  Member</td>
-                      <td>18-03-2022</td>
-                      <td>
-                        <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
-                            class="fa-solid fa-check"></i> Normal</a>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </a>
-
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="text-primary">CH0038</span></td>
-                      <td>นาง สุนวลไย มนัสศิริเพ็ญ</td>
-                      <td>23427598347958</td>
-                      <td>
-                        <div class="label-icon orange">
-                          <i class="fa-solid fa-venus me-1"></i> Female
-                        </div>
-                      </td>
-                      <td>19</td>
-                      <td>661-294-2052</td>
-                      <td><i class="fa-solid fa-check text-success fs-5"></i></td>
-                      <td class="text-primary" >VIP 2</td>
-                      <td>18-03-2022</td>
-                      <td>
-                        <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
-                          <i class="fa-solid fa-xmark"></i> Abnormal
-                        </a>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </a>
-
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="text-primary">CH0050</span></td>
-                      <td>นาย ทวีวุฒิ โสมคำ</td>
-                      <td>2143425647556</td>
-                      <td>
-                        <div class="label-icon sky">
-                          <i class="fa-solid fa-mars me-1"></i> Male
-                        </div>
-                      </td>
-                      <td>19</td>
-                      <td>0614-547-1408</td>
-                      <td><i class="fa-solid fa-check text-success fs-5"></i></td>
-                      <td class="text-primary" >VIP 2</td>
-                      <td>18-03-2022</td>
-                      <td>
-                        <a href="#!" class="main-btn success-btn rounded-full btn-hover py-0 px-2"><i
-                            class="fa-solid fa-check"></i> Normal</a>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </a>
-
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="text-primary">CH0049</span></td>
-                      <td>นาง ณัฐฐาพร หมื่นแก้ว</td>
-                      <td>1199900862730</td>
-                      <td>
-                        <div class="label-icon orange">
-                          <i class="fa-solid fa-venus me-1"></i> Female
-                        </div>
-                      </td>
-                      <td>19</td>
-                      <td>064-487-0915</td>
-                      <td><i class="fa-solid fa-check text-success fs-5"></i></td>
-                      <td class="text-danger" >New Member</td>
-                      <td>18-03-2022</td>
-                      <td>
-                        <a href="#!" class="main-btn danger-btn rounded-full btn-hover py-0 px-2">
-                          <i class="fa-solid fa-xmark"></i> Abnormal
-                        </a>
-                      </td>
-                      <td>
-                        <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </a>
-
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
                 <!-- end table -->

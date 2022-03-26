@@ -15,21 +15,21 @@
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="https://via.placeholder.com/60x20 " class="d-block w-100" alt="...">
+				<img src="https://via.placeholder.com/600x200 " class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>First slide label</h5>
 					<p>Some representative placeholder content for the first slide.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="https://via.placeholder.com/60x20 " class="d-block w-100" alt="...">
+				<img src="https://via.placeholder.com/600x200 " class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>Second slide label</h5>
 					<p>Some representative placeholder content for the second slide.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="https://via.placeholder.com/60x20 " class="d-block w-100" alt="...">
+				<img src="https://via.placeholder.com/600x200 " class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>Third slide label</h5>
 					<p>Some representative placeholder content for the third slide.</p>
@@ -49,15 +49,16 @@
 
 	<div class="container">
 		<div class="content">
-			<img class="rounded mt-5 mx-auto d-block mb-5" src="https://via.placeholder.com/200x200" alt="">
-			<h1 class="text-center mb-3">BEYOND BEAUTY AND CONFIDENCE</h1>
-			<p><i class="fa-solid fa-caret-right me-2"></i> เราใช้ยาที่ผ่านการรับรองความปลอดภัยจากองค์การอาหารและยาเท่านั้น คุณสามารถขอดูกล่องยา ขวดยา เพื่อตรวจสอบความถูกต้องได้เสมอ</p>
-			<p><i class="fa-solid fa-caret-right me-2"></i> เครื่องมือ และอุปกรณ์ทุกชนิดทันสมัย อัพเกรดภายใน 2 ปี</p>
-			<p><i class="fa-solid fa-caret-right me-2"></i> ทุกบริการ ให้คำปรึกษา และทำการรักษาโดยทีมแพทย์ที่มีประสบการณ์</p>
-			<p><i class="fa-solid fa-caret-right me-2"></i> ราคาสมเหตุสมผล และโปร่งใส ราคาที่คุณจ่ายจริงจะถูกนำเสนอ ก่อนการรักษาทุกครั้ง</p>
+			<img class="rounded mt-5 mx-auto d-block mb-5" src="{{asset('/image/Logo_Beauty_Care1.png')}}" alt="" style="width:200px;height:200px;">
+			<div class="p-5">
+				<h1 class=" text-center mb-3">BEYOND BEAUTY AND CONFIDENCE</h1>
+				<p><i class="fa-solid fa-caret-right me-2"></i> เราใช้ยาที่ผ่านการรับรองความปลอดภัยจากองค์การอาหารและยาเท่านั้น คุณสามารถขอดูกล่องยา ขวดยา เพื่อตรวจสอบความถูกต้องได้เสมอ</p>
+				<p><i class="fa-solid fa-caret-right me-2"></i> เครื่องมือ และอุปกรณ์ทุกชนิดทันสมัย อัพเกรดภายใน 2 ปี</p>
+				<p><i class="fa-solid fa-caret-right me-2"></i> ทุกบริการ ให้คำปรึกษา และทำการรักษาโดยทีมแพทย์ที่มีประสบการณ์</p>
+				<p><i class="fa-solid fa-caret-right me-2"></i> ราคาสมเหตุสมผล และโปร่งใส ราคาที่คุณจ่ายจริงจะถูกนำเสนอ ก่อนการรักษาทุกครั้ง</p>
+			</div>
 		</div>
 	</div>
-
 
 	<!-- end Content -->
 
@@ -65,57 +66,12 @@
 	<!-- Introduction -->
 	<div id="introduction" class="basic-1 bg-gray mt-5">
 		<div class="container">
-			<h2 class="text-center">Services</h2>
+			<h2 class="me-auto ms-auto text-center">Services</h2>
 		</div>
 	</div>
 
 	<!-- services -->
-	<div class="container">
-		<div class="row">
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-			<div class="col-6 ">
-				<div class="services_column mt-5">
-					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
-					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+
 
 	<!-- Details 1 -->
 	<div id="details" class="basic-2">

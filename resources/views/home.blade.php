@@ -82,14 +82,14 @@
 			<div class="col-6 ">
 				<div class="services_column mt-5">
 					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
+					<h3 class="text-center">BODY FAT</h3>
 					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
 				</div>
 			</div>
 			<div class="col-6 ">
 				<div class="services_column mt-5">
 					<img class="rounded mx-auto d-block mb-5" src="https://via.placeholder.com/400x200" alt="">
-					<h3 class="text-center">FILLER</h3>
+					<h3 class="text-center">BOTOX</h3>
 					<p class="p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero accusantium labore, ipsum quis quas laborum non reprehenderit culpa! Neque, aliquid nostrum mollitia asperiores vitae ratione doloribus facilis fugiat deleniti error velit! Aspernatur laborum commodi, reprehenderit fuga in nam inventore, quidem ut recusandae sunt exercitationem officiis quaerat provident numquam? Perferendis, minima.</p>
 				</div>
 			</div>

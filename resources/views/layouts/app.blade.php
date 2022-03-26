@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   @yield('style')
 </head>
 
@@ -28,6 +29,7 @@
   <script src="{{ asset('js/swiper.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 
   @yield('script')

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         ini_set('memory_limit', '-1');
 
-        DB::unprepared(file_get_contents(public_path("SQL\\thailand-provinces\\provinces.sql")));
+        DB::unprepared(file_get_contents(public_path("SQL\\provinces.sql")));
 
         $this->command->info('Country table seeded!');
         // User::factory(10)->create();

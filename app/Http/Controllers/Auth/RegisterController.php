@@ -72,16 +72,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => $data['role'],
+            'user_status' => 1,
             'password' => bcrypt($data['password']),
         ]);
-
-        if($user) {
-            if(Auth::user()->role == 'admin') {
-
-            }else {
-                return $user;
-            }
-        }
+        return $user;
 
     }
 }

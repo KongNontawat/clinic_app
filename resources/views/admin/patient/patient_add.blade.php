@@ -2,6 +2,47 @@
 @section('style')
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
+
+<style>
+  .select2 {
+    width: 100%;
+  }
+  .selection {
+    display: block;
+  }
+  .select2-selection__arrow {
+    display: none;
+  }
+  .select2-container--default .select2-selection--single {
+  width: 100%;
+
+	  background-color: #fff;
+    border: none;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+  width: 100%;
+	background: transparent;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	padding: 10px;
+	padding-right: 38px;
+	color: #5d657b;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+  color: #212529;
+	background-color: #F8F8F8;
+	/* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); */
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+  }
+</style>
 @endsection
 @section('content')
 <!-- ======== main-wrapper start =========== -->
@@ -31,7 +72,18 @@
 
       <!-- ========== Form-wrapper start ========== -->
       <div class="form-layout-wrapper">
-        <form action="#" id="form_add_patient">
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+        <form action="{{route('admin.patient.store')}}" id="form_add_patient" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('post')
           <div class="row">
             <div class="12">
 
@@ -61,7 +113,7 @@
                         <div class="select-style-1">
                           <label>Title <span class="text-danger">*</span></label>
                           <div class="select-position">
-                            <select class="light-bg" required="required">
+                            <select class="light-bg" required="required" name="title">
                               <option value="นาย">นาย</option>
                               <option value="นาง">นาง</option>
                               <option value="นางสาว">นางสาว</option>
@@ -76,7 +128,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="นนทวัฒน์" required="required" data-parsley-maxlength="100" class="form-control">
+                          <input type="text" value="นนทวัฒน์" name="fname" required="required" data-parsley-maxlength="100" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -84,7 +136,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="แสงความสว่าง" required="required" data-parsley-maxlength="255" class="form-control">
+                          <input type="text" value="แสงความสว่าง" name="lname" required="required" data-parsley-maxlength="255" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -92,7 +144,7 @@
                       <div class="col-sm-6 col-md-2">
                         <div class="input-style-1">
                           <label>Nick Name </label>
-                          <input type="text" placeholder="ก้อง" data-parsley-maxlength="50">
+                          <input type="text" value="ก้อง" name="nname" data-parsley-maxlength="50">
                         </div>
                       </div>
                       <!-- end col -->
@@ -100,7 +152,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-address-card"></i> ID Card Number <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="1 1999 00862 73 0" required="required" data-parsley-minlength="17" data-parsley-maxlength="17" id="id_card" class="form-control">
+                          <input type="text" value="1 1999 00862 73 0" name="id_card" required="required" data-parsley-minlength="13" data-parsley-maxlength="17" id="id_card" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -108,7 +160,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Date of Birth <span class="text-danger">*</span> </label>
-                          <input type="date" required="required" id="dob">
+                          <input type="date" required="required" id="dob" name="birthdate">
                         </div>
                       </div>
                       <!-- end col -->
@@ -116,7 +168,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Age <span class="text-danger">*</span> </label>
-                          <input type="number" placeholder="19" style="max-width: 200px;" required="required" data-parsley-minlength="0" data-parsley-maxlength="100" id="age" class="form-control">
+                          <input type="number" value="19" name="age" style="max-width: 200px;" required="required" data-parsley-minlength="0" data-parsley-maxlength="100" id="age" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -140,21 +192,21 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Phone Number <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="064-487-0915" required="required" data-parsley-minlength="9" data-parsley-maxlength="13" id="phone_number" class="form-control">
+                          <input type="text" value="064-487-0915" name="phone" required="required" data-parsley-minlength="9" data-parsley-maxlength="13" id="phone_number" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Email </label>
-                          <input type="email" placeholder="kongnontawat.dev@gmail.com" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control">
+                          <input type="email" placeholder="kongnontawat.dev@gmail.com" name="email" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>ID Line</label>
-                          <input type="text" placeholder="6178021898" data-parsley-maxlength="255" class="form-control">
+                          <input type="text" value="6178021898" name="id_line" data-parsley-maxlength="255" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -162,7 +214,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Nationality </label>
-                          <input type="text" placeholder="ไทย" class="form-control">
+                          <input type="text" value="ไทย" name="nationality" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -170,7 +222,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Race </label>
-                          <input type="text" placeholder="ไทย" class="form-control">
+                          <input type="text" value="ไทย" name="race" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -178,7 +230,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Religion </label>
-                          <input type="text" placeholder="พุทธ" class="form-control">
+                          <input type="text" value="พุทธ" name="religion" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -186,7 +238,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address <span class="text-danger">*</span> </label>
-                          <textarea name="" id="" cols="30" rows="4" required="required" class="form-control"></textarea>
+                          <textarea name="address" id="" cols="30" rows="4" required="required" class="form-control"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -195,8 +247,11 @@
                         <div class="select-style-1">
                           <label>Province <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg" required="required">
-                              <option value="">ขอนแก่น</option>
+                            <select class="light-bg" required="required" name="province_id" id="province_select">
+                              <option disabled selected>Please your Province</option>
+                              @foreach($provinces as $province)
+                              <option value="{{$province->id}}">{{$province->name_th}}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -208,8 +263,8 @@
                         <div class="select-style-1">
                           <label>District <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg" required="required">
-                              <option value="">เมือง</option>
+                            <select class="light-bg" required="required" name="district_id" id="district_select">
+                              <option disabled selected>Please your District</option>
                             </select>
                           </div>
                         </div>
@@ -221,8 +276,8 @@
                         <div class="select-style-1">
                           <label>Sub District <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg" required="required">
-                              <option value="">ในเมือง</option>
+                            <select class="light-bg" required="required" name="subdistrict_id" id="subdistrict_select">
+                              <option disabled selected>Please your Subdistrict</option>
                             </select>
                           </div>
                         </div>
@@ -233,7 +288,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="40000" required="required" data-parsley-maxlength="10" data-parsley-minlength="6" class="form-control">
+                          <input type="text" value="" id="zip_code" name="zip_code" required="required" data-parsley-maxlength="10" data-parsley-minlength="5" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -241,7 +296,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country  <span class="text-danger">*</span> </label>
-                          <input type="text" placeholder="ประเทศไทย" required="required" class="form-control">
+                          <input type="text" value="ประเทศไทย" name="country" required="required" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -249,7 +304,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
-                          <input type="text" placeholder="นักศึกษา" class="form-control">
+                          <input type="text" value="พนักงาน" name="occupation" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -258,13 +313,10 @@
                         <div class="select-style-1">
                           <label><i class="fa-solid fa-people-group"></i> Member Group <span class="text-danger">*</span> </label>
                           <div class="select-position">
-                            <select class="light-bg" required="required">
-                              <option value="" selected>Normal</option>
-                              <option value="">New Member</option>
-                              <option value="">Old Member</option>
-                              <option value="">VIP1</option>
-                              <option value="">VIP2</option>
-                              <option value="">VVIP</option>
+                            <select class="light-bg text-capitalize" required="required" name="group_id">
+                              @foreach($patient_group as $group)
+                              <option class="text-capitalize" value="{{$group->patient_group_id}}">{{$group->group_name}}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -279,7 +331,7 @@
                         <span>
                           <label for="image_update" class="main-btn deactive-btn btn-hover rounded-3 py-2 px-4">
                           <i class="fa-solid fa-folder-open"></i> Upload Image
-                            <input type="file" name="" id="image_update" hidden
+                            <input type="file" name="image" id="image_update" hidden
                               accept="image/png, image/jpg, image/jpeg, image/gif" onchange="loadFile(event)">
                           </label>
                           <p class="text-muted small">Allowed JPG, GIF or PNG. Max size of 800K</p>
@@ -298,7 +350,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Weight <span class="text-muted">(kg)</span> </label>
-                          <input type="number" placeholder="177" data-parsley-minlength="0" >
+                          <input type="number" value="177" name="weight" data-parsley-minlength="0" >
                         </div>
                       </div>
                       <!-- end col -->
@@ -306,22 +358,24 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Height <span class="text-muted">(cm)</span> </label>
-                          <input type="text" placeholder="75" data-parsley-minlength="0" >
+                          <input type="text" value="75" name="height" data-parsley-minlength="0" >
                         </div>
                       </div>
                       <!-- end col -->
 
                       <div class="col-sm-6 col-md-4">
                         <div class="select-style-1">
-                        <label>Blood Group   </label>
+                        <label>Blood Group</label>
                           <div class="select-position">
-                            <select class="light-bg">
-                              <option value="">A</option>
-                              <option value="">B</option>
-                              <option value="">O</option>
-                              <option value="">AB</option>
-                              <option value="">AB-</option>
-                              <option value="">AB+</option>
+                            <select class="light-bg" name="blood_group">
+                              <option value="A">A</option>
+                              <option value="B">B</option>
+                              <option value="O">O</option>
+                              <option value="AB">AB</option>
+                              <option value="A-">A-</option>
+                              <option value="B-">B-</option>
+                              <option value="O-">O-</option>
+                              <option value="AB-">AB-</option>
                             </select>
                           </div>
                         </div>
@@ -331,7 +385,7 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Drug Allergies  </label>
-                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                          <textarea name="drug_allergies" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -339,7 +393,7 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Food Allergies </label>
-                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                          <textarea name="food_allergies" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -347,7 +401,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Congenital Disease </label>
-                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                          <textarea name="congenital_disease" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -361,17 +415,17 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="smoker-regularly" name="smoker">
+                              <input class="form-check-input pe-1" type="radio" value="2" id="smoker-regularly" name="smoker">
                               <label class="form-check-label" for="smoker-regularly">
                               <i class="fa-solid fa-check"></i> Regularly</label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="smoker-once" name="smoker">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="smoker-once" name="smoker">
                               <label class="form-check-label" for="smoker-once">
                               <i class="fa-solid fa-clock"></i> Once in a while </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="smoker-no" name="smoker">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="smoker-no" name="smoker">
                               <label class="form-check-label" for="smoker-no">
                               <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
@@ -390,17 +444,17 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-regularly" name="drinks">
+                            <input class="form-check-input pe-1" type="radio" value="2" id="drinks-regularly" name="drinks">
                             <label class="form-check-label" for="drinks-regularly">
                             <i class="fa-solid fa-check"></i> Regularly </label>
                           </div>
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-once" name="drinks">
+                            <input class="form-check-input pe-1" type="radio" value="1" id="drinks-once" name="drinks">
                             <label class="form-check-label" for="drinks-once">
                             <i class="fa-solid fa-clock"></i> Once in a while </label>
                           </div>
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-1" type="radio" value="" id="drinks-no" name="drinks">
+                            <input class="form-check-input pe-1" type="radio" value="0" id="drinks-no" name="drinks">
                             <label class="form-check-label" for="drinks-no">
                             <i class="fa-solid fa-xmark"></i> No</label>
                           </div>
@@ -419,12 +473,12 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="high_blood-yes" name="high_blood">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="high_blood-yes" name="high_blood_pressure">
                               <label class="form-check-label" for="high_blood-yes">
                               <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="high_blood-no" name="high_blood">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="high_blood-no" name="high_blood_pressure">
                               <label class="form-check-label" for="high_blood-no">
                               <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
@@ -441,12 +495,12 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="diabetic-yes" name="diabetic">
                               <label class="form-check-label" for="diabetic-yes">
                               <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="diabetic-no" name="diabetic">
                               <label class="form-check-label" for="diabetic-no">
                               <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
@@ -463,13 +517,13 @@
                       <div class="col-sm-6">
                           <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
-                              <label class="form-check-label" for="diabetic-yes">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="bleed_tendency-yes" name="bleed_tendency">
+                              <label class="form-check-label" for="bleed_tendency-yes">
                               <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
-                              <label class="form-check-label" for="diabetic-no">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="bleed_tendency-no" name="bleed_tendency">
+                              <label class="form-check-label" for="bleed_tendency-no">
                               <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
@@ -485,13 +539,13 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
-                              <label class="form-check-label" for="diabetic-yes">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="heart_deisease-yes" name="heart_deisease">
+                              <label class="form-check-label" for="heart_deisease-yes">
                               <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
-                              <label class="form-check-label" for="diabetic-no">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="heart_deisease-no" name="heart_deisease">
+                              <label class="form-check-label" for="heart_deisease-no">
                               <i class="fa-solid fa-xmark"></i> No </label>
                             </div>
                           </div>
@@ -506,13 +560,13 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
-                              <label class="form-check-label" for="diabetic-yes">
+                              <input class="form-check-input pe-1" type="radio" value="1" id="female_pregnant-yes" name="female_pregnant">
+                              <label class="form-check-label" for="female_pregnant-yes">
                               <i class="fa-solid fa-check"></i> Yes </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
-                              <label class="form-check-label" for="diabetic-no">
+                              <input class="form-check-input pe-1" type="radio" value="0" id="female_pregnant-no" name="female_pregnant">
+                              <label class="form-check-label" for="female_pregnant-no">
                               <i class="fa-solid fa-xmark"></i> No</label>
                             </div>
                           </div>
@@ -528,18 +582,18 @@
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-yes" name="diabetic">
-                              <label class="form-check-label" for="diabetic-yes">
+                              <input class="form-check-input pe-1" type="radio" value="Walk-in" id="first_register_chanel-2" name="first_register_chanel">
+                              <label class="form-check-label" for="first_register_chanel-2">
                               <i class="fa-solid fa-building-user"></i> Walk-in </label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
-                              <label class="form-check-label" for="diabetic-no">
+                              <input class="form-check-input pe-1" type="radio" value="Call phone" id="first_register_chanel-1" name="first_register_chanel">
+                              <label class="form-check-label" for="first_register_chanel-1">
                               <i class="fa-solid fa-phone"></i> Call phone</label>
                             </div>
                             <div class="form-check radio-style me-4">
-                              <input class="form-check-input pe-1" type="radio" value="" id="diabetic-no" name="diabetic">
-                              <label class="form-check-label" for="diabetic-no">
+                              <input class="form-check-input pe-1" type="radio" value="Online" id="first_register_chanel-0" name="first_register_chanel">
+                              <label class="form-check-label" for="first_register_chanel-0">
                               <i class="fa-solid fa-globe"></i> Online </label>
                             </div>
                           </div>
@@ -550,21 +604,21 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>High Risk Diseases  </label>
-                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                          <textarea name="high_risk_diseases" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Surgery  </label>
-                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                          <textarea name="surgery" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Accident  </label>
-                          <textarea name="" id="" cols="30" rows="2"></textarea>
+                          <textarea name="accident" id="" cols="30" rows="2"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -572,14 +626,14 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Medical History  </label>
-                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                          <textarea name="medical_history" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Current Medication </label>
-                          <textarea name="" id="" cols="30" rows="3"></textarea>
+                          <textarea name="current_medication" id="" cols="30" rows="3"></textarea>
                         </div>
                       </div>
                       <!-- end col -->
@@ -587,7 +641,8 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Note : </label>
-                          <textarea name="" id="" cols="30" rows="5"></textarea>
+                          <textarea name="note" id="" cols="30" rows="5"></textarea>
+                          <input type="hidden" name="inquirer_id" value="{{Auth::user()->user_id}}">
                         </div>
                       </div>
                       <!-- end col -->
@@ -606,7 +661,8 @@
                         <div class="select-style-1">
                           <label>Title</label>
                           <div class="select-position">
-                            <select class="light-bg">
+                            <select class="light-bg" name="emc_title">
+                              <option disabled selected>please select Title</option>   
                               <option value="นาย">นาย</option>
                               <option value="นาง">นาง</option>
                               <option value="นางสาว">นางสาว</option>
@@ -621,7 +677,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name </label>
-                          <input type="text" placeholder="นนทวัฒน์" data-parsley-maxlength="255" >
+                          <input type="text" placeholder="นนทวัฒน์" data-parsley-maxlength="255" name="emc_fname">
                         </div>
                       </div>
                       <!-- end col -->
@@ -629,7 +685,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name</label>
-                          <input type="text" placeholder="แสงความสว่าง" data-parsley-maxlength="255">
+                          <input type="text" placeholder="แสงความสว่าง" data-parsley-maxlength="255" name="emc_lname">
                         </div>
                       </div>
                       <!-- end col -->
@@ -638,13 +694,14 @@
                         <div class="select-style-1" style="max-width: 200px;">
                           <label>Relation </label>
                           <div class="select-position">
-                            <select class="light-bg">
-                              <option value="">ญาติ</option>
-                              <option value="">บิดา</option>
-                              <option value="">มารดา</option>
-                              <option value="">พี่น้อง</option>
-                              <option value="">เพื่อน</option>
-                              <option value="">คนรู้จัก</option>
+                            <select class="light-bg" name="emc_relation">
+                              <option disabled selected>please select Relation</option>
+                              <option value="ญาติ">ญาติ</option>
+                              <option value="บิดา">บิดา</option>
+                              <option value="มารดา">มารดา</option>
+                              <option value="พี่น้อง">พี่น้อง</option>
+                              <option value="เพื่อน">เพื่อน</option>
+                              <option value="คนรู้จัก">คนรู้จัก</option>
                             </select>
                           </div>
                         </div>
@@ -655,7 +712,70 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Phone </label>
-                          <input type="text" placeholder="064-487-0915" id="emc_phone">
+                          <input type="text" placeholder="064-487-0915" id="emc_phone" name="emc_phone">
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-12">
+                        <div class="input-style-1">
+                          <label>Address </label>
+                          <textarea name="emc_address" id="" cols="30" rows="4" class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-3">
+                        <div class="select-style-1">
+                          <label>Province </label>
+                          <div class="select-position">
+                            <select class="light-bg" name="emc_province_id">
+                              <option value="">ยโสธร</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- end select -->
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-3">
+                        <div class="select-style-1">
+                          <label>District </label>
+                          <div class="select-position">
+                            <select class="light-bg" name="emc_district_id">
+                              <option value="">เมือง</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- end select -->
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-3">
+                        <div class="select-style-1">
+                          <label>Sub District </label>
+                          <div class="select-position">
+                            <select class="light-bg" name="emc_subdistrict_id">
+                              <option value="">ในเมือง</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- end select -->
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-3">
+                        <div class="input-style-1">
+                          <label>Zip Code </label>
+                          <input type="text" value="" name="emc_zip_code" data-parsley-maxlength="10" data-parsley-minlength="5" class="form-control">
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6 col-md-3">
+                        <div class="input-style-1">
+                          <label>Country </label>
+                          <input type="text" value="" name="emc_country" class="form-control">
                         </div>
                       </div>
                       <!-- end col -->
@@ -678,7 +798,7 @@
                       <button class="main-btn light-btn p-2 mx-2 mb-3">
                         <i class="fa-solid fa-arrow-rotate-left"></i> Reset
                       </button>
-                      <button class="main-btn primary-btn btn-hover mx-2 mb-3">
+                      <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
                         <i class="fa-solid fa-floppy-disk"></i> Submit
                       </button>
                     </div>

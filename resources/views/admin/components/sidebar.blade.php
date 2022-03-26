@@ -9,7 +9,7 @@
     <ul id="sidebar-menu">
 
       <li class="nav-item dashboard">
-        <a href="{{route('dashboard.index')}}">
+        <a href="{{route('admin.dashboard')}}">
           <span class="icon">
           <i class="fa-solid fa-chart-line"></i>
           </span>
@@ -45,7 +45,7 @@
       </li> -->
 
       <!-- <li class="nav-item patient">
-        <a href="{{route('patient.patient')}}">
+        <a href="{{route('admin.patient')}}">
           <span class="icon">
           <i class="fa-solid fa-users"></i>
           </span>
@@ -61,7 +61,7 @@
         </a>
         <ul id="menu-item-patient" class="collapse dropdown-nav">
           <li>
-            <a href="{{route('patient.patient')}}" class="menu-item-patient"> Patient List </a>
+            <a href="{{route('admin.patient')}}" class="menu-item-patient"> Patient List </a>
           </li>
           <li>
             <a href="#!"> Member Group </a>

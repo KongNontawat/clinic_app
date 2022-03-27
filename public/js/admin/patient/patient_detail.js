@@ -2,6 +2,23 @@ $(function () {
     $(".patient").addClass("active");
     $(".patient ul").addClass("show ");
 
+    $(".btn-edit").on("click", function () {
+        var inputs = document.querySelectorAll("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
+        }
+        var selects = document.querySelectorAll("select");
+        for (var i = 0; i < selects.length; i++) {
+            selects[i].disabled = false;
+        }
+        var textarea = document.querySelectorAll("textarea");
+        for (var i = 0; i < textarea.length; i++) {
+            textarea[i].disabled = false;
+        }
+        $(".btn-edit").hide();
+        $("#btn-submit").toggleClass('d-none');
+    });
+
     $("#dob").flatpickr({
         altInput: true,
         altFormat: "j F Y",
@@ -108,12 +125,12 @@ $(function () {
 
     $("#emc_subdistrict_select").on("change", function () {
         let zip = $(this).val();
-        let zip_code = $("#emc_subdistrict_select option[value=" + zip + "]").attr(
-            "data-id"
-        );
+        let zip_code = $(
+            "#emc_subdistrict_select option[value=" + zip + "]"
+        ).attr("data-id");
         console.log(zip_code);
         $("#emc_zip_code").val(zip_code);
-        $('#emc_country').val('ไทย')
+        $("#emc_country").val("ไทย");
     });
 
     $("#province_select").select2();
@@ -130,7 +147,7 @@ $(function () {
         console.error( error );
     } );
 
-    $("#form_add_patient")
+    $("#form_edit_patient")
         .parsley()
         .on("field:validated", function () {
             var ok = $(".parsley-error").length === 0;
@@ -139,7 +156,7 @@ $(function () {
         .on("form:submit", function () {
             return true; // Don't submit form for this demo
         });
-        
+
     $(document).on("select2:open", () => {
         document.querySelector(".select2-search__field").focus();
     });

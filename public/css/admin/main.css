@@ -1829,17 +1829,21 @@ select.form-select:focus {
 	cursor: pointer;
 	user-select: none;
 }
+.radio-style .form-check-input:checked {
+	background-color: #4a6cf7!important;
+	border-color: #4a6cf7;
+}
 .radio-style.radio-success .form-check-input:checked {
-	background-color: #219653;
-	border-color: #219653;
+	background-color: #219653!important;
+	border-color: #219653!important;
 }
 .radio-style.radio-warning .form-check-input:checked {
-	background-color: #f7c800;
-	border-color: #f7c800;
+	background-color: #f7c800!important;
+	border-color: #f7c800!important;
 }
 .radio-style.radio-danger .form-check-input:checked {
-	background-color: #d50100;
-	border-color: #d50100;
+	background-color: #d50100!important;
+	border-color: #d50100!important;
 }
 
 @media (max-width: 767px) {

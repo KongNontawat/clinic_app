@@ -28,7 +28,7 @@ Route::get('admin/home', function () {
 
 Route::controller(PatientController::class)->group(function () {
     Route::get('admin/patient','index')->name('admin.patient');
-    Route::get('admin/patient/detail','view_detail')->name('admin.patient.detail');
+    Route::get('admin/patient/detail/{id}','view_detail')->name('admin.patient.detail');
     Route::get('admin/patient/add','create')->name('admin.patient.add');
     Route::post('admin/patient/store','store')->name('admin.patient.store');
     Route::get('admin/patient/edit/{id}','edit')->name('admin.patient.edit');

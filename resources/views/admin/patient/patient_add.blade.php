@@ -78,11 +78,11 @@
                           <label>Title <span class="text-danger">*</span></label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="title">
-                              <option value="นาง" {{ old('title') == 'นาง' ? "selected" :""}}>นาง</option>
-                              <option value="นาย" {{ old('title') == 'นาย' ? "selected" :""}}>นาย</option>
-                              <option value="นางสาว" {{ old('title') == 'นางสาว' ? "selected" :""}}>นางสาว</option>
-                              <option value="ดช." {{ old('title') == 'ดช.' ? "selected" :""}}>ดช.</option>
-                              <option value="ดญ." {{ old('title') == 'ดญ.' ? "selected" :""}}>ดญ.</option>
+                              <option value="นาง" {{ (old('title') == 'นาง') ? "selected" :""}}>นาง</option>
+                              <option value="นาย" {{ (old('title') == 'นาย') ? "selected" :""}}>นาย</option>
+                              <option value="นางสาว" {{ (old('title') == 'นางสาว') ? "selected" :""}}>นางสาว</option>
+                              <option value="ดช." {{ (old('title') == 'ดช.') ? "selected" :""}}>ดช.</option>
+                              <option value="ดญ." {{ (old('title') == 'ดญ.') ? "selected" :""}}>ดญ.</option>
                             </select>
                             @error('title')
                             <small class="text-danger">
@@ -185,13 +185,13 @@
                         <div class="input-style-1 d-flex mt-2">
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input" type="radio" value="male" id="radio-1" name="sex"
-                              required="required" {{ old('sex') == 'male' ? "checked" :""}}>
+                              required="required" {{ (old('sex') == 'male') ? "checked" :""}}>
                             <label class="form-check-label" for="radio-1">
                               <i class="fa-solid fa-mars"></i> ชาย <span class="text-danger">*</span> </label>
                           </div>
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input" type="radio" value="female" id="radio-2" name="sex"
-                              {{ old('sex') == 'female' ? "checked" :""}}>
+                              {{( old('sex') == 'female') ? "checked" :""}}>
                             <label class="form-check-label" for="radio-2">
                               <i class="fa-solid fa-venus"></i> หญิง <span class="text-danger">*</span> </label>
                           </div>
@@ -293,7 +293,7 @@
                           <label>Address <span class="text-danger">*</span> </label>
                           <textarea name="address" placeholder="Please enter your address" id="" cols="30" rows="4"
                             required="required"
-                            class="form-control">{{old('address') ? old('address') : "บ้านเลขที่:     หมู่ที่:     ถนน:     ตรอก/ซอย:"}}</textarea>
+                            class="form-control">{{(old('address')) ? old('address') : "บ้านเลขที่:     หมู่ที่:     ถนน:     ตรอก/ซอย:"}}</textarea>
                             @error('address')
                             <small class="text-danger">
                             {{ $message }}
@@ -415,7 +415,7 @@
                               @if(count($patient_group) > 0)
                               @foreach($patient_group as $group)
                               <option class="text-capitalize" value="{{$group->patient_group_id}}"
-                                {{ old('group_id') == $group->patient_group_id ? "selected" :""}}>{{$group->group_name}}
+                                {{ (old('group_id') == $group->patient_group_id) ? "selected" :""}}>{{$group->group_name}}
                               </option>
                               @endforeach
                               @else
@@ -891,7 +891,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Note : </label>
-                          <textarea name="note" id="" cols="30" rows="5" placeholder="Note For Doctor">{{old('note')}}</textarea>
+                          <textarea name="note" id="note_editor" cols="30" rows="5" placeholder="Note For Doctor">{{old('note')}}</textarea>
                           <input type="hidden" name="inquirer_id" value="{{Auth::user()->user_id}}">
                           @error('note')
                             <small class="text-danger">
@@ -909,7 +909,7 @@
 
                   <!-- Tab 3 -->
                   <div class="tab-pane fade" id="nav-emc" role="tabpanel" aria-labelledby="nav-emc-tab">
-                    <h4 class="mb-25 text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Emergency Contact
+)                    <h4 class="mb-25 text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Emergency Contact
                     </h4>
                     <div class="row">
 
@@ -918,11 +918,12 @@
                           <label>Title</label>
                           <div class="select-position">
                               <select class="light-bg" name="emc_title">
-                              <option value="นาง" {{ old('emc_title') == 'นาง' ? "selected" :""}}>นาง</option>
-                              <option value="นาย" {{ old('emc_title') == 'นาย' ? "selected" :""}}>นาย</option>
-                              <option value="นางสาว" {{ old('emc_title') == 'นางสาว' ? "selected" :""}}>นางสาว</option>
-                              <option value="ดช." {{ old('emc_title') == 'ดช.' ? "selected" :""}}>ดช.</option>
-                              <option value="ดญ." {{ old('emc_title') == 'ดญ.' ? "selected" :""}}>ดญ.</option>
+                              <option disabled selected>Please select his title </option>
+                              <option value="นาง" {{ (old('emc_title') == 'นาง') ? "selected" :""}}>นาง</option>
+                              <option value="นาย" {{ (old('emc_title') == 'นาย') ? "selected" :""}}>นาย</option>
+                              <option value="นางสาว" {{ (old('emc_title') == 'นางสาว') ? "selected" :""}}>นางสาว</option>
+                              <option value="ดช." {{ (old('emc_title') == 'ดช.') ? "selected" :""}}>ดช.</option>
+                              <option value="ดญ." {{ (old('emc_title') == 'ดญ.') ? "selected" :""}}>ดญ.</option>
                             </select>
                             @error('emc_title')
                             <small class="text-danger">
@@ -968,12 +969,12 @@
                           <div class="select-position">
                             <select class="light-bg" name="emc_relation">
                               <option disabled selected>please select his Relation</option>
-                              <option value="ญาติ" {{ old('emc_relation') == 'ญาติ' ? "selected" :""}}>ญาติ</option>
-                              <option value="บิดา" {{ old('emc_relation') == 'บิดา' ? "selected" :""}}>บิดา</option>
-                              <option value="มารดา" {{ old('emc_relation') == 'มารดา' ? "selected" :""}}>มารดา</option>
-                              <option value="พี่น้อง" {{ old('emc_relation') == 'พี่น้อง' ? "selected" :""}}>พี่น้อง</option>
-                              <option value="เพื่อน" {{ old('emc_relation') == 'เพื่อน' ? "selected" :""}}>เพื่อน</option>
-                              <option value="คนรู้จัก" {{ old('emc_relation') == 'คนรู้จัก' ? "selected" :""}}>คนรู้จัก</option>
+                              <option value="ญาติ" {{ (old('emc_relation') == 'ญาติ') ? "selected" :""}}>ญาติ</option>
+                              <option value="บิดา" {{ (old('emc_relation') == 'บิดา') ? "selected" :""}}>บิดา</option>
+                              <option value="มารดา" {{ (old('emc_relation') == 'มารดา') ? "selected" :""}}>มารดา</option>
+                              <option value="พี่น้อง" {{ (old('emc_relation') == 'พี่น้อง') ? "selected" :""}}>พี่น้อง</option>
+                              <option value="เพื่อน" {{ (old('emc_relation') == 'เพื่อน') ? "selected" :""}}>เพื่อน</option>
+                              <option value="คนรู้จัก" {{ (old('emc_relation') == 'คนรู้จัก') ? "selected" :""}}>คนรู้จัก</option>
                             </select>
                             @error('emc_relation')
                             <small class="text-danger">
@@ -1003,7 +1004,7 @@
                         <div class="input-style-1">
                           <label>Address </label>
                           <textarea name="emc_address" placeholder="Please enter his address" id="" cols="30" rows="4"
-                            class="form-control">old('emc_address')</textarea>
+                            class="form-control">{{old('emc_address')}}</textarea>
                             @error('emc_address')
                             <small class="text-danger">
                             {{ $message }}
@@ -1150,6 +1151,4 @@
 <script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
 <script src="{{ asset('js/admin/patient/patient_add.js') }}"></script>
-<script>
-</script>
 @endsection

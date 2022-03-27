@@ -25,7 +25,7 @@
           <!-- end col -->
           <div class="col-md-6 text-end">
             <a href="{{route('admin.patient.add')}}" class="main-btn primary-btn btn-hover btn-sm">
-                <i class="fa-solid fa-plus mr-5"></i> Add new Patient
+              <i class="fa-solid fa-plus mr-5"></i> Add new Patient
             </a>
           </div><!-- end col -->
         </div> <!-- end row -->
@@ -145,17 +145,17 @@
                   <tbody>
                     @foreach($patients AS $patient)
                     <tr>
-                      <td><a href="{{route('admin.patient.detail')}}" class="text-primary">{{$patient->opd_id}}</a> </td>
+                      <td><a href="{{route('admin.patient.detail',$patient->patient_id)}}" class="text-primary">{{$patient->opd_id}}</a> </td>
                       <td>{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</td>
                       <td>{{$patient->id_card}}</td>
                       <td>
                         @if($patient->sex == 'male')
                         <div class="label-icon sky text-capitalize">
-                          <i class="fa-solid fa-mars me-1"></i> {{$patient->sex}} 
+                          <i class="fa-solid fa-mars me-1"></i> {{$patient->sex}}
                         </div>
                         @else
                         <div class="label-icon orange text-capitalize">
-                          <i class="fa-solid fa-venus me-1"></i> {{$patient->sex}} 
+                          <i class="fa-solid fa-venus me-1"></i> {{$patient->sex}}
                         </div>
                         @endif
                       </td>
@@ -165,37 +165,70 @@
                       <td>
                         @if($patient->id_line == null)
                         <i class="fa-solid fa-triangle-exclamation fs-5 text-warning"></i>
-                        @else 
+                        @else
                         <i class="fa-solid fa-check fs-5 text-success"></i>
                         @endif
                       </td>
-                      <td class="text-success text-capitalize" >{{$patient->group_name}}</td>
+                      <td class="text-success text-capitalize">{{$patient->group_name}}</td>
                       <td>{{\Carbon\Carbon::parse($patient->created_at)->format('d-m-Y')}}</td>
                       <td>
                         @if($patient->patient_status == 1)
-                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i
-                            class="fa-solid fa-check"></i> Normal</a>
-                        @else 
-                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i
-                            class="fa-solid fa-xmark"></i> Abnormal</a>
+                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
+                        @else
+                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
                         @endif
                       </td>
                       <td class="text-center">
                         <div class="dropdown dropstart">
-                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                           </a>
 
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-eye"></i> View</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin.patient.detail',$patient->patient_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
+                            <li><a class="dropdown-item" href="#!" data-bs-toggle="modal" data-bs-target="#modal_delete{{$patient->patient_id}}"><i class="fa-solid fa-trash"></i> Delete</a></li>
+
                           </ul>
                         </div>
                       </td>
                     </tr>
+
+                    <!-- Modal Delete-->
+                    <div class="follow-up-modal">
+                      <div class="modal fade" id="modal_delete{{$patient->patient_id}}" tabindex="-1" aria-labelledby="modal_deleteLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content card-style text-center">
+                            <form action="{{ route('admin.patient.delete') }}" method="post">
+                              @csrf
+                              @method('delete')
+                              <div class="modal-body">
+                                <div class="image mb-30">
+                                  <i class="fa-solid fa-trash" style="font-size: 72px;"></i>
+                                </div>
+                                <div class="content mb-30">
+                                  <h2 class="mb-15">Delete Account</h2>
+                                  <p class="text-sm text-medium">
+                                    Are you sure you want delete Account ID : {{$patient->opd_id}} ?
+                                    <input type="hidden" name="patient_id" value="{{$patient->patient_id}}">
+                                    <input type="hidden" name="address_id" value="{{$patient->address_id}}">
+
+                                  </p>
+                                </div>
+                                <div class="action d-flex flex-wrap justify-content-center">
+                                  <a class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 " data-bs-dismiss="modal">
+                                    Cancel
+                                  </a>
+                                  <button class="main-btn danger-btn rounded-md square-btn btn-hover m-1" type="submit" class="btn btn-primary">Yes Deleted!</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ========== header end ========== -->
                     @endforeach
                   </tbody>
                 </table>
@@ -216,32 +249,24 @@
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-file-export"></i> Export To : </span>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-file-excel"></i> Excel</button>
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-file-pdf"></i> PDF</button>
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-file-csv"></i> CSV</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-file-excel"></i> Excel</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-file-csv"></i> CSV</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-print"></i> Print To : </span>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-print"></i> Print A4</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-print"></i> Print A4</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-file-import"></i> Import From : </span>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-file-excel"></i> Excel</button>
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-file-csv"></i> CSV</button>
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-j"></i> JSON</button>
-              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i
-                  class="fa-solid fa-database"></i> SQL</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-file-excel"></i> Excel</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-file-csv"></i> CSV</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-j"></i> JSON</button>
+              <button type="button" class="main-btn light-btn-outline square-btn btn-hover py-1 px-3"><i class="fa-solid fa-database"></i> SQL</button>
             </div>
           </div>
         </div>

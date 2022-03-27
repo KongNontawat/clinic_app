@@ -81,7 +81,7 @@ h4 {
 
 h5 {
 	color: #191e47;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 1.25rem;
 	line-height: 1.625rem;
 }
@@ -318,7 +318,7 @@ a:hover {
 
 .navbar .logo-image img {
     width: 150px;
-	height: 50px;
+	height: 60px;
 }
 
 .navbar .logo-text {

@@ -94,14 +94,11 @@ class PatientController extends Controller
 				$patient_image = $req->file('image');
 				$ext_image = strtolower($patient_image->getClientOriginalExtension());
 				$image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
-
-				// Upload Image
-				$path = 'image/uploads/patient/';
-				$patient_image->move($path, $image);
 			}
 
 			// Create Main Patient
 			$opd_id = IdGenerator::generate(['table' => 'patients', 'field' => 'opd_id', 'length' => 8, 'prefix' => 'HN']);
+
 			$patient = Patient::create([
 				'opd_id' => $opd_id,
 				'id_card' => $req->id_card,
@@ -124,6 +121,9 @@ class PatientController extends Controller
 				'image' => $image,
 				'patient_status' => 1
 			]);
+			// Upload Image
+			$path = 'image/uploads/patient/';
+			$patient_image->move($path, $image);
 
 			// Create patient_medical_info
 			$patient_medical_info = DB::table('patient_medical_info')->insert([
@@ -253,6 +253,8 @@ class PatientController extends Controller
 				// Upload Image
 				$path = 'image/uploads/patient/';
 				$patient_image->move($path, $image);
+				unlink(public_path('image\\uploads\\patient\\'.$req->old_image));
+
 			} else {
 				$image = $req->old_image;
 			}
@@ -377,29 +379,17 @@ class PatientController extends Controller
 		DB::beginTransaction();
 		try {
 			$get_emc_address_id = DB::table('patient_emc',$req->patient_id)->first('emc_address_id');
-
+			$get_id = Patient::where('patient_id',$req->patient_id)->first(['address_id','image']);
 			$address_info = DB::table('address_info')
-				->where('address_id', $req->address_id)
+				->where('address_id', $get_id->address_id)
 				->delete();
 
-			// Image Process
-			// Rename Image
-			// if ($req->file('image')) {
-			// 	$date = Carbon::now();
-			// 	$patient_image = $req->file('image');
-			// 	$ext_image = strtolower($patient_image->getClientOriginalExtension());
-			// 	$image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
-
-			// 	// Upload Image
-			// 	$path = 'image/uploads/patient/';
-			// 	$patient_image->move($path, $image);
-			// }else {
-			// 	$image = $req->old_image;
-			// }
 
 			// Create Main Patient
 			$patient = Patient::where('patient_id', $req->patient_id)
 				->delete();
+
+			unlink(public_path('image\\uploads\\patient\\'.$get_id->image));
 
 			// Create patient_medical_info
 			$patient_medical_info = DB::table('patient_medical_info')

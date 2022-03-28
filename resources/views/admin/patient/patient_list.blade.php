@@ -212,8 +212,6 @@
                                   <p class="text-sm text-medium">
                                     Are you sure you want delete Account ID : {{$patient->opd_id}} ?
                                     <input type="hidden" name="patient_id" value="{{$patient->patient_id}}">
-                                    <input type="hidden" name="address_id" value="{{$patient->address_id}}">
-
                                   </p>
                                 </div>
                                 <div class="action d-flex flex-wrap justify-content-center">

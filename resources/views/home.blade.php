@@ -55,7 +55,7 @@
 	<div class="content">
 		<img class="rounded mt-5 mx-auto d-block mb-5" src="{{asset('/image/Logo_Beauty_Care1.png')}}" alt="" style="width:200px;height:200px;">
 		<div class="p-5">
-			<h1 class=" text-center mb-3">BEYOND BEAUTY AND CONFIDENCE</h1>
+			<h1 class=" text-center mb-3"  style="font-weight: 300;">BEYOND BEAUTY AND CONFIDENCE</h1>
 			<p><i class="fa-solid fa-caret-right me-2"></i> เราใช้ยาที่ผ่านการรับรองความปลอดภัยจากองค์การอาหารและยาเท่านั้น คุณสามารถขอดูกล่องยา ขวดยา เพื่อตรวจสอบความถูกต้องได้เสมอ</p>
 			<p><i class="fa-solid fa-caret-right me-2"></i> เครื่องมือ และอุปกรณ์ทุกชนิดทันสมัย อัพเกรดภายใน 2 ปี</p>
 			<p><i class="fa-solid fa-caret-right me-2"></i> ทุกบริการ ให้คำปรึกษา และทำการรักษาโดยทีมแพทย์ที่มีประสบการณ์</p>
@@ -70,7 +70,7 @@
 <!-- Introduction -->
 <div id="introduction" class="basic-1 bg-gray mt-5 mb-5">
 	<div class="container">
-		<h2 class="me-auto ms-auto text-center">Services</h2>
+		<h2 class="me-auto ms-auto text-center"  style="font-weight: 300;">Services</h2>
 	</div>
 </div>
 
@@ -106,23 +106,23 @@
 
 <div id="introduction" class="basic-1 bg-gray mt-5 mb-5">
 	<div class="container">
-		<h2 class="me-auto ms-auto text-center">Review</h2>
+		<h2 class="me-auto ms-auto text-center"  style="font-weight: 300;" >Review</h2>
 	</div>
 </div>
 
 <div class="container">
-	<div class="row">
-		<div class="d-flex justify-content-center">
-			<div class="col-3">
-				<img class="rounded mx-auto d-block p-3 " src="https://via.placeholder.com/200x200" style="width: 100%;" alt="">
-				<img class="rounded mx-auto d-block p-3" src="https://via.placeholder.com/200x200" style="width: 100%;" alt="">
+	<div class="d-flex justify-content-around">
+		<div class="row">
+			<div class="col-12 col-lg-3 ">
+				<img class="rounded mx-auto d-block p-3 " src="https://via.placeholder.com/500x500" style="width: 100%;" alt="">
+				<img class="rounded mx-auto d-bl4ck p-3" src="https://via.placeholder.com/500x500" style="width: 100%;" alt="">
 			</div>
-			<div class="col-3">
-				<img class="rounded mx-auto d-block p-3 " src="https://via.placeholder.com/200x200" style="width: 100%;" alt="">
-				<img class="rounded mx-auto d-block p-3" src="https://via.placeholder.com/200x200" style="width: 100%;" alt="">
+			<div class="col-12 col-lg-3">
+				<img class="rounded mx-auto d-block p-3 " src="https://via.placeholder.com/500x500" style="width: 100%;" alt="">
+				<img class="rounded mx-auto d-block p-3" src="https://via.placeholder.com/500x500" style="width: 100%;" alt="">
 			</div>
-			<div class="col-6">
-				<img class="rounded mx-auto d-block p-3" src="https://via.placeholder.com/200x200" style="width: 100%;" alt="">
+			<div class="col-12 col-lg-6 ">
+				<img class="rounded mx-auto d-block p-3" src="https://via.placeholder.com/500x500" style="width: 100%;" alt="">
 			</div>
 		</div>
 	</div>
@@ -138,15 +138,15 @@
 
 <div id="introduction" class="basic-1 bg-gray mt-5 mb-5">
 	<div class="container">
-		<h2 class="me-auto ms-auto text-center">Blog</h2>
+		<h2 class="me-auto ms-auto text-center" style="font-weight: 300;">Blog</h2>
 	</div>
 </div>
 
 <div class="container mb-5">
 	<div class="d-flex justify-content-center">
 		<div class="row">
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
+			<div class="col-md-4 col-12 mb-2">
+				<div class="card" style="width:100%;">
 					<img src="https://via.placeholder.com/50x50" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5><a href="#!">การฉีดโบท็อกซ์สำหรับผู้ชาย สามารถทำได้หรือไม่ ? </a></h5>
@@ -154,8 +154,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
+			<div class="col-md-4 col-12 mb-2">
+				<div class="card" style="width:100%;">
 					<img src="https://via.placeholder.com/50x50" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5><a href="#!"> อยากหน้าเรียวได้ดั่งใจ ต้องลอง Hifu ทางออกของคนอยากมีหน้า V Shape </a></h5>
@@ -163,8 +163,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
+			<div class="col-md-4 col-12 mb-2">
+				<div class="card" style="width:100%;">
 					<img src="https://via.placeholder.com/50x50" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5><a href="#!"> ฟิลเลอร์ใต้ตา ตัวเลือกดีๆ ที่ช่วยลดปัญหารอยคล้ำใต้ตาได้อย่างเห็นผล ! </a></h5>
@@ -185,7 +185,7 @@
 
 
 <!-- Contact -->
-<div id="contact" class="form-1">
+<!-- <div id="contact" class="form-1">
 	<img class="decoration-star" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
 	<img class="decoration-star-2" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
 	<div class="container">
@@ -198,7 +198,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 @include('components.footer')
 

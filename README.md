@@ -10,6 +10,7 @@
 # Laravel 8 Project Clinic App
 
 ## Library & package
+ - PHP Version 7.4.28
  - Node.js
  - Composer
  - Bootstrap5.1
@@ -25,7 +26,12 @@
  - aos
  - Parsley
  - cleave.js
- 
+
+ ### Software
+ 1.xammp Version 7.4.28  
+ 2.git  
+ 3.vscode  
+
  ---
 ## How To Install Project (First Install)
 required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAMPP ```  
@@ -45,12 +51,15 @@ required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAM
 14.run ``` php artisan db:seed ```  
 15.open project in editor  
 16.open file .env then set ``` DB_DATABASE=clinic_app ```  
-17.run ``` php artisan serve ```
+17.run ``` php artisan serve ```  
+18.open ``` http://127.0.0.1:8000 ``` in your browser
 
 ---
 ## How To Update Project
-1.open project in vscode then open ```terminal```  
-2.```pull Project in editor```  
-3.run ```php artisan migrate```  
-4.run ```php artisan serve```  
+1.open xampp then start ``` Apache ``` and ``` MySQL ```  
+2.open project in vscode then open ```terminal```  
+3.```pull Project in editor```  
+4.run ```php artisan migrate```  
+5.run ```php artisan serve```  
+6.open ``` http://127.0.0.1:8000 ``` in your browser
 

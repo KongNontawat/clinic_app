@@ -56,9 +56,8 @@ required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAM
 ---
 ## How To Update Project
 1.open xampp then start ``` Apache ``` and ``` MySQL ```  
-2.Click the mysql Admin button. in maxpp  
-3.open project in vscode then open ```terminal```  
-4.```pull Project in editor```  
-5.run ```php artisan migrate```  
-6.run ```php artisan serve```  
+2.open project in vscode then open ```terminal```  
+3.```pull Project in editor```  
+4.run ```php artisan migrate```  
+5.run ```php artisan serve```  
 

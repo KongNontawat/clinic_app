@@ -66,7 +66,7 @@ h2 {
 
 h3 {
 	color: #191e47;
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 1.75rem;
 	line-height: 2.25rem;
 	letter-spacing: -0.2px;
@@ -141,6 +141,7 @@ a:hover {
 
 .bg-gray {
 	background-color: #f9fafe;
+	height: auto;
 }
 
 .btn-solid-reg {

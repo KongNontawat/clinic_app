@@ -50,6 +50,17 @@ Route::get('admin/dashboard', function () {
     return view('admin.dashboard.index');
 })->name('admin.dashboard');
 
+Route::get('/Promotion', function() {
+    return view('Promotion');
+})->name('Promotion');
+
+Route::get('/Blog', function() {
+    return view('Blog');
+})->name('Blog');
+
+Route::get('/Review', function() {
+    return view('Review');
+})->name('Review');
 
 Route::get('get_district/{id}', function($id) {
     $districts = DB::table('amphures')->where('province_id', $id)->get(['id','name_th']);

@@ -18,13 +18,13 @@
 					<a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('detail') }}">Promotion</a>
+					<a class="nav-link" href="{{ route('Promotion') }}">Promotion</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#projects">Blog</a>
+					<a class="nav-link" href="{{ route('Blog') }}">Blog</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#projects">Review</a>
+					<a class="nav-link" href="{{ route('Review') }}">Review</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Services</a>

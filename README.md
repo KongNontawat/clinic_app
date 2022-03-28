@@ -10,6 +10,7 @@
 # Laravel 8 Project Clinic App
 
 ## Library & package
+ - PHP Version 7.4.28
  - Node.js
  - Composer
  - Bootstrap5.1
@@ -25,7 +26,12 @@
  - aos
  - Parsley
  - cleave.js
- 
+
+ ### Software
+ 1.xammp Version 7.4.28
+ 2.git
+ 3.vscode
+
  ---
 ## How To Install Project (First Install)
 required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAMPP ```  

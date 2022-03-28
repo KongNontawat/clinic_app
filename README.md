@@ -28,9 +28,9 @@
  - cleave.js
 
  ### Software
- 1.xammp Version 7.4.28
- 2.git
- 3.vscode
+ 1.xammp Version 7.4.28  
+ 2.git  
+ 3.vscode  
 
  ---
 ## How To Install Project (First Install)

@@ -51,7 +51,8 @@ required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAM
 14.run ``` php artisan db:seed ```  
 15.open project in editor  
 16.open file .env then set ``` DB_DATABASE=clinic_app ```  
-17.run ``` php artisan serve ```
+17.run ``` php artisan serve ```  
+18.open ``` http://127.0.0.1:8000 ``` in your browser
 
 ---
 ## How To Update Project
@@ -60,4 +61,5 @@ required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAM
 3.```pull Project in editor```  
 4.run ```php artisan migrate```  
 5.run ```php artisan serve```  
+6.open ``` http://127.0.0.1:8000 ``` in your browser
 

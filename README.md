@@ -25,4 +25,32 @@
  - aos
  - Parsley
  - cleave.js
+ 
+ ---
+## How To Install Project (First Install)
+required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAMPP ```  
+1.open xampp then start ``` Apache ``` and ``` MySQL ```  
+2.Click the mysql Admin button. in maxpp  
+3.Then a phpmyadmin window will pop up in the browser.  
+4.Click ```+New``` Database to create a database  
+5.Enter the name of the database as ``` clinic_app ``` then click Go OR Save  
+6.Open terminal cd to desktop  
+7.run ``` git clone https://github.com/KongNontawat/clinic_app.git ```  
+8.run ``` cd clinic_app ```  
+9.run ```npm install```  
+10.run ```npm run dev```  
+11.run ``` cp .env.example .env ```  
+12.run ``` php artisan key:generate ```  
+13.run ``` php artisan migrate ```  
+14.run ``` php artisan db:seed ```  
+15.open project in editor  
+16.open file .env then set ``` DB_DATABASE=clinic_app ```  
+17.run ``` php artisan serve ```
+
+---
+## How To Update Project
+1.open project in vscode then open ```terminal```  
+2.```pull Project in editor```  
+3.run ```php artisan migrate```  
+4.run ```php artisan serve```  
 

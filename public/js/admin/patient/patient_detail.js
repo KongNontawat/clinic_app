@@ -56,7 +56,7 @@ $(function () {
     $("#province_select").on("change", function () {
         let province_id = $(this).val();
         $.ajax({
-            url: "../../get_district/" + province_id,
+            url: "../../../get_district/" + province_id,
             method: "get",
         }).done(function (res) {
             let html = `<option disabled selected>Please your District</option>`;
@@ -71,7 +71,7 @@ $(function () {
     $("#district_select").on("change", function () {
         let district_id = $(this).val();
         $.ajax({
-            url: "../../get_subdistrict/" + district_id,
+            url: "../../../get_subdistrict/" + district_id,
             method: "get",
         }).done(function (res) {
             let html = `<option disabled selected>Please your Subdistrict</option>`;
@@ -95,9 +95,10 @@ $(function () {
     $("#emc_province_select").on("change", function () {
         let province_id = $(this).val();
         $.ajax({
-            url: "../../get_district/" + province_id,
+            url: "../../../get_district/" + province_id,
             method: "get",
         }).done(function (res) {
+            console.log(res)
             let html = `<option disabled selected>Please your District</option>`;
             $.each(res, function (index, row) {
                 html += `
@@ -110,7 +111,7 @@ $(function () {
     $("#emc_district_select").on("change", function () {
         let district_id = $(this).val();
         $.ajax({
-            url: "../../get_subdistrict/" + district_id,
+            url: "../../../get_subdistrict/" + district_id,
             method: "get",
         }).done(function (res) {
             let html = `<option disabled selected>Please your Subdistrict</option>`;

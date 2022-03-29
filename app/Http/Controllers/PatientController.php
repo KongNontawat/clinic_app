@@ -20,7 +20,7 @@ class PatientController extends Controller
 	public function index()
 	{
 		$patients = Patient::leftJoin('patient_group', 'patient_group.patient_group_id', '=', 'patients.group_id')
-			->get(['patient_id', 'opd_id', 'id_card', 'title', 'fname', 'lname', 'sex', 'birthdate', 'id_line', 'phone','address_id', 'patient_status', 'created_at', 'group_name']);
+			->get(['patient_id', 'opd_id', 'id_card', 'title', 'fname', 'lname', 'sex', 'birthdate', 'id_line', 'phone', 'address_id', 'patient_status', 'created_at', 'group_name']);
 		return view('admin.patient.patient_list', compact('patients'));
 	}
 
@@ -58,7 +58,7 @@ class PatientController extends Controller
 
 	public function store(Request $req)
 	{
-
+		$patient_id = $req->patient_id;
 		// return dd($req);
 		// Validation Main Patient
 		$validated_patient = $req->validate([
@@ -98,7 +98,6 @@ class PatientController extends Controller
 
 			// Create Main Patient
 			$opd_id = IdGenerator::generate(['table' => 'patients', 'field' => 'opd_id', 'length' => 8, 'prefix' => 'HN']);
-
 			$patient = Patient::create([
 				'opd_id' => $opd_id,
 				'id_card' => $req->id_card,
@@ -121,9 +120,11 @@ class PatientController extends Controller
 				'image' => $image,
 				'patient_status' => 1
 			]);
-			// Upload Image
-			$path = 'image/uploads/patient/';
-			$patient_image->move($path, $image);
+			if ($req->file('image')) {
+				// Upload Image
+				$path = 'image/uploads/patient/';
+				$patient_image->move($path, $image);
+			}
 
 			// Create patient_medical_info
 			$patient_medical_info = DB::table('patient_medical_info')->insert([
@@ -192,18 +193,18 @@ class PatientController extends Controller
 			]);
 
 			DB::commit();
-			return redirect(route('admin.patient'));
+			return redirect(route('admin.patient.detail',$patient->patient_id));
 		} catch (Exception  $e) {
 			$logs_patient = DB::table('logs_patient')->insert([
-				'patient_id' => $patient->patient_id,
-				'activity' => 'Fail! Create New Account ID:' . $patient->patient_id,
+				'patient_id' => $patient_id,
+				'activity' => 'Fail! Create New Account ID:' . $patient_id,
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
-				'activity' => 'Fail! Create Account Patient ID:' . $patient->patient_id,
+				'activity' => 'Fail! Create Account Patient ID:' . $patient_id,
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
@@ -214,6 +215,8 @@ class PatientController extends Controller
 
 	public function update(Request $req)
 	{
+		$patient_id = $req->patient_id;
+
 		// Validation Main Patient
 		$validated_patient = $req->validate([
 			'id_card' => 'required|max:17|min:13',
@@ -253,8 +256,9 @@ class PatientController extends Controller
 				// Upload Image
 				$path = 'image/uploads/patient/';
 				$patient_image->move($path, $image);
-				unlink(public_path('image\\uploads\\patient\\'.$req->old_image));
-
+				if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
+					unlink(public_path('image\\uploads\\patient\\' . $req->old_image));
+				}
 			} else {
 				$image = $req->old_image;
 			}
@@ -354,18 +358,18 @@ class PatientController extends Controller
 			]);
 
 			DB::commit();
-			return redirect()->back();
+			return redirect(route('admin.patient.detail',$req->patient_id));
 		} catch (Exception  $e) {
 			$logs_patient = DB::table('logs_patient')->insert([
-				'patient_id' => $req->patient_id,
-				'activity' => 'Fail! Update Info ID:' . $req->patient_id,
+				'patient_id' => $patient_id,
+				'activity' => 'Fail! Update Info ID:' . $patient_id,
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
-				'activity' => 'Fail! Update Info Patient ID:' . $req->patient_id,
+				'activity' => 'Fail! Update Info Patient ID:' . $patient_id,
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
@@ -378,29 +382,31 @@ class PatientController extends Controller
 	{
 		DB::beginTransaction();
 		try {
-			$get_emc_address_id = DB::table('patient_emc',$req->patient_id)->first('emc_address_id');
-			$get_id = Patient::where('patient_id',$req->patient_id)->first(['address_id','image']);
+			$get_emc_address_id = DB::table('patient_emc', $req->patient_id)->first('emc_address_id');
+			$get_id = Patient::where('patient_id', $req->patient_id)->first(['address_id', 'image']);
+
 			$address_info = DB::table('address_info')
 				->where('address_id', $get_id->address_id)
 				->delete();
 
-
 			// Create Main Patient
-			$patient = Patient::where('patient_id', $req->patient_id)
-				->delete();
+			$patient = Patient::where('patient_id', $req->patient_id)->delete();
 
-			unlink(public_path('image\\uploads\\patient\\'.$get_id->image));
+			if ($get_id->image !== 'default_profile.png' && $get_id->image != '' && $get_id->image != null) {
+				$remove = unlink(public_path('image\\uploads\\patient\\' . $get_id->image));
+			}
 
 			// Create patient_medical_info
 			$patient_medical_info = DB::table('patient_medical_info')
 				->where('patient_id', $req->patient_id)
-				->delete();
+				->get();
 
 			// Validation  Patient Emc
-			$address_info_emc = DB::table('address_info')
-				->where('address_id', $get_emc_address_id->emc_address_id)
-				->delete();
-
+			if ($get_emc_address_id->emc_address_id) {
+				$address_info_emc = DB::table('address_info')
+					->where('address_id', $get_emc_address_id->emc_address_id)
+					->delete();
+			}
 
 			//8. Create Patient emc
 			$patient_medical_info = DB::table('patient_emc')

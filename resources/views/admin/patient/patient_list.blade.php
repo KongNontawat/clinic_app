@@ -188,44 +188,12 @@
                             <li><a class="dropdown-item" href="{{route('admin.patient.detail',$patient->patient_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             </li>
-                            <li><a class="dropdown-item" href="#!" data-bs-toggle="modal" data-bs-target="#modal_delete{{$patient->patient_id}}"><i class="fa-solid fa-trash"></i> Delete</a></li>
+                            <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$patient->patient_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
 
                           </ul>
                         </div>
                       </td>
                     </tr>
-
-                    <!-- Modal Delete-->
-                    <div class="follow-up-modal">
-                      <div class="modal fade" id="modal_delete{{$patient->patient_id}}" tabindex="-1" aria-labelledby="modal_deleteLabel" aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog modal-dialog-centered">
-                          <div class="modal-content card-style text-center">
-                            <form action="{{ route('admin.patient.delete') }}" method="post">
-                              @csrf
-                              @method('delete')
-                              <div class="modal-body">
-                                <div class="image mb-30">
-                                  <i class="fa-solid fa-trash" style="font-size: 72px;"></i>
-                                </div>
-                                <div class="content mb-30">
-                                  <h2 class="mb-15">Delete Account</h2>
-                                  <p class="text-sm text-medium">
-                                    Are you sure you want delete Account ID : {{$patient->opd_id}} ?
-                                    <input type="hidden" name="patient_id" value="{{$patient->patient_id}}">
-                                  </p>
-                                </div>
-                                <div class="action d-flex flex-wrap justify-content-center">
-                                  <a class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 " data-bs-dismiss="modal">
-                                    Cancel
-                                  </a>
-                                  <button class="main-btn danger-btn rounded-md square-btn btn-hover m-1" type="submit" class="btn btn-primary">Yes Deleted!</button>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <!-- ========== header end ========== -->
                     @endforeach
                   </tbody>
@@ -278,7 +246,37 @@
   @include('admin.components.footer')
 </main>
 <!-- ======== main-wrapper end =========== -->
-
+<!-- Modal Delete-->
+<div class="follow-up-modal">
+  <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="modal_deleteLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content card-style text-center">
+        <form action="{{ route('admin.patient.delete') }}" method="post">
+          @csrf
+          @method('delete')
+          <div class="modal-body">
+            <div class="image mb-30">
+              <i class="fa-solid fa-trash" style="font-size: 72px;"></i>
+            </div>
+            <div class="content mb-30">
+              <h2 class="mb-15">Delete Account</h2>
+              <p class="text-sm text-medium">
+                Are you sure you want delete Account ?
+                <input type="hidden" name="patient_id" id="delete_patient_id" value="">
+              </p>
+            </div>
+            <div class="action d-flex flex-wrap justify-content-center">
+              <a class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 " data-bs-dismiss="modal">
+                Cancel
+              </a>
+              <button class="main-btn danger-btn rounded-md square-btn btn-hover m-1" type="submit" class="btn btn-primary">Yes Deleted!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 @section('script')
 <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>

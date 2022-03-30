@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 
 Route::get('/login', function () {
@@ -34,6 +35,16 @@ Route::controller(PatientController::class)->group(function () {
     Route::get('admin/patient/edit/{id}','edit')->name('admin.patient.edit');
     Route::put('admin/patient/update','update')->name('admin.patient.update');
     Route::delete('admin/patient/delete','delete')->name('admin.patient.delete');
+});
+
+Route::controller(DoctorController::class)->group(function () {
+    Route::get('admin/doctor','index')->name('admin.doctor');
+    Route::get('admin/doctor/detail/{id}','view_detail')->name('admin.doctor.detail');
+    Route::get('admin/doctor/add','create')->name('admin.doctor.add');
+    Route::post('admin/doctor/store','store')->name('admin.doctor.store');
+    Route::get('admin/doctor/edit/{id}','edit')->name('admin.doctor.edit');
+    Route::put('admin/doctor/update','update')->name('admin.doctor.update');
+    Route::delete('admin/doctor/delete','delete')->name('admin.doctor.delete');
 });
 
 Route::get('/', function() {

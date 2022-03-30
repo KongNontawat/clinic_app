@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin/patient_detail.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/patient.css') }}">
 
 <style>
   input,
@@ -16,6 +16,9 @@
   label {
     color: #6D777F !important;
     margin-bottom: 0 !important;
+  }
+  .select2-container--default {
+    background-color: #fff!important;
   }
 </style>
 @endsection
@@ -54,7 +57,7 @@
         <div class="row gx-2">
 
           <!-- Profile Card -->
-          <div class="col-md-4 col-xl-3">
+          <div class="col-md-4 col-xxl-3">
             <div class="card-style mb-30 px-1 px-sm-2 px-md-3">
               <!-- <img
                 src="https://previews.123rf.com/images/djvstock/djvstock1705/djvstock170517800/79273286-nurse-avatar-profile-icon-vector-illustration-graphic-design.jpg"
@@ -100,7 +103,7 @@
                     <td class="">{{($patient->drug_allergies)?$patient->drug_allergies :'-'}}</td>
                   </tr>
                   <tr>
-                    <th class=" fw-normal">CONGENITAL_DISEASE:</th>
+                    <th class=" fw-normal small">CONGENITAL_DISEASE:</th>
                     <td class="">{{($patient->congenital_disease)?$patient->congenital_disease :'-'}}</td>
                   </tr>
                   <tr>
@@ -113,7 +116,7 @@
           </div>
 
           <!-- Detail Card -->
-          <div class="col-md-8 col-xl-9">
+          <div class="col-md-8 col-xxl-9">
             <nav class="ms-1">
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active py-3 px-2 px-md-3" id="nav-general-tab" data-bs-toggle="tab" data-bs-target="#nav-general" type="button" role="tab" aria-controls="nav-general" aria-selected="true"><i class="fa-solid fa-user"></i> General</button>
@@ -243,12 +246,12 @@
                     <div class="col-sm-6 col-md-3 d-flex align-items-center">
                       <div class="input-style-1 d-flex mt-2">
                         <div class="form-check radio-style me-4">
-                          <input class="form-check-input" type="radio" value="male" id="radio-1" name="sex" required="required" {{ ($patient->sex == 'male') ? 'checked' :''}} disabled>
+                          <input class="form-check-input" type="radio" value="ชาย" id="radio-1" name="sex" required="required" {{ ($patient->sex == 'ชาย') ? 'checked' :''}} disabled>
                           <label class="form-check-label" for="radio-1">
                             <i class="fa-solid fa-mars"></i> ชาย  </label>
                         </div>
                         <div class="form-check radio-style me-4">
-                          <input class="form-check-input" type="radio" value="female" id="radio-2" name="sex" {{ ($patient->sex == 'female') ?'checked' :''}} disabled>
+                          <input class="form-check-input" type="radio" value="หญิง" id="radio-2" name="sex" {{ ($patient->sex == 'หญิง') ?'checked' :''}} disabled>
                           <label class="form-check-label" for="radio-2">
                             <i class="fa-solid fa-venus"></i> หญิง  </label>
                         </div>

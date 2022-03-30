@@ -69,8 +69,8 @@
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="#">
+      <li class="nav-item doctor">
+        <a href="{{route('admin.doctor')}}">
           <span class="icon">
           <i class="fa-solid fa-user-doctor"></i>
           </span>

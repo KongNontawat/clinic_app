@@ -40,13 +40,14 @@
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
     color: #212529;
-    background-color: #fff;
+    background-color: #f8f8f8;
     /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); */
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
 }
 
-.ck-editor__editable {
-    min-height: 150!important;
+.ck-content {
+    min-height: 200!important;
 }
+

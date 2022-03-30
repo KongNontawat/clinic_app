@@ -2,7 +2,7 @@
 @section('style')
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin/patient.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/doctor.css') }}">
 
 @endsection
 @section('content')
@@ -19,9 +19,9 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="title d-flex align-items-center flex-wrap mb-30">
-              <h2 class=""><a href=""><small class="text-muted"><i class="fa-solid fa-users"></i> Patients /
+              <h2 class=""><a href=""><small class="text-muted"><i class="fa-solid fa-users"></i> Doctors /
                   </small></a> Add New
-                Patient</h2>
+                Doctor</h2>
             </div>
           </div>
           <!-- end col -->
@@ -43,7 +43,7 @@
           </ul>
         </div>
         @endif
-        <form action="{{route('admin.patient.store')}}" id="form_add_patient" method="post"
+        <form action="{{route('admin.doctor.store')}}" id="form_add_doctor" method="post"
           enctype="multipart/form-data">
           @csrf
           @method('post')
@@ -54,13 +54,13 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active py-3 px-3 px-md-4" id="nav-general-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-general" type="button" role="tab" aria-controls="nav-general"
-                    aria-selected="true"><i class="fa-solid fa-user-pen"></i> Patient General Info</button>
-                  <button class="nav-link py-3 px-3 px-md-4" id="nav-medical-info-tab" data-bs-toggle="tab"
+                    aria-selected="true"><i class="fa-solid fa-user-pen"></i> Doctor General Info</button>
+                  <!-- <button class="nav-link py-3 px-3 px-md-4" id="nav-medical-info-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-medical-info" type="button" role="tab" aria-controls="nav-medical-info"
-                    aria-selected="false"><i class="fa-solid fa-book-medical"></i> Patient Medical Info</button>
+                    aria-selected="false"><i class="fa-solid fa-book-medical"></i> Doctor Medical Info</button>
                   <button class="nav-link py-3 px-3 px-md-4" id="nav-emc-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-emc" type="button" role="tab" aria-controls="nav-emc" aria-selected="false"><i
-                      class="fa-solid fa-triangle-exclamation"></i> Emergency Contact</button>
+                      class="fa-solid fa-triangle-exclamation"></i> -</button> -->
                 </div>
               </nav>
 
@@ -70,7 +70,7 @@
                   <!-- Tab 1 -->
                   <div class="tab-pane fade show active" id="nav-general" role="tabpanel"
                     aria-labelledby="nav-general-tab">
-                    <h4 class="mb-25 text-primary"><i class="fa-solid fa-user-pen"></i> Add New Patients </h4>
+                    <h4 class="mb-25 text-primary"><i class="fa-solid fa-user-pen"></i> Add New Doctors </h4>
                     <div class="row">
 
                       <div class="col-sm-6 col-md-2">
@@ -78,11 +78,13 @@
                           <label>Title <span class="text-danger">*</span></label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="title">
+                            <option value="นาย" {{ (old('title') == 'นาย') ? "selected" :""}}>นาย</option>
                               <option value="นาง" {{ (old('title') == 'นาง') ? "selected" :""}}>นาง</option>
-                              <option value="นาย" {{ (old('title') == 'นาย') ? "selected" :""}}>นาย</option>
                               <option value="นางสาว" {{ (old('title') == 'นางสาว') ? "selected" :""}}>นางสาว</option>
-                              <option value="ดช." {{ (old('title') == 'ดช.') ? "selected" :""}}>ดช.</option>
-                              <option value="ดญ." {{ (old('title') == 'ดญ.') ? "selected" :""}}>ดญ.</option>
+                              <option value="ดร." {{ (old('title') == 'ดร.') ? "selected" :""}}>ดร.</option>
+                              <option value="นพ." {{ (old('title') == 'นพ.') ? "selected" :""}}>นพ.</option>
+                              <option value="พญ." {{ (old('title') == 'พญ.') ? "selected" :""}}>พญ.</option>
+
                             </select>
                             @error('title')
                             <small class="text-danger">
@@ -94,7 +96,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6 col-md-5">
                         <div class="input-style-1">
                           <label>First Name <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('fname')}}" name="fname" required="required"
@@ -109,7 +111,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6 col-md-5">
                         <div class="input-style-1">
                           <label>Last Name <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('lname')}}" name="lname" required="required"
@@ -123,7 +125,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-2">
+                      <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Nick Name </label>
                           <input type="text" value="{{old('nname')}}" name="nname" data-parsley-maxlength="50"
@@ -137,23 +139,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
-                        <div class="input-style-1">
-                          <label><i class="fa-solid fa-address-card"></i> ID Card Number <span
-                              class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('id_card')}}" placeholder="Please enter your ID Card Number"
-                            name="id_card" required="required" data-parsley-minlength="17" data-parsley-maxlength="17"
-                            id="id_card" class="form-control">
-                            @error('id_card')
-                            <small class="text-danger">
-                            {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
-                      </div>
-                      <!-- end col -->
-
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6 col-md-6">
                         <div class="input-style-1">
                           <label>Date of Birth <span class="text-danger">*</span> </label>
                           <input type="date" required="required" id="dob" name="birthdate" value="{{old('birthdate')}}">
@@ -166,11 +152,11 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Age <span class="text-danger">*</span> </label>
                           <input type="number" value="{{old('age')}}" placeholder="Age automatically calculate"
-                            name="age" style="max-width: 200px;" required="required" data-parsley-minlength="0"
+                            name="age" required="required" data-parsley-minlength="0"
                             data-parsley-maxlength="100" id="age" class="form-control">
                             @error('age')
                             <small class="text-danger">
@@ -181,7 +167,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-3 d-flex align-items-center">
+                      <div class="col-sm-6 col-md-4 d-flex align-items-center">
                         <div class="input-style-1 d-flex mt-2">
                           <div class="form-check radio-style me-4">
                             <input class="form-check-input" type="radio" value="ชาย" id="radio-1" name="sex"
@@ -204,7 +190,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-3">
+                      <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Phone Number <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('phone')}}" placeholder="Please enter your Phone Number"
@@ -217,22 +203,8 @@
                             @enderror
                         </div>
                       </div>
-                      <!-- end col -->
-                      <div class="col-sm-6 col-md-3">
-                        <div class="input-style-1">
-                          <label>Email </label>
-                          <input type="email" value="{{old('email')}}" placeholder="Please enter your Email"
-                            name="email" data-parsley-trigger="change" data-parsley-maxlength="255"
-                            class="form-control">
-                            @error('email')
-                            <small class="text-danger">
-                            {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-sm-6 col-md-3">
+
+                      <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>ID Line</label>
                           <input type="text" value="{{old('id_line')}}" name="id_line" data-parsley-maxlength="255"
@@ -246,12 +218,14 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
+                      <!-- end col -->
+                      <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Nationality </label>
-                          <input type="text" value="ไทย" name="nationality" class="form-control"
-                            placeholder="Please enter your Nationality">
-                            @error('nationality')
+                          <label>Email <span class="text-danger">*</span></label>
+                          <input type="email" value="{{old('email')}}" placeholder="Please enter your Email"
+                            name="email" data-parsley-trigger="change" data-parsley-maxlength="255"
+                            class="form-control">
+                            @error('email')
                             <small class="text-danger">
                             {{ $message }}
                             </small>
@@ -260,26 +234,12 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-4">
+                      <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label>Race </label>
-                          <input type="text" value="ไทย" name="race" class="form-control"
-                            placeholder="Please enter your Race">
-                            @error('race')
-                            <small class="text-danger">
-                            {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
-                      </div>
-                      <!-- end col -->
-
-                      <div class="col-sm-6 col-md-4">
-                        <div class="input-style-1">
-                          <label>Religion </label>
-                          <input type="text" value="พุทธ" name="religion" class="form-control"
-                            placeholder="Please enter your Religion">
-                            @error('religion')
+                          <label>Password <span class="text-danger">*</span> </label>
+                          <input type="text" value="{{old('password')}}" name="password" data-parsley-maxlength="255"
+                            class="form-control" placeholder="Please enter user Password">
+                            @error('password')
                             <small class="text-danger">
                             {{ $message }}
                             </small>
@@ -378,7 +338,7 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-3">
+                      <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Country <span class="text-danger">*</span> </label>
                           <input type="text" value="ไทย" placeholder="Please enter your country" name="country"
@@ -392,12 +352,12 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-3">
+                      <div class="col-sm-6">
                         <div class="input-style-1">
-                          <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
-                          <input type="text" value="{{old('occupation')}}" placeholder="Please enter your Occupation"
-                            name="occupation" class="form-control">
-                            @error('occupation')
+                          <label> Specialize </label>
+                          <input type="text" value="{{old('specialize')}}" placeholder="Please enter doctor specialize"
+                            name="specialize" class="form-control">
+                            @error('specialize')
                             <small class="text-danger">
                             {{ $message }}
                             </small>
@@ -406,28 +366,45 @@
                       </div>
                       <!-- end col -->
 
-                      <div class="col-sm-6 col-md-3">
-                        <div class="select-style-1">
-                          <label><i class="fa-solid fa-people-group"></i> Member Group <span
-                              class="text-danger">*</span> </label>
-                          <div class="select-position">
-                            <select class="light-bg text-capitalize" required="required" name="group_id">
-                              @if(count($patient_group) > 0)
-                              @foreach($patient_group as $group)
-                              <option class="text-capitalize" value="{{$group->patient_group_id}}"
-                                {{ (old('group_id') == $group->patient_group_id) ? "selected" :""}}>{{$group->group_name}}
-                              </option>
-                              @endforeach
-                              @else
-                              <option value="1">Normal</option>
-                              @endif
-                            </select>
-                            @error('group_id')
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label> Position </label>
+                          <input type="text" value="{{old('position')}}" placeholder="Please enter doctor position"
+                            name="position" class="form-control">
+                            @error('position')
                             <small class="text-danger">
                             {{ $message }}
                             </small>
                             @enderror
-                          </div>
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-sm-6">
+                        <div class="input-style-1">
+                          <label> In Hospital </label>
+                          <input type="text" value="{{old('in_hospital')}}" placeholder="Please enter doctor in hospital"
+                            name="in_hospital" class="form-control">
+                            @error('in_hospital')
+                            <small class="text-danger">
+                            {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                      </div>
+                      <!-- end col -->
+
+                      <div class="col-12">
+                        <div class="input-style-1">
+                          <label>About Me </label>
+                          <textarea name="aboutme" placeholder="Please enter doctor aboutme" id="aboutme_editor" cols="30" rows="4"
+                            required="required"
+                            class="form-control">{{(old('aboutme')) ? old('aboutme') : "-"}}</textarea>
+                            @error('aboutme')
+                            <small class="text-danger">
+                            {{ $message }}
+                            </small>
+                            @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -460,7 +437,7 @@
                   <!-- Tab 2 -->
                   <div class="tab-pane fade" id="nav-medical-info" role="tabpanel"
                     aria-labelledby="nav-medical-info-tab">
-                    <h4 class="mb-25 text-success"> <i class="fa-solid fa-book-medical"></i> Patient Medical Info </h4>
+                    <h4 class="mb-25 text-success"> <i class="fa-solid fa-book-medical"></i> doctor Medical Info </h4>
                     <div class="row">
 
                       <div class="col-sm-6 col-md-4">
@@ -1150,5 +1127,5 @@
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
-<script src="{{ asset('js/admin/patient/patient_add.js') }}"></script>
+<script src="{{ asset('js/admin/doctor/doctor_add.js') }}"></script>
 @endsection

@@ -208,6 +208,7 @@ class PatientController extends Controller
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
+			DB::commit();
 			DB::rollback();
 			return redirect()->back();
 		}
@@ -215,7 +216,6 @@ class PatientController extends Controller
 
 	public function update(Request $req)
 	{
-		$patient_id = $req->patient_id;
 
 		// Validation Main Patient
 		$validated_patient = $req->validate([
@@ -281,7 +281,6 @@ class PatientController extends Controller
 					'email' => $req->email,
 					'id_line' => $req->id_line,
 					'phone' => $req->phone,
-					'address_id' => $req->address_id,
 					'occupation' => $req->occupation,
 					'image' => $image,
 					'patient_status' => $req->patient_status
@@ -361,18 +360,19 @@ class PatientController extends Controller
 			return redirect(route('admin.patient.detail',$req->patient_id));
 		} catch (Exception  $e) {
 			$logs_patient = DB::table('logs_patient')->insert([
-				'patient_id' => $patient_id,
-				'activity' => 'Fail! Update Info ID:' . $patient_id,
+				'patient_id' => $req->patient_id,
+				'activity' => 'Fail! Update Info',
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
-				'activity' => 'Fail! Update Info Patient ID:' . $patient_id,
+				'activity' => 'Fail! Update Info Patient',
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
+			DB::commit();
 			DB::rollback();
 			return redirect()->back();
 		}
@@ -442,6 +442,7 @@ class PatientController extends Controller
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
+			DB::commit();
 			DB::rollback();
 			return redirect()->back();
 		}

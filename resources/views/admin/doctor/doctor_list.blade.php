@@ -19,13 +19,13 @@
         <div class="row align-items-center mb-20">
           <div class="col-md-6">
             <div class="title">
-              <h2 class=""><a href=""><i class="fa-solid fa-users"></i> Patients</a></h2>
+              <h2 class=""><a href=""><i class="fa-solid fa-user-doctor"></i> Doctors</a></h2>
             </div>
           </div>
           <!-- end col -->
           <div class="col-md-6 text-end">
-            <a href="{{route('admin.patient.add')}}" class="main-btn primary-btn btn-hover btn-sm">
-              <i class="fa-solid fa-plus mr-5"></i> Add new Patient
+            <a href="{{route('admin.doctor.add')}}" class="main-btn primary-btn btn-hover btn-sm">
+              <i class="fa-solid fa-plus mr-5"></i> Add new Doctor
             </a>
           </div><!-- end col -->
         </div> <!-- end row -->
@@ -39,21 +39,14 @@
               <form action="" class="mb-4">
                 <div class="row gy-3 gx-2">
 
-                  <div class="col-sm-6 col-md-4 col-xl-2">
+                  <div class="col-sm-6 col-md-4">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name">
                       <span class="icon"> <i class="fa-solid fa-magnifying-glass me-1"></i></span>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-4 col-xl-2">
-                    <div class="input-style-3 mb-0">
-                      <input type="text" placeholder="ID Card Number" class="bg-transparent" id="search_idcard">
-                      <span class="icon"><i class="fa-solid fa-magnifying-glass-plus me-1"></i></span>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-xl-2">
+                  <!-- <div class="col-sm-6 col-md-3">
                     <div class="form-floating">
                       <select class="form-select" id="search_group" aria-label="Floating label select example">
                         <option selected value="">All</option>
@@ -65,37 +58,6 @@
                       </select>
                       <label for="search_group"><i class="fa-solid fa-elevator me-1"></i> Member Group</label>
                     </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-xl-2">
-                    <div class="form-floating">
-                      <select class="form-select" id="search_status" aria-label="Floating label select example">
-                        <option selected value="">All</option>
-                        <option value="normal" class="text-success">Normal</option>
-                        <option value="abnormal" class="text-danger">Abnormal</option>
-                      </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
-                    <div class="form-floating">
-                      <input type="text" id="min" name="min" class="form-control bg-transparent">
-                      <label for="floatingSelect"><i class="fa-solid fa-clock me-1"></i> Start Date</label>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
-                    <div class="form-floating">
-                      <input type="text" id="max" name="max" class="form-control bg-transparent">
-                      <label for="floatingSelect"><i class="fa-solid fa-clock"></i> End Date</label>
-                    </div>
-                  </div>
-
-                  <!-- <div class="col-sm-6 col-md-4 col-xl-2 text-end">
-                    <a href="#!" class="main-btn light-btn btn-hover border col-12">
-                      <i class="fa-solid fa-magnifying-glass mr-5"></i> Search
-                    </a>
                   </div> -->
 
                 </div>
@@ -106,32 +68,23 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th class="text-center">
+                      <th class="text-center" style="width: 5%;">
                         <h6>ID.</h6>
+                      </th>
+                      <th style="width: 10%;">
+                        <h6></h6>
                       </th>
                       <th>
                         <h6>Name</h6>
                       </th>
                       <th>
-                        <h6>ID Card</h6>
-                      </th>
-                      <th>
-                        <h6>Sex</h6>
-                      </th>
-                      <th>
-                        <h6>Age</h6>
-                      </th>
-                      <th>
                         <h6>Phone</h6>
                       </th>
                       <th>
-                        <h6>Line</h6>
+                        <h6>Email</h6>
                       </th>
                       <th>
-                        <h6>Group</h6>
-                      </th>
-                      <th>
-                        <h6>Created_at</h6>
+                        <h6>Position</h6>
                       </th>
                       <th>
                         <h6>Status</h6>
@@ -143,36 +96,18 @@
                     <!-- end table row-->
                   </thead>
                   <tbody>
-                    @foreach($patients AS $patient)
+                    @foreach($doctors as $doctor)
                     <tr>
-                      <td><a href="{{route('admin.patient.detail',$patient->patient_id)}}" class="text-primary">{{$patient->opd_id}}</a> </td>
-                      <td>{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</td>
-                      <td>{{$patient->id_card}}</td>
+                      <td><a href="{{route('admin.doctor.detail',$doctor->doctor_id)}}" class="text-primary">{{$doctor->doctor_id}}</a></td>
+                      <td class="text-center"><img src="{{url('image/uploads/doctor/',$doctor->image)}}" class="img-fluid" alt=""></td>
+                      <td class="ps-2">{{$doctor->title}} {{$doctor->fname}} {{$doctor->lname}}</td>
                       <td>
-                        @if($patient->sex == 'ชาย')
-                        <div class="label-icon sky text-capitalize">
-                          <i class="fa-solid fa-mars me-1"></i> {{$patient->sex}}
-                        </div>
-                        @elseif($patient->sex == 'หญิง')
-                        <div class="label-icon orange text-capitalize">
-                          <i class="fa-solid fa-venus me-1"></i> {{$patient->sex}}
-                        </div>
-                        @endif
+                      {{$doctor->phone}}
                       </td>
-                      <td class="ps-2">{{\Carbon\Carbon::parse($patient->birthdate)->diff(\Carbon\Carbon ::now())->y}}</td>
-                      <!-- <td>{{substr($patient->phone,0,3)}}-{{substr($patient->phone,3,3)}}-{{substr($patient->phone,6)}}</td> -->
-                      <td>{{$patient->phone}}</td>
+                      <td>{{$doctor->email}}</td>
+                      <td>{{$doctor->position}}</td>
                       <td>
-                        @if($patient->id_line == null)
-                        <i class="fa-solid fa-triangle-exclamation fs-5 text-warning"></i>
-                        @else
-                        <i class="fa-solid fa-check fs-5 text-success"></i>
-                        @endif
-                      </td>
-                      <td class="text-success text-capitalize">{{$patient->group_name}}</td>
-                      <td>{{\Carbon\Carbon::parse($patient->created_at)->format('d-m-Y')}}</td>
-                      <td>
-                        @if($patient->patient_status == 1)
+                        @if($doctor->doctor_status == 1)
                         <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
                         @else
                         <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
@@ -185,17 +120,17 @@
                           </a>
 
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{route('admin.patient.detail',$patient->patient_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin.doctor.detail',$doctor->doctor_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             </li>
-                            <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$patient->patient_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
+                            <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$doctor->doctor_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
 
                           </ul>
                         </div>
                       </td>
                     </tr>
-                    <!-- ========== header end ========== -->
                     @endforeach
+                    <!-- ========== header end ========== -->
                   </tbody>
                 </table>
                 <!-- end table -->
@@ -210,7 +145,7 @@
       <!-- ========== tables-wrapper end ========== -->
 
       <!-- Import And Export -->
-      <div class="card-style">
+      <!-- <div class="card-style">
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <span class="me-1"><i class="fa-solid fa-file-export"></i> Export To : </span>
@@ -236,7 +171,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div><!-- end container-fluid -->
   </section>
@@ -251,7 +186,7 @@
   <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="modal_deleteLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content card-style text-center">
-        <form action="{{ route('admin.patient.delete') }}" method="post">
+        <form action="{{ route('admin.doctor.delete') }}" method="post">
           @csrf
           @method('delete')
           <div class="modal-body">
@@ -262,7 +197,7 @@
               <h2 class="mb-15">Delete Account</h2>
               <p class="text-sm text-medium">
                 Are you sure you want delete Account ?
-                <input type="hidden" name="patient_id" id="delete_patient_id" value="">
+                <input type="hidden" name="doctor_id" id="delete_doctor_id" value="">
               </p>
             </div>
             <div class="action d-flex flex-wrap justify-content-center">
@@ -283,5 +218,5 @@
 <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
-<script src="{{ asset('js/admin/patient/patient.js') }}"></script>
+<script src="{{ asset('js/admin/doctor/doctor.js') }}"></script>
 @endsection

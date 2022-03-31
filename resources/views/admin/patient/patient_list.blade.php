@@ -6,6 +6,7 @@
 
 @endsection
 @section('content')
+@include('sweetalert::alert')
 <!-- ======== main-wrapper start =========== -->
 <main class="main-wrapper">
 
@@ -145,7 +146,7 @@
                   <tbody>
                     @foreach($patients AS $patient)
                     <tr>
-                      <td><a href="{{route('admin.patient.detail',$patient->patient_id)}}" class="text-primary">{{$patient->opd_id}}</a> </td>
+                      <td class="text-center"><a href="{{route('admin.patient.detail',$patient->patient_id)}}" class="text-primary">{{$patient->opd_id}}</a> </td>
                       <td>{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</td>
                       <td>{{$patient->id_card}}</td>
                       <td>

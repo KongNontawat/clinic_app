@@ -8,7 +8,7 @@ $(function () {
                 previous: "<i class='fa-solid fa-angles-left'></i>",
             },
         },
-        lengthMenu: [5, 10, 75, 100],
+        lengthMenu: [5, 10, 15, 20, 30, 50, 100],
         search: {
             caseInsensitive: true,
         },

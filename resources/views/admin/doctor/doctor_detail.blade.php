@@ -24,6 +24,7 @@
 </style>
 @endsection
 @section('content')
+@include('sweetalert::alert')
 <!-- ======== main-wrapper start =========== -->
 
 <main class="main-wrapper">
@@ -38,7 +39,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="title d-flex align-items-center flex-wrap mb-30">
-              <h2 class="h2"> <a href=""><small class="text-muted"><i class="fa-solid fa-users"></i> doctors /
+              <h2 class="h2"> <a href=""><small class="text-muted"><i class="fa-solid fa-user-doctor"></i> doctors /
                   </small></a>
                 doctor Details</h2>
             </div>
@@ -420,8 +421,8 @@
                           <label><i class="fa-solid fa-clipboard-check"></i> doctor Status </label>
                           <div class="select-position">
                             <select class="light-bg text-capitalize" name="doctor_status" disabled>
-                              <option class="text-capitalize" value="1">Normal</option>
-                              <option class="text-capitalize" value="0">Abnormal</option>
+                              <option {{($doctor->doctor_status == '1')?'selected':''}} class="text-capitalize" value="1">Normal</option>
+                              <option {{($doctor->doctor_status == '0')?'selected':''}} class="text-capitalize" value="0">Abnormal</option>
                             </select>
                             @error('doctor_status')
                             <small class="text-danger">

@@ -6,6 +6,7 @@
 
 @endsection
 @section('content')
+@include('sweetalert::alert')
 <!-- ======== main-wrapper start =========== -->
 <main class="main-wrapper">
 
@@ -1115,10 +1116,10 @@
                 <div class="row">
                   <div class="col-12 mt-4">
                     <div class="button-group d-flex flex-wrap align-items-end">
-                      <button class="main-btn danger-btn p-2 mx-2 mb-3">
+                                            <a href="{{ url()->previous() }}" class="main-btn danger-btn p-2 mx-2 mb-3">
                         <i class="fa-solid fa-xmark"></i> Cancel
-                      </button>
-                      <button class="main-btn light-btn p-2 mx-2 mb-3">
+                      </a>
+                      <button  type="reset" class="main-btn light-btn p-2 mx-2 mb-3">
                         <i class="fa-solid fa-arrow-rotate-left"></i> Reset
                       </button>
                       <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">

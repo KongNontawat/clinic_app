@@ -61,11 +61,11 @@
         </a>
         <ul id="menu-item-patient" class="collapse dropdown-nav">
           <li>
-            <a href="{{route('admin.patient')}}" class="menu-item-patient"> Patient List </a>
+            <a href="{{route('admin.patient')}}" class="menu-item-patient"><i class="fa-solid fa-list-ul me-1"></i> Patient List </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#!"> Member Group </a>
-          </li>
+          </li> -->
         </ul>
       </li>
 
@@ -78,13 +78,39 @@
         </a>
       </li>
 
-      <li class="nav-item ">
+      <li class="nav-item employee">
+        <a href="{{route('admin.employee')}}">
+          <span class="icon">
+          <i class="fa-solid fa-user-nurse"></i>
+          </span>
+          <span class="text">Employee</span>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item ">
         <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_3" aria-controls="ddmenu_3" aria-expanded="false" aria-label="Toggle navigation">
           <span class="icon">
           <i class="fa-solid fa-circle-user"></i>
           </span>
           <span class="text">User</span>
         </a>
+      </li> -->
+
+      <li class="nav-item nav-item-has-children user">
+        <a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item-user">
+          <span class="icon">
+            <i class="fa-solid fa-circle-user"></i>
+          </span>
+          <span class="text">User</span>
+        </a>
+        <ul id="menu-item-user" class="collapse dropdown-nav">
+          <li>
+            <a href="{{route('admin.user')}}" class="menu-item-user"><i class="fa-solid fa-list-ul me-1"></i> User List </a>
+          </li>
+          <li>
+            <a href="{{route('admin.user.logs')}}" class="menu-item-user-log"><i class="fa-solid fa-user-gear me-1"></i> User Logs </a>
+          </li>
+        </ul>
       </li>
 
       <!-- <li class="nav-item ">

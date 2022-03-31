@@ -1,4 +1,9 @@
 $(function () {
+    $(".patient").addClass("active");
+    $(".patient ul").addClass("show ");
+    $(".patient a.menu-item-patient").addClass("active");
+
+    
     var minDate, maxDate;
 
     // Custom filtering function which will search data in column four between two values
@@ -17,10 +22,6 @@ $(function () {
         }
         return false;
     });
-
-    $(".patient").addClass("active");
-    $(".patient ul").addClass("show ");
-    $(".patient a.menu-item-patient").addClass("active");
 
     $("#min").flatpickr({
         altInput: true,
@@ -43,7 +44,7 @@ $(function () {
                 previous: "<i class='fa-solid fa-angles-left'></i>",
             },
         },
-        lengthMenu: [5, 10, 75, 100],
+        lengthMenu: [5, 10, 15, 20, 30, 50, 100],
         search: {
             caseInsensitive: true,
         },

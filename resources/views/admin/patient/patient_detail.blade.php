@@ -23,6 +23,7 @@
 </style>
 @endsection
 @section('content')
+@include('sweetalert::alert')
 <!-- ======== main-wrapper start =========== -->
 
 <main class="main-wrapper">

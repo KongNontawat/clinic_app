@@ -8,13 +8,14 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class PatientController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware(['auth', 'alert']);
 	}
 
 	public function index()
@@ -58,10 +59,9 @@ class PatientController extends Controller
 
 	public function store(Request $req)
 	{
-		$patient_id = $req->patient_id;
 		// return dd($req);
 		// Validation Main Patient
-		$validated_patient = $req->validate([
+		$validator = Validator::make($req->all(), [
 			'id_card' => 'required|max:17|min:13',
 			'group_id' => 'required',
 			'fname' => 'required',
@@ -71,6 +71,13 @@ class PatientController extends Controller
 			'age' => 'min:0|max:3',
 			'phone' => 'required|max:13|min:9'
 		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withErrors($validator->errors()->getMessages())
+				->with('msg_error', $validator->errors()->all())
+				->withInput();
+		}
 
 		DB::beginTransaction();
 		try {
@@ -193,24 +200,18 @@ class PatientController extends Controller
 			]);
 
 			DB::commit();
-			return redirect(route('admin.patient.detail',$patient->patient_id));
+			return redirect(route('admin.patient.detail', $patient->patient_id))->with('msg_success', 'Created Patient successfully!');
 		} catch (Exception  $e) {
-			$logs_patient = DB::table('logs_patient')->insert([
-				'patient_id' => $patient_id,
-				'activity' => 'Fail! Create New Account ID:' . $patient_id,
-				'logs_detail' => 'something is wrong',
-				'logs_status' => 'fail'
-			]);
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
-				'activity' => 'Fail! Create Account Patient ID:' . $patient_id,
+				'activity' => 'Fail! Create Account Patient',
 				'logs_detail' => 'something is wrong',
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
 			DB::rollback();
-			return redirect()->back();
+			return redirect()->back()->with('msg_error', 'Created Patient Failed!');
 		}
 	}
 
@@ -218,7 +219,7 @@ class PatientController extends Controller
 	{
 
 		// Validation Main Patient
-		$validated_patient = $req->validate([
+		$validator = Validator::make($req->all(), [
 			'id_card' => 'required|max:17|min:13',
 			'group_id' => 'required',
 			'fname' => 'required',
@@ -228,6 +229,13 @@ class PatientController extends Controller
 			'age' => 'min:0|max:3',
 			'phone' => 'required|max:13|min:9'
 		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withErrors($validator->errors()->getMessages())
+				->with('msg_error', $validator->errors()->all())
+				->withInput();
+		}
 
 		DB::beginTransaction();
 		try {
@@ -357,7 +365,7 @@ class PatientController extends Controller
 			]);
 
 			DB::commit();
-			return redirect(route('admin.patient.detail',$req->patient_id));
+			return redirect(route('admin.patient.detail', $req->patient_id))->with('msg_success', 'Updated Patient successfully!');
 		} catch (Exception  $e) {
 			$logs_patient = DB::table('logs_patient')->insert([
 				'patient_id' => $req->patient_id,
@@ -374,7 +382,7 @@ class PatientController extends Controller
 			]);
 			DB::commit();
 			DB::rollback();
-			return redirect()->back();
+			return redirect()->back()->with('msg_error', 'Updated Patient Failed!');
 		}
 	}
 
@@ -427,7 +435,7 @@ class PatientController extends Controller
 				'logs_status' => 'success'
 			]);
 			DB::commit();
-			return redirect(route('admin.patient'));
+			return redirect(route('admin.patient'))->with('msg_success', 'Deleted Patient successfully!');
 		} catch (Exception  $e) {
 			$logs_patient = DB::table('logs_patient')->insert([
 				'patient_id' => $req->patient_id,
@@ -444,7 +452,7 @@ class PatientController extends Controller
 			]);
 			DB::commit();
 			DB::rollback();
-			return redirect()->back();
+			return redirect()->back()->with('msg_error', 'Deleted Patient Failed!');
 		}
 	}
 }

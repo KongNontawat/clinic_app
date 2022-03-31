@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
   @include('admin.components.sidebar')
   <div class="overlay"></div>
   @yield('content')

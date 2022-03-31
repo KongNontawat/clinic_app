@@ -16,4 +16,12 @@ var loadFile = function(event) {
   }
 };
 
+var loadFile2 = function(event) {
+  var output = document.querySelector('.image-output');
+  output.src = URL.createObjectURL(event.target.files[0]);
+  output.onload = function() {
+    URL.revokeObjectURL(output.src) // free memory
+  }
+};
+
 

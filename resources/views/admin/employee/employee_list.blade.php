@@ -1,0 +1,181 @@
+@extends('admin.layouts.app')
+
+@section('style')
+<link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/datatables.net/dataTables.dateTime.min.css') }}">
+
+@endsection
+@section('content')
+@include('sweetalert::alert')
+
+<!-- ======== main-wrapper start =========== -->
+<main class="main-wrapper">
+  <!-- ========== section start ========== -->
+  <section class="section">
+    <!-- Navbar -->
+    @include('admin.components.navbar')
+    <div class="container-fluid">
+      <!-- ========== title-wrapper start ========== -->
+      <div class="title-wrapper pt-30">
+        <div class="row align-items-center mb-20">
+          <div class="col-md-6">
+            <div class="title">
+              <h2 class=""><a href=""><i class="fa-solid fa-user-nurse"></i> Employees</a></h2>
+            </div>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 text-end">
+            <a href="{{route('admin.employee.add')}}" class="main-btn primary-btn btn-hover btn-sm">
+              <i class="fa-solid fa-plus mr-5"></i> Add new Employee
+            </a>
+          </div><!-- end col -->
+        </div> <!-- end row -->
+      </div><!-- title-wrapper -->
+
+      <!-- ========== tables-wrapper start ========== -->
+      <div class="tables-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card-style mb-3">
+              <form action="" class="mb-4">
+                <div class="row gy-3 gx-2">
+
+                  <div class="col-sm-6 col-md-4">
+                    <div class="input-style-3 mb-0">
+                      <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name">
+                      <span class="icon"> <i class="fa-solid fa-magnifying-glass me-1"></i></span>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+              <!-- Table  -->
+              <div class="table-wrapper table-responsive pb-3">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 5%;">
+                        <h6>ID.</h6>
+                      </th>
+                      <th style="width: 10%;">
+                        <h6></h6>
+                      </th>
+                      <th>
+                        <h6>Name</h6>
+                      </th>
+                      <th>
+                        <h6>Phone</h6>
+                      </th>
+                      <th>
+                        <h6>Email</h6>
+                      </th>
+                      <th>
+                        <h6>Position</h6>
+                      </th>
+                      <th>
+                        <h6>Status</h6>
+                      </th>
+                      <th>
+                        <h6>Action</h6>
+                      </th>
+                    </tr>
+                    <!-- end table row-->
+                  </thead>
+                  <tbody>
+                    @foreach($employees as $employee)
+                    <tr>
+                      <td class="text-center"><a href="{{route('admin.employee.detail',$employee->employee_id)}}" class="text-primary">{{$employee->employee_id}}</a></td>
+                      <td class="text-center"><img src="{{url('image/uploads/employee/',$employee->image)}}" class="img-fluid" alt=""></td>
+                      <td class="ps-2">{{$employee->title}} {{$employee->fname}} {{$employee->lname}}</td>
+                      <td>
+                        {{$employee->phone}}
+                      </td>
+                      <td>{{$employee->email}}</td>
+                      <td>{{$employee->position}}</td>
+                      <td>
+                        @if($employee->employee_status == 1)
+                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
+                        @else
+                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
+                        @endif
+                      </td>
+                      <td class="text-center">
+                        <div class="dropdown dropstart">
+                          <a class="text-muted dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                          </a>
+
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{route('admin.employee.detail',$employee->employee_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            </li>
+                            <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$employee->employee_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
+
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    @endforeach
+                    <!-- ========== header end ========== -->
+                  </tbody>
+                </table>
+                <!-- end table -->
+              </div>
+            </div>
+            <!-- end card -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- ========== tables-wrapper end ========== -->
+    </div><!-- end container-fluid -->
+  </section>
+  <!-- ========== section end ========== -->
+
+  <!-- Footer -->
+  @include('admin.components.footer')
+</main>
+<!-- ======== main-wrapper end =========== -->
+<!-- Modal Delete-->
+<div class="follow-up-modal">
+  <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="modal_deleteLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content card-style text-center">
+        <form action="{{ route('admin.employee.delete') }}" method="post">
+          @csrf
+          @method('delete')
+          <div class="modal-body">
+            <div class="image mb-30">
+              <i class="fa-solid fa-trash" style="font-size: 72px;"></i>
+            </div>
+            <div class="content mb-30">
+              <h2 class="mb-15">Delete Account</h2>
+              <p class="text-sm text-medium">
+                Are you sure you want delete Account ?
+                <input type="hidden" name="employee_id" id="delete_employee_id" value="">
+              </p>
+            </div>
+            <div class="action d-flex flex-wrap justify-content-center">
+              <a class="main-btn deactive-btn rounded-md square-btn btn-hover m-1 " data-bs-dismiss="modal">
+                Cancel
+              </a>
+              <button class="main-btn danger-btn rounded-md square-btn btn-hover m-1" type="submit" class="btn btn-primary">Yes Deleted!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection
+@section('script')
+<script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
+<script src="{{ asset('js/admin/employee/employee.js') }}"></script>
+@endsection

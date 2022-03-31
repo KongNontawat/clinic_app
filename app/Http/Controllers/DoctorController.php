@@ -9,12 +9,13 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
-    public function __construct()
+	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware(['auth','alert']);
 	}
 
     public function index()
@@ -47,7 +48,7 @@ class DoctorController extends Controller
     {
         // return dd($req);
         // Validation Main doctor
-        $validated_doctor = $req->validate([
+        $validator = Validator::make($req->all(), [
             'fname' => 'required',
             'lname' => 'required',
             'sex' => 'required',
@@ -56,7 +57,14 @@ class DoctorController extends Controller
             'phone' => 'required|max:13|min:9',
             'email' => "required|unique:doctors|unique:users",
             'password' => 'required|min:0|max:20'
-        ]);
+		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withErrors($validator->errors()->getMessages())
+				->with('msg_error',$validator->errors()->all())
+				->withInput();
+		}
 
         DB::beginTransaction();
         try {
@@ -72,14 +80,6 @@ class DoctorController extends Controller
                 ]);
             }
 
-            $user = User::create([
-                'name' => $req->title . ' ' . $req->fname . ' ' . $req->lname,
-                'email' => $req->email,
-                'role' => 'doctor',
-                'user_status' => 1,
-                'password' => bcrypt($req->password),
-            ]);
-
             // Image Process
             // Rename Image
             $image = 'default_profile.png';
@@ -89,6 +89,15 @@ class DoctorController extends Controller
                 $ext_image = strtolower($doctor_image->getClientOriginalExtension());
                 $image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
             }
+
+            $user = User::create([
+                'name' => $req->title . ' ' . $req->fname . ' ' . $req->lname,
+                'email' => $req->email,
+                'role' => 'doctor',
+                'user_status' => 1,
+                'user_image' => $image,
+                'password' => bcrypt($req->password),
+            ]);
 
             $doctor = doctor::create([
                 'user_id' => $user->user_id,
@@ -113,7 +122,9 @@ class DoctorController extends Controller
             if ($req->file('image')) {
                 // Upload Image
                 $path = 'image/uploads/doctor/';
+                $path2 = 'image/uploads/user/';
                 $doctor_image->move($path, $image);
+                $doctor_image->move($path2, $image);
             }
 
             $logs_user = DB::table('logs_user')->insert([
@@ -124,7 +135,7 @@ class DoctorController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.doctor', $doctor->doctor_id));
+            return redirect(route('admin.doctor', $doctor->doctor_id))->with('msg_success','Created Doctor successfully!');
         } catch (Exception  $e) {
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
@@ -134,7 +145,7 @@ class DoctorController extends Controller
             ]);
             DB::commit();
             DB::rollback();
-            return redirect()->back();
+            return redirect()->back()->with('msg_error','Created Doctor Failed!');
         }
     }
 
@@ -143,8 +154,7 @@ class DoctorController extends Controller
         // return dd($req);
         $doctor_id = $req->doctor_id;
 
-        // Validation Main doctor
-        $validated_doctor = $req->validate([
+        $validator = Validator::make($req->all(), [
             'fname' => 'required',
             'lname' => 'required',
             'sex' => 'required',
@@ -152,7 +162,14 @@ class DoctorController extends Controller
             'age' => 'min:0|max:3',
             'phone' => 'required|max:13|min:9',
             'email' => "required"
-        ]);
+		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withErrors($validator->errors()->getMessages())
+				->with('msg_error',$validator->errors()->all())
+				->withInput();
+		}
 
         DB::beginTransaction();
         try {
@@ -217,7 +234,7 @@ class DoctorController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.doctor.detail', $req->doctor_id));
+            return redirect(route('admin.doctor.detail', $req->doctor_id))->with('msg_success','Updated Doctor successfully!');
         } catch (Exception  $e) {
 
             $logs_user = DB::table('logs_user')->insert([
@@ -228,7 +245,7 @@ class DoctorController extends Controller
             ]);
             DB::commit();
             DB::rollback();
-            return redirect()->back();
+            return redirect()->back()->with('msg_error','Updated Doctor Failed!');
         }
     }
 
@@ -260,7 +277,7 @@ class DoctorController extends Controller
                 'logs_status' => 'success'
             ]);
             DB::commit();
-            return redirect(route('admin.doctor'));
+            return redirect(route('admin.doctor'))->with('msg_success','Deleted Doctor successfully!');
         } catch (Exception  $e) {
 
             $logs_user = DB::table('logs_user')->insert([
@@ -271,7 +288,7 @@ class DoctorController extends Controller
             ]);
             DB::commit();
             DB::rollback();
-            return redirect()->back();
+            return redirect()->back()->with('msg_error','Deleted Doctor Failed!');
         }
     }
 }

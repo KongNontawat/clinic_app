@@ -9,12 +9,12 @@ html {
 }
 
 body {
+	position: relative!important;
 	font-family: "kanit", sans-serif !important;
 	font-weight: normal;
 	font-style: normal;
 	overflow-x: hidden;
 	background: #f1f5f9;
-	
 }
 
 * {

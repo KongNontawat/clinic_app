@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/aos/dist/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('js/fullcalendar/main.min.css') }}">
 -->
 
 <!-- Other Script
@@ -52,4 +53,5 @@
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
+<script src="{{ asset('js/fullcalendar/main.min.js') }}"></script>
 -->

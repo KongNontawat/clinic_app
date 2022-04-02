@@ -1,0 +1,6 @@
+$(function() {
+    $(".schedule").addClass("active");
+})
+
+
+

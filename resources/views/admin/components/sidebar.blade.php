@@ -17,8 +17,8 @@
         </a>
       </li>
 
-      <li class="nav-item ">
-        <a href="#!">
+      <li class="nav-item schedule">
+        <a href="{{route('admin.schedule')}}">
           <span class="icon">
           <i class="fa-solid fa-calendar-days"></i>
           </span>
@@ -26,8 +26,8 @@
         </a>
       </li>
 
-      <li class="nav-item ">
-        <a href="#!">
+      <li class="nav-item appointment">
+        <a href="{{route('admin.appointment')}}">
           <span class="icon">
           <i class="fa-solid fa-clipboard-list"></i>
           </span>

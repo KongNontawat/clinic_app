@@ -3,81 +3,72 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function appointment()
     {
-        //
+        $appointments = Appointment::rightJoin('patients','patients.patient_id','=','appointments.patient_id')
+        ->rightJoin('doctors','doctors.doctor_id','=','appointments.doctor_id')
+        ->get(['appointments.*','appointments.reason_for_appointment AS title','doctors.title AS doctor_title','doctors.fname AS doctor_fname','doctors.lname AS doctor_lname','patients.title AS patient_title','patients.fname AS patient_fname','patients.lname AS patient_lname']);
+        return view('admin.appointment.appointment_list',compact('appointments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $schedules = Appointment::rightJoin('patients','patients.patient_id','=','appointments.patient_id')
+        ->rightJoin('doctors','doctors.doctor_id','=','appointments.doctor_id')
+        // ->get(['appointments.*','appointments.reason_for_appointment AS title','doctors.title AS doctor_title','doctors.fname AS doctor_fname','doctors.lname AS doctor_lname','patients.title AS patient_title','patients.fname AS patient_fname','patients.lname AS patient_lname']);
+        ->get(['appointments.reason_for_appointment AS title','appointments.appointment_date AS start']);
+        // return dd($schedule);
+        return view('admin.schedule.calendar',compact('schedules'));
+    }
+
+    public function get_schedule()
+    {
+        $schedules = Appointment::rightJoin('patients','patients.patient_id','=','appointments.patient_id')
+        ->rightJoin('doctors','doctors.doctor_id','=','appointments.doctor_id')
+        ->get();
+        foreach($schedules AS $row) {
+            $display = ($row->appointment_date == Carbon::now()->format('Y-m-d'))?'block':'list-item';
+            $item = [
+                'title' => $row->reason_for_appointment,
+                'start' => $row->appointment_date.' '.$row->appointment_time,
+                'display'=>$display,
+                'backgroundColor' =>'#4A6CF7'
+            ];
+            $data[] = $item;
+        }
+        return response()->json($data);
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
     public function show(Appointment $appointment)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Appointment $appointment)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Appointment $appointment)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Appointment $appointment)
     {
         //

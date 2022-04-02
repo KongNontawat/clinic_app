@@ -262,7 +262,7 @@
             </div>
             <div class="action d-flex flex-wrap justify-content-start mt-4">
               <div class="button-group d-flex flex-wrap align-items-end">
-                <a href="#!" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
+                <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
                   <i class="fa-solid fa-xmark"></i> Cancel
                 </a>
                 <button type="reset" class="main-btn light-btn p-2 mx-2 mb-3">

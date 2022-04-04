@@ -87,7 +87,7 @@
                     @foreach($employees as $employee)
                     <tr>
                       <td class="text-center"><a href="{{route('admin.employee.detail',$employee->employee_id)}}" class="text-primary">{{$employee->employee_id}}</a></td>
-                      <td class="text-center"><img src="{{url('image/uploads/employee/',$employee->image)}}" class="img-fluid" alt=""></td>
+                      <td class="text-center"><img src="{{url('image/uploads/',$employee->image)}}" class="img-fluid" alt=""></td>
                       <td class="ps-2">{{$employee->title}} {{$employee->fname}} {{$employee->lname}}</td>
                       <td>
                         {{$employee->phone}}

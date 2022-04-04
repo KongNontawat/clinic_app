@@ -68,14 +68,15 @@ Route::controller(UserController::class)->group(function () {
 
     Route::get('admin/user/logs','view_logs')->name('admin.user.logs');
 });
+
 Route::controller(AppointmentController::class)->group(function () {
     Route::get('admin/appointment','appointment')->name('admin.appointment');
     Route::post('admin/appointment/store','store')->name('admin.appointment.store');
     Route::put('admin/appointment/update','update')->name('admin.appointment.update');
-    Route::delete('admin/appointment/delete','delete')->name('admin.appointment.delete');
+    Route::put('admin/appointment/cancel','cancel')->name('admin.appointment.cancel');
+    Route::get('admin/appointment/change_status/{id}','change_status')->name('admin.appointment.change_status');
 
-
-    Route::get('admin/schedule','index')->name('admin.schedule');
+    Route::get('admin/schedule','calendar')->name('admin.schedule');
     Route::get('admin/schedule/get_schedule','get_schedule')->name('admin.schedule.get_schedule');
 });
 

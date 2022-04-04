@@ -77,7 +77,7 @@ class UserController extends Controller
 
             if ($req->file('user_image')) {
                 // Upload Image
-                $path = 'image/uploads/user/';
+                $path = 'image/uploads/';
                 $user_image->move($path, $image);
             }
 
@@ -91,6 +91,7 @@ class UserController extends Controller
             DB::commit();
             return redirect(route('admin.user', $user->user_id))->with('msg_success', 'Created user successfully!');
         } catch (Exception  $e) {
+            DB::rollback();
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
                 'activity' => 'Fail! Create Account user',
@@ -98,7 +99,6 @@ class UserController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
             return redirect()->back()->with('msg_error', 'Created user Failed!');
         }
     }
@@ -132,7 +132,7 @@ class UserController extends Controller
                 $image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
 
                 // Upload Image
-                $path = 'image/uploads/user/';
+                $path = 'image/uploads/';
                 $user_image->move($path, $image);
                 if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
                     unlink(public_path('image\\uploads\\user\\' . $req->old_image));
@@ -161,7 +161,7 @@ class UserController extends Controller
             DB::commit();
             return redirect(route('admin.user'))->with('msg_success', 'Updated user successfully!');
         } catch (Exception  $e) {
-
+            DB::rollback();
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
                 'activity' => 'Fail! Update Info user ID:' . $req->user_id,
@@ -169,7 +169,6 @@ class UserController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
             return redirect()->back()->with('msg_error', 'Updated user Failed!');
         }
     }
@@ -181,9 +180,9 @@ class UserController extends Controller
             $user = User::where('user_id', $req->user_id)->delete();
 
 
-            if ($req->user_image !== 'default_profile.png' && $req->user_image != '' && $req->user_image != null) {
-                $remove = unlink(public_path('image\\uploads\\user\\' . $req->user_image));
-            }
+            // if ($req->user_image !== 'default_profile.png' && $req->user_image != '' && $req->user_image != null) {
+            //     $remove = unlink(public_path('image\\uploads\\user\\' . $req->user_image));
+            // }
 
             //9. Create logs
             $logs_user = DB::table('logs_user')->insert([
@@ -195,6 +194,7 @@ class UserController extends Controller
             DB::commit();
             return redirect(route('admin.user'))->with('msg_success', 'Deleted user successfully!');
         } catch (Exception  $e) {
+            DB::rollback();
 
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
@@ -203,7 +203,6 @@ class UserController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
             return redirect()->back()->with('msg_error', 'Deleted user Failed!');
         }
     }

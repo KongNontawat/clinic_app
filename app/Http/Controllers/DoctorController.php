@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
-	public function __construct()
-	{
-		$this->middleware(['auth','alert']);
-	}
+    public function __construct()
+    {
+        $this->middleware(['auth', 'alert']);
+    }
 
     public function index()
     {
@@ -57,14 +57,14 @@ class DoctorController extends Controller
             'phone' => 'required|max:13|min:9',
             'email' => "required|unique:doctors|unique:users",
             'password' => 'required|min:0|max:20'
-		]);
+        ]);
 
-		if ($validator->fails()) {
-			return redirect()->back()
-				->withErrors($validator->errors()->getMessages())
-				->with('msg_error',$validator->errors()->all())
-				->withInput();
-		}
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator->errors()->getMessages())
+                ->with('msg_error', $validator->errors()->all())
+                ->withInput();
+        }
 
         DB::beginTransaction();
         try {
@@ -82,12 +82,13 @@ class DoctorController extends Controller
 
             // Image Process
             // Rename Image
-            $image = 'default_profile.png';
             if ($req->file('image')) {
                 $date = Carbon::now();
                 $doctor_image = $req->file('image');
                 $ext_image = strtolower($doctor_image->getClientOriginalExtension());
                 $image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
+            }else {
+                $image = 'default_profile.png';
             }
 
             $user = User::create([
@@ -119,13 +120,6 @@ class DoctorController extends Controller
                 'image' => $image,
                 'doctor_status' => 1
             ]);
-            if ($req->file('image')) {
-                // Upload Image
-                $path = 'image/uploads/doctor/';
-                $path2 = 'image/uploads/user/';
-                $doctor_image->move($path, $image);
-                $doctor_image->move($path2, $image);
-            }
 
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
@@ -135,8 +129,15 @@ class DoctorController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.doctor', $doctor->doctor_id))->with('msg_success','Created Doctor successfully!');
+            if ($req->file('image')) {
+                // Upload Image
+                $path = 'image/uploads/';
+                $doctor_image->move($path, $image);
+            }
+            return redirect(route('admin.doctor'))->with('msg_success', 'Created Doctor successfully!');
         } catch (Exception  $e) {
+            DB::rollback();
+            return dd($e);
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
                 'activity' => 'Fail! Create Account doctor',
@@ -144,8 +145,7 @@ class DoctorController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
-            return redirect()->back()->with('msg_error','Created Doctor Failed!');
+            return redirect()->back()->with('msg_error', 'Created Doctor Failed!');
         }
     }
 
@@ -162,14 +162,14 @@ class DoctorController extends Controller
             'age' => 'min:0|max:3',
             'phone' => 'required|max:13|min:9',
             'email' => "required"
-		]);
+        ]);
 
-		if ($validator->fails()) {
-			return redirect()->back()
-				->withErrors($validator->errors()->getMessages())
-				->with('msg_error',$validator->errors()->all())
-				->withInput();
-		}
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator->errors()->getMessages())
+                ->with('msg_error', $validator->errors()->all())
+                ->withInput();
+        }
 
         DB::beginTransaction();
         try {
@@ -196,7 +196,7 @@ class DoctorController extends Controller
                 $image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
 
                 // Upload Image
-                $path = 'image/uploads/doctor/';
+                $path = 'image/uploads/';
                 $doctor_image->move($path, $image);
                 if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
                     unlink(public_path('image\\uploads\\doctor\\' . $req->old_image));
@@ -234,9 +234,9 @@ class DoctorController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.doctor.detail', $req->doctor_id))->with('msg_success','Updated Doctor successfully!');
+            return redirect(route('admin.doctor.detail', $req->doctor_id))->with('msg_success', 'Updated Doctor successfully!');
         } catch (Exception  $e) {
-
+            DB::rollback();
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
                 'activity' => 'Fail! Update Info doctor ID:' . $doctor_id,
@@ -244,8 +244,7 @@ class DoctorController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
-            return redirect()->back()->with('msg_error','Updated Doctor Failed!');
+            return redirect()->back()->with('msg_error', 'Updated Doctor Failed!');
         }
     }
 
@@ -253,7 +252,7 @@ class DoctorController extends Controller
     {
         DB::beginTransaction();
         try {
-            $get_id = doctor::where('doctor_id', $req->doctor_id)->first(['user_id','address_id', 'image']);
+            $get_id = doctor::where('doctor_id', $req->doctor_id)->first(['user_id', 'address_id', 'image']);
 
             $address_info = DB::table('address_info')
                 ->where('address_id', $get_id->address_id)
@@ -277,8 +276,9 @@ class DoctorController extends Controller
                 'logs_status' => 'success'
             ]);
             DB::commit();
-            return redirect(route('admin.doctor'))->with('msg_success','Deleted Doctor successfully!');
+            return redirect(route('admin.doctor'))->with('msg_success', 'Deleted Doctor successfully!');
         } catch (Exception  $e) {
+            DB::rollback();
 
             $logs_user = DB::table('logs_user')->insert([
                 'user_id' => Auth::user()->user_id,
@@ -287,8 +287,7 @@ class DoctorController extends Controller
                 'logs_status' => 'fail'
             ]);
             DB::commit();
-            DB::rollback();
-            return redirect()->back()->with('msg_error','Deleted Doctor Failed!');
+            return redirect()->back()->with('msg_error', 'Deleted Doctor Failed!');
         }
     }
 }

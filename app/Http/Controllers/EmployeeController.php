@@ -47,8 +47,6 @@ class EmployeeController extends Controller
 
 	public function store(Request $req)
 	{
-		// $test = ['error1,','error2,','error3,'];
-		// return dd(implode($test));
 		// Validation Main employee
 		$validator = Validator::make($req->all(), [
 			'fname' => 'required',
@@ -121,12 +119,11 @@ class EmployeeController extends Controller
 			]);
 			if ($req->file('image')) {
 				// Upload Image
-				$path = 'image/uploads/employee/';
+				$path = 'image/uploads/';
 				$path2 = 'image/uploads/user/';
 				$employee_image->move($path, $image);
 				$employee_image->move($path2, $image);
 			}
-
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
 				'activity' => 'Create Account Employee ID:' . $employee->employee_id,
@@ -135,8 +132,10 @@ class EmployeeController extends Controller
 			]);
 
 			DB::commit();
-			return redirect(route('admin.employee', $employee->employee_id))->with('msg_success', 'Created Employee successfully!');
+			return redirect(route('admin.employee'))->with('msg_success', 'Created Employee successfully!');
 		} catch (Exception  $e) {
+			DB::rollback();
+
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
 				'activity' => 'Fail! Create Account Employee',
@@ -144,7 +143,6 @@ class EmployeeController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Created Employee Failed!');
 		}
 	}
@@ -197,7 +195,7 @@ class EmployeeController extends Controller
 				$image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
 
 				// Upload Image
-				$path = 'image/uploads/employee/';
+				$path = 'image/uploads/';
 				$employee_image->move($path, $image);
 				if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
 					unlink(public_path('image\\uploads\\employee\\' . $req->old_image));
@@ -235,6 +233,7 @@ class EmployeeController extends Controller
 			DB::commit();
 			return redirect(route('admin.employee.detail', $req->employee_id))->with('msg_success', 'Updated Employee successfully!');
 		} catch (Exception  $e) {
+			DB::rollback();
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
@@ -243,7 +242,6 @@ class EmployeeController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Updated Employee Failed!');
 		}
 	}
@@ -278,6 +276,7 @@ class EmployeeController extends Controller
 			DB::commit();
 			return redirect(route('admin.employee'))->with('msg_success', 'Deleted Employee successfully!');
 		} catch (Exception  $e) {
+			DB::rollback();
 
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
@@ -286,7 +285,6 @@ class EmployeeController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Deleted Employee Failed!');
 		}
 	}

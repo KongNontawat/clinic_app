@@ -84,7 +84,7 @@
                     @foreach($users as $user)
                     <tr class="{{($user->user_status == 0)?'table-danger':''}}">
                       <td class="text-center"><a href="" class="text-primary user_id">{{$user->user_id}}</a></td>
-                      <td class="text-center"><img src="{{url('image/uploads/user/',$user->user_image)}}" class="rounded-circle user_image" alt="{{$user->user_image}}" style="width:60px;height:60px;object-fit:cover;"></td>
+                      <td class="text-center"><img src="{{url('image/uploads/',$user->user_image)}}" class="rounded-circle user_image" alt="{{$user->user_image}}" style="width:60px;height:60px;object-fit:cover;"></td>
                       <td class="ps-2 user_name">{{$user->name}}</td>
                       <td class="user_email">{{$user->email}}</td>
                       <td class="user_role">{{$user->role}}</td>

@@ -18,7 +18,6 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('doctor_id');
             $table->foreignId('patient_id');
             $table->string('appointment_number',20)->unique();
-            // $table->foreignId('appointment_type',20)->unique();
             $table->text('reason_for_appointment');
             $table->text('doctor_comment')->nullable();
             $table->string('appointment_date',50);

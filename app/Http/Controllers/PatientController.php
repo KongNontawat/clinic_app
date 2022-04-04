@@ -129,7 +129,7 @@ class PatientController extends Controller
 			]);
 			if ($req->file('image')) {
 				// Upload Image
-				$path = 'image/uploads/patient/';
+				$path = 'image/uploads/';
 				$patient_image->move($path, $image);
 			}
 
@@ -202,7 +202,7 @@ class PatientController extends Controller
 			DB::commit();
 			return redirect(route('admin.patient.detail', $patient->patient_id))->with('msg_success', 'Created Patient successfully!');
 		} catch (Exception  $e) {
-
+			DB::rollback();
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
 				'activity' => 'Fail! Create Account Patient',
@@ -210,7 +210,6 @@ class PatientController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Created Patient Failed!');
 		}
 	}
@@ -262,7 +261,7 @@ class PatientController extends Controller
 				$image = $date->toDateString() . '_' . md5(uniqid()) . '.' . $ext_image;
 
 				// Upload Image
-				$path = 'image/uploads/patient/';
+				$path = 'image/uploads/';
 				$patient_image->move($path, $image);
 				if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
 					unlink(public_path('image\\uploads\\patient\\' . $req->old_image));
@@ -367,6 +366,7 @@ class PatientController extends Controller
 			DB::commit();
 			return redirect(route('admin.patient.detail', $req->patient_id))->with('msg_success', 'Updated Patient successfully!');
 		} catch (Exception  $e) {
+			DB::rollback();
 			$logs_patient = DB::table('logs_patient')->insert([
 				'patient_id' => $req->patient_id,
 				'activity' => 'Fail! Update Info',
@@ -381,7 +381,6 @@ class PatientController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Updated Patient Failed!');
 		}
 	}
@@ -437,6 +436,7 @@ class PatientController extends Controller
 			DB::commit();
 			return redirect(route('admin.patient'))->with('msg_success', 'Deleted Patient successfully!');
 		} catch (Exception  $e) {
+			DB::rollback();
 			$logs_patient = DB::table('logs_patient')->insert([
 				'patient_id' => $req->patient_id,
 				'activity' => 'Fail! Delete Account ID:' . $req->patient_id,
@@ -451,7 +451,6 @@ class PatientController extends Controller
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
-			DB::rollback();
 			return redirect()->back()->with('msg_error', 'Deleted Patient Failed!');
 		}
 	}

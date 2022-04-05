@@ -1103,6 +1103,10 @@ h6,
 	background: rgba(242, 153, 74, 0.1);
 	color: #f2994a;
 }
+.icon-card .icon.info {
+	background: #CCF3FE;
+	color: #00C1F8;
+}
 .icon-card .icon.opacity-100.purple {
 	background: #9b51e0;
 	color: #fff;

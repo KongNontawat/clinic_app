@@ -123,8 +123,8 @@
                           </a>
 
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#" data-id="{{$appointment->appointment_id}}"><i class="fa-solid fa-eye"></i> View</a>
-                            <li><a class="dropdown-item" href="#" data-id="{{$appointment->appointment_id}}"><i class="fa-solid fa-print"></i> Print</a>
+                            <li><a class="dropdown-item btn-view" href="#" data-id="{{$appointment->appointment_id}}"><i class="fa-solid fa-eye"></i> View</a>
+                            <li><a class="dropdown-item" href="{{route('admin.appointment.print',$appointment->appointment_id)}}" ><i class="fa-solid fa-print"></i> Print</a>
                             <li><a class="dropdown-item btn-edit" href="#" data-id="{{$appointment->appointment_id}}" data-bs-toggle="modal" data-bs-target="#modal_update"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             </li>
                             <li><a class="dropdown-item btn-cancel" href="#" data-id="{{$appointment->appointment_id}}" data-bs-toggle="modal" data-bs-target="#modal_cancel"><i class="fa-solid fa-calendar-xmark"></i> Cancel</a></li>
@@ -432,7 +432,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Doctor Comment</label>
-                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" class="form-control e_doctor_comment" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" id="e_doctor_comment" name="doctor_comment" class="form-control e_doctor_comment" placeholder="Please enter your First Name"></textarea>
                   @error('doctor_comment')
                   <small class="text-danger">
                     {{ $message }}
@@ -481,6 +481,66 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal View-->
+<div class="follow-up-modal">
+  <div class="modal fade" id="modal_detail" aria-labelledby="modal_detailLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content card-style">
+        <div class="modal-header px-0 border-0">
+          <h3 class="text-bold"><i class="fa-solid fa-clipboard-list"></i> Appointment Details</h3>
+          <button class="border-0 bg-transparent h1" data-bs-dismiss="modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <hr class="m-0">
+        <div class="modal-body" style="font-family: Arial, Helvetica, sans-serif;">
+          <div class="head-top d-flex flex-wrap flex-lg-nowrap">
+            <div class="logo me-4 mt-2">
+              <img src="{{asset('image/LogoBeautyCare.png')}}" alt="" width="220">
+            </div>
+            <div class="clinic-info mt-2 w-100">
+              <h4>คลินิคเสริมความงาม บิวตี้แคร์</h4>
+              <h5>Beauty Care Clinic</h5>
+              <p>โครงการตลาดจอมพล Overflow เลขที่ 555/49 ถนนกสิกรทุ่งสร้าง ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000 โทร 064-487-0915</p>
+              <hr class="my-2">
+            </div>
+          </div>
+
+          <div class="head">
+            <h3 class="text-center mb-3">บัตรนัด</h3>
+          </div>
+
+          <div class="body" style="font-size: 18px;">
+            <div class="row justify-content-between">
+              <div class="col-sm-6 col-lg-5">
+                <span class="fw-bold my-1">ชื่อ-นามสกุล : </span> <span class="show_patient_name"></span> <br>
+                <span class="fw-bold my-1">รหัส : </span> <span class="show_patient_opd"></span> <br>
+                <span class="fw-bold my-1">อายุ : </span> <span class="show_patient_age"></span> <br>
+                <span class="fw-bold my-1">เบอร์โทร : </span> <span class="show_patient_phone"></span> <br>
+                <span class="fw-bold my-1">โรคประจำตัว : </span> <span class="show_patient_congenital_disease"></span> <br>
+                <span class="fw-bold my-1">แพ้ยา : </span> <span class="show_patient_drug_allergies"></span> <br>
+              </div>
+              <div class="col-sm-6 col-lg-5">
+                <span class="fw-bold my-1">ใบนัดหมายเลข : </span> <span class="show_appointment_number">></span> <br>
+                <span class="fw-bold my-1">วันที่นัด : </span> <span class="show_appointment_date"></span> <br>
+                <span class="fw-bold my-1">เวลาที่นัด : </span> <span class="show_appointment_time"></span> <br>
+                <span class="fw-bold my-1">แพทย์ผู้นัด : </span> <span class="show_doctor_name"></span> <br>
+                <span class="fw-bold my-1">ติดต่อ : </span> <span> 064-487-0915</span> <br>
+              </div>
+            </div>
+
+            <p class="mt-4 fs-5 fw-bold">สาเหตุที่นัด : <span class="show_reason_for_appointment fw-light"> -</span></p>
+
+            <p class="mt-4 fs-5 fw-bold">หมายเหตุ : <span class="show_doctor_comment"> -</span></p>
+
+            <p class="text-end mt-4">ออกใบนัดวันที่ : <span class="show_created_at"></span></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

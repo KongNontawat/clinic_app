@@ -24,7 +24,8 @@ class AppointmentController extends Controller
     {
         $doctors = Doctor::where('doctor_status', '1')->get();
         $patients = Patient::where('patient_status', '1')->get();
-        $appointments = Appointment::leftJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
+        $appointments = Appointment::whereIn('appointment_status',[0,1,2])
+            ->leftJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
             ->leftJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
             ->get(['appointments.*', 'appointments.reason_for_appointment AS title', 'doctors.title AS doctor_title', 'doctors.fname AS doctor_fname', 'doctors.lname AS doctor_lname', 'patients.title AS patient_title', 'patients.fname AS patient_fname', 'patients.lname AS patient_lname']);
         return view('admin.appointment.appointment_list', compact(['appointments', 'doctors', 'patients']));
@@ -32,22 +33,42 @@ class AppointmentController extends Controller
 
     public function calendar()
     {
-        $schedules = Appointment::rightJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
-            ->rightJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
-            // ->get(['appointments.*','appointments.reason_for_appointment AS title','doctors.title AS doctor_title','doctors.fname AS doctor_fname','doctors.lname AS doctor_lname','patients.title AS patient_title','patients.fname AS patient_fname','patients.lname AS patient_lname']);
-            ->get(['appointments.reason_for_appointment AS title', 'appointments.appointment_date AS start']);
-        // return dd($schedule);
-        return view('admin.schedule.calendar', compact('schedules'));
+        $now = Carbon::now();
+
+        //schedule : count appointment & date day == date_now
+        $get_schedule = Appointment::whereDate('appointment_date','=',$now)->get();
+        $schedule = count($get_schedule);
+
+        //reserved : count booking & date day == date_now
+        $reserved = 0;
+
+        //checkout : appointment_status == 4 & date day == date_now
+        $get_checkout = Appointment::whereDate('appointment_date','=',$now)->where('appointment_status','=',3)->get();
+        $checkout = count($get_checkout);
+
+        //today's : date == date_now
+        $today = count($get_schedule);
+
+        $remain = $today - $checkout;
+        return view('admin.schedule.calendar',compact(['schedule','reserved','checkout','today','remain']));
+    }
+
+    public function get_doctor_schedule($id)
+    {
+        $doctor_schedule = DB::table('doctor_schedule')->where('doctor_id',$id)->get();
+        return response()->json($doctor_schedule);
     }
 
     public function get_schedule()
     {
-        $schedules = Appointment::rightJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
+        $schedules = Appointment::where('appointment_status','=',0)
+            ->rightJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
             ->rightJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
             ->get();
         foreach ($schedules as $row) {
             $display = ($row->appointment_date == Carbon::now()->format('Y-m-d')) ? 'block' : 'list-item';
             $item = [
+                'id' => $row->appointment_id,
                 'title' => $row->reason_for_appointment,
                 'start' => $row->appointment_date . ' ' . $row->appointment_time,
                 'display' => $display,
@@ -60,7 +81,13 @@ class AppointmentController extends Controller
 
     public function show(Request $req)
     {
-        //
+
+        $appointment = Appointment::where('appointment_id',$req->id)
+            ->leftJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
+            ->leftJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
+            ->leftJoin('patient_medical_info', 'patient_medical_info.patient_id', '=', 'patients.patient_id')
+            ->get(['appointments.*', 'doctors.title AS doctor_title', 'doctors.fname AS doctor_fname', 'doctors.lname AS doctor_lname', 'patients.title AS patient_title', 'patients.fname AS patient_fname', 'patients.lname AS patient_lname','patients.birthdate AS patient_birthdate','patients.phone AS patient_phone','patients.opd_id','patient_medical_info.drug_allergies','patient_medical_info.congenital_disease']);
+        return response()->json($appointment);
     }
 
     public function store(Request $req)

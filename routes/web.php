@@ -75,6 +75,11 @@ Route::controller(AppointmentController::class)->group(function () {
     Route::put('admin/appointment/update','update')->name('admin.appointment.update');
     Route::put('admin/appointment/cancel','cancel')->name('admin.appointment.cancel');
     Route::get('admin/appointment/change_status/{id}','change_status')->name('admin.appointment.change_status');
+    Route::get('admin/appointment/get_doctor_schedule','get_doctor_schedule')->name('admin.appointment.get_doctor_schedule');
+    Route::get('admin/appointment/show','show')->name('admin.appointment.show');
+    Route::get('admin/appointment/print/{id}',function($id) {
+        return view('admin.appointment.appointment_print');
+    })->name('admin.appointment.print');
 
     Route::get('admin/schedule','calendar')->name('admin.schedule');
     Route::get('admin/schedule/get_schedule','get_schedule')->name('admin.schedule.get_schedule');

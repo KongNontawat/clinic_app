@@ -12,10 +12,20 @@ $(function () {
         search: {
             caseInsensitive: true,
         },
+        columnDefs: [
+            { orderable: false, targets: 1 },
+            { orderable: false, targets: 2 },
+            { orderable: false, targets: 3 },
+            { orderable: false, targets: 4 },
+            { orderable: false, targets: 7 }
+        ],
     });
 
     $("#search_name").on("keyup", function () {
-        datatable.column(2).search(this.value).draw();
+        datatable.column([0,2]).search(this.value).draw();
+    });
+    $("#search_position").on("keyup", function () {
+        datatable.column(5).search(this.value).draw();
     });
     $("#search_status").on("change", function () {
         regex = "\\b" + this.value + "\\b";

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Carbon\Carbon;
+use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +48,15 @@ class PatientController extends Controller
 			->leftJoin('districts', 'districts.id', '=', 'address_info.subdistrict_id')
 			->first(['*', 'districts.name_th AS subdistrict_name', 'amphures.name_th AS district_name', 'provinces.name_th AS province_name']);
 
-		return view('admin.patient.patient_detail', compact(['patient', 'provinces', 'patient_group', 'patient_emc']));
+		$appointments = Appointment::where('appointments.patient_id', $id)
+			->leftJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
+			->leftJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
+			->orderBy('appointments.appointment_id', 'desc')
+			->get(['appointments.*', 'appointments.reason_for_appointment AS title', 'doctors.title AS doctor_title', 'doctors.fname AS doctor_fname', 'doctors.lname AS doctor_lname', 'patients.title AS patient_title', 'patients.fname AS patient_fname', 'patients.lname AS patient_lname']);
+
+		$doctors = Doctor::where('doctor_status', '1')->get();
+
+		return view('admin.patient.patient_detail', compact(['patient', 'provinces', 'patient_group', 'patient_emc', 'doctors', 'appointments']));
 	}
 
 	public function create()
@@ -82,16 +92,14 @@ class PatientController extends Controller
 		DB::beginTransaction();
 		try {
 			// Create Address info
-			if ($req->address || $req->subdistrict_id || $req->district_id || $req->province_id || $req->zip_code || $req->country != null) {
-				$address_info = DB::table('address_info')->insertGetId([
-					'address' => $req->address,
-					'subdistrict_id' => $req->subdistrict_id,
-					'district_id' => $req->district_id,
-					'province_id' => $req->province_id,
-					'zip_code' => $req->zip_code,
-					'country' => $req->country
-				]);
-			}
+			$address_info = DB::table('address_info')->insertGetId([
+				'address' => $req->address,
+				'subdistrict_id' => $req->subdistrict_id,
+				'district_id' => $req->district_id,
+				'province_id' => $req->province_id,
+				'zip_code' => $req->zip_code,
+				'country' => $req->country
+			]);
 
 			// Image Process
 			// Rename Image
@@ -160,21 +168,17 @@ class PatientController extends Controller
 			]);
 
 			// Validation  Patient Emc
-			if ($req->emc_address || $req->emc_subdistrict_id || $req->emc_district_id || $req->emc_province_id || $req->emc_zip_code || $req->emc_country != null) {
-				$address_info_emc = DB::table('address_info')->insertGetId([
-					'address' => $req->emc_address,
-					'subdistrict_id' => $req->emc_subdistrict_id,
-					'district_id' => $req->emc_district_id,
-					'province_id' => $req->emc_province_id,
-					'zip_code' => $req->emc_zip_code,
-					'country' => $req->emc_country
-				]);
-			} else {
-				$address_info_emc = null;
-			}
+			$address_info_emc = DB::table('address_info')->insertGetId([
+				'address' => $req->emc_address,
+				'subdistrict_id' => $req->emc_subdistrict_id,
+				'district_id' => $req->emc_district_id,
+				'province_id' => $req->emc_province_id,
+				'zip_code' => $req->emc_zip_code,
+				'country' => $req->emc_country
+			]);
 
 			//8. Create Patient emc
-			$patient_medical_info = DB::table('patient_emc')->insert([
+			$patient_emc = DB::table('patient_emc')->insert([
 				'patient_id' => $patient->patient_id,
 				'emc_relation' => $req->emc_relation,
 				'emc_title' => $req->emc_title,
@@ -264,7 +268,7 @@ class PatientController extends Controller
 				$path = 'image/uploads/';
 				$patient_image->move($path, $image);
 				if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
-					unlink(public_path('image\\uploads\\patient\\' . $req->old_image));
+					unlink(public_path('image\\uploads\\' . $req->old_image));
 				}
 			} else {
 				$image = $req->old_image;
@@ -320,23 +324,20 @@ class PatientController extends Controller
 				]);
 
 			// Validation  Patient Emc
-			if ($req->emc_address || $req->emc_subdistrict_id || $req->emc_district_id || $req->emc_province_id || $req->emc_zip_code || $req->emc_country != null) {
-				$address_info_emc = DB::table('address_info')
-					->where('address_id', $req->emc_address_id)
-					->update([
-						'address' => $req->emc_address,
-						'subdistrict_id' => $req->emc_subdistrict_id,
-						'district_id' => $req->emc_district_id,
-						'province_id' => $req->emc_province_id,
-						'zip_code' => $req->emc_zip_code,
-						'country' => $req->emc_country
-					]);
-			} else {
-				$address_info_emc = null;
-			}
+			$address_info_emc = DB::table('address_info')
+				->where('address_id', $req->emc_address_id)
+				->update([
+					'address' => $req->emc_address,
+					'subdistrict_id' => $req->emc_subdistrict_id,
+					'district_id' => $req->emc_district_id,
+					'province_id' => $req->emc_province_id,
+					'zip_code' => $req->emc_zip_code,
+					'country' => $req->emc_country
+				]);
+
 
 			//8. Create Patient emc
-			$patient_medical_info = DB::table('patient_emc')
+			$patient_emc = DB::table('patient_emc')
 				->where('patient_emc_id', $req->patient_emc_id)
 				->update([
 					'patient_id' => $req->patient_id,
@@ -400,7 +401,7 @@ class PatientController extends Controller
 			$patient = Patient::where('patient_id', $req->patient_id)->delete();
 
 			if ($get_id->image !== 'default_profile.png' && $get_id->image != '' && $get_id->image != null) {
-				$remove = unlink(public_path('image\\uploads\\patient\\' . $get_id->image));
+				$remove = unlink(public_path('image\\uploads\\' . $get_id->image));
 			}
 
 			// Create patient_medical_info
@@ -410,13 +411,13 @@ class PatientController extends Controller
 
 			// Validation  Patient Emc
 			if ($get_emc_address_id->emc_address_id) {
-				$address_info_emc = DB::table('address_info')
+				$address_info = DB::table('address_info')
 					->where('address_id', $get_emc_address_id->emc_address_id)
 					->delete();
 			}
 
 			//8. Create Patient emc
-			$patient_medical_info = DB::table('patient_emc')
+			$patient_emc = DB::table('patient_emc')
 				->where('patient_id', $req->patient_id)
 				->delete();
 			//9. Create logs

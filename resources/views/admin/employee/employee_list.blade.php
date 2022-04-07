@@ -48,6 +48,25 @@
                     </div>
                   </div>
 
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="input-style-3 mb-0">
+                      <input type="text" placeholder="Search Position" class="bg-transparent" id="search_position">
+                      <span class="icon"> <i class="fa-solid fa-users-rectangle me-1"></i></i></span>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="form-floating">
+                      <select class="form-select" id="search_status" aria-label="Floating label select example">
+                        <option selected value="">All</option>
+                        <option value="normal" class="text-success">Normal</option>
+                        <option value="abnormal" class="text-danger">Abnormal</option>
+                      </select>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                    </div>
+                  </div>
+
                 </div>
               </form>
 
@@ -87,7 +106,7 @@
                     @foreach($employees as $employee)
                     <tr>
                       <td class="text-center"><a href="{{route('admin.employee.detail',$employee->employee_id)}}" class="text-primary">{{$employee->employee_id}}</a></td>
-                      <td class="text-center"><img src="{{url('image/uploads/',$employee->image)}}" class="img-fluid" alt=""></td>
+                      <td class="text-center"><img src="{{url('image/uploads/',$employee->image)}}" class="" alt="" style="max-height: 100px;object-fit:cover;"></td>
                       <td class="ps-2">{{$employee->title}} {{$employee->fname}} {{$employee->lname}}</td>
                       <td>
                         {{$employee->phone}}

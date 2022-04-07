@@ -1,6 +1,38 @@
 $(function () {
     $(".appointment").addClass("active");
 
+    var minDate, maxDate;
+
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+        var min = minDate.val();
+        var max = maxDate.val();
+        var date = new Date(data[3]);
+
+        if (
+            (min === "" && max === "") ||
+            (min === "" && data[3] <= max) ||
+            (min <= data[3] && max === "") ||
+            (min <= data[3] && data[3] <= max)
+        ) {
+            return true;
+        }
+        return false;
+    });
+
+    $("#min").flatpickr({
+        altInput: true,
+        altFormat: "j F Y",
+        dateFormat: "d-m-Y",
+    });
+    $("#max").flatpickr({
+        altInput: true,
+        altFormat: "j F Y",
+        dateFormat: "d-m-Y",
+    });
+
+    minDate = $("#min");
+    maxDate = $("#max");
+
     var datatable = $(".table").DataTable({
         order: [[3, 'asc'], [4, 'asc']],
         language: {
@@ -10,17 +42,21 @@ $(function () {
             },
         },
         lengthMenu: [10, 15, 20, 30, 50, 100],
-        search: {
-            caseInsensitive: true,
-        },
+        columnDefs: [
+            { orderable: false, targets: 2 },
+            { orderable: false, targets: 6 }
+        ],
     });
 
+
     $("#search_name").on("keyup", function () {
-        datatable.column(2).search(this.value).draw();
+        datatable.column([1,2]).search(this.value).draw();
     });
     $("#search_status").on("change", function () {
-        regex = "\\b" + this.value + "\\b";
-        datatable.column(6).search(regex, true, false).draw();
+        datatable.column(5).search(this.value).draw();
+    });
+    $("#min, #max").on("change", function () {
+        datatable.draw();
     });
 
     $("#doctor_id").select2({

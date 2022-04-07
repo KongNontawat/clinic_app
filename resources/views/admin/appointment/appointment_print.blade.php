@@ -113,13 +113,19 @@
         })
 
         $('.show_created_at').text(`${date_th}`)
-      window.print();
-
+        window.print();
       })
-
-      window.onafterprint = function(e) {
-        window.history.back();
-      }
     })
+    window.onafterprint = function(e) {
+      window.history.back();
+    }
+    if (window.matchMedia) {
+      var mediaQueryList = window.matchMedia('print');
+      mediaQueryList.addListener(function(mql) {
+        if (!mql.matches) {
+          window.history.back();
+        }
+      });
+    }
   </script>
   @endsection

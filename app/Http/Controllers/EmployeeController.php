@@ -198,7 +198,7 @@ class EmployeeController extends Controller
 				$path = 'image/uploads/';
 				$employee_image->move($path, $image);
 				if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
-					unlink(public_path('image\\uploads\\employee\\' . $req->old_image));
+					unlink(public_path('image\\uploads\\' . $req->old_image));
 				}
 			} else {
 				$image = $req->old_image;
@@ -263,7 +263,7 @@ class EmployeeController extends Controller
 
 
 			if ($get_id->image !== 'default_profile.png' && $get_id->image != '' && $get_id->image != null) {
-				$remove = unlink(public_path('image\\uploads\\employee\\' . $get_id->image));
+				$remove = unlink(public_path('image\\uploads\\' . $get_id->image));
 			}
 
 			//9. Create logs

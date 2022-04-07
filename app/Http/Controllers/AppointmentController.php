@@ -27,6 +27,8 @@ class AppointmentController extends Controller
         $appointments = Appointment::whereIn('appointment_status',[0,1,2])
             ->leftJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
             ->leftJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
+            ->orderBy('appointments.appointment_date','asc')
+            ->orderBy('appointments.appointment_time','asc')
             ->get(['appointments.*', 'appointments.reason_for_appointment AS title', 'doctors.title AS doctor_title', 'doctors.fname AS doctor_fname', 'doctors.lname AS doctor_lname', 'patients.title AS patient_title', 'patients.fname AS patient_fname', 'patients.lname AS patient_lname']);
         return view('admin.appointment.appointment_list', compact(['appointments', 'doctors', 'patients']));
     }
@@ -43,7 +45,7 @@ class AppointmentController extends Controller
         $reserved = 0;
 
         //checkout : appointment_status == 4 & date day == date_now
-        $get_checkout = Appointment::whereDate('appointment_date','=',$now)->where('appointment_status','=',3)->get();
+        $get_checkout = Appointment::whereDate('appointment_date','=',$now)->whereIn('appointment_status',[3,4])->get();
         $checkout = count($get_checkout);
 
         //today's : date == date_now
@@ -61,7 +63,7 @@ class AppointmentController extends Controller
 
     public function get_schedule()
     {
-        $schedules = Appointment::where('appointment_status','=',0)
+        $schedules = Appointment::whereIn('appointment_status',[0,1])
             ->rightJoin('patients', 'patients.patient_id', '=', 'appointments.patient_id')
             ->rightJoin('doctors', 'doctors.doctor_id', '=', 'appointments.doctor_id')
             ->get();
@@ -130,7 +132,7 @@ class AppointmentController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.appointment'))->with('msg_success', 'Created Appointment successfully!');
+            return redirect()->back()->with('msg_success', 'Created Appointment successfully!');
         } catch (Exception  $e) {
             DB::rollback();
             $logs_appointment = DB::table('logs_user')->insert([
@@ -185,7 +187,7 @@ class AppointmentController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.appointment'))->with('msg_success', 'Updated Appointment successfully!');
+            return redirect()->back()->with('msg_success', 'Updated Appointment successfully!');
         } catch (Exception  $e) {
             DB::rollback();
 
@@ -216,7 +218,7 @@ class AppointmentController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.appointment'))->with('msg_success', 'Cancel Appointment successfully!');
+            return redirect()->back()->with('msg_success', 'Cancel Appointment successfully!');
         } catch (Exception  $e) {
             DB::rollback();
 
@@ -262,7 +264,7 @@ class AppointmentController extends Controller
             ]);
 
             DB::commit();
-            return redirect(route('admin.appointment'))->with('msg_success', 'Update Status Appointment successfully!');
+            return redirect()->back()->with('msg_success', 'Update Status Appointment successfully!');
         } catch (Exception  $e) {
             DB::rollback();
 

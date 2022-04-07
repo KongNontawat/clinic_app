@@ -48,6 +48,25 @@
                     </div>
                   </div>
 
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="input-style-3 mb-0">
+                      <input type="text" placeholder="Search Role" class="bg-transparent" id="search_role">
+                      <span class="icon"> <i class="fa-solid fa-user-shield me-1"></i></span>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="form-floating">
+                      <select class="form-select" id="search_status" aria-label="Floating label select example">
+                        <option selected value="">All</option>
+                        <option value="normal" class="text-success">Normal</option>
+                        <option value="abnormal" class="text-danger">Abnormal</option>
+                      </select>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                    </div>
+                  </div>
+
                 </div>
               </form>
 
@@ -280,7 +299,7 @@
   </div>
 </div>
 
-<!-- Modal create-->
+<!-- Modal update-->
 <div class="follow-up-modal">
   <div class="modal fade" id="modal_update" tabindex="-1" aria-labelledby="modal_updateLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -367,7 +386,7 @@
 
               <div class="col-12">
                 <p><i class="fa-solid fa-image"></i> Image profile</p>
-                <img src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png" class="rounded-3 me-3 image-output" alt="" width="120" height="150" style="object-fit: cover;" id="">
+                <img src="" class="rounded-3 me-3 image-output" alt="" width="120" height="150" style="object-fit: cover;" id="">
                 <span>
                   <label for="image_update" class="main-btn deactive-btn btn-hover rounded-3 py-2 px-4">
                     <i class="fa-solid fa-folder-open"></i> Upload Image

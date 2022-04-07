@@ -3,7 +3,7 @@ $(function () {
     $(".patient ul").addClass("show ");
     $(".patient a.menu-item-patient").addClass("active");
 
-    
+
     var minDate, maxDate;
 
     // Custom filtering function which will search data in column four between two values
@@ -48,12 +48,19 @@ $(function () {
         search: {
             caseInsensitive: true,
         },
+        columnDefs: [
+            { orderable: false, targets: 1 },
+            { orderable: false, targets: 2 },
+            { orderable: false, targets: 5 },
+            { orderable: false, targets: 6 },
+            { orderable: false, targets: 10 }
+        ],
     });
 
-    
+
 
     $("#search_name").on("keyup", function () {
-        datatable.column(1).search(this.value).draw();
+        datatable.column([0,1]).search(this.value).draw();
     });
     $("#search_idcard").on("keyup", function () {
         datatable.column(2).search(this.value).draw();
@@ -75,9 +82,9 @@ $(function () {
     });
 
     // Model Delete
-    $('.table tbody').on('click',".dropdown-menu li .btn-delete", function () {
-      console.log(555)
-      let id = $(this).attr("data-id");
-      $("#delete_patient_id").val(id);
-  });
+    $('.table tbody').on('click', ".dropdown-menu li .btn-delete", function () {
+        console.log(555)
+        let id = $(this).attr("data-id");
+        $("#delete_patient_id").val(id);
+    });
 });

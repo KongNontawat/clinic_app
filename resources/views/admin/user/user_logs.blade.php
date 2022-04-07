@@ -44,6 +44,32 @@
                     </div>
                   </div>
 
+                  
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="form-floating">
+                      <select class="form-select" id="search_status" aria-label="Floating label select example">
+                        <option selected value="">All</option>
+                        <option value="success" class="text-success">Success</option>
+                        <option value="fail" class="text-danger">Fail!</option>
+                      </select>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
+                    <div class="form-floating">
+                      <input type="text" id="min" name="min" class="form-control bg-transparent">
+                      <label for="floatingSelect"><i class="fa-solid fa-clock me-1"></i> Start Date</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
+                    <div class="form-floating">
+                      <input type="text" id="max" name="max" class="form-control bg-transparent">
+                      <label for="floatingSelect"><i class="fa-solid fa-clock"></i> End Date</label>
+                    </div>
+                  </div>
+
                 </div>
               </form>
 
@@ -55,7 +81,7 @@
                       <th class="text-center rounded-0" style="width: 5%;">
                         <h6 class="text-white">ID.</h6>
                       </th>
-                      <th style="width: 10%;">
+                      <th style="width: 15%;">
                         <h6 class="text-white">Author</h6>
                       </th>
                       <th>
@@ -81,7 +107,7 @@
                       <td class="ps-2 ">{{$log->activity}}</td>
                       <td class="">{{$log->logs_detail}}</td>
                       <td class="">{{$log->logs_status}}</td>
-                      <td class="">{{$log->active_date}}</td>
+                      <td class="">{{\Carbon\Carbon::parse($log->active_date)->format('d-m-Y H:i')}}</td>
                     </tr>
                     @endforeach
                     <!-- ========== header end ========== -->
@@ -318,24 +344,24 @@
               </div>
               <!-- end col -->
 
-              
+
               <div class="col-sm-6 col-md-3">
-                        <div class="select-style-1">
-                          <label><i class="fa-solid fa-clipboard-check"></i> User Status </label>
-                          <div class="select-position">
-                            <select class="light-bg text-capitalize" name="user_status" id="e_user_status">
-                              <option class="text-capitalize" value="1">Normal</option>
-                              <option class="text-capitalize" value="0">Abnormal</option>
-                            </select>
-                            @error('user_status')
-                            <small class="text-danger">
-                              {{ $message }}
-                            </small>
-                            @enderror
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end col -->
+                <div class="select-style-1">
+                  <label><i class="fa-solid fa-clipboard-check"></i> User Status </label>
+                  <div class="select-position">
+                    <select class="light-bg text-capitalize" name="user_status" id="e_user_status">
+                      <option class="text-capitalize" value="1">Normal</option>
+                      <option class="text-capitalize" value="0">Abnormal</option>
+                    </select>
+                    @error('user_status')
+                    <small class="text-danger">
+                      {{ $message }}
+                    </small>
+                    @enderror
+                  </div>
+                </div>
+              </div>
+              <!-- end col -->
 
               <div class="col-12">
                 <p><i class="fa-solid fa-image"></i> Image profile</p>

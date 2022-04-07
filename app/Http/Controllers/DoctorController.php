@@ -100,7 +100,7 @@ class DoctorController extends Controller
                 'password' => bcrypt($req->password),
             ]);
 
-            $doctor = doctor::create([
+            $doctor = Doctor::create([
                 'user_id' => $user->user_id,
                 'title' => $req->title,
                 'fname' => $req->fname,
@@ -199,14 +199,14 @@ class DoctorController extends Controller
                 $path = 'image/uploads/';
                 $doctor_image->move($path, $image);
                 if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
-                    unlink(public_path('image\\uploads\\doctor\\' . $req->old_image));
+                    unlink(public_path('image\\uploads\\' . $req->old_image));
                 }
             } else {
                 $image = $req->old_image;
             }
 
             // Create Main doctor
-            $doctor = doctor::where('doctor_id', $req->doctor_id)
+            $doctor = Doctor::where('doctor_id', $req->doctor_id)
                 ->update([
                     'title' => $req->title,
                     'fname' => $req->fname,
@@ -252,20 +252,20 @@ class DoctorController extends Controller
     {
         DB::beginTransaction();
         try {
-            $get_id = doctor::where('doctor_id', $req->doctor_id)->first(['user_id', 'address_id', 'image']);
+            $get_id = Doctor::where('doctor_id', $req->doctor_id)->first(['user_id', 'address_id', 'image']);
 
             $address_info = DB::table('address_info')
                 ->where('address_id', $get_id->address_id)
                 ->delete();
 
             // Create Main doctor
-            $doctor = doctor::where('doctor_id', $req->doctor_id)->delete();
+            $doctor = Doctor::where('doctor_id', $req->doctor_id)->delete();
 
             $user = User::where('user_id', $get_id->user_id)->delete();
 
 
             if ($get_id->image !== 'default_profile.png' && $get_id->image != '' && $get_id->image != null) {
-                $remove = unlink(public_path('image\\uploads\\doctor\\' . $get_id->image));
+                $remove = unlink(public_path('image\\uploads\\' . $get_id->image));
             }
 
             //9. Create logs

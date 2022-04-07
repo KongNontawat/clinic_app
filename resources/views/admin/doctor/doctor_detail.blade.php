@@ -64,7 +64,7 @@
               <div class="row">
 
                 <div class="col-md-6 col-lg-3">
-                  <img src="{{asset('image/uploads/doctor/'.$doctor->image)}}" class="rounded mx-auto d-block" style="width: 80%;" alt="" />
+                  <img src="{{asset('image/uploads/'.$doctor->image)}}" class="rounded mx-auto d-block" style="width: 80%;" alt="" />
                 </div>
                 <div class="col-md-6 col-lg-9 mt-4 mt-lg-2">
                   <h3 class="mt-2">{{$doctor->title}} {{$doctor->fname}} {{$doctor->lname}} <small class="text-muted">{{($doctor->nname)?'('.$doctor->nname.')':''}}</small></h3>
@@ -436,7 +436,7 @@
 
                       <div class="col-12">
                         <p><i class="fa-solid fa-image"></i> Image profile</p>
-                        <img src="{{asset('image/uploads/doctor/'.$doctor->image)}}" class="rounded-3 me-3" alt="" width="120" height="150" style="object-fit: cover;" id="image-output">
+                        <img src="{{asset('image/uploads/'.$doctor->image)}}" class="rounded-3 me-3" alt="" width="120" height="150" style="object-fit: cover;" id="image-output">
                         <span>
                           <label for="image_update" class="main-btn deactive-btn btn-hover rounded-3 py-2 px-4">
                             <i class="fa-solid fa-folder-open"></i> Upload Image

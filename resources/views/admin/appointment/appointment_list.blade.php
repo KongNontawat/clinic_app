@@ -43,10 +43,38 @@
               <form action="" class="mb-4">
                 <div class="row gy-3 gx-2">
 
-                  <div class="col-sm-6 col-md-4">
+                  <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="input-style-3 mb-0">
                       <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name">
                       <span class="icon"> <i class="fa-solid fa-magnifying-glass me-1"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2">
+                    <div class="form-floating">
+                      <select class="form-select" id="search_status" aria-label="Floating label select example">
+                        <option selected value="">All</option>
+                        <option value="appointment" class="text-warning">Appointment</option>
+                        <option value="arrived" class="" style="color:skyblue">Arrived</option>
+                        <option value="pending" class="" style="color:orange">Pending</option>
+                        <option value="completed" class="text-success">Completed</option>
+                        <option value="cancel" class="text-danger">Cancel</option>
+                      </select>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
+                    <div class="form-floating">
+                      <input type="text" id="min" name="min" class="form-control bg-transparent">
+                      <label for="floatingSelect"><i class="fa-solid fa-clock me-1"></i> Start Date</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-xl-2" style="max-width: 210px;">
+                    <div class="form-floating">
+                      <input type="text" id="max" name="max" class="form-control bg-transparent">
+                      <label for="floatingSelect"><i class="fa-solid fa-clock"></i> End Date</label>
                     </div>
                   </div>
 
@@ -92,7 +120,7 @@
                       <td class="text-center"><a href="" class="text-primary appointment_id">{{$appointment->appointment_number}}</a></td>
                       <td class="ps-2 appointment_name">{{$appointment->doctor_title}} {{$appointment->doctor_fname}} {{$appointment->doctor_lname}}</td>
                       <td class="">{{$appointment->patient_title}} {{$appointment->patient_fname}} {{$appointment->patient_lname}}</td>
-                      <td class="appointment_date">{{$appointment->appointment_date}}</td>
+                      <td class="appointment_date">{{\Carbon\Carbon::parse($appointment->appointment_date)->format('d-m-Y')}}</td>
                       <td class="appointment_time">{{$appointment->appointment_time}}</td>
                       <td class="appointment_status">
                         @switch($appointment->appointment_status)
@@ -235,7 +263,7 @@
                     <select class="light-bg" required="required" name="patient_id" id="patient_id" style="width: 100%;">
                       <option disabled selected>Please select patient</option>
                       @foreach($patients AS $patient)
-                      <option value="{{$patient->patient_id}}">{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</option>
+                      <option value="{{$patient->patient_id}}">[{{$patient->opd_id}}] {{$patient->title}} {{$patient->fname}} {{$patient->lname}}</option>
                       @endforeach
                     </select>
                     @error('patient_id')

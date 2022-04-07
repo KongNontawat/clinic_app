@@ -497,7 +497,7 @@
                           <label>Blood Group</label>
                           <div class="select-position">
                             <select class="light-bg" name="blood_group">
-                              <option disabled selected>Select Your Blood Group</option>
+                              <option selected disabled>Select Your Blood Group</option>
                               <option value="A" {{ old('blood_group') == 'A' ? "selected" :""}}>A</option>
                               <option value="B" {{ old('blood_group') == 'B' ? "selected" :""}}>B</option>
                               <option value="O" {{ old('blood_group') == 'O' ? "selected" :""}}>O</option>

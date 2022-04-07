@@ -51,3 +51,7 @@
     min-height: 200!important;
 }
 
+table.table {
+    width: 100%!important;
+}
+

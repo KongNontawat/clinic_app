@@ -134,9 +134,9 @@ class UserController extends Controller
                 // Upload Image
                 $path = 'image/uploads/';
                 $user_image->move($path, $image);
-                if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
-                    unlink(public_path('image\\uploads\\user\\' . $req->old_image));
-                }
+                // if ($req->old_image !== 'default_profile.png' && $req->old_image != '' && $req->old_image != null) {
+                //     unlink(public_path('image\\uploads\\' . $req->old_image));
+                // }
             } else {
                 $image = $req->old_image;
             }

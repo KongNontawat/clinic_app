@@ -182,7 +182,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label> Name <span class="text-danger">*</span> </label>
-                  <input type="text" value="{{old('name')}}" name="name" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name" autocomplete="off">
+                  <input type="text" value="{{old('name')}}" name="name" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter First Name" autocomplete="off">
                   @error('name')
                   <small class="text-danger">
                     {{ $message }}
@@ -196,7 +196,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label>Email <span class="text-danger">*</span></label>
-                  <input type="email" value="" placeholder="Please enter your Email" name="email" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control" autocomplete="off">
+                  <input type="email" value="{{old('email')}}" placeholder="Please enter Email" name="email" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control" autocomplete="off">
                   @error('email')
                   <small class="text-danger">
                     {{ $message }}
@@ -209,7 +209,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label>Password <span class="text-danger">*</span> </label>
-                  <input type="password" value="" name="password" data-parsley-maxlength="255" class="form-control" placeholder="Please enter user Password" autocomplete="off">
+                  <input type="password" value="{{old('password')}}" name="password" data-parsley-maxlength="255" class="form-control" placeholder="Please enter Password" autocomplete="off">
                   @error('password')
                   <small class="text-danger">
                     {{ $message }}
@@ -224,10 +224,10 @@
                   <label>Employee Role <span class="text-danger">*</span> </label>
                   <div class="select-position">
                     <select class="light-bg" required="required" name="role" id="role_select" style="width: 100%;">
-                      <option value="admin">admin/employee</option>
-                      <option value="doctor">doctor</option>
-                      <option value="manager">manager</option>
-                      <option value="user">user</option>
+                      <option value="admin" {{(old('role') == 'admin')?'selected':''}}>admin/employee</option>
+                      <option value="doctor" {{(old('role') == 'doctor')?'selected':''}}>doctor</option>
+                      <option value="manager" {{(old('role') == 'manager')?'selected':''}}>manager</option>
+                      <option value="user" {{(old('role') == 'user')?'selected':''}}>user</option>
                     </select>
                     @error('role')
                     <small class="text-danger">
@@ -350,8 +350,8 @@
                   <label><i class="fa-solid fa-clipboard-check"></i> User Status </label>
                   <div class="select-position">
                     <select class="light-bg text-capitalize" name="user_status" id="e_user_status">
-                      <option class="text-capitalize" value="1">Normal</option>
-                      <option class="text-capitalize" value="0">Abnormal</option>
+                      <option class="text-capitalize" value="0">Active</option>
+                      <option class="text-capitalize" value="0">Inactive</option>
                     </select>
                     @error('user_status')
                     <small class="text-danger">
@@ -384,12 +384,16 @@
             </div>
             <div class="action d-flex flex-wrap justify-content-start mt-4">
               <div class="button-group d-flex flex-wrap align-items-end">
-                <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
-                  <i class="fa-solid fa-xmark"></i> Cancel
-                </a>
-                <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
-                  <i class="fa-solid fa-floppy-disk"></i> Save Change
-                </button>
+                <div class="left">
+                  <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                  </a>
+                </div>
+                <div class="right">
+                  <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Change
+                  </button>
+                </div>
               </div>
             </div>
           </div>

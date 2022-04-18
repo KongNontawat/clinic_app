@@ -206,7 +206,9 @@ $(function () {
         altFormat: "j F Y",
         dateFormat: "Y-m-d",
     });
-    ClassicEditor.create(document.querySelector("#doctor_comment")).catch(
+    ClassicEditor.create(document.querySelector("#doctor_comment"),{
+        removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageToolbar'],
+    }).catch(
         (error) => {
             console.error(error);
         }

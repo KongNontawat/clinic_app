@@ -87,7 +87,9 @@ $(function () {
     $("#subdistrict_select").select2();
 
     ClassicEditor
-    .create( document.querySelector( '#aboutme_editor' ) )
+    .create( document.querySelector( '#aboutme_editor' ),{
+        removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageToolbar'],
+    } )
     .catch( error => {
         console.error( error );
     } );

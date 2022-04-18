@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AppointmentController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -38,6 +39,8 @@ Route::controller(PatientController::class)->group(function () {
     Route::get('admin/patient/edit/{id}','edit')->name('admin.patient.edit');
     Route::put('admin/patient/update','update')->name('admin.patient.update');
     Route::delete('admin/patient/delete','delete')->name('admin.patient.delete');
+    Route::get('admin/patient/change_status/{id}','change_status')->name('admin.patient.change_status');
+
 });
 
 Route::controller(DoctorController::class)->group(function () {
@@ -48,6 +51,8 @@ Route::controller(DoctorController::class)->group(function () {
     Route::get('admin/doctor/edit/{id}','edit')->name('admin.doctor.edit');
     Route::put('admin/doctor/update','update')->name('admin.doctor.update');
     Route::delete('admin/doctor/delete','delete')->name('admin.doctor.delete');
+    Route::get('admin/doctor/change_status/{id}','change_status')->name('admin.doctor.change_status');
+
 });
 
 Route::controller(EmployeeController::class)->group(function () {
@@ -58,6 +63,8 @@ Route::controller(EmployeeController::class)->group(function () {
     Route::get('admin/employee/edit/{id}','edit')->name('admin.employee.edit');
     Route::put('admin/employee/update','update')->name('admin.employee.update');
     Route::delete('admin/employee/delete','delete')->name('admin.employee.delete');
+    Route::get('admin/employee/change_status/{id}','change_status')->name('admin.employee.change_status');
+
 });
 
 Route::controller(UserController::class)->group(function () {
@@ -65,6 +72,8 @@ Route::controller(UserController::class)->group(function () {
     Route::post('admin/user/store','store')->name('admin.user.store');
     Route::put('admin/user/update','update')->name('admin.user.update');
     Route::delete('admin/user/delete','delete')->name('admin.user.delete');
+    Route::get('admin/user/change_status/{id}','change_status')->name('admin.user.change_status');
+
 
     Route::get('admin/user/logs','view_logs')->name('admin.user.logs');
 });
@@ -83,6 +92,15 @@ Route::controller(AppointmentController::class)->group(function () {
 
     Route::get('admin/schedule','calendar')->name('admin.schedule');
     Route::get('admin/schedule/get_schedule','get_schedule')->name('admin.schedule.get_schedule');
+});
+
+Route::controller(CourseController::class)->group(function () {
+    Route::get('admin/course','index')->name('admin.course');
+    Route::post('admin/course/store','store')->name('admin.course.store');
+    Route::get('admin/course/edit','edit')->name('admin.course.edit');
+    Route::put('admin/course/update','update')->name('admin.course.update');
+    Route::delete('admin/course/delete','delete')->name('admin.course.delete');
+    Route::get('admin/course/change_status/{id}','change_status')->name('admin.course.change_status');
 });
 
 Route::get('/', function() {

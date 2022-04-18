@@ -52,6 +52,7 @@ $(function () {
     $("#search_name").on("keyup", function () {
         datatable.column([1,2]).search(this.value).draw();
     });
+
     $("#search_status").on("change", function () {
         datatable.column(5).search(this.value).draw();
     });
@@ -103,14 +104,18 @@ $(function () {
         dateFormat: "Y-m-d",
     });
 
-    ClassicEditor.create(document.querySelector("#doctor_comment")).catch(
+    ClassicEditor.create(document.querySelector("#doctor_comment"),{
+        removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageToolbar'],
+    }).catch(
         (error) => {
             console.error(error);
         }
     );
 
     let e_doctor_comment;
-    ClassicEditor.create(document.querySelector("#e_doctor_comment"))
+    ClassicEditor.create(document.querySelector("#e_doctor_comment"),{
+        removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageToolbar'],
+    })
         .then(editor => {
             e_doctor_comment = editor;
         })

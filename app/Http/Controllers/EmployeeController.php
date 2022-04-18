@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -49,20 +50,27 @@ class EmployeeController extends Controller
 	{
 		// Validation Main employee
 		$validator = Validator::make($req->all(), [
-			'fname' => 'required',
-			'lname' => 'required',
+			'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
 			'sex' => 'required',
-			'birthdate' => 'required',
-			'age' => 'min:0|max:3',
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+			'email' => 'required|email|unique:doctors|max:255',
+			'id_line' => 'nullable|max:100|unique:doctors',
 			'phone' => 'required|max:13|min:9',
-			'email' => "required|unique:employees|unique:users",
-			'password' => 'required|min:0|max:20'
+			'password' => 'required|min:6|max:20',
+			'position' => 'nullable|string|max:255',
+			'zip_code' => 'nullable|string|max:10',
+			'country' => 'nullable|string|max:40',
+			'image' => 'nullable|mimes:jpg,png,gif,jpeg',
 		]);
 
 		if ($validator->fails()) {
 			return redirect()->back()
 				->withErrors($validator->errors()->getMessages())
-				->with('msg_error',$validator->errors()->all())
+				->with('msg_error', $validator->errors()->all())
 				->withInput();
 		}
 
@@ -154,19 +162,26 @@ class EmployeeController extends Controller
 
 		// Validation Main employee
 		$validator = Validator::make($req->all(), [
-			'fname' => 'required',
-			'lname' => 'required',
+			'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
 			'sex' => 'required',
-			'birthdate' => 'required',
-			'age' => 'min:0|max:3',
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+			'email' => 'required|email|max:255|' . Rule::unique('employees')->ignore($req->employee_id, 'employee_id'),
+			'id_line' => 'nullable|max:100|' . Rule::unique('employees')->ignore($req->employee_id, 'employee_id'),
 			'phone' => 'required|max:13|min:9',
-			'email' => "required"
+			'position' => 'nullable|string|max:255',
+			'zip_code' => 'nullable|string|max:10',
+			'country' => 'nullable|string|max:40',
+			'image' => 'nullable|mimes:jpg,png,gif,jpeg',
 		]);
 
 		if ($validator->fails()) {
 			return redirect()->back()
 				->withErrors($validator->errors()->getMessages())
-				->with('msg_error',$validator->errors()->all())
+				->with('msg_error', $validator->errors()->all())
 				->withInput();
 		}
 
@@ -286,6 +301,42 @@ class EmployeeController extends Controller
 			]);
 			DB::commit();
 			return redirect()->back()->with('msg_error', 'Deleted Employee Failed!');
+		}
+	}
+
+	public function change_status($id)
+	{
+		DB::beginTransaction();
+		try {
+			$employee = Employee::where('employee_id', $id)->first();
+			if ($employee->employee_status == 0) {
+				$status = 1;
+			} elseif ($employee->employee_status == 1) {
+				$status = 0;
+			}
+
+			Employee::where('employee_id', $id)->update(['employee_status' => $status]);
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Update Status Employee ID:' . $id,
+				'logs_detail' => '-',
+				'logs_status' => 'success'
+			]);
+
+			DB::commit();
+			return redirect()->back()->with('msg_success', 'Update Status Employee successfully!');
+		} catch (Exception  $e) {
+			DB::rollback();
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Fail! Update Status Employee ID:' . $id,
+				'logs_detail' => 'something is wrong',
+				'logs_status' => 'fail'
+			]);
+			DB::commit();
+			return redirect()->back()->with('msg_error', 'Update Status Employee Failed!');
 		}
 	}
 }

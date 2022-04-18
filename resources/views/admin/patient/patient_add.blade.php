@@ -98,9 +98,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name <span class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('fname')}}" name="fname" required="required"
-                            data-parsley-maxlength="100" class="form-control"
-                            placeholder="Please enter your First Name">
+                          <input type="text" value="{{old('fname')}}" name="fname" required="required" 	data-parsley-length="[1, 100]" class="form-control"
+                            placeholder="Please enter First Name">
                             @error('fname')
                             <small class="text-danger">
                             {{ $message }}
@@ -114,7 +113,7 @@
                         <div class="input-style-1">
                           <label>Last Name <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('lname')}}" name="lname" required="required"
-                            data-parsley-maxlength="255" class="form-control" placeholder="Please enter your Last Name">
+                          data-parsley-length="[1, 255]" class="form-control" placeholder="Please enter Last Name">
                             @error('lname')
                             <small class="text-danger">
                             {{ $message }}
@@ -128,7 +127,7 @@
                         <div class="input-style-1">
                           <label>Nick Name </label>
                           <input type="text" value="{{old('nname')}}" name="nname" data-parsley-maxlength="50"
-                            placeholder="Please enter your Nick Name">
+                            placeholder="Please enter Nick Name">
                             @error('nname')
                             <small class="text-danger">
                             {{ $message }}
@@ -142,8 +141,8 @@
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-address-card"></i> ID Card Number <span
                               class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('id_card')}}" placeholder="Please enter your ID Card Number"
-                            name="id_card" required="required" data-parsley-minlength="17" data-parsley-maxlength="17"
+                          <input type="text" value="{{old('id_card')}}" placeholder="Please enter ID Card Number"
+                            name="id_card" required="required" data-parsley-length="[17, 17]" data-parsley-error-message="This value length is invalid. It should be 13 characters long."
                             id="id_card" class="form-control">
                             @error('id_card')
                             <small class="text-danger">
@@ -157,7 +156,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Date of Birth <span class="text-danger">*</span> </label>
-                          <input type="date" required="required" id="dob" name="birthdate" value="{{old('birthdate')}}">
+                          <input type="date" required="required" id="dob" name="birthdate" value="{{old('birthdate')}}" placeholder="Please enter Date of Birth">
                           @error('birthdate')
                             <small class="text-danger">
                             {{ $message }}
@@ -171,8 +170,7 @@
                         <div class="input-style-1">
                           <label>Age <span class="text-danger">*</span> </label>
                           <input type="number" value="{{old('age')}}" placeholder="Age automatically calculate"
-                            name="age" style="max-width: 200px;" required="required" data-parsley-minlength="0"
-                            data-parsley-maxlength="100" id="age" class="form-control">
+                            name="age" style="max-width: 200px;" required="required" data-parsley-length="[1, 120]" id="age" class="form-control">
                             @error('age')
                             <small class="text-danger">
                             {{ $message }}
@@ -208,8 +206,8 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Phone Number <span class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('phone')}}" placeholder="Please enter your Phone Number"
-                            name="phone" required="required" data-parsley-minlength="9" data-parsley-maxlength="13"
+                          <input type="text" value="{{old('phone')}}" placeholder="Please enter Phone Number"
+                            name="phone" required="required" data-parsley-length="[9, 13]"
                             id="phone_number" class="form-control">
                             @error('phone')
                             <small class="text-danger">
@@ -222,7 +220,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Email </label>
-                          <input type="email" value="{{old('email')}}" placeholder="Please enter your Email"
+                          <input type="email" value="{{old('email')}}" placeholder="Please enter Email"
                             name="email" data-parsley-trigger="change" data-parsley-maxlength="255"
                             class="form-control">
                             @error('email')
@@ -236,8 +234,8 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>ID Line</label>
-                          <input type="text" value="{{old('id_line')}}" name="id_line" data-parsley-maxlength="255"
-                            class="form-control" placeholder="Please enter your ID Line">
+                          <input type="text" value="{{old('id_line')}}" name="id_line" data-parsley-maxlength="100"
+                            class="form-control" placeholder="Please enter ID Line">
                             @error('id_line')
                             <small class="text-danger">
                             {{ $message }}
@@ -250,8 +248,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Nationality </label>
-                          <input type="text" value="ไทย" name="nationality" class="form-control"
-                            placeholder="Please enter your Nationality">
+                          <input type="text" value="{{(old('nationality')?old('nationality'):'ไทย')}}" name="nationality" class="form-control" data-parsley-maxlength="50"
+                            placeholder="Please enter Nationality">
                             @error('nationality')
                             <small class="text-danger">
                             {{ $message }}
@@ -264,8 +262,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Race </label>
-                          <input type="text" value="ไทย" name="race" class="form-control"
-                            placeholder="Please enter your Race">
+                          <input type="text" value="{{(old('race')?old('race'):'ไทย')}}" name="race" class="form-control" data-parsley-maxlength="50"
+                            placeholder="Please enter Race">
                             @error('race')
                             <small class="text-danger">
                             {{ $message }}
@@ -278,8 +276,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Religion </label>
-                          <input type="text" value="พุทธ" name="religion" class="form-control"
-                            placeholder="Please enter your Religion">
+                          <input type="text" value="{{(old('religion')?old('religion'):'พุทธ')}}" name="religion" class="form-control" data-parsley-maxlength="50"
+                            placeholder="Please enter Religion">
                             @error('religion')
                             <small class="text-danger">
                             {{ $message }}
@@ -292,7 +290,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address <span class="text-danger">*</span> </label>
-                          <textarea name="address" placeholder="Please enter your address" id="" cols="30" rows="4"
+                          <textarea name="address" placeholder="Please enter address" id="" cols="30" rows="4"
                             required="required"
                             class="form-control">{{(old('address')) ? old('address') : "บ้านเลขที่:     หมู่ที่:     ถนน:     ตรอก/ซอย:"}}</textarea>
                             @error('address')
@@ -310,7 +308,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="province_id" id="province_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your Province</option>
+                              <option disabled selected>Please enter Province</option>
                               @foreach($provinces as $province)
                               <option value="{{$province->id}}">{{$province->name_th}}</option>
                               @endforeach
@@ -332,7 +330,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="district_id" id="district_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your District</option>
+                              <option disabled selected>Please enter District</option>
                             </select>
                             @error('district_id')
                             <small class="text-danger">
@@ -351,7 +349,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="subdistrict_id" id="subdistrict_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your Subdistrict</option>
+                              <option disabled selected>Please enter Subdistrict</option>
                             </select>
                             @error('subdistrict_id')
                             <small class="text-danger">
@@ -367,9 +365,8 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code <span class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('zip_code')}}" placeholder="Please enter your zip code"
-                            id="zip_code" name="zip_code" required="required" data-parsley-maxlength="10"
-                            data-parsley-minlength="5" class="form-control">
+                          <input type="text" value="{{old('zip_code')}}" placeholder="Please enter zip code"
+                            id="zip_code" name="zip_code" required="required"	data-parsley-length="[0, 10]" class="form-control">
                             @error('zip_code')
                             <small class="text-danger">
                             {{ $message }}
@@ -382,7 +379,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country <span class="text-danger">*</span> </label>
-                          <input type="text" value="ไทย" placeholder="Please enter your country" name="country"
+                          <input type="text" value="{{(old('country')?old('country'):'ไทย')}}" placeholder="Please enter country" name="country" data-parsley-maxlength="40"
                             required="required" class="form-control">
                             @error('country')
                             <small class="text-danger">
@@ -396,7 +393,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
-                          <input type="text" value="{{old('occupation')}}" placeholder="Please enter your Occupation"
+                          <input type="text" value="{{old('occupation')}}" placeholder="Please enter Occupation" data-parsley-maxlength="50"
                             name="occupation" class="form-control">
                             @error('occupation')
                             <small class="text-danger">
@@ -467,8 +464,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Weight <span class="text-muted">(kg)</span> </label>
-                          <input type="number" placeholder="Please enter your Weight" name="weight"
-                            data-parsley-minlength="0" value="{{old('weight')}}">
+                          <input type="number" placeholder="Please enter Weight" name="weight"
+                            data-parsley-length="[0, 500]" value="{{old('weight')}}">
                             @error('weight')
                             <small class="text-danger">
                             {{ $message }}
@@ -481,8 +478,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Height <span class="text-muted">(cm)</span> </label>
-                          <input type="text" placeholder="Please enter your Height" name="height"
-                            data-parsley-minlength="0" value="{{old('height')}}">
+                          <input type="number" placeholder="Please enter Height" name="height"
+                            data-parsley-length="[0, 250]" value="{{old('height')}}">
                             @error('height')
                             <small class="text-danger">
                             {{ $message }}
@@ -521,7 +518,7 @@
                         <div class="input-style-1">
                           <label>Drug Allergies </label>
                           <textarea name="drug_allergies" id="" cols="30" rows="2"
-                            placeholder="Please enter your Drug Allergies">{{old('drug_allergies')}}</textarea>
+                            placeholder="Please enter Drug Allergies">{{old('drug_allergies')}}</textarea>
                             @error('drug_allergies')
                             <small class="text-danger">
                             {{ $message }}
@@ -535,7 +532,7 @@
                         <div class="input-style-1">
                           <label>Food Allergies </label>
                           <textarea name="food_allergies" id="" cols="30" rows="2"
-                            placeholder="Please enter your Food Allergies">{{old('food_allergies')}}</textarea>
+                            placeholder="Please enter Food Allergies">{{old('food_allergies')}}</textarea>
                             @error('food_allergies')
                             <small class="text-danger">
                             {{ $message }}
@@ -549,7 +546,7 @@
                         <div class="input-style-1">
                           <label>Congenital Disease </label>
                           <textarea name="congenital_disease" id="" cols="30" rows="3"
-                            placeholder="Please enter your Congenital Disease">{{old('congenital_disease')}}</textarea>
+                            placeholder="Please enter Congenital Disease">{{old('congenital_disease')}}</textarea>
                             @error('congenital_disease')
                             <small class="text-danger">
                             {{ $message }}
@@ -626,11 +623,6 @@
                               <i class="fa-solid fa-xmark"></i> No</label>
                           </div>
                         </div>
-                        @error('smoker')
-                            <small class="text-danger">
-                            {{ $message }}
-                            </small>
-                            @enderror
                       </div>
                       <!-- end col -->
                       <hr class="m-0 mb-3">
@@ -826,7 +818,7 @@
                         <div class="input-style-1">
                           <label>High Risk Diseases </label>
                           <textarea name="high_risk_diseases" id="" cols="30" rows="2"
-                            placeholder="Please enter your High Risk Diseases">{{old('high_risk_diseases')}}</textarea>
+                            placeholder="Please enter High Risk Diseases">{{old('high_risk_diseases')}}</textarea>
                             @error('high_risk_diseases')
                             <small class="text-danger">
                             {{ $message }}
@@ -839,7 +831,7 @@
                         <div class="input-style-1">
                           <label>Surgery </label>
                           <textarea name="surgery" id="" cols="30" rows="2"
-                            placeholder="Please enter your Surgery">{{old('surgery')}}</textarea>
+                            placeholder="Please enter Surgery">{{old('surgery')}}</textarea>
                             @error('surgery')
                             <small class="text-danger">
                             {{ $message }}
@@ -852,7 +844,7 @@
                         <div class="input-style-1">
                           <label>Accident </label>
                           <textarea name="accident" id="" cols="30" rows="2"
-                            placeholder="Please enter your Accident">{{old('accident')}}</textarea>
+                            placeholder="Please enter Accident">{{old('accident')}}</textarea>
                             @error('accident')
                             <small class="text-danger">
                             {{ $message }}
@@ -866,7 +858,7 @@
                         <div class="input-style-1">
                           <label>Medical History </label>
                           <textarea name="medical_history" id="" cols="30" rows="3"
-                            placeholder="Please enter your Medical History">{{old('medical_history')}}</textarea>
+                            placeholder="Please enter Medical History">{{old('medical_history')}}</textarea>
                             @error('medical_history')
                             <small class="text-danger">
                             {{ $message }}
@@ -879,7 +871,7 @@
                         <div class="input-style-1">
                           <label>Current Medication </label>
                           <textarea name="current_medication" id="" cols="30" rows="3"
-                            placeholder="Please enter your Current Medication">{{old('current_medication')}}</textarea>
+                            placeholder="Please enter Current Medication">{{old('current_medication')}}</textarea>
                             @error('current_medication')
                             <small class="text-danger">
                             {{ $message }}
@@ -939,7 +931,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name </label>
-                          <input type="text" value="{{old('emc_fname')}}" placeholder="Please enter his first name" data-parsley-maxlength="255"
+                          <input type="text" value="{{old('emc_fname')}}" placeholder="Please enter his first name" data-parsley-maxlength="100"
                             name="emc_fname">
                             @error('emc_title')
                             <small class="text-danger">
@@ -991,7 +983,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Phone </label>
-                          <input type="text" placeholder="Please enter his phone" id="emc_phone" name="emc_phone" value="{{old('emc_phone')}}">
+                          <input type="text" placeholder="Please enter his phone" id="emc_phone" name="emc_phone" value="{{old('emc_phone')}}" data-parsley-length="[9, 13]">
                           @error('emc_phone')
                             <small class="text-danger">
                             {{ $message }}
@@ -1079,7 +1071,7 @@
                         <div class="input-style-1">
                           <label>Zip Code <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('emc_zip_code')}}" placeholder="Please enter his zip code" id="emc_zip_code"
-                            name="emc_zip_code" data-parsley-maxlength="10" data-parsley-minlength="5"
+                            name="emc_zip_code" data-parsley-length="[0, 10]"
                             class="form-control">
                             @error('emc_zip_code')
                             <small class="text-danger">
@@ -1093,7 +1085,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country </label>
-                          <input type="text" value="{{old('emc_country')}}" placeholder="Please enter his country" name="emc_country"
+                          <input type="text" value="{{old('emc_country')}}" placeholder="Please enter his country" name="emc_country" data-parsley-maxlength="40"
                             id="emc_country" class="form-control">
                             @error('emc_country')
                             <small class="text-danger">

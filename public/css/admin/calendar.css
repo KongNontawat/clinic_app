@@ -1,55 +1,8 @@
-.dataTables_filter {
-  display: none;
-}
-.dataTables_wrapper .dataTables_paginate,
-.dataTables_wrapper .dataTables_info{
-  margin-top: 1.3rem!important;
-}
-.dataTables_length select {
-  padding: 6px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.247);
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-.dataTables_length select {
-  min-width: 4rem;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  margin: 0 3px;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button .page-link {
-  border-radius: 4px;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button.active {
-  background-color: #4A6CF7;
-}
-.menu-box{
-  height: 200px;
-  width: 200px;
-}
-.menu a:hover{
-    transition: .3s;
-    background: #fff !important;
-    top:5px;
-}
-.menu a:hover svg{
-  transform: scale(1.1);
-  transition: .3s;
-}
-.flex-wrap{
-  margin-bottom: 10px;
-}
-
-.parsley-errors-list {
-  color: red;
-}
 .select-style-1 .select-position::after {
-  top: 50%!important;
+    top: 50% !important;
 }
 .col-sm-6 {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 .select2 {
     width: 100%;
@@ -57,7 +10,7 @@
 }
 .selection {
     display: block;
-    height: 50px!important;
+    height: 50px !important;
 }
 .select2-selection__arrow {
     display: none;
@@ -94,6 +47,6 @@
     background-size: 16px 12px;
 }
 
-.ck-editor__editable_inline {
-  min-height: 150px;
+.ck-content {
+    min-height: 200 !important;
 }

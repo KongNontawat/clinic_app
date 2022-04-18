@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -49,14 +50,23 @@ class DoctorController extends Controller
         // return dd($req);
         // Validation Main doctor
         $validator = Validator::make($req->all(), [
-            'fname' => 'required',
-            'lname' => 'required',
-            'sex' => 'required',
-            'birthdate' => 'required',
-            'age' => 'min:0|max:3',
-            'phone' => 'required|max:13|min:9',
-            'email' => "required|unique:doctors|unique:users",
-            'password' => 'required|min:0|max:20'
+            'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
+			'sex' => 'required',
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+            'email' => 'required|email|unique:doctors|max:255',
+			'id_line' => 'nullable|max:100|unique:doctors',
+			'phone' => 'required|max:13|min:9',
+            'password' => 'required|min:6|max:20',
+			'position'=>'nullable|string|max:255',
+			'specialize'=>'nullable|string|max:255',
+			'in_hospital'=>'nullable|string|max:255',
+            'zip_code'=>'nullable|string|max:10',
+			'country'=>'nullable|string|max:40',
+			'image'=> 'nullable|mimes:jpg,png,gif,jpeg',
         ]);
 
         if ($validator->fails()) {
@@ -155,13 +165,22 @@ class DoctorController extends Controller
         $doctor_id = $req->doctor_id;
 
         $validator = Validator::make($req->all(), [
-            'fname' => 'required',
-            'lname' => 'required',
-            'sex' => 'required',
-            'birthdate' => 'required',
-            'age' => 'min:0|max:3',
-            'phone' => 'required|max:13|min:9',
-            'email' => "required"
+            'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
+			'sex' => 'required',
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+            'email' => 'required|email|max:255|'.Rule::unique('doctors')->ignore($req->doctor_id,'doctor_id'),
+			'id_line' => 'nullable|max:100|'.Rule::unique('doctors')->ignore($req->doctor_id,'doctor_id'),
+			'phone' => 'required|max:13|min:9',
+			'position'=>'nullable|string|max:255',
+			'specialize'=>'nullable|string|max:255',
+			'in_hospital'=>'nullable|string|max:255',
+            'zip_code'=>'nullable|string|max:10',
+			'country'=>'nullable|string|max:40',
+			'image'=> 'nullable|mimes:jpg,png,gif,jpeg',
         ]);
 
         if ($validator->fails()) {
@@ -290,4 +309,40 @@ class DoctorController extends Controller
             return redirect()->back()->with('msg_error', 'Deleted Doctor Failed!');
         }
     }
+
+    public function change_status($id)
+	{
+		DB::beginTransaction();
+		try {
+			$doctor = Doctor::where('doctor_id', $id)->first();
+			if ($doctor->doctor_status == 0) {
+				$status = 1;
+			} elseif ($doctor->doctor_status == 1) {
+				$status = 0;
+			}
+
+			Doctor::where('doctor_id', $id)->update(['doctor_status' => $status]);
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Update Status Doctor ID:' . $id,
+				'logs_detail' => '-',
+				'logs_status' => 'success'
+			]);
+
+			DB::commit();
+			return redirect()->back()->with('msg_success', 'Update Status Doctor successfully!');
+		} catch (Exception  $e) {
+			DB::rollback();
+
+			$logs_user = DB::table('logs_user')->insert([
+				'user_id' => Auth::user()->user_id,
+				'activity' => 'Fail! Update Status Doctor ID:' . $id,
+				'logs_detail' => 'something is wrong',
+				'logs_status' => 'fail'
+			]);
+			DB::commit();
+			return redirect()->back()->with('msg_error', 'Update Status Doctor Failed!');
+		}
+	}
 }

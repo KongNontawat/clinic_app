@@ -58,12 +58,6 @@
                   <button class="nav-link active py-3 px-3 px-md-4" id="nav-general-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-general" type="button" role="tab" aria-controls="nav-general"
                     aria-selected="true"><i class="fa-solid fa-user-pen"></i> employee General Info</button>
-                  <!-- <button class="nav-link py-3 px-3 px-md-4" id="nav-medical-info-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-medical-info" type="button" role="tab" aria-controls="nav-medical-info"
-                    aria-selected="false"><i class="fa-solid fa-book-medical"></i> employee Medical Info</button>
-                  <button class="nav-link py-3 px-3 px-md-4" id="nav-emc-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-emc" type="button" role="tab" aria-controls="nav-emc" aria-selected="false"><i
-                      class="fa-solid fa-triangle-exclamation"></i> -</button> -->
                 </div>
               </nav>
 
@@ -104,7 +98,7 @@
                           <label>First Name <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('fname')}}" name="fname" required="required"
                             data-parsley-maxlength="100" class="form-control"
-                            placeholder="Please enter your First Name">
+                            placeholder="Please enter First Name">
                             @error('fname')
                             <small class="text-danger">
                             {{ $message }}
@@ -118,7 +112,7 @@
                         <div class="input-style-1">
                           <label>Last Name <span class="text-danger">*</span> </label>
                           <input type="text" value="{{old('lname')}}" name="lname" required="required"
-                            data-parsley-maxlength="255" class="form-control" placeholder="Please enter your Last Name">
+                            data-parsley-maxlength="255" class="form-control" placeholder="Please enter Last Name">
                             @error('lname')
                             <small class="text-danger">
                             {{ $message }}
@@ -132,7 +126,7 @@
                         <div class="input-style-1">
                           <label>Nick Name </label>
                           <input type="text" value="{{old('nname')}}" name="nname" data-parsley-maxlength="50"
-                            placeholder="Please enter your Nick Name">
+                            placeholder="Please enter Nick Name">
                             @error('nname')
                             <small class="text-danger">
                             {{ $message }}
@@ -159,8 +153,7 @@
                         <div class="input-style-1">
                           <label>Age <span class="text-danger">*</span> </label>
                           <input type="number" value="{{old('age')}}" placeholder="Age automatically calculate"
-                            name="age" required="required" data-parsley-minlength="0"
-                            data-parsley-maxlength="100" id="age" class="form-control">
+                            name="age" required="required" 	data-parsley-length="[1, 120]" id="age" class="form-control">
                             @error('age')
                             <small class="text-danger">
                             {{ $message }}
@@ -196,8 +189,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Phone Number <span class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('phone')}}" placeholder="Please enter your Phone Number"
-                            name="phone" required="required" data-parsley-minlength="9" data-parsley-maxlength="13"
+                          <input type="text" value="{{old('phone')}}" placeholder="Please enter Phone Number"
+                            name="phone" required="required" 	data-parsley-length="[9, 13]"
                             id="phone_number" class="form-control">
                             @error('phone')
                             <small class="text-danger">
@@ -210,8 +203,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>ID Line</label>
-                          <input type="text" value="{{old('id_line')}}" name="id_line" data-parsley-maxlength="255"
-                            class="form-control" placeholder="Please enter your ID Line">
+                          <input type="text" value="{{old('id_line')}}" name="id_line" data-parsley-maxlength="100"
+                            class="form-control" placeholder="Please enter ID Line">
                             @error('id_line')
                             <small class="text-danger">
                             {{ $message }}
@@ -225,7 +218,7 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Email <span class="text-danger">*</span></label>
-                          <input type="email" value="{{old('email')}}" placeholder="Please enter your Email"
+                          <input type="email" value="{{old('email')}}" placeholder="Please enter Email"
                             name="email" data-parsley-trigger="change" data-parsley-maxlength="255"
                             class="form-control">
                             @error('email')
@@ -240,7 +233,7 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Password <span class="text-danger">*</span> </label>
-                          <input type="password" value="{{old('password')}}" name="password" data-parsley-maxlength="255"
+                          <input type="password" value="{{old('password')}}" name="password"	data-parsley-length="[1, 20]"
                             class="form-control" placeholder="Please enter user Password">
                             @error('password')
                             <small class="text-danger">
@@ -254,7 +247,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address <span class="text-danger">*</span> </label>
-                          <textarea name="address" placeholder="Please enter your address" id="" cols="30" rows="4"
+                          <textarea name="address" placeholder="Please enter address" id="" cols="30" rows="4"
                             required="required"
                             class="form-control">{{(old('address')) ? old('address') : "บ้านเลขที่:     หมู่ที่:     ถนน:     ตรอก/ซอย:"}}</textarea>
                             @error('address')
@@ -272,7 +265,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="province_id" id="province_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your Province</option>
+                              <option disabled selected>Please enter Province</option>
                               @foreach($provinces as $province)
                               <option value="{{$province->id}}">{{$province->name_th}}</option>
                               @endforeach
@@ -294,7 +287,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="district_id" id="district_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your District</option>
+                              <option disabled selected>Please enter District</option>
                             </select>
                             @error('district_id')
                             <small class="text-danger">
@@ -313,7 +306,7 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="subdistrict_id" id="subdistrict_select"
                               style="width: 100%;">
-                              <option disabled selected>Please enter your Subdistrict</option>
+                              <option disabled selected>Please enter Subdistrict</option>
                             </select>
                             @error('subdistrict_id')
                             <small class="text-danger">
@@ -329,9 +322,8 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code <span class="text-danger">*</span> </label>
-                          <input type="text" value="{{old('zip_code')}}" placeholder="Please enter your zip code"
-                            id="zip_code" name="zip_code" required="required" data-parsley-maxlength="10"
-                            data-parsley-minlength="5" class="form-control">
+                          <input type="text" value="{{old('zip_code')}}" placeholder="Please enter zip code"
+                            id="zip_code" name="zip_code" required="required" 	data-parsley-length="[0, 10]" class="form-control">
                             @error('zip_code')
                             <small class="text-danger">
                             {{ $message }}
@@ -344,8 +336,8 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Country <span class="text-danger">*</span> </label>
-                          <input type="text" value="ไทย" placeholder="Please enter your country" name="country"
-                            required="required" class="form-control">
+                          <input type="text" value="{{(old('country'))?old('country') :'ไทย'}}" placeholder="Please enter country" name="country"
+                            required="required" class="form-control" data-parsley-maxlength="40">
                             @error('country')
                             <small class="text-danger">
                             {{ $message }}
@@ -359,7 +351,7 @@
                         <div class="input-style-1">
                           <label> Position </label>
                           <input type="text" value="{{old('position')}}" placeholder="Please enter employee position"
-                            name="position" class="form-control">
+                            name="position" class="form-control" data-parsley-maxlength="255">
                             @error('position')
                             <small class="text-danger">
                             {{ $message }}
@@ -373,7 +365,6 @@
                         <div class="input-style-1">
                           <label>About Me </label>
                           <textarea name="aboutme" placeholder="Please enter employee aboutme" id="aboutme_editor" cols="30" rows="4"
-                            required="required"
                             class="form-control">{{(old('aboutme')) ? old('aboutme') : "-"}}</textarea>
                             @error('aboutme')
                             <small class="text-danger">
@@ -390,10 +381,10 @@
                           <div class="select-position">
                             <select class="light-bg" required="required" name="role" id="role_select"
                               style="width: 100%;">
-                              <option value="admin">admin/employee</option>
-                              <option value="doctor">doctor</option>
-                              <option value="manager">manager</option>
-                              <option value="user">user</option>
+                              <option value="admin" {{(old('role') == 'admin')?'selected':''}}>admin/employee</option>
+                              <option value="doctor" {{(old('role') == 'doctor')?'selected':''}}>doctor</option>
+                              <option value="manager" {{(old('role') == 'manager')?'selected':''}}>manager</option>
+                              <option value="user" {{(old('role') == 'user')?'selected':''}}>user</option>
                             </select>
                             @error('role')
                             <small class="text-danger">

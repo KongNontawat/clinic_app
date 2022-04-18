@@ -60,10 +60,10 @@
                     <div class="form-floating">
                       <select class="form-select" id="search_status" aria-label="Floating label select example">
                         <option selected value="">All</option>
-                        <option value="normal" class="text-success">Normal</option>
-                        <option value="abnormal" class="text-danger">Abnormal</option>
+                        <option value="active" class="text-success">Active</option>
+                        <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> User Status</label>
                     </div>
                   </div>
 
@@ -109,9 +109,9 @@
                       <td class="user_role">{{$user->role}}</td>
                       <td class="user_status">
                         @if($user->user_status == 1)
-                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
+                        <a href="{{route('admin.user.change_status',$user->user_id)}}" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Active</a>
                         @else
-                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
+                        <a href="{{route('admin.user.change_status',$user->user_id)}}" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Inactive</a>
                         @endif
                       </td>
                       <td class="text-center">
@@ -203,7 +203,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label> Name <span class="text-danger">*</span> </label>
-                  <input type="text" value="{{old('name')}}" name="name" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name" autocomplete="off">
+                  <input type="text" value="{{old('name')}}" name="name" required="required" data-parsley-maxlength="255" class="form-control" placeholder="Please enter your First Name" autocomplete="off">
                   @error('name')
                   <small class="text-danger">
                     {{ $message }}
@@ -230,7 +230,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label>Password <span class="text-danger">*</span> </label>
-                  <input type="password" value="" name="password" data-parsley-maxlength="255" class="form-control" placeholder="Please enter user Password" autocomplete="off">
+                  <input type="password" value="" name="password" data-parsley-length="[1, 20]" class="form-control" placeholder="Please enter user Password" autocomplete="off">
                   @error('password')
                   <small class="text-danger">
                     {{ $message }}
@@ -279,17 +279,21 @@
               </div>
               <!-- end col -->
             </div>
-            <div class="action d-flex flex-wrap justify-content-start mt-4">
-              <div class="button-group d-flex flex-wrap align-items-end">
-                <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
-                  <i class="fa-solid fa-xmark"></i> Cancel
-                </a>
-                <button type="reset" class="main-btn light-btn p-2 mx-2 mb-3">
-                  <i class="fa-solid fa-arrow-rotate-left"></i> Reset
-                </button>
-                <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
-                  <i class="fa-solid fa-floppy-disk"></i> Submit
-                </button>
+            <div class="action mt-4">
+              <div class="button-group d-flex flex-wrap align-items-end justify-content-between">
+                <div class="left">
+                  <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                  </a>
+                  <button type="reset" class="main-btn light-btn p-2 mx-2 mb-3">
+                    <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+                  </button>
+                </div>
+                <div class="right">
+                  <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
+                    <i class="fa-solid fa-floppy-disk"></i> Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -320,7 +324,7 @@
                 <div class="input-style-1">
                   <label> Name <span class="text-danger">*</span> </label>
                   <input type="hidden" name="user_id" value="" id="e_user_id">
-                  <input type="text" value="" id="e_user_name" name="name" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name">
+                  <input type="text" value="" id="e_user_name" name="name" required="required" data-parsley-maxlength="255" class="form-control" placeholder="Please enter your First Name">
                   @error('name')
                   <small class="text-danger">
                     {{ $message }}
@@ -370,9 +374,9 @@
                         <div class="select-style-1">
                           <label><i class="fa-solid fa-clipboard-check"></i> User Status </label>
                           <div class="select-position">
-                            <select class="light-bg text-capitalize" name="user_status" id="e_user_status">
-                              <option class="text-capitalize" value="1">Normal</option>
-                              <option class="text-capitalize" value="0">Abnormal</option>
+                            <select class="light-bg text-capitalize" name="user_status" id="e_user_status" required="required">
+                              <option class="text-capitalize" value="0">Active</option>
+                              <option class="text-capitalize" value="0">Inactive</option>
                             </select>
                             @error('user_status')
                             <small class="text-danger">
@@ -403,14 +407,18 @@
               </div>
               <!-- end col -->
             </div>
-            <div class="action d-flex flex-wrap justify-content-start mt-4">
-              <div class="button-group d-flex flex-wrap align-items-end">
-                <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
-                  <i class="fa-solid fa-xmark"></i> Cancel
-                </a>
-                <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
-                  <i class="fa-solid fa-floppy-disk"></i> Save Change
-                </button>
+            <div class="action mt-4">
+              <div class="button-group d-flex flex-wrap align-items-end justify-content-between">
+                <div class="left">
+                  <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                  </a>
+                </div>
+                <div class="right">
+                  <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Change
+                  </button>
+                </div>
               </div>
             </div>
           </div>

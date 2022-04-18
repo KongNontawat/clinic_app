@@ -242,7 +242,7 @@
                     <select class="light-bg" required="required" name="doctor_id" id="doctor_id" style="width: 100%;">
                       <option disabled selected>Please select doctor</option>
                       @foreach($doctors AS $doctor)
-                      <option value="{{$doctor->doctor_id}}">{{$doctor->title}} {{$doctor->fname}} {{$doctor->lname}}</option>
+                      <option value="{{$doctor->doctor_id}}" {{(old('doctor_id') == $doctor->doctor_id)? 'selected':''}}>{{$doctor->title}} {{$doctor->fname}} {{$doctor->lname}}</option>
                       @endforeach
                     </select>
                     @error('doctor_id')
@@ -263,7 +263,7 @@
                     <select class="light-bg" required="required" name="patient_id" id="patient_id" style="width: 100%;">
                       <option disabled selected>Please select patient</option>
                       @foreach($patients AS $patient)
-                      <option value="{{$patient->patient_id}}">[{{$patient->opd_id}}] {{$patient->title}} {{$patient->fname}} {{$patient->lname}}</option>
+                      <option value="{{$patient->patient_id}}" {{(old('patient_id') == $patient->patient_id)? 'selected':''}}>[{{$patient->opd_id}}] {{$patient->title}} {{$patient->fname}} {{$patient->lname}}</option>
                       @endforeach
                     </select>
                     @error('patient_id')
@@ -308,7 +308,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Reason for Appointment <span class="text-danger">*</span> </label>
-                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" class="form-control" placeholder="Please enter your First Name">{{old('reason_for_appointment')}}</textarea>
                   @error('reason_for_appointment')
                   <small class="text-danger">
                     {{ $message }}
@@ -321,7 +321,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Doctor Comment</label>
-                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" class="form-control" placeholder="Please enter your First Name">{{old('doctor_comment')}}</textarea>
                   @error('doctor_comment')
                   <small class="text-danger">
                     {{ $message }}
@@ -420,7 +420,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label><i class="fa-solid fa-calendar-days"></i> Date <span class="text-danger">*</span> </label>
-                  <input type="date" required="required" class="e_appointment_date" id="e_appointment_date" name="appointment_date" value="{{old('appointment_date')}}">
+                  <input type="date" required="required" class="e_appointment_date" id="e_appointment_date" name="appointment_date" value="">
                   @error('appointment_date')
                   <small class="text-danger">
                     {{ $message }}
@@ -434,7 +434,7 @@
               <div class="col-sm-6">
                 <div class="input-style-1">
                   <label><i class="fa-solid fa-clock"></i> Time <span class="text-danger">*</span> </label>
-                  <input type="date" required="required" class="e_appointment_time" id="e_appointment_time" name="appointment_time" value="{{old('appointment_time')}}">
+                  <input type="date" required="required" class="e_appointment_time" id="e_appointment_time" name="appointment_time" value="">
                   @error('appointment_time')
                   <small class="text-danger">
                     {{ $message }}
@@ -582,6 +582,7 @@
 <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
+<script src="{{ asset('js/parsleyjs/dist/parsley.min.js') }}"></script>
 <script src="{{ asset('js/select2/dist/js/select2.min.js') }}"></script>
 <script src="{{ asset('js/admin/appointment/appointment.js') }}"></script>
 @endsection

@@ -172,7 +172,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name </label>
-                          <input type="text" value="{{$patient->fname}}" name="fname" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name" disabled>
+                          <input type="text" value="{{$patient->fname}}" name="fname" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter First Name" disabled>
                           @error('fname')
                           <small class="text-danger">
                             {{ $message }}
@@ -185,7 +185,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name </label>
-                          <input type="text" value="{{$patient->lname}}" name="lname" required="required" data-parsley-maxlength="255" class="form-control" placeholder="Please enter your Last Name" disabled>
+                          <input type="text" value="{{$patient->lname}}" name="lname" required="required" data-parsley-maxlength="255" class="form-control" placeholder="Please enter Last Name" disabled>
                           @error('lname')
                           <small class="text-danger">
                             {{ $message }}
@@ -198,7 +198,7 @@
                       <div class="col-sm-6 col-md-2">
                         <div class="input-style-1">
                           <label>Nick Name </label>
-                          <input type="text" value="{{$patient->nname}}" name="nname" data-parsley-maxlength="50" placeholder="Please enter your Nick Name" disabled>
+                          <input type="text" value="{{$patient->nname}}" name="nname" data-parsley-maxlength="50" placeholder="Please enter Nick Name" disabled>
                           @error('nname')
                           <small class="text-danger">
                             {{ $message }}
@@ -211,7 +211,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-address-card"></i> ID Card Number </label>
-                          <input type="text" value="{{$patient->id_card}}" placeholder="Please enter your ID Card Number" name="id_card" required="required" data-parsley-minlength="17" data-parsley-maxlength="17" id="id_card" class="form-control" disabled>
+                          <input type="text" value="{{$patient->id_card}}" placeholder="Please enter ID Card Number" name="id_card" required="required" id="id_card" class="form-control" disabled data-parsley-length="[17, 17]" data-parsley-error-message="This value length is invalid. It should be 13 characters long.">
                           @error('id_card')
                           <small class="text-danger">
                             {{ $message }}
@@ -224,7 +224,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Date of Birth </label>
-                          <input type="date" required="required" id="dob" name="birthdate" value="{{$patient->birthdate}}" disabled>
+                          <input type="date" required="required" id="dob" name="birthdate" value="{{$patient->birthdate}}" disabled placeholder="Please enter Date of Birth">
                           @error('birthdate')
                           <small class="text-danger">
                             {{ $message }}
@@ -237,7 +237,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Age </label>
-                          <input type="number" value="{{$patient->age}}" placeholder="Age automatically calculate" name="age" style="max-width: 200px;" required="required" data-parsley-minlength="0" data-parsley-maxlength="100" id="age" class="form-control" disabled>
+                          <input type="number" value="{{$patient->age}}" placeholder="Age automatically calculate" name="age" style="max-width: 200px;" required="required" data-parsley-length="[1, 120]" id="age" class="form-control" disabled>
                           @error('age')
                           <small class="text-danger">
                             {{ $message }}
@@ -271,7 +271,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Phone Number </label>
-                          <input type="text" value="{{$patient->phone}}" placeholder="Please enter your Phone Number" name="phone" required="required" data-parsley-minlength="9" data-parsley-maxlength="13" id="phone_number" class="form-control" disabled>
+                          <input type="text" value="{{$patient->phone}}" placeholder="Please enter Phone Number" name="phone" required="required" data-parsley-length="[9, 13]" id="phone_number" class="form-control" disabled>
                           @error('phone')
                           <small class="text-danger">
                             {{ $message }}
@@ -283,7 +283,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Email </label>
-                          <input type="email" value="{{$patient->email}}" placeholder="Please enter your Email" name="email" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control" disabled>
+                          <input type="email" value="{{$patient->email}}" placeholder="Please enter Email" name="email" data-parsley-trigger="change" data-parsley-maxlength="255" class="form-control" disabled>
                           @error('email')
                           <small class="text-danger">
                             {{ $message }}
@@ -295,7 +295,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>ID Line</label>
-                          <input type="text" value="{{$patient->id_line}}" name="id_line" data-parsley-maxlength="255" class="form-control" placeholder="Please enter your ID Line" disabled>
+                          <input type="text" value="{{$patient->id_line}}" name="id_line" data-parsley-maxlength="100" class="form-control" placeholder="Please enter ID Line" disabled>
                           @error('id_line')
                           <small class="text-danger">
                             {{ $message }}
@@ -308,7 +308,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Nationality </label>
-                          <input type="text" value="{{$patient->nationality}}" name="nationality" class="form-control" placeholder="Please enter your Nationality" disabled>
+                          <input type="text" value="{{$patient->nationality}}" name="nationality" class="form-control" placeholder="Please enter Nationality" disabled data-parsley-maxlength="50">
                           @error('nationality')
                           <small class="text-danger">
                             {{ $message }}
@@ -321,7 +321,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Race </label>
-                          <input type="text" value="{{$patient->race}}" name="race" class="form-control" placeholder="Please enter your Race" disabled>
+                          <input type="text" value="{{$patient->race}}" name="race" class="form-control" placeholder="Please enter Race" disabled data-parsley-maxlength="50">
                           @error('race')
                           <small class="text-danger">
                             {{ $message }}
@@ -334,7 +334,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Religion </label>
-                          <input type="text" value="{{$patient->religion}}" name="religion" class="form-control" placeholder="Please enter your Religion" disabled>
+                          <input type="text" value="{{$patient->religion}}" name="religion" class="form-control" placeholder="Please enter Religion" disabled data-parsley-maxlength="50">
                           @error('religion')
                           <small class="text-danger">
                             {{ $message }}
@@ -347,7 +347,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address </label>
-                          <textarea name="address" placeholder="Please enter your address" id="" cols="30" rows="4" required="required" class="form-control" disabled>{{($patient->address)}}</textarea>
+                          <textarea name="address" placeholder="Please enter address" id="" cols="30" rows="4" required="required" class="form-control" disabled>{{($patient->address)}}</textarea>
                           @error('address')
                           <small class="text-danger">
                             {{ $message }}
@@ -362,7 +362,7 @@
                           <label>Province </label>
                           <div class="select-position">
                             <select class="light-bg" required="required" name="province_id" id="province_select" style="width: 100%;" disabled>
-                              <option disabled selected>Please enter your Province</option>
+                              <option disabled selected>Please enter Province</option>
                               @foreach($provinces as $province)
                               <option value="{{$province->id}}" {{($patient->province_id == $province->id)?'selected':''}}>{{$province->name_th}}</option>
                               @endforeach
@@ -417,7 +417,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code </label>
-                          <input type="text" value="{{$patient->zip_code}}" placeholder="Please enter your zip code" id="zip_code" name="zip_code" required="required" data-parsley-maxlength="10" data-parsley-minlength="5" class="form-control" disabled>
+                          <input type="text" value="{{$patient->zip_code}}" placeholder="Please enter zip code" id="zip_code" name="zip_code" required="required" data-parsley-length="[0, 10]" class="form-control" disabled>
                           @error('zip_code')
                           <small class="text-danger">
                             {{ $message }}
@@ -430,7 +430,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country </label>
-                          <input type="text" value="{{$patient->country}}" placeholder="Please enter your country" name="country" required="required" class="form-control" disabled>
+                          <input type="text" value="{{$patient->country}}" placeholder="Please enter country" name="country" required="required" class="form-control" disabled data-parsley-maxlength="40">
                           @error('country')
                           <small class="text-danger">
                             {{ $message }}
@@ -443,7 +443,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label><i class="fa-solid fa-id-badge"></i> Occupation </label>
-                          <input type="text" value="{{$patient->occupation}}" placeholder="Please enter your Occupation" name="occupation" class="form-control" disabled>
+                          <input type="text" value="{{$patient->occupation}}" placeholder="Please enter Occupation" name="occupation" class="form-control" disabled data-parsley-maxlength="50">
                           @error('occupation')
                           <small class="text-danger">
                             {{ $message }}
@@ -481,9 +481,9 @@
                         <div class="select-style-1">
                           <label><i class="fa-solid fa-clipboard-check"></i> Patient Status </label>
                           <div class="select-position">
-                            <select class="light-bg text-capitalize" name="patient_status" disabled>
-                              <option class="text-capitalize" value="1">Normal</option>
-                              <option class="text-capitalize" value="0">Abnormal</option>
+                            <select class="light-bg text-capitalize" name="patient_status" disabled required="required">
+                              <option class="text-capitalize" {{($patient->patient_status == 1)?'selected':''}} value="1">Normal</option>
+                              <option class="text-capitalize" {{($patient->patient_status == 0)?'selected':''}} value="0">Abnormal</option>
                             </select>
                             @error('patient_status')
                             <small class="text-danger">
@@ -532,7 +532,12 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Weight <span class="text-muted">(kg)</span> </label>
-                          <input type="number" value="{{$patient->weight}}" placeholder="Please enter your Weight" name="weight" data-parsley-minlength="0" disabled>
+                          <input type="number" value="{{$patient->weight}}" placeholder="Please enter Weight" name="weight" data-parsley-length="[0, 500]" disabled>
+                          @error('weight')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -540,7 +545,12 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Height <span class="text-muted">(cm)</span> </label>
-                          <input type="text" value="{{$patient->height}}" placeholder="Please enter your Height" name="height" data-parsley-minlength="0" disabled>
+                          <input type="text" value="{{$patient->height}}" placeholder="Please enter Height" name="height" data-parsley-length="[0, 250]" disabled>
+                          @error('height')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -560,6 +570,11 @@
                               <option {{($patient->blood_group == 'O-')?'selected':''}} value="O-">O-</option>
                               <option {{($patient->blood_group == 'AB-')?'selected':''}} value="AB-">AB-</option>
                             </select>
+                            @error('blood_group')
+                            <small class="text-danger">
+                              {{ $message }}
+                            </small>
+                            @enderror
                           </div>
                         </div>
                       </div>
@@ -568,7 +583,12 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Drug Allergies </label>
-                          <textarea name="drug_allergies" id="" cols="30" rows="2" placeholder="Please enter your Drug Allergies" disabled>{{$patient->drug_allergies}}</textarea>
+                          <textarea name="drug_allergies" id="" cols="30" rows="2" placeholder="Please enter Drug Allergies" disabled>{{$patient->drug_allergies}}</textarea>
+                          @error('drug_allergies')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -576,7 +596,12 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Food Allergies </label>
-                          <textarea name="food_allergies" id="" cols="30" rows="2" placeholder="Please enter your Food Allergies" disabled>{{$patient->food_allergies}}</textarea>
+                          <textarea name="food_allergies" id="" cols="30" rows="2" placeholder="Please enter Food Allergies" disabled>{{$patient->food_allergies}}</textarea>
+                          @error('food_allergies')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -584,7 +609,12 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Congenital Disease </label>
-                          <textarea name="congenital_disease" id="" cols="30" rows="3" placeholder="Please enter your Congenital Disease" disabled>{{$patient->congenital_disease}}</textarea>
+                          <textarea name="congenital_disease" id="" cols="30" rows="3" placeholder="Please enter Congenital Disease" disabled>{{$patient->congenital_disease}}</textarea>
+                          @error('congenital_disease')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -592,6 +622,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Smoker</label>
+                          @error('smoker')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
 
@@ -621,18 +656,23 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Drinks</label>
+                          @error('drinks')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
 
                       <div class="col-sm-6">
                         <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-start justify-content-md-end">
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-1" type="radio" value="2" id="drinks-regularly" name="drinks" {{($patient->drinks == '0')?'checked':''}} disabled>
+                            <input class="form-check-input pe-1" type="radio" value="2" id="drinks-regularly" name="drinks" {{($patient->drinks == '2')?'checked':''}} disabled>
                             <label class="form-check-label" for="drinks-regularly">
                               <i class="fa-solid fa-check"></i> Regularly </label>
                           </div>
                           <div class="form-check radio-style me-4">
-                            <input class="form-check-input pe-1" type="radio" value="1" id="drinks-once" name="drinks" {{($patient->drinks == '0')?'checked':''}}>
+                            <input class="form-check-input pe-1" type="radio" value="1" id="drinks-once" name="drinks" {{($patient->drinks == '1')?'checked':''}}>
                             <label class="form-check-label" for="drinks-once">
                               <i class="fa-solid fa-clock"></i> Once in a while </label>
                           </div>
@@ -650,6 +690,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">High blood pressure </label>
+                          @error('high_blood_pressure')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -672,6 +717,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Diabetic </label>
+                          @error('diabetic')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -694,6 +744,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Bleed tendency </label>
+                          @error('bleed_tendency')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -716,6 +771,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Heart disease </label>
+                          @error('heart_disease')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -738,6 +798,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Female Pregnant </label>
+                          @error('female_pregnant')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -760,6 +825,11 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label for="">Register Chanel </label>
+                          @error('first_register_chanel')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -787,21 +857,36 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>High Risk Diseases </label>
-                          <textarea name="high_risk_diseases" id="" cols="30" rows="2" placeholder="Please enter your High Risk Diseases" disabled>{{$patient->high_risk_diseases}}</textarea>
+                          <textarea name="high_risk_diseases" id="" cols="30" rows="2" placeholder="Please enter High Risk Diseases" disabled>{{$patient->high_risk_diseases}}</textarea>
+                          @error('high_risk_diseases')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Surgery </label>
-                          <textarea name="surgery" id="" cols="30" rows="2" placeholder="Please enter your Surgery" disabled>{{$patient->surgery}}</textarea>
+                          <textarea name="surgery" id="" cols="30" rows="2" placeholder="Please enter Surgery" disabled>{{$patient->surgery}}</textarea>
+                          @error('surgery')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Accident </label>
-                          <textarea name="accident" id="" cols="30" rows="2" placeholder="Please enter your Accident" disabled>{{$patient->accident}}</textarea>
+                          <textarea name="accident" id="" cols="30" rows="2" placeholder="Please enter Accident" disabled>{{$patient->accident}}</textarea>
+                          @error('accident')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -809,14 +894,24 @@
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Medical History </label>
-                          <textarea name="medical_history" id="" cols="30" rows="3" placeholder="Please enter your Medical History" disabled>{{$patient->medical_history}}</textarea>
+                          <textarea name="medical_history" id="" cols="30" rows="3" placeholder="Please enter Medical History" disabled>{{$patient->medical_history}}</textarea>
+                          @error('medical_history')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
                       <div class="col-sm-6">
                         <div class="input-style-1">
                           <label>Current Medication </label>
-                          <textarea name="current_medication" id="" cols="30" rows="3" placeholder="Please enter your Current Medication" disabled>{{$patient->current_medication}}</textarea>
+                          <textarea name="current_medication" id="" cols="30" rows="3" placeholder="Please enter Current Medication" disabled>{{$patient->current_medication}}</textarea>
+                          @error('current_medication')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                         </div>
                       </div>
                       <!-- end col -->
@@ -825,6 +920,11 @@
                         <div class="input-style-1">
                           <label>Note : </label>
                           <textarea name="note" id="note_editor" cols="30" rows="5" placeholder="Note For Doctor" disabled>{{$patient->note}}</textarea>
+                          @error('note')
+                          <small class="text-danger">
+                            {{ $message }}
+                          </small>
+                          @enderror
                           <input type="hidden" name="inquirer_id" value="{{Auth::user()->user_id}}">
                         </div>
                       </div>
@@ -871,8 +971,8 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>First Name </label>
-                          <input type="text" value="{{$patient_emc->emc_fname}}" placeholder="Please enter his first name" data-parsley-maxlength="255" name="emc_fname" disabled>
-                          @error('emc_title')
+                          <input type="text" value="{{$patient_emc->emc_fname}}" placeholder="Please enter first name" data-parsley-maxlength="100" name="emc_fname" disabled>
+                          @error('emc_fname')
                           <small class="text-danger">
                             {{ $message }}
                           </small>
@@ -884,7 +984,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Last Name</label>
-                          <input type="text" value="{{$patient_emc->emc_lname}}" placeholder="Please enter his last name" data-parsley-maxlength="255" name="emc_lname" disabled>
+                          <input type="text" value="{{$patient_emc->emc_lname}}" placeholder="Please enter last name" data-parsley-maxlength="255" name="emc_lname" disabled>
                           @error('emc_lname')
                           <small class="text-danger">
                             {{ $message }}
@@ -921,7 +1021,7 @@
                       <div class="col-sm-6 col-md-4">
                         <div class="input-style-1">
                           <label>Phone </label>
-                          <input type="text" placeholder="Please enter his phone" id="emc_phone" name="emc_phone" value="{{$patient_emc->emc_phone}}" disabled>
+                          <input type="text" placeholder="Please enter phone" id="emc_phone" name="emc_phone" value="{{$patient_emc->emc_phone}}" data-parsley-length="[9, 13]" disabled>
                           @error('emc_phone')
                           <small class="text-danger">
                             {{ $message }}
@@ -934,7 +1034,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label>Address </label>
-                          <textarea name="emc_address" placeholder="Please enter his address" id="" cols="30" rows="4" class="form-control" disabled>{{$patient_emc->address}}</textarea>
+                          <textarea name="emc_address" placeholder="Please enter address" id="" cols="30" rows="4" class="form-control" disabled>{{$patient_emc->address}}</textarea>
                           @error('emc_address')
                           <small class="text-danger">
                             {{ $message }}
@@ -949,7 +1049,7 @@
                           <label>Province </label>
                           <div class="select-position">
                             <select class="light-bg" name="emc_province_id" id="emc_province_select" style="width: 100%;" disabled>
-                              <option selected>Please enter his Province</option>
+                              <option selected disabled value="">Please enter Province</option>
                               @foreach($provinces as $province)
                               <option value="{{$province->id}}" {{($patient_emc->province_id == $province->id)?'selected':''}}>{{$province->name_th}}</option>
                               @endforeach
@@ -971,7 +1071,7 @@
                           <div class="select-position">
                             <select class="light-bg" name="emc_district_id" id="emc_district_select" style="width: 100%;" disabled>
                               @if(empty($patient_emc->district_id))
-                              <option selected>Please enter his District</option>
+                              <option selected disabled value="">Please enter District</option>
                               @else
                               <option selected value="{{$patient_emc->district_id}}">{{$patient_emc->district_name}}</option>
                               @endif
@@ -993,7 +1093,7 @@
                           <div class="select-position">
                             <select class="light-bg" name="emc_subdistrict_id" id="emc_subdistrict_select" style="width: 100%;" disabled>
                               @if(empty($patient_emc->subdistrict_id))
-                              <option selected>Please enter his Subdistrict</option>
+                              <option selected disabled value="">Please enter Subdistrict</option>
                               @else
                               <option selected value="{{$patient_emc->subdistrict_id}}">{{$patient_emc->subdistrict_name}}</option>
                               @endif
@@ -1012,7 +1112,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Zip Code </label>
-                          <input type="text" value="{{$patient_emc->zip_code}}" placeholder="Please enter his zip code" id="emc_zip_code" name="emc_zip_code" data-parsley-maxlength="10" data-parsley-minlength="5" class="form-control" disabled>
+                          <input type="text" value="{{$patient_emc->zip_code}}" placeholder="Please enter zip code" id="emc_zip_code" name="emc_zip_code" data-parsley-length="[0, 10]" class="form-control" disabled>
                           @error('emc_zip_code')
                           <small class="text-danger">
                             {{ $message }}
@@ -1025,7 +1125,7 @@
                       <div class="col-sm-6 col-md-3">
                         <div class="input-style-1">
                           <label>Country </label>
-                          <input type="text" value="{{$patient_emc->country}}" placeholder="Please enter his country" name="emc_country" id="emc_country" class="form-control" disabled>
+                          <input type="text" value="{{$patient_emc->country}}" placeholder="Please enter country" name="emc_country" id="emc_country" data-parsley-maxlength="40" class="form-control" disabled>
                           @error('emc_country')
                           <small class="text-danger">
                             {{ $message }}
@@ -1143,7 +1243,7 @@
                   <!-- end row -->
                 </div>
 
-                <div class="botton-group mt-4">
+                <div class="button-group mt-4">
                   <button type="submit" id="btn-submit" class="main-btn primary-btn btn-hover col-12 d-none">Save Change</button>
                 </div>
               </form>
@@ -1247,7 +1347,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Reason for Appointment <span class="text-danger">*</span> </label>
-                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" data-parsley-maxlength="100" class="form-control" placeholder="Please enter First Name"></textarea>
                   @error('reason_for_appointment')
                   <small class="text-danger">
                     {{ $message }}
@@ -1260,7 +1360,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Doctor Comment</label>
-                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" data-parsley-maxlength="100" class="form-control" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" data-parsley-maxlength="100" class="form-control" placeholder="Please enter First Name"></textarea>
                   @error('doctor_comment')
                   <small class="text-danger">
                     {{ $message }}
@@ -1410,7 +1510,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Reason for Appointment <span class="text-danger">*</span> </label>
-                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" class="form-control e_reason_for_appointment" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" class="form-control e_reason_for_appointment" placeholder="Please enter First Name"></textarea>
                   @error('reason_for_appointment')
                   <small class="text-danger">
                     {{ $message }}
@@ -1423,7 +1523,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label> Doctor Comment</label>
-                  <textarea rows="4" cols="30" id="e_doctor_comment" name="doctor_comment" class="form-control e_doctor_comment" placeholder="Please enter your First Name"></textarea>
+                  <textarea rows="4" cols="30" id="e_doctor_comment" name="doctor_comment" class="form-control e_doctor_comment" placeholder="Please enter First Name"></textarea>
                   @error('doctor_comment')
                   <small class="text-danger">
                     {{ $message }}

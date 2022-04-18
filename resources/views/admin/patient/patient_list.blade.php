@@ -72,8 +72,8 @@
                     <div class="form-floating">
                       <select class="form-select" id="search_status" aria-label="Floating label select example">
                         <option selected value="">All</option>
-                        <option value="normal" class="text-success">Normal</option>
-                        <option value="abnormal" class="text-danger">Abnormal</option>
+                        <option value="active" class="text-success">Active</option>
+                        <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
                       <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
                     </div>
@@ -145,7 +145,7 @@
                   </thead>
                   <tbody>
                     @foreach($patients AS $patient)
-                    <tr>
+                    <tr class="{{($patient->patient_status == 0)?'table-danger':''}}">
                       <td class="text-center"><a href="{{route('admin.patient.detail',$patient->patient_id)}}" class="text-primary">{{$patient->opd_id}}</a> </td>
                       <td>{{$patient->title}} {{$patient->fname}} {{$patient->lname}}</td>
                       <td>{{$patient->id_card}}</td>
@@ -174,9 +174,9 @@
                       <td>{{\Carbon\Carbon::parse($patient->created_at)->format('d-m-Y')}}</td>
                       <td>
                         @if($patient->patient_status == 1)
-                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
+                        <a href="{{route('admin.patient.change_status',$patient->patient_id)}}" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Active</a>
                         @else
-                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
+                        <a href="{{route('admin.patient.change_status',$patient->patient_id)}}" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Inactive</a>
                         @endif
                       </td>
                       <td class="text-center">
@@ -187,8 +187,6 @@
 
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{route('admin.patient.detail',$patient->patient_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            </li>
                             <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$patient->patient_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
 
                           </ul>

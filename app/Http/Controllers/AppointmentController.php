@@ -37,6 +37,9 @@ class AppointmentController extends Controller
     {
         $now = Carbon::now();
 
+        $doctors = Doctor::where('doctor_status', '1')->get();
+        $patients = Patient::where('patient_status', '1')->get();
+
         //schedule : count appointment & date day == date_now
         $get_schedule = Appointment::whereDate('appointment_date','=',$now)->get();
         $schedule = count($get_schedule);
@@ -52,7 +55,7 @@ class AppointmentController extends Controller
         $today = count($get_schedule);
 
         $remain = $today - $checkout;
-        return view('admin.schedule.calendar',compact(['schedule','reserved','checkout','today','remain']));
+        return view('admin.schedule.calendar',compact(['schedule','reserved','checkout','today','remain','doctors','patients']));
     }
 
     public function get_doctor_schedule($id)
@@ -99,8 +102,8 @@ class AppointmentController extends Controller
             'doctor_id' => 'required',
             'patient_id' => 'required',
             'reason_for_appointment' => "required",
-            'appointment_date' => 'required',
-            'appointment_time' => 'required'
+            'appointment_date' => 'required|date|max:50',
+            'appointment_time' => 'required|max:20'
         ]);
 
         if ($validator->fails()) {
@@ -153,8 +156,8 @@ class AppointmentController extends Controller
             'doctor_id' => 'required',
             'patient_id' => 'required',
             'reason_for_appointment' => "required",
-            'appointment_date' => 'required',
-            'appointment_time' => 'required'
+            'appointment_date' => 'required|date|max:50',
+            'appointment_time' => 'required|max:20'
         ]);
 
         if ($validator->fails()) {

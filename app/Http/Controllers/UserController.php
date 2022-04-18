@@ -6,6 +6,7 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -25,10 +26,10 @@ class UserController extends Controller
     public function view_logs()
     {
         $logs = DB::table('logs_user')
-        ->leftJoin('users','users.user_id','=','logs_user.user_id')
-        ->whereNotNull('users.user_id')
-        ->orderBy('logs_user.logs_user_id','desc')
-        ->get();
+            ->leftJoin('users', 'users.user_id', '=', 'logs_user.user_id')
+            ->whereNotNull('users.user_id')
+            ->orderBy('logs_user.logs_user_id', 'desc')
+            ->get();
         return view('admin.user.user_logs', compact('logs'));
     }
     public function store(Request $req)
@@ -36,10 +37,11 @@ class UserController extends Controller
 
         // Validation Main user
         $validator = Validator::make($req->all(), [
-            'name' => 'required',
+            'name' => 'required|min:0|max:255|string',
             'role' => 'required',
-            'email' => "required|unique:users|unique:users",
-            'password' => 'required|min:0|max:20'
+            'email' => "required|unique:users|email|max:255|",
+            'password' => 'required|min:1|max:20',
+            'user_image' => 'nullable|mimes:jpg,png,gif,jpeg'
         ]);
 
         if ($validator->fails()) {
@@ -108,9 +110,10 @@ class UserController extends Controller
 
         // Validation Main user
         $validator = Validator::make($req->all(), [
-            'name' => 'required',
+            'name' => 'required|min:0|max:255|string',
             'role' => 'required',
-            'email' => "required"
+            'email' => "required|email|max:255|" . Rule::unique('users')->ignore($req->user_id, 'user_id'),
+            'user_image' => 'nullable|mimes:jpg,png,gif,jpeg'
         ]);
 
         if ($validator->fails()) {
@@ -204,6 +207,42 @@ class UserController extends Controller
             ]);
             DB::commit();
             return redirect()->back()->with('msg_error', 'Deleted user Failed!');
+        }
+    }
+
+    public function change_status($id)
+    {
+        DB::beginTransaction();
+        try {
+            $user = User::where('user_id', $id)->first();
+            if ($user->user_status == 0) {
+                $status = 1;
+            } elseif ($user->user_status == 1) {
+                $status = 0;
+            }
+
+            User::where('user_id', $id)->update(['user_status' => $status]);
+
+            $logs_user = DB::table('logs_user')->insert([
+                'user_id' => Auth::user()->user_id,
+                'activity' => 'Update Status User ID:' . $id,
+                'logs_detail' => '-',
+                'logs_status' => 'success'
+            ]);
+
+            DB::commit();
+            return redirect()->back()->with('msg_success', 'Update Status User successfully!');
+        } catch (Exception  $e) {
+            DB::rollback();
+
+            $logs_user = DB::table('logs_user')->insert([
+                'user_id' => Auth::user()->user_id,
+                'activity' => 'Fail! Update Status User ID:' . $id,
+                'logs_detail' => 'something is wrong',
+                'logs_status' => 'fail'
+            ]);
+            DB::commit();
+            return redirect()->back()->with('msg_error', 'Update Status User Failed!');
         }
     }
 }

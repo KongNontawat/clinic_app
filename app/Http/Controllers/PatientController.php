@@ -8,6 +8,7 @@ use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -73,13 +74,35 @@ class PatientController extends Controller
 		// Validation Main Patient
 		$validator = Validator::make($req->all(), [
 			'id_card' => 'required|max:17|min:13',
-			'group_id' => 'required',
-			'fname' => 'required',
-			'lname' => 'required',
-			'sex' => 'required',
-			'birthdate' => 'required',
-			'age' => 'min:0|max:3',
-			'phone' => 'required|max:13|min:9'
+			'group_id' => 'required|numeric|min:0|max:20',
+			'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
+			'sex' => 'required|max:6',
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+			'nationality' => 'nullable|string|max:50',
+			'race' => 'nullable|string|max:50',
+			'religion' => 'nullable|string|max:50',
+			'email' => 'nullable|email|unique:patients|max:255|',
+			'id_line' => 'nullable|max:100|unique:patients',
+			'phone' => 'required|max:13|min:9',
+			'occupation' => 'nullable|string|max:50',
+			'image' => 'nullable|mimes:jpg,png,gif,jpeg',
+			//address_info
+			'zip_code' => 'nullable|string|max:10',
+			'country' => 'nullable|string|max:40',
+
+			// Patient_medical_info
+			'height' => 'nullable|numeric|min:0|max:250',
+			'weight' => 'nullable|numeric|min:0|max:500',
+
+			// Patient_emc
+			'emc_fname' => 'nullable|min:0|max:100|string',
+			'emc_lname' => 'nullable|min:0|max:255|string',
+			'emc_phone' => 'nullable|min:9|max:13',
+			'emc_country' => 'nullable|string|max:40'
 		]);
 
 		if ($validator->fails()) {
@@ -225,12 +248,34 @@ class PatientController extends Controller
 		$validator = Validator::make($req->all(), [
 			'id_card' => 'required|max:17|min:13',
 			'group_id' => 'required',
-			'fname' => 'required',
-			'lname' => 'required',
+			'title' => 'required',
+			'fname' => 'required|min:0|max:100|string',
+			'lname' => 'required|min:0|max:255|string',
+			'nname' => 'nullable|max:50',
 			'sex' => 'required',
-			'birthdate' => 'required',
-			'age' => 'min:0|max:3',
-			'phone' => 'required|max:13|min:9'
+			'birthdate' => 'required|date|min:0|max:100',
+			'age' => 'required|numeric|min:1|max:120',
+			'nationality' => 'nullable|string|max:50',
+			'race' => 'nullable|string|max:50',
+			'religion' => 'nullable|string|max:50',
+			'email' => 'nullable|email|max:255|' . Rule::unique('patients')->ignore($req->patient_id, 'patient_id'),
+			'id_line' => 'nullable|max:100|' . Rule::unique('patients')->ignore($req->patient_id, 'patient_id'),
+			'phone' => 'required|max:13|min:9',
+			'occupation' => 'nullable|string|max:50',
+			'image' => 'nullable|mimes:jpg,png,gif,jpeg',
+			//address_info
+			'zip_code' => 'nullable|string|max:10',
+			'country' => 'nullable|string|max:40',
+
+			// Patient_medical_info
+			'height' => 'nullable|numeric|min:0|max:250',
+			'weight' => 'nullable|numeric|min:0|max:500',
+
+			// Patient_emc
+			'emc_fname' => 'nullable|min:0|max:100|string',
+			'emc_lname' => 'nullable|min:0|max:255|string',
+			'emc_phone' => 'nullable|min:9|max:13',
+			'emc_country' => 'nullable|string|max:40'
 		]);
 
 		if ($validator->fails()) {
@@ -324,16 +369,18 @@ class PatientController extends Controller
 				]);
 
 			// Validation  Patient Emc
-			$address_info_emc = DB::table('address_info')
-				->where('address_id', $req->emc_address_id)
-				->update([
-					'address' => $req->emc_address,
-					'subdistrict_id' => $req->emc_subdistrict_id,
-					'district_id' => $req->emc_district_id,
-					'province_id' => $req->emc_province_id,
-					'zip_code' => $req->emc_zip_code,
-					'country' => $req->emc_country
-				]);
+			if ($req->emc_address || $req->emc_subdistrict_id || $req->emc_district_id || $req->emc_province_id || $req->emc_zip_code || $req->emc_country !== null) {
+				$address_info_emc = DB::table('address_info')
+					->where('address_id', $req->emc_address_id)
+					->update([
+						'address' => $req->emc_address,
+						'subdistrict_id' => $req->emc_subdistrict_id,
+						'district_id' => $req->emc_district_id,
+						'province_id' => $req->emc_province_id,
+						'zip_code' => $req->emc_zip_code,
+						'country' => $req->emc_country
+					]);
+			}
 
 
 			//8. Create Patient emc
@@ -378,7 +425,7 @@ class PatientController extends Controller
 			$logs_user = DB::table('logs_user')->insert([
 				'user_id' => Auth::user()->user_id,
 				'activity' => 'Fail! Update Info Patient',
-				'logs_detail' => 'something is wrong',
+				'logs_detail' => 'something is wrong' . $e->getMessage(),
 				'logs_status' => 'fail'
 			]);
 			DB::commit();
@@ -454,5 +501,41 @@ class PatientController extends Controller
 			DB::commit();
 			return redirect()->back()->with('msg_error', 'Deleted Patient Failed!');
 		}
+	}
+
+	public function change_status($id)
+	{
+			DB::beginTransaction();
+			try {
+					$patient = Patient::where('patient_id', $id)->first();
+					if($patient->patient_status == 0) {
+						$status = 1;
+					}elseif($patient->patient_status == 1) {
+						$status = 0;
+					}
+
+					Patient::where('patient_id', $id)->update(['patient_status' => $status]);
+
+					$logs_user = DB::table('logs_user')->insert([
+							'user_id' => Auth::user()->user_id,
+							'activity' => 'Update Status Patient ID:' . $id,
+							'logs_detail' => '-',
+							'logs_status' => 'success'
+					]);
+
+					DB::commit();
+					return redirect()->back()->with('msg_success', 'Update Status Patient successfully!');
+			} catch (Exception  $e) {
+					DB::rollback();
+
+					$logs_user = DB::table('logs_user')->insert([
+							'user_id' => Auth::user()->user_id,
+							'activity' => 'Fail! Update Status Patient ID:' . $id,
+							'logs_detail' => 'something is wrong',
+							'logs_status' => 'fail'
+					]);
+					DB::commit();
+					return redirect()->back()->with('msg_error', 'Update Status patient Failed!');
+			}
 	}
 }

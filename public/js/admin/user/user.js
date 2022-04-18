@@ -48,9 +48,9 @@ $(function () {
         $("#e_user_name").val(_this.find('.user_name').text());
         $("#e_user_email").val(_this.find('.user_email').text());
         $(`#e_user_role option[value=${_this.find('.user_role').text()}]`).prop("selected", true)
-        if(_this.find('.user_status a').text() == ' Abnormal') {
+        if(_this.find('.user_status a').text() == ' Inactive') {
             $("#e_user_status option[value='0']").prop("selected", true)
-        }else if(_this.find('.user_status a').text() == ' Normal') {
+        }else if(_this.find('.user_status a').text() == ' Active') {
             $("#e_user_status option[value='1']").prop("selected", true)
         }
         $("#e_old_image").val(_this.find('.user_image').attr('alt'));

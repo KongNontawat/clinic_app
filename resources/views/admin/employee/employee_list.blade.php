@@ -60,8 +60,8 @@
                     <div class="form-floating">
                       <select class="form-select" id="search_status" aria-label="Floating label select example">
                         <option selected value="">All</option>
-                        <option value="normal" class="text-success">Normal</option>
-                        <option value="abnormal" class="text-danger">Abnormal</option>
+                        <option value="active" class="text-success">Active</option>
+                        <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
                       <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
                     </div>
@@ -104,7 +104,7 @@
                   </thead>
                   <tbody>
                     @foreach($employees as $employee)
-                    <tr>
+                    <tr class="{{($employee->employee_status == 0)?'table-danger':''}}">
                       <td class="text-center"><a href="{{route('admin.employee.detail',$employee->employee_id)}}" class="text-primary">{{$employee->employee_id}}</a></td>
                       <td class="text-center"><img src="{{url('image/uploads/',$employee->image)}}" class="" alt="" style="max-height: 100px;object-fit:cover;"></td>
                       <td class="ps-2">{{$employee->title}} {{$employee->fname}} {{$employee->lname}}</td>
@@ -115,9 +115,9 @@
                       <td>{{$employee->position}}</td>
                       <td>
                         @if($employee->employee_status == 1)
-                        <a href="#!" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Normal</a>
+                        <a href="{{route('admin.employee.change_status',$employee->employee_id)}}" class="label-icon success rounded-pill text-capitalize"><i class="fa-solid fa-check"></i> Active</a>
                         @else
-                        <a href="#!" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Abnormal</a>
+                        <a href="{{route('admin.employee.change_status',$employee->employee_id)}}" class="label-icon red rounded-pill text-capitalize"><i class="fa-solid fa-xmark"></i> Inactive</a>
                         @endif
                       </td>
                       <td class="text-center">

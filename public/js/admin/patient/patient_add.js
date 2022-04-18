@@ -125,7 +125,9 @@ $(function () {
     $("#emc_subdistrict_select").select2();
 
     ClassicEditor
-    .create( document.querySelector( '#note_editor' ) )
+    .create( document.querySelector( '#note_editor' ),{
+        removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageToolbar'],
+    } )
     .catch( error => {
         console.error( error );
     } );

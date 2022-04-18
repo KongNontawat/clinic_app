@@ -1,10 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('style')
-<!-- <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<!-- <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}"> -->
 <link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/datatables.net/dataTables.dateTime.min.css') }}"> -->
+<link rel="stylesheet" href="{{ asset('js/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/fullcalendar/main.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/calendar.css') }}">
 <style>
 
 </style>
@@ -28,6 +29,11 @@
             </div>
           </div>
           <!-- end col -->
+          <div class="col-md-6 text-end">
+            <a href="#!" class="main-btn primary-btn btn-hover btn-sm" data-bs-toggle="modal" data-bs-target="#modal_create">
+              <i class="fa-solid fa-calendar-plus"></i> Create Appointment
+            </a>
+          </div>
         </div> <!-- end row -->
       </div><!-- title-wrapper -->
 
@@ -185,13 +191,150 @@
   </div>
 </div>
 
+<!-- Modal create-->
+<div class="follow-up-modal">
+  <div class="modal fade" id="modal_create" aria-labelledby="modal_createLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content card-style">
+        <form action="{{ route('admin.appointment.store') }}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('post')
+          <div class="modal-header px-0 border-0">
+            <h3 class="text-bold"><i class="fa-solid fa-calendar-plus"></i> Create appointment</h3>
+            <button class="border-0 bg-transparent h1" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+
+              <div class="col-sm-6">
+                <div class="select-style-1">
+                  <label>Doctor <span class="text-danger">*</span> </label>
+                  <div class="select-position">
+                    <select class="light-bg" required="required" name="doctor_id" id="doctor_id" style="width: 100%;">
+                      <option disabled selected>Please select doctor</option>
+                      @foreach($doctors AS $doctor)
+                      <option value="{{$doctor->doctor_id}}" {{(old('doctor_id') == $doctor->doctor_id)? 'selected':''}}>{{$doctor->title}} {{$doctor->fname}} {{$doctor->lname}}</option>
+                      @endforeach
+                    </select>
+                    @error('doctor_id')
+                    <small class="text-danger">
+                      {{ $message }}
+                    </small>
+                    @enderror
+                  </div>
+                </div>
+                <!-- end select -->
+              </div>
+              <!-- end col -->
+
+              <div class="col-sm-6">
+                <div class="select-style-1">
+                  <label>Patient <span class="text-danger">*</span> </label>
+                  <div class="select-position">
+                    <select class="light-bg" required="required" name="patient_id" id="patient_id" style="width: 100%;">
+                      <option disabled selected>Please select patient</option>
+                      @foreach($patients AS $patient)
+                      <option value="{{$patient->patient_id}}" {{(old('patient_id') == $patient->patient_id)? 'selected':''}}>[{{$patient->opd_id}}] {{$patient->title}} {{$patient->fname}} {{$patient->lname}}</option>
+                      @endforeach
+                    </select>
+                    @error('patient_id')
+                    <small class="text-danger">
+                      {{ $message }}
+                    </small>
+                    @enderror
+                  </div>
+                </div>
+                <!-- end select -->
+              </div>
+              <!-- end col -->
+
+
+              <div class="col-sm-6">
+                <div class="input-style-1">
+                  <label><i class="fa-solid fa-calendar-days"></i> Date <span class="text-danger">*</span> </label>
+                  <input type="date" required="required" id="date" name="appointment_date" value="{{old('appointment_date')}}">
+                  @error('appointment_date')
+                  <small class="text-danger">
+                    {{ $message }}
+                  </small>
+                  @enderror
+                </div>
+              </div>
+              <!-- end col -->
+
+
+              <div class="col-sm-6">
+                <div class="input-style-1">
+                  <label><i class="fa-solid fa-clock"></i> Time <span class="text-danger">*</span> </label>
+                  <input type="date" required="required" id="time" name="appointment_time" value="{{old('appointment_time')}}">
+                  @error('appointment_time')
+                  <small class="text-danger">
+                    {{ $message }}
+                  </small>
+                  @enderror
+                </div>
+              </div>
+              <!-- end col -->
+
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label> Reason for Appointment <span class="text-danger">*</span> </label>
+                  <textarea rows="4" cols="30" name="reason_for_appointment" required="required" class="form-control" placeholder="Please enter your First Name">{{old('reason_for_appointment')}}</textarea>
+                  @error('reason_for_appointment')
+                  <small class="text-danger">
+                    {{ $message }}
+                  </small>
+                  @enderror
+                </div>
+              </div>
+              <!-- end col -->
+
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label> Doctor Comment</label>
+                  <textarea rows="4" cols="30" id="doctor_comment" name="doctor_comment" class="form-control" placeholder="Please enter your First Name">{{old('doctor_comment')}}</textarea>
+                  @error('doctor_comment')
+                  <small class="text-danger">
+                    {{ $message }}
+                  </small>
+                  @enderror
+                </div>
+              </div>
+              <!-- end col -->
+
+            </div>
+            <div class="action mt-4">
+              <div class="btn-group d-flex flex-wrap align-items-end justify-content-between">
+                <div class="left">
+                  <a href="#" class="main-btn danger-btn p-2 mx-2 mb-3" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                  </a>
+                  <button type="reset" class="main-btn light-btn p-2 mx-2 mb-3">
+                    <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+                  </button>
+                </div>
+                <div class="right">
+                  <button type="submit" class="main-btn primary-btn btn-hover mx-2 mb-3">
+                    <i class="fa-solid fa-floppy-disk"></i> Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
 @section('script')
 <script src="{{ asset('js/fullcalendar/main.min.js') }}"></script>
-<!-- <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script> -->
-<!-- <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script> -->
-<!-- <script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script> -->
-<!-- <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script> -->
+<script src="{{ asset('js/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('js/ckeditor5/build/ckeditor.js') }}"></script>
 <script src="{{ asset('js/admin/schedule/calendar.js') }}"></script>
 <script>
   $(function() {
@@ -251,12 +394,12 @@
 
           if (data.congenital_disease != null) {
             $('.show_patient_congenital_disease').text(`${data.congenital_disease}`)
-          }else {
+          } else {
             $('.show_patient_congenital_disease').text(`-`)
           }
           if (data.drug_allergies != null) {
             $('.show_patient_drug_allergies').text(`${data.drug_allergies}`)
-          }else {
+          } else {
             $('.show_patient_drug_allergies').text(`-`)
           }
           let appointment_date = new Date(data.appointment_date);

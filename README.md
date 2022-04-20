@@ -45,14 +45,13 @@ required library & Program ``` Composer ```  ``` Node.js ``` ``` git ``` ``` XAM
 8.run ``` cd clinic_app ```  
 9.run ```npm install```  
 10.run ```npm run dev```  
-11.run ``` cp .env.example .env ```  
-12.run ``` php artisan key:generate ```  
-13.run ``` php artisan migrate ```  
-14.run ``` php artisan db:seed ```  
-15.open project in editor  
-16.open file .env then set ``` DB_DATABASE=clinic_app ```  
-17.run ``` php artisan serve ```  
-18.open ``` http://127.0.0.1:8000 ``` in your browser
+11.run ``` php artisan key:generate ```  
+12.run ``` php artisan migrate ```  
+13.run ``` php artisan db:seed ```  
+14.open project in editor  
+15.open file .env then set ``` DB_DATABASE=clinic_app ```  
+16.run ``` php artisan serve ```  
+17.open ``` http://127.0.0.1:8000 ``` in your browser
 
 ---
 ## How To Update Project

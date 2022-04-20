@@ -11,15 +11,16 @@
 		<div class="row">
 			<div class="col-lg-7 col-xl-5">
 				<div class="text-container">
-					<h1 class="h1-large">Beautifying office spaces</h1>
-					<p class="p-large">Is education residence conveying and sore. Suppose shyness say ten behaved morning had. Any propose assist compliment occasional too reasonably</p>
+					<h1 class="h1-large">Beauty Care <br> Clinic</h1>
+					<p class="p-large">คลินิกความงามครบวงจรพร้อมให้บริการคุณ โดยทีมแพทย์ผู้เชี่ยวชาญให้คำปรึกษาปัญหาทั้งด้านศัลยกรรม ผิวพรรณ ใบหน้าจนถึงรูปร่างด้วยประสบการณ์และความมุ่งมั่นทุ่มเทที่จะให้การดูแลแก่ทุกท่านในราคาที่คุณพอใจ
+เด่นในเรื่องดูดไขมันโดยใช้นวัตกรรม เทคโนโลยี กระบวนการใหม่ๆ ด้วยความปลอดภัยที่ได้ระดับมาตรฐานสากล รวมถึงผลิตภัณฑ์และยาที่ได้รับมาตรฐานจากองค์การอาหารและยา กระทรวงสาธารณสุข</p>
 					<a class="btn-solid-lg" href="#introduction">More details</a>
 					<a class="btn-outline-lg" href="#contact">Contact us</a>
 				</div> <!-- end of text-container -->
 			</div> <!-- end of col -->
 			<div class="col-lg-5 col-xl-7">
 				<div class="image-container">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/header.png" alt="alternative">
+					<img class="img-fluid" src="{{asset('image/uploads/doctor.png')}}" alt="alternative">
 				</div> <!-- end of image-container -->
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->

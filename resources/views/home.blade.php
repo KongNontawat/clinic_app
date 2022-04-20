@@ -320,8 +320,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7689.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">หน้าใส ฝ้า กระ จุดด่าง</h5>
-						<p class="card-text">Match round scale now sex style far times your me past and who now much <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">MESO THERAPHY หน้าใส</h4>
+						<p class="card-text">“เมโสหน้าใส หรือ Mesotherapy” คือ การให้สารอาหารและวิตามินต่างๆในการช่วยบำรุงหน้า ด้วยวิธีการที่เร่งรัดและเห็นผลที่รวดเร็วกว่าการทาครีม รวมถึงแก้ปัญหาต่างๆของผิวหน้า โดยจะลงลึกได้มากกว่าการทาครีมทั่วไป</p>
 					</div>
 				</div>
 				<!-- end of card -->

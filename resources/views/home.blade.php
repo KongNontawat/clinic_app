@@ -270,8 +270,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-1.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">เสริมจมูก</h5>
-						<p class="card-text">Suffer should if waited common person little ans words are needed oh <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">เสริมจมูก</h4>
+						<p class="card-text">ทำจมูก หรือการศัลยกรรมจมูก (Rhinoplasty) คือการผ่าตัดเปลี่ยนรูปร่างของจมูก โดยอาจมีจุดประสงค์เพื่อปรับรูปร่างลักษณะของจมูกใหม่</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -280,8 +280,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-2.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">ตาสองขั้น</h5>
-						<p class="card-text">In to am attended desirous raptures declared diverted confined at collected <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">ตาสองขั้น</h4>
+						<p class="card-text">ดวงตาเป็นหน้าต่างของหัวใจ เพราะฉะนั้น เราควรดูแลเป็นอย่างดี อีกทั้งยังเป็นจุดที่มีเสน่ห์แล้วชวนให้หลงใหลได้อีกด้วย ควรมีตาสองชั้นที่มีลักษณะดีตามตำราโหงวเฮ้ง</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -290,8 +290,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-3.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">เสริมคาง</h5>
-						<p class="card-text">Instantly remaining up certainly to necessary as over walk dull into son <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">เสริมคาง</h4>
+						<p class="card-text">ทำไมเราถึงต้องเสริมคาง บางคนตอบว่าอยากได้หน้าหวานขึ้น อยากได้หน้าวีเชฟมากขึ้น อยากได้โหงวเฮ้งรับทรัพย์ อยากให้หายคางบุ๋ม ตัด หรือสั้น ล้วนเป็นคำตอบส่วนใหญ่</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -300,8 +300,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-4.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">ลักยิ้ม</h5>
-						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">ลักยิ้ม</h4>
+						<p class="card-text">ลักยิ้ม นั้นสามารถเพิ่มเสน่ห์ได้ และช่วยให้หน้าหวานมากขึ้น ทำให้สาวๆหลายคนอยากมีลักยิ้ม ส่วนลักยิ้มถ้าตามธรรมชาติ ก็จะมีแบบจุด และแบบขีด ซึ่งทั้งสองแบบก็สามารถทำได้เช่นกัน</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -310,8 +310,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-5.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">VITAMIN ผิว</h5>
-						<p class="card-text">Vicinity subjects more words into miss on he over been late pain an only <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">VITAMIN ผิว</h4>
+						<p class="card-text">ไม่ว่าจะยุคสมัยไหน “การฉีดผิว”ก็เป็นอะไรที่ขาดไม่ได้ ไม่ว่าจะเป็นการฉีดผิวให้ดูขาว กระจ่างใสขึ้น หรือว่าจะฉีดวิตามินบำรุงสุขภาพทั่วไป ซึ่งยังเป็นที่นิยมและได้รับความสนใจจากสาวๆ</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -320,8 +320,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-6.jpg" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">หน้าใส ฝ้า กระ จุดด่างดำ</h5>
-						<p class="card-text">Match round scale now sex style far times your me past and who now much <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">MESO THERAPHY หน้าใส</h4>
+						<p class="card-text">“เมโสหน้าใส หรือ Mesotherapy” คือ การให้สารอาหารและวิตามินต่างๆในการช่วยบำรุงหน้า ด้วยวิธีการที่เร่งรัดและเห็นผลที่รวดเร็วกว่าการทาครีม รวมถึงแก้ปัญหาต่างๆของผิวหน้า โดยจะลงลึกได้มากกว่าการทาครีมทั่วไป</p>
 					</div>
 				</div>
 				<!-- end of card -->

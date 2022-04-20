@@ -268,7 +268,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-1.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7690.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
 						<h4 class="card-title text-center">เสริมจมูก</h4>
 						<p class="card-text">ทำจมูก หรือการศัลยกรรมจมูก (Rhinoplasty) คือการผ่าตัดเปลี่ยนรูปร่างของจมูก โดยอาจมีจุดประสงค์เพื่อปรับรูปร่างลักษณะของจมูกใหม่</p>
@@ -278,7 +278,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-2.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/117906534_xl.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
 						<h4 class="card-title text-center">ตาสองขั้น</h4>
 						<p class="card-text">ดวงตาเป็นหน้าต่างของหัวใจ เพราะฉะนั้น เราควรดูแลเป็นอย่างดี อีกทั้งยังเป็นจุดที่มีเสน่ห์แล้วชวนให้หลงใหลได้อีกด้วย ควรมีตาสองชั้นที่มีลักษณะดีตามตำราโหงวเฮ้ง</p>
@@ -288,7 +288,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-3.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/114922804_xl.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
 						<h4 class="card-title text-center">เสริมคาง</h4>
 						<p class="card-text">ทำไมเราถึงต้องเสริมคาง บางคนตอบว่าอยากได้หน้าหวานขึ้น อยากได้หน้าวีเชฟมากขึ้น อยากได้โหงวเฮ้งรับทรัพย์ อยากให้หายคางบุ๋ม ตัด หรือสั้น ล้วนเป็นคำตอบส่วนใหญ่</p>
@@ -300,13 +300,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/51KrHvmMb/DefaultData/iStock_1159699813.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-<<<<<<< HEAD
 						<h5 class="card-title">เลเซอร์รักษาสิว</h5>
 						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
-=======
-						<h4 class="card-title text-center">ลักยิ้ม</h4>
-						<p class="card-text">ลักยิ้ม นั้นสามารถเพิ่มเสน่ห์ได้ และช่วยให้หน้าหวานมากขึ้น ทำให้สาวๆหลายคนอยากมีลักยิ้ม ส่วนลักยิ้มถ้าตามธรรมชาติ ก็จะมีแบบจุด และแบบขีด ซึ่งทั้งสองแบบก็สามารถทำได้เช่นกัน</p>
->>>>>>> f1d9e4f744c7b07b37a6c37d5abd5852e7ed6071
 					</div>
 				</div>
 				<!-- end of card -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Medicine;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\AppointmentController;
 
 Route::get('/login', function () {
@@ -30,6 +32,14 @@ Route::get('admin', function() {
 Route::get('admin/home', function () {
     return view('admin.home');
 })->name('admin.home');
+
+Route::get('admin/bill', function () {
+    $medicine_categories = DB::table('medicine_category')->get();
+    $medicines = Medicine::leftJoin('medicine_category', 'medicine_category.medicine_category_id', '=', 'medicines.medicine_category_id')
+    ->leftJoin('doctors', 'doctors.doctor_id', '=', 'medicines.medicine_licensed_doctor_id')
+    ->get();
+    return view('admin.bill.bill', compact(['medicines', 'medicine_categories']));
+})->name('admin.bill');
 
 Route::controller(PatientController::class)->group(function () {
     Route::get('admin/patient','index')->name('admin.patient');
@@ -103,6 +113,15 @@ Route::controller(CourseController::class)->group(function () {
     Route::get('admin/course/change_status/{id}','change_status')->name('admin.course.change_status');
 });
 
+Route::controller(MedicineController::class)->group(function () {
+    Route::get('admin/medicine','index')->name('admin.medicine');
+    Route::post('admin/medicine/store','store')->name('admin.medicine.store');
+    Route::get('admin/medicine/edit','edit')->name('admin.medicine.edit');
+    Route::put('admin/medicine/update','update')->name('admin.medicine.update');
+    Route::delete('admin/medicine/delete','delete')->name('admin.medicine.delete');
+    Route::get('admin/medicine/change_status/{id}','change_status')->name('admin.medicine.change_status');
+});
+
 Route::get('/', function() {
     return view('home');
 })->name('/');
@@ -117,17 +136,17 @@ Route::get('admin/dashboard', function () {
     return view('admin.dashboard.index');
 })->name('admin.dashboard');
 
-Route::get('/Promotion', function() {
-    return view('Promotion');
-})->name('Promotion');
+Route::get('/promotion', function() {
+    return view('promotion');
+})->name('promotion');
 
-Route::get('/Blog', function() {
-    return view('Blog');
-})->name('Blog');
+Route::get('/blog', function() {
+    return view('blog');
+})->name('blog');
 
-Route::get('/Review', function() {
-    return view('Review');
-})->name('Review');
+Route::get('/review', function() {
+    return view('review');
+})->name('review');
 
 Route::get('get_district/{id}', function($id) {
     $districts = DB::table('amphures')->where('province_id', $id)->get(['id','name_th']);

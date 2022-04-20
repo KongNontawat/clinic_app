@@ -614,21 +614,22 @@ a:hover {
 }
 
 .cards-1 .card-icon {
-	width: 90px;
-	height: 90px;
-	margin-right: auto;
-	margin-bottom: 1.5rem;
-	margin-left: auto;
-	border-radius: 50%;
-	background-color: #ffffff;
-	text-align: center;
+	width: 90px!important;
+	height: 90px!important;
+	margin-right: auto!important;
+	margin-bottom: 1.5rem!important;
+	margin-left: auto!important;
+	border-radius: 50%!important;
+	background-color: #ffffff!important;
+	text-align: center!important;
 }
 
 .cards-1 .card-icon .far,
-.cards-1 .card-icon .fas {
-	margin-left: 2rem;
-	color: #cc2973;
-	font-size: 3.75rem;
+.cards-1 .card-icon .fas,
+.cards-1 .card-icon svg{
+	width: 100%!important;
+	color: #cc2973!important;
+	font-size: 3.75rem!important;
 }
 
 .cards-1 .card-body {

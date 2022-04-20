@@ -19,9 +19,7 @@ $(function () {
             { orderable: false, targets: 2 },
             { orderable: false, targets: 7 },
             { orderable: false, targets: 8 },
-            { orderable: false, targets: 9 },
-            { targets: [1, 2], searchable: true },
-            { targets: '_all', searchable: false }
+            { orderable: false, targets: 9 }
         ],
 
     });
@@ -47,12 +45,11 @@ $(function () {
         datatable.column(2).search(regex, true, false).draw();
     });
     $("#search_type").on("change", function () {
-        regex = "\\b" + this.value + "\\b";
-        datatable.column(7).search(regex, true, false).draw();
+        datatable.column(7).search(this.value).draw();
     });
     $("#search_status").on("change", function () {
-        regex = "\\b" + this.value + "\\b";
-        datatable.column(8).search(regex, true, false).draw();
+        regex3 = "\\b" + this.value + "\\b";
+        datatable.column(8).search(regex3, true, false).draw();
     });
 
     ClassicEditor.create(document.querySelector("#course_detail"), {

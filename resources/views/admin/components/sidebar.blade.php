@@ -78,6 +78,15 @@
         </a>
       </li>
 
+      <li class="nav-item medicine">
+        <a href="{{route('admin.medicine')}}">
+          <span class="icon">
+          <i class="fa-solid fa-syringe"></i>
+          </span>
+          <span class="text">Medicine</span>
+        </a>
+      </li>
+
       <li class="nav-item doctor">
         <a href="{{route('admin.doctor')}}">
           <span class="icon">

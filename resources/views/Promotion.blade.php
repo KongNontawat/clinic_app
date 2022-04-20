@@ -12,44 +12,37 @@
 	</div>
 </header>
 <!-- Content -->
-<div class="container mt-5 mb-5">
-	<p><a href="{{ route('home') }}">Home</a>/Promotion</p>
-	<div class="d-flex justify-content-center">
-		<div class="row">
-			<div class="col-md-6 col-12">
-				<img class="rounded mx-auto d-block mb-3" src="https://via.placeholder.com/1000x400" style="width: 100%;" alt="">
+<div class="container-fluid mb-5">
+	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="{{asset('image/banner1.jpg')}}" class="d-block w-100" alt="...">
 			</div>
-			<div class="col-md-6 col-12">
-				<img class="rounded mx-auto d-block mb-3" src="https://via.placeholder.com/1000x400" style="width: 100%;" alt="">
+			<div class="carousel-item">
+				<img src="{{asset('image/banner2.jpg')}}" class="d-block w-100" alt="...">
 			</div>
-			<div class="col-md-6 col-12">
-				<img class="rounded mx-auto d-block mb-3" src="https://via.placeholder.com/1000x400" style="width: 100%;" alt="">
-			</div>
-			<div class="col-md-6 col-12">
-				<img class="rounded mx-auto d-block mb-3" src="https://via.placeholder.com/1000x400" style="width: 100%;" alt="">
+			<div class="carousel-item">
+				<img src="{{asset('image/banner3.jpg')}}" class="d-block w-100" alt="...">
 			</div>
 		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
 	</div>
 </div>
 
 <!-- end Content -->
 
-
-<!-- Contact -->
-<!-- <div id="contact" class="form-1">
-	<img class="decoration-star" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
-	<img class="decoration-star-2" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<iframe style="width: 100%;height: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15305.631260529384!2d102.83998044999998!3d16.454875199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228ba19cfbee99%3A0x42a47dfb6ec74154!2z4Lij4LmJ4Liy4LiZ4LiV4LmJ4Lit4LiH4LmE4LiC4LmI4LmE4LiB4LmI!5e0!3m2!1sth!2sth!4v1648290525243!5m2!1sth!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
-			<div class="col-lg-6">
-				<img src="https://via.placeholder.com/900x400" style="width: 100%;" alt="">
-			</div>
-		</div>
-	</div>
-</div> -->
 
 @include('components.footer')
 

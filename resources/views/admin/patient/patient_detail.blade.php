@@ -47,8 +47,11 @@
 
           <!-- end col -->
           <div class="col-md-6 text-end">
-            <a href="#!" data-id="{{$patient->patient_id}}" data-name="{{$patient->title}} {{$patient->fname}} {{$patient->lname}}" class="main-btn primary-btn-outline btn-hover btn-sm btn-create-appointment" data-bs-toggle="modal" data-bs-target="#modal_create">
+            <a href="#!" data-id="{{$patient->patient_id}}" data-name="{{$patient->title}} {{$patient->fname}} {{$patient->lname}}" class="main-btn secondary-btn-outline btn-hover btn-sm btn-create-appointment" data-bs-toggle="modal" data-bs-target="#modal_create">
               <i class="fa-solid fa-calendar-plus"></i> Appointment
+            </a>
+            <a href="{{route('admin.bill')}}" data-id="{{$patient->patient_id}}" data-name="{{$patient->title}} {{$patient->fname}} {{$patient->lname}}" class="main-btn primary-btn-outline btn-hover btn-sm btn-create-appointment">
+            <i class="fa-solid fa-receipt"></i> Bill
             </a>
           </div><!-- end col -->
         </div> <!-- end row -->

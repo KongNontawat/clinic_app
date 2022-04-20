@@ -1190,6 +1190,7 @@ h6,
 }
 .table thead tr th:first-child,
 .table thead tr td:first-child {
+	text-align: center!important;
 	border-radius: 10px 0 0 10px;
 }
 .table > :not(caption) > * > * {
@@ -1615,6 +1616,31 @@ select.form-select:focus {
 	border-color: #4a6cf7;
 	outline: none;
 	box-shadow: none;
+}
+select.form-select-sm {
+	color: #212529;
+	background-color: #fff;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+
+	width: 100%;
+	max-height: 55px;
+	background: transparent;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	padding: 0px 10px;
+	padding-right: 38px;
+	color: #5d657b;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-moz-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
 }
 .select-style-1 .select-position select.light-bg {
 	background: rgba(239, 239, 239, 0.5);

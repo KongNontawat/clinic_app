@@ -41,6 +41,15 @@ li{
   text-decoration: none;
   color: #000;
 }
+.card img:hover{
+  transform: scale(1.1);
+  transition: .5s;
+  cursor: pointer;
+}
+.card img{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: .5s;
+}
 .bg-while{
   background: #fff;
   height: auto;

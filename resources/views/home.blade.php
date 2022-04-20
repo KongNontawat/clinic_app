@@ -11,15 +11,16 @@
 		<div class="row">
 			<div class="col-lg-7 col-xl-5">
 				<div class="text-container">
-					<h1 class="h1-large">Beautifying office spaces</h1>
-					<p class="p-large">Is education residence conveying and sore. Suppose shyness say ten behaved morning had. Any propose assist compliment occasional too reasonably</p>
+					<h1 class="h1-large">Beauty Care <br> Clinic</h1>
+					<p class="p-large">คลินิกความงามครบวงจรพร้อมให้บริการคุณ โดยทีมแพทย์ผู้เชี่ยวชาญให้คำปรึกษาปัญหาทั้งด้านศัลยกรรม ผิวพรรณ ใบหน้าจนถึงรูปร่างด้วยประสบการณ์และความมุ่งมั่นทุ่มเทที่จะให้การดูแลแก่ทุกท่านในราคาที่คุณพอใจ
+เด่นในเรื่องดูดไขมันโดยใช้นวัตกรรม เทคโนโลยี กระบวนการใหม่ๆ ด้วยความปลอดภัยที่ได้ระดับมาตรฐานสากล รวมถึงผลิตภัณฑ์และยาที่ได้รับมาตรฐานจากองค์การอาหารและยา กระทรวงสาธารณสุข</p>
 					<a class="btn-solid-lg" href="#introduction">More details</a>
 					<a class="btn-outline-lg" href="#contact">Contact us</a>
 				</div> <!-- end of text-container -->
 			</div> <!-- end of col -->
 			<div class="col-lg-5 col-xl-7">
 				<div class="image-container">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/header.png" alt="alternative">
+					<img class="img-fluid" src="{{asset('image/uploads/doctor.png')}}" alt="alternative">
 				</div> <!-- end of image-container -->
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
@@ -260,7 +261,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="h2-heading">Projects we developed</h2>
+				<h2 class="h2-heading">Services</h2>
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
 		<div class="row">
@@ -268,39 +269,39 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-1.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7690.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Office space for banking</h5>
-						<p class="card-text">Suffer should if waited common person little ans words are needed oh <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">เสริมจมูก</h4>
+						<p class="card-text">ทำจมูก หรือการศัลยกรรมจมูก (Rhinoplasty) คือการผ่าตัดเปลี่ยนรูปร่างของจมูก โดยอาจมีจุดประสงค์เพื่อปรับรูปร่างลักษณะของจมูกใหม่</p>
 					</div>
 				</div>
 				<!-- end of card -->
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-2.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/117906534_xl.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Planning and design for startup</h5>
-						<p class="card-text">In to am attended desirous raptures declared diverted confined at collected <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">ตาสองขั้น</h4>
+						<p class="card-text">ดวงตาเป็นหน้าต่างของหัวใจ เพราะฉะนั้น เราควรดูแลเป็นอย่างดี อีกทั้งยังเป็นจุดที่มีเสน่ห์แล้วชวนให้หลงใหลได้อีกด้วย ควรมีตาสองชั้นที่มีลักษณะดีตามตำราโหงวเฮ้ง</p>
 					</div>
 				</div>
 				<!-- end of card -->
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-3.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/114922804_xl.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Colors and materials update</h5>
-						<p class="card-text">Instantly remaining up certainly to necessary as over walk dull into son <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">เสริมคาง</h4>
+						<p class="card-text">ทำไมเราถึงต้องเสริมคาง บางคนตอบว่าอยากได้หน้าหวานขึ้น อยากได้หน้าวีเชฟมากขึ้น อยากได้โหงวเฮ้งรับทรัพย์ อยากให้หายคางบุ๋ม ตัด หรือสั้น ล้วนเป็นคำตอบส่วนใหญ่</p>
 					</div>
 				</div>
 				<!-- end of card -->
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-4.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/51KrHvmMb/DefaultData/iStock_1159699813.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Analysis and floor design</h5>
+						<h5 class="card-title">เลเซอร์รักษาสิว</h5>
 						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
 					</div>
 				</div>
@@ -308,20 +309,20 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-5.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/iStock_1147978235.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Office spaces decoration</h5>
-						<p class="card-text">Vicinity subjects more words into miss on he over been late pain an only <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">VITAMIN ผิว</h4>
+						<p class="card-text">ไม่ว่าจะยุคสมัยไหน “การฉีดผิว”ก็เป็นอะไรที่ขาดไม่ได้ ไม่ว่าจะเป็นการฉีดผิวให้ดูขาว กระจ่างใสขึ้น หรือว่าจะฉีดวิตามินบำรุงสุขภาพทั่วไป ซึ่งยังเป็นที่นิยมและได้รับความสนใจจากสาวๆ</p>
 					</div>
 				</div>
 				<!-- end of card -->
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-6.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7689.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">Playground for kinder garden</h5>
-						<p class="card-text">Match round scale now sex style far times your me past and who now much <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">MESO THERAPHY หน้าใส</h4>
+						<p class="card-text">“เมโสหน้าใส หรือ Mesotherapy” คือ การให้สารอาหารและวิตามินต่างๆในการช่วยบำรุงหน้า ด้วยวิธีการที่เร่งรัดและเห็นผลที่รวดเร็วกว่าการทาครีม รวมถึงแก้ปัญหาต่างๆของผิวหน้า โดยจะลงลึกได้มากกว่าการทาครีมทั่วไป</p>
 					</div>
 				</div>
 				<!-- end of card -->

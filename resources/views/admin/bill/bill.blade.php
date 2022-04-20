@@ -2,7 +2,6 @@
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
-
 @endsection
 @section('content')
 @include('sweetalert::alert')
@@ -47,7 +46,7 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-medicine-tab" data-bs-toggle="tab" data-bs-target="#nav-medicine" type="button" role="tab" aria-controls="nav-medicine" aria-selected="true"><i class="fa-solid fa-syringe"></i> Medicine / Equipment</button>
-                <button class="nav-link" id="nav-course-info-tab" data-bs-toggle="tab" data-bs-target="#nav-course-info" type="button" role="tab" aria-controls="nav-course-info" aria-selected="false"><i class="fa-solid fa-wand-magic-sparkles"></i> Course</button>
+                <button class="nav-link" id="nav-course-tab" data-bs-toggle="tab" data-bs-target="#nav-course" type="button" role="tab" aria-controls="nav-course" aria-selected="false"><i class="fa-solid fa-wand-magic-sparkles"></i> Course</button>
               </div>
             </nav>
 
@@ -61,12 +60,13 @@
 
                   <div class="col-sm-6">
                     <div class="form-floating">
-                      <select class="form-select form-select-sm" id="search_type" aria-label="Floating label select example">
+                      <select class="form-select form-select-sm" id="search_category" aria-label="Floating label select example">
                         <option selected value="">All</option>
-                        <option value="medicine" class="">Medicine</option>
-                        <option value="equipment" class="">Equipment</option>
+                        @foreach($medicine_categories AS $medicine_category)
+                        <option value="{{$medicine_category->medicine_category_name}}" class="">{{$medicine_category->medicine_category_name}}</option>
+                        @endforeach
                       </select>
-                      <label for="search_type"><i class="fa-solid fa-circle-check me-1"></i> Type</label>
+                      <label for="search_category"><i class="fa-solid fa-circle-check me-1"></i> category</label>
                     </div>
                   </div>
 
@@ -80,14 +80,20 @@
                 </div>
 
                 <div class="table-wrapper table-responsive pb-3">
-                  <table class="table table-hover">
+                  <table class="table table-hover" id="table_medicine">
                     <thead>
                       <tr>
-                        <th class="text-center" style="width: 5%;">
+                        <th class="text-center">
+                          <h6></h6>
+                        </th>
+                        <th class="text-center">
                           <h6>ID</h6>
                         </th>
                         <th>
                           <h6>Medicine Name</h6>
+                        </th>
+                        <th>
+                          <h6 hidden>Category</h6>
                         </th>
                         <th class="text-end">
                           <h6>Price</h6>
@@ -95,21 +101,21 @@
                         <th class="text-end">
                           <h6>Stock</h6>
                         </th>
-                        <th class="text-center">
-                          <h6>Select</h6>
-                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach($medicines as $medicine)
-                      <tr class="{{($medicine->medicine_status == 0)?'table-danger':''}}">
-                        <td class="text-center">{{$loop->iteration}}</td>
-                        <td class="ps-2">{{$medicine->medicine_name}}</td>
-                        <td class="text-end">{{number_format($medicine->medicine_price)}}</td>
-                        <td class="text-end">{{number_format($medicine->medicine_stock)}} {{$medicine->medicine_unit}}</td>
+                      <tr>
                         <td class="text-center">
-                          <a href="" class="text-center text-muted"><i class="fa-regular fa-circle-check fs-5"></i></a>
+                          <div class="form-check checkbox-style">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                          </div>
                         </td>
+                        <td class="text-center">{{$medicine->medicine_id}}</td>
+                        <td class="ps-2">{{$medicine->medicine_name}}</td>
+                        <td class="ps-2" hidden>{{$medicine->medicine_category_name}}</td>
+                        <td class="text-end">{{number_format($medicine->medicine_price)}}</td>
+                        <td class="text-end pe-1">{{number_format($medicine->medicine_stock)}} {{$medicine->medicine_unit}}</td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -117,12 +123,87 @@
                 </div><!-- end table -->
 
               </div> <!-- End tab 1 -->
+
+              <!-- Tab2 -->
+              <div class="tab-pane fade" id="nav-course" role="tabpanel" aria-labelledby="nav-course-tab">
+
+                <!-- Search -->
+                <div class="row">
+
+                  <div class="col-sm-6">
+                    <div class="form-floating">
+                      <select class="form-select form-select-sm" id="search_category_course" aria-label="Floating label select example">
+                        <option selected value="">All</option>
+                        @foreach($course_categories AS $course_category)
+                        <option value="{{$course_category->course_category_name}}" class="">{{$course_category->course_category_name}}</option>
+                        @endforeach
+                      </select>
+                      <label for="search_category_course"><i class="fa-solid fa-circle-check me-1"></i> Category</label>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="input-style-3 mb-0">
+                      <input type="text" placeholder="Search Name" class="bg-transparent" id="search_name_course" style="max-height:55px;">
+                      <span class="icon"> <i class="fa-solid fa-magnifying-glass me-1"></i></span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="table-wrapper table-responsive pb-3">
+                  <table class="table table-hover" id="table_course">
+                    <thead>
+                      <tr>
+                        <th class="text-center">
+                          <h6></h6>
+                        </th>
+                        <th class="text-center">
+                          <h6>ID</h6>
+                        </th>
+                        <th>
+                          <h6>Course Name</h6>
+                        </th>
+                        <th>
+                          <h6 hidden>Category</h6>
+                        </th>
+                        <th class="text-end">
+                          <h6>Price</h6>
+                        </th>
+                        <th class="text-end">
+                          <h6>Type</h6>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($courses as $course)
+                      <tr>
+                        <td class="text-center">
+                          <div class="form-check checkbox-style">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                          </div>
+                        </td>
+                        <td class="text-center">{{$course->course_id}}</td>
+                        <td class="ps-2">{{$course->course_name}}</td>
+                        <td class="ps-2" hidden>{{$course->course_category_name}}</td>
+                        <td class="text-end">{{number_format($course->course_total_price)}}</td>
+                        <td class="text-end pe-1">{{$course->course_type}}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div><!-- end table -->
+
+              </div> <!-- End tab 2 -->
             </div> <!-- End tab-content -->
 
           </div>
         </div>
+
         <div class="col-lg-7">
-          <div class="card-style mb-30"></div>
+          <div class="card-style mb-30">
+            
+          </div>
         </div>
       </div>
       <!-- ========== tables-wrapper end ========== -->

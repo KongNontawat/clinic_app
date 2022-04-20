@@ -288,7 +288,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-3.jpg" alt="alternative">
+				<a href="#!"><img class="img-fluid" src="https://technext.github.io/yavin/images/project-3.jpg" alt="alternative"></a>
 					<div class="card-body">
 						<h4 class="card-title text-center">เสริมคาง</h4>
 						<p class="card-text">ทำไมเราถึงต้องเสริมคาง บางคนตอบว่าอยากได้หน้าหวานขึ้น อยากได้หน้าวีเชฟมากขึ้น อยากได้โหงวเฮ้งรับทรัพย์ อยากให้หายคางบุ๋ม ตัด หรือสั้น ล้วนเป็นคำตอบส่วนใหญ่</p>
@@ -300,13 +300,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/51KrHvmMb/DefaultData/iStock_1159699813.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-<<<<<<< HEAD
-						<h5 class="card-title">เลเซอร์รักษาสิว</h5>
-						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
-=======
-						<h4 class="card-title text-center">ลักยิ้ม</h4>
-						<p class="card-text">ลักยิ้ม นั้นสามารถเพิ่มเสน่ห์ได้ และช่วยให้หน้าหวานมากขึ้น ทำให้สาวๆหลายคนอยากมีลักยิ้ม ส่วนลักยิ้มถ้าตามธรรมชาติ ก็จะมีแบบจุด และแบบขีด ซึ่งทั้งสองแบบก็สามารถทำได้เช่นกัน</p>
->>>>>>> f1d9e4f744c7b07b37a6c37d5abd5852e7ed6071
+						<h4 class="card-title text-center">เลเซอร์รักษาสิว</h4>
+						<p class="card-text">นวัตกรรมที่ช่วยแก้ปัญหาให้กับคนที่กังวล ฝ้ากระ จุดด่างดำ รอยดำแดงสิว สีผิวไม่สม่ำเสมอ รวมถึงปัญหาหลุมสิวที่ทำให้ตื้นขึ้น พร้อมปรับให้ผิวดูเรียบเนียนยิ่งขึ้น</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -325,8 +320,8 @@
 				<div class="card">
 					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7689.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">หน้าใส ฝ้า กระ จุดด่าง</h5>
-						<p class="card-text">Match round scale now sex style far times your me past and who now much <a class="blue no-line" href="article.html">...Read more</a></p>
+						<h4 class="card-title text-center">MESO THERAPHY หน้าใส</h4>
+						<p class="card-text">“เมโสหน้าใส หรือ Mesotherapy” คือ การให้สารอาหารและวิตามินต่างๆในการช่วยบำรุงหน้า ด้วยวิธีการที่เร่งรัดและเห็นผลที่รวดเร็วกว่าการทาครีม รวมถึงแก้ปัญหาต่างๆของผิวหน้า โดยจะลงลึกได้มากกว่าการทาครีมทั่วไป</p>
 					</div>
 				</div>
 				<!-- end of card -->

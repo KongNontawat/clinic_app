@@ -29,38 +29,6 @@
 <!-- end of header -->
 
 
-<!-- Statistics -->
-<div class="counter">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-
-				<!-- Counter -->
-				<div class="counter-container">
-					<div class="counter-cell">
-						<div data-purecounter-start="0" data-purecounter-end="231" data-purecounter-duration="3" class="purecounter">1</div>
-						<div class="counter-info">Happy Customers</div>
-					</div> <!-- end of counter-cell -->
-					<div class="counter-cell">
-						<div data-purecounter-start="0" data-purecounter-end="385" data-purecounter-duration="1.5" class="purecounter">1</div>
-						<div class="counter-info">Issues Solved</div>
-					</div> <!-- end of counter-cell -->
-					<div class="counter-cell">
-						<div data-purecounter-start="0" data-purecounter-end="159" data-purecounter-duration="3" class="purecounter">1</div>
-						<div class="counter-info">Good Reviews</div>
-					</div> <!-- end of counter-cell -->
-					<div class="counter-cell">
-						<div data-purecounter-start="0" data-purecounter-end="128" data-purecounter-duration="3" class="purecounter">1</div>
-						<div class="counter-info">Case Studies</div>
-					</div> <!-- end of counter-cell -->
-				</div> <!-- end of counter-container -->
-				<!-- end of counter -->
-
-			</div> <!-- end of col -->
-		</div> <!-- end of row -->
-	</div> <!-- end of container -->
-</div> <!-- end of counter -->
-<!-- end of statistics -->
 
 
 <!-- Introduction -->

@@ -13,7 +13,7 @@
 				<div class="text-container">
 					<h1 class="h1-large">Beauty Care <br> Clinic</h1>
 					<p class="p-large">คลินิกความงามครบวงจรพร้อมให้บริการคุณ โดยทีมแพทย์ผู้เชี่ยวชาญให้คำปรึกษาปัญหาทั้งด้านศัลยกรรม ผิวพรรณ ใบหน้าจนถึงรูปร่างด้วยประสบการณ์และความมุ่งมั่นทุ่มเทที่จะให้การดูแลแก่ทุกท่านในราคาที่คุณพอใจ
-เด่นในเรื่องดูดไขมันโดยใช้นวัตกรรม เทคโนโลยี กระบวนการใหม่ๆ ด้วยความปลอดภัยที่ได้ระดับมาตรฐานสากล รวมถึงผลิตภัณฑ์และยาที่ได้รับมาตรฐานจากองค์การอาหารและยา กระทรวงสาธารณสุข</p>
+						เด่นในเรื่องดูดไขมันโดยใช้นวัตกรรม เทคโนโลยี กระบวนการใหม่ๆ ด้วยความปลอดภัยที่ได้ระดับมาตรฐานสากล รวมถึงผลิตภัณฑ์และยาที่ได้รับมาตรฐานจากองค์การอาหารและยา กระทรวงสาธารณสุข</p>
 					<a class="btn-solid-lg" href="#introduction">More details</a>
 					<a class="btn-outline-lg" href="#contact">Contact us</a>
 				</div> <!-- end of text-container -->
@@ -34,12 +34,25 @@
 <!-- Introduction -->
 <div id="introduction" class="basic-1 bg-gray">
 	<div class="container">
-		<div class="row">
-			<div class="col-xl-9">
-				<h2>Creating office spaces is our passion and you can see that in our completed projects</h2>
-				<p>Unpleasing has ask acceptance partiality alteration understood two. Worth no tiled my at house added. Married he hearing am it totally removal. Remove but suffer wanted his lively length. Moonlight two applauded conveying end direction old principle but. Are expenses distance weddings perceive</p>
-			</div> <!-- end of col -->
-		</div> <!-- end of row -->
+		<h2 class="text-center w-100">ทำไมต้องเลือก Beauty Care Clinic</h2>
+		<div class="row justify-content-center text-center ">
+			<div class="custom-box col-12 col-md-6 col-lg-4 mt-3 mt-md-4 m-3" style="width: 18rem;">
+				<i class="fa-solid fa-user-doctor mb-3" style="width: 50;height: 50;"></i>
+				<h4>แพทย์เป็นเจ้าของเอง</h4>
+				<p style="color: rgb(129, 129, 129);">Dr.Chen Clinic คลินิกศัลยกรรมความงามครบวงจร ก่อตั้งโดย นพ. เชน ชัยชาญชีพ (คุณหมอเชน) เป็นแพทย์ประจำคลินิกและเจ้าของคลินิก ดูแลและให้คำปรึกษาเองทุกเคส</p>
+			</div>
+			<div class="custom-box col-12 col-md-6 col-lg-4 mt-3 mt-md-4 m-3" style="width: 18rem;">
+				<i class="fa-solid fa-stethoscope mb-3" style="width: 50;height: 50;"></i>
+				<h4>คุณหมอมีความเชี่ยวชาญ</h4>
+				<p style="color: rgb(129, 129, 129);">ด้วยประสบการณ์ของคุณหมอที่จบเฉพาะทางด้านศัลยกรรมทั้งในและต่างประเทศ จึงมีความเชี่ยวชาญในการดูแลผิว ปรับรูปหน้า ศัลยกรรม แก้จุดบกพร่องบนใบหน้า ดูดไขมัน</p>
+			</div>
+			<div class="custom-box col-12 col-md-6 col-lg-4 mt-3 mt-md-4 m-3" style="width: 18rem;">
+				<i class="fa-solid fa-hospital mb-3" style="width: 50;height: 50;"></i>
+				<h4>คลินิกได้มาตรฐาน</h4>
+				<p style="color: rgb(129, 129, 129);">Dr. Chen Clinic คลินิกศัลยกรรมความงามครบวงจร เน้นความสะอาด ปลอดภัย ใช้เครื่องมือและเทคโนโลยีที่ทันสมัย ผ่านการรับรองจากสาธารณสุข ได้มาตรฐานสากล</p>
+			</div>
+		</div>
+
 	</div> <!-- end of container -->
 </div> <!-- end of basic-1 -->
 <!-- end of introduction -->

@@ -298,9 +298,9 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-4.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/51KrHvmMb/DefaultData/iStock_1159699813.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">ลักยิ้ม</h5>
+						<h5 class="card-title">เลเซอร์รักษาสิว</h5>
 						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
 					</div>
 				</div>
@@ -308,7 +308,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-5.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/0/2GFvGZndG/DefaultData/iStock_1147978235.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
 						<h5 class="card-title">VITAMIN ผิว</h5>
 						<p class="card-text">Vicinity subjects more words into miss on he over been late pain an only <a class="blue no-line" href="article.html">...Read more</a></p>
@@ -318,7 +318,7 @@
 
 				<!-- Card -->
 				<div class="card">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/project-6.jpg" alt="alternative">
+					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/2GFvGZndG/DefaultData/IMG_7689.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
 						<h5 class="card-title">หน้าใส ฝ้า กระ จุดด่างดำ</h5>
 						<p class="card-text">Match round scale now sex style far times your me past and who now much <a class="blue no-line" href="article.html">...Read more</a></p>

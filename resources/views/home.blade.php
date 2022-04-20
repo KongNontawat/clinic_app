@@ -39,7 +39,7 @@
 			<div class="custom-box col-12 col-md-6 col-lg-4 mt-3 mt-md-4 m-3" style="width: 18rem;">
 				<i class="fa-solid fa-user-doctor mb-3" style="width: 50;height: 50;"></i>
 				<h4>แพทย์เป็นเจ้าของเอง</h4>
-				<p style="color: rgb(129, 129, 129);">Dr.Chen Clinic คลินิกศัลยกรรมความงามครบวงจร ก่อตั้งโดย นพ. เชน ชัยชาญชีพ (คุณหมอเชน) เป็นแพทย์ประจำคลินิกและเจ้าของคลินิก ดูแลและให้คำปรึกษาเองทุกเคส</p>
+				<p style="color: rgb(129, 129, 129);">Beauty Care Clinic คลินิกศัลยกรรมความงามครบวงจร ก่อตั้งโดย นพ. ฟาร์มสุดหล่อ  เป็นแพทย์ประจำคลินิกและเจ้าของคลินิก ดูแลและให้คำปรึกษาเองทุกเคส</p>
 			</div>
 			<div class="custom-box col-12 col-md-6 col-lg-4 mt-3 mt-md-4 m-3" style="width: 18rem;">
 				<i class="fa-solid fa-stethoscope mb-3" style="width: 50;height: 50;"></i>

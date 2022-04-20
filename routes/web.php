@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Course;
 use App\Models\Medicine;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -35,10 +36,13 @@ Route::get('admin/home', function () {
 
 Route::get('admin/bill', function () {
     $medicine_categories = DB::table('medicine_category')->get();
+    $course_categories = DB::table('course_category')->get();
     $medicines = Medicine::leftJoin('medicine_category', 'medicine_category.medicine_category_id', '=', 'medicines.medicine_category_id')
     ->leftJoin('doctors', 'doctors.doctor_id', '=', 'medicines.medicine_licensed_doctor_id')
     ->get();
-    return view('admin.bill.bill', compact(['medicines', 'medicine_categories']));
+    $courses = Course::leftJoin('course_category', 'course_category.course_category_id', '=', 'courses.course_category_id')
+    ->get();
+    return view('admin.bill.bill', compact(['medicines', 'medicine_categories','course_categories','courses']));
 })->name('admin.bill');
 
 Route::controller(PatientController::class)->group(function () {

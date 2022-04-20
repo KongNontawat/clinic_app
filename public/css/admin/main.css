@@ -1178,6 +1178,7 @@ h6,
 }
 /* =========== tables css =========== */
 .table {
+	width: 100%!important;
 	border-collapse: inherit;
 	border-spacing: 0px;
 }

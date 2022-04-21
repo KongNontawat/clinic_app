@@ -60,7 +60,7 @@
                         <option value="completed" class="text-success">Completed</option>
                         <option value="cancel" class="text-danger">Cancel</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off me-1"></i> Patent Status</label>
                     </div>
                   </div>
 

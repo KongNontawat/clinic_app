@@ -52,7 +52,7 @@ $(function () {
     });
 
     $("#search_name").on("keyup", function () {
-        datatable.column([1,1]).search(this.value).draw();
+        datatable.column(1).search(this.value).draw();
     });
     $("#search_status").on("change", function () {
         datatable.column(4).search(this.value).draw();
@@ -63,7 +63,6 @@ $(function () {
 
     // Model Delete
     $(".table tbody").on("click", ".dropdown-menu li .btn-delete", function () {
-        console.log(555);
         let id = $(this).attr("data-id");
         $("#delete_user_id").val(id);
     });

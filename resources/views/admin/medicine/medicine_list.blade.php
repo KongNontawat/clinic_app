@@ -55,7 +55,7 @@
                         <option value="{{$medicine_category->medicine_category_name}}">{{$medicine_category->medicine_category_name}}</option>
                         @endforeach
                       </select>
-                      <label for="search_category"><i class="fa-solid fa-circle-check me-1"></i> Category</label>
+                      <label for="search_category"><i class="fa-solid fa-rectangle-list me-1"></i> Category</label>
                     </div>
                   </div>
 
@@ -77,7 +77,7 @@
                         <option value="active" class="text-success">Active</option>
                         <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Medicine Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off em-1"></i> Medicine Status</label>
                     </div>
                   </div>
                 </div>

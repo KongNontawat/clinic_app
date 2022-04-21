@@ -2,6 +2,8 @@
 
 @section('style')
 <link rel="stylesheet" href="{{ asset('js/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/flatpickr/dist/flatpickr.min.css') }}">
+
 @endsection
 @section('content')
 @include('sweetalert::alert')
@@ -27,7 +29,7 @@
       </div><!-- title-wrapper -->
 
       <!-- ========== tables-wrapper start ========== -->
-      <div class="row">
+      <div class="row g-3">
         <div class="col-lg-5">
           <div class="card-style mb-30">
 
@@ -84,9 +86,6 @@
                     <thead>
                       <tr>
                         <th class="text-center">
-                          <h6></h6>
-                        </th>
-                        <th class="text-center">
                           <h6>ID</h6>
                         </th>
                         <th>
@@ -101,21 +100,24 @@
                         <th class="text-end">
                           <h6>Stock</h6>
                         </th>
+                        <th hidden></th>
+                        <th class="text-center">
+                          <h6></h6>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach($medicines as $medicine)
                       <tr>
-                        <td class="text-center">
-                          <div class="form-check checkbox-style">
-                            <input class="form-check-input" type="checkbox" value="" id="">
-                          </div>
-                        </td>
-                        <td class="text-center">{{$medicine->medicine_id}}</td>
-                        <td class="ps-2">{{$medicine->medicine_name}}</td>
+                        <td class="text-center medicine_id">{{$medicine->medicine_id}}</td>
+                        <td class="ps-2 medicine_name">{{$medicine->medicine_name}}</td>
                         <td class="ps-2" hidden>{{$medicine->medicine_category_name}}</td>
-                        <td class="text-end">{{number_format($medicine->medicine_price)}}</td>
-                        <td class="text-end pe-1">{{number_format($medicine->medicine_stock)}} {{$medicine->medicine_unit}}</td>
+                        <td class="text-end medicine_price">{{number_format($medicine->medicine_price)}}</td>
+                        <td class="text-end pe-1 ">{{number_format($medicine->medicine_stock)}} {{$medicine->medicine_unit}}</td>
+                        <td hidden class="medicine_unit">{{$medicine->medicine_unit}}</td>
+                        <td class="text-center">
+                          <a href="#!" class="medicine_check" data-id="{{$medicine->medicine_id}}"><i class="fa-regular fa-circle-check"></i></a>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -195,14 +197,141 @@
                 </div><!-- end table -->
 
               </div> <!-- End tab 2 -->
+
             </div> <!-- End tab-content -->
 
           </div>
         </div>
 
         <div class="col-lg-7">
+          <div class="card-style mb-20">
+
+            <!-- Card Title -->
+            <div class=" title pb-2 mb-2 d-flex justify-content-between align-items-center border-bottom">
+
+              <div class="form-floating">
+                <input type="text" id="date" name="date" class="form-control bg-transparent">
+                <label for="floatingSelect"><i class="fa-solid fa-clock me-1"></i> Date</label>
+              </div>
+
+              <a href="#0" class="main-btn primary-btn-outline btn-hover py-2 px-2">Previous Medicine</a>
+            </div>
+
+            <!-- Table -->
+            <div class="table-wrapper table-responsive pb-3">
+              <table class="table table-hover" id="table_bill">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      <h6>#</h6>
+                    </th>
+                    <th>
+                      <h6>List</h6>
+                    </th>
+                    <th class="text-end">
+                      <h6>Price</h6>
+                    </th>
+                    <th class="text-end">
+                      <h6>Amount</h6>
+                    </th>
+                    <th class="text-center">
+                      <h6>Unit</h6>
+                    </th>
+                    <th class="text-end">
+                      <h6>Total</h6>
+                    </th>
+                    <th class="text-center">
+                      <h6>Action</h6>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="bill_list">
+                  <!-- <tr>
+                    <td class="text-center bill_list_id">5</td>
+                    <td class="ps-2">${medicine_name}</td>
+                    <td class="text-end">${medicine_price}</td>
+                    <td class="text-end bill_list_amount">1</td>
+                    <td class="text-center">${medicine_unit}</td>
+                    <td class="text-end">${medicine_price}</td>
+                    <td class="text-center">
+                      <a href="" class="me-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a href="" class="fs-5 pt-2 text-danger"><i class="fa-solid fa-xmark"></i></a>
+                      </td>
+                    </tr> -->
+                </tbody>
+              </table>
+            </div><!-- end table -->
+
+
+          </div>
+
           <div class="card-style mb-30">
-            
+            <div class="row">
+
+              <div class="col-lg-6 border-end">
+                <!-- Card Title -->
+                <div class=" title pb-2 mb-2 d-flex justify-content-between align-items-center border-bottom ">
+                  <p>ราคารวม</p>
+                  <p>0.00 บาท</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center my-2">
+                  <p>ส่วนลด</p>
+                  <div class="right d-flex">
+                    <div class="form-floating me-2" style="max-width: 120px;">
+                      <input type="number" class="form-control" id="floatingInputValue" placeholder="" value="0" style="max-height: 55px;">
+                      <label for="floatingInputValue" class="text-danger">Limit 70%</label>
+                    </div>
+                    <div class="form-floating" style="min-width: 100px;">
+                      <select class="form-select " id="" aria-label="Floating label select example" style="max-height: 55px;">
+                        <option selected value="">%</option>
+                      </select>
+                      <label for=""><i class="fa-solid fa-circle-check me-1"></i> Type</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center my-2">
+                  <p>รวมส่วนลด</p>
+                  <p>0.00</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center my-2">
+                  <p>ประเภทภาษี</p>
+                  <div class="right d-flex">
+                    <div class="form-floating" style="min-width: 100px;">
+                      <select class="form-select " id="" aria-label="Floating label select example" style="max-height: 55px;">
+                        <option selected value="">ไม่มี</option>
+                      </select>
+                      <label for=""><i class="fa-solid fa-circle-check me-1"></i> ภาษี</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center my-2">
+                  <p>รวมภาษี</p>
+                  <p>0.00</p>
+                </div>
+
+              </div>
+
+
+              <div class="col-lg-6">
+                <!-- Card Title -->
+                <div class=" title pb-2 mb-2 d-flex justify-content-between align-items-center border-bottom">
+                  <p>มูลค่ารวม</p>
+                  <p>0.00 บาท</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center my-2">
+                  <p>รวมยอดที่ต้องชำระทั้งสิ้น</p>
+                  <p class="text-primary">0.00</p>
+                </div>
+
+                <a href="#0" class="main-btn primary-btn btn-hover col-12 mt-4 btn-sm">Check Out</a>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -221,6 +350,7 @@
 @section('script')
 <script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('js/flatpickr/dist/flatpickr.min.js') }}"></script>
 <script src="{{ asset('js/cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('js/admin/bill/bill.js') }}"></script>
 @endsection

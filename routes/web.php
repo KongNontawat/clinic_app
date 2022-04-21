@@ -1,7 +1,13 @@
 <?php
 
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Course;
+use App\Models\Doctor;
+use App\Models\Patient;
+use App\Models\Employee;
 use App\Models\Medicine;
+use App\Models\Appointment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +48,7 @@ Route::get('admin/bill', function () {
     ->get();
     $courses = Course::leftJoin('course_category', 'course_category.course_category_id', '=', 'courses.course_category_id')
     ->get();
-    return view('admin.bill.bill', compact(['medicines', 'medicine_categories','course_categories','courses']));
+    return view('admin.bill.blank', compact(['medicines', 'medicine_categories','course_categories','courses']));
 })->name('admin.bill');
 
 Route::controller(PatientController::class)->group(function () {
@@ -137,7 +143,33 @@ Route::get('/detail', function() {
 })->name('detail');
 
 Route::get('admin/dashboard', function () {
-    return view('admin.dashboard.index');
+    $now = Carbon::now();
+
+    $doctors = Doctor::where('doctor_status', '1')->get();
+    $patients = Patient::where('patient_status', '1')->get();
+
+    $count_patient = Patient::count();
+    $count_doctor = Doctor::count();
+    $count_employee = Employee::count();
+    $count_user = User::count();
+
+
+    //schedule : count appointment & date day == date_now
+    $get_schedule = Appointment::whereDate('appointment_date','=',$now)->get();
+    $schedule = count($get_schedule);
+
+    //reserved : count booking & date day == date_now
+    $reserved = 0;
+
+    //checkout : appointment_status == 4 & date day == date_now
+    $get_checkout = Appointment::whereDate('appointment_date','=',$now)->whereIn('appointment_status',[3,4])->get();
+    $checkout = count($get_checkout);
+
+    //today's : date == date_now
+    $today = count($get_schedule);
+
+    $remain = $today - $checkout;
+    return view('admin.dashboard.index',compact(['schedule','reserved','checkout','today','remain','doctors','patients','count_patient','count_doctor','count_employee','count_user']));
 })->name('admin.dashboard');
 
 Route::get('/promotion', function() {

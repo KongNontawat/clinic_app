@@ -75,7 +75,7 @@
                         <option value="active" class="text-success">Active</option>
                         <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off me-1"></i> Patent Status</label>
                     </div>
                   </div>
 
@@ -188,7 +188,6 @@
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{route('admin.patient.detail',$patient->patient_id)}}"><i class="fa-solid fa-eye"></i> View</a></li>
                             <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$patient->patient_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
-
                           </ul>
                         </div>
                       </td>

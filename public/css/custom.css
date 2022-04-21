@@ -50,6 +50,13 @@ li{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: .5s;
 }
+.custom-box{
+  background: #fff;
+  border:solid 1px #EEE ;
+  padding: 36px 10px 26px;
+  width: auto;
+  height: 100%;
+}
 .bg-while{
   background: #fff;
   height: auto;

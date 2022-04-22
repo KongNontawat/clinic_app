@@ -22,7 +22,7 @@ $(function () {
     });
 
     $("#search_name").on("keyup", function () {
-        datatable.column([0,2]).search(this.value).draw();
+        datatable.column(2).search(this.value).draw();
     });
     $("#search_position").on("keyup", function () {
         datatable.column(5).search(this.value).draw();

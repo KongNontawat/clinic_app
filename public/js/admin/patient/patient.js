@@ -60,7 +60,7 @@ $(function () {
 
 
     $("#search_name").on("keyup", function () {
-        datatable.column([0,1]).search(this.value).draw();
+        datatable.column(1).search(this.value).draw();
     });
     $("#search_idcard").on("keyup", function () {
         datatable.column(2).search(this.value).draw();

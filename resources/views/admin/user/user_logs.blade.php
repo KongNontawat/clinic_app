@@ -52,7 +52,7 @@
                         <option value="success" class="text-success">Success</option>
                         <option value="fail" class="text-danger">Fail!</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off me-1"></i> Patent Status</label>
                     </div>
                   </div>
 

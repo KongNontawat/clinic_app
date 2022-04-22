@@ -63,7 +63,7 @@
                         <option value="active" class="text-success">Active</option>
                         <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Patent Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off me-1"></i> Patent Status</label>
                     </div>
                   </div>
 

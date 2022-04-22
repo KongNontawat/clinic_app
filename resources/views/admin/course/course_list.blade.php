@@ -56,7 +56,7 @@
                         <option value="{{$course_category->course_category_name}}">{{$course_category->course_category_name}}</option>
                         @endforeach
                       </select>
-                      <label for="search_category"><i class="fa-solid fa-circle-check me-1"></i> Category</label>
+                      <label for="search_category"><i class="fa-solid fa-rectangle-list me-1"></i> Category</label>
                     </div>
                   </div>
 
@@ -78,7 +78,7 @@
                         <option value="active" class="text-success">Active</option>
                         <option value="Inactive" class="text-danger">Inactive</option>
                       </select>
-                      <label for="search_status"><i class="fa-solid fa-circle-check me-1"></i> Course Status</label>
+                      <label for="search_status"><i class="fa-solid fa-toggle-off me-1"></i> Course Status</label>
                     </div>
                   </div>
 
@@ -148,9 +148,7 @@
                           </a>
 
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item btn-edit" href="#!" data-id="{{$course->course_id}}" data-bs-toggle="modal" data-bs-target="#modal_update"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                            <li><a class="dropdown-item" href="#!"><i class="fa-solid fa-course-gear"></i> View Logs</a></li>
-                            </li>
+                            <li><a class="dropdown-item btn-edit" href="#!" data-id="{{$course->course_id}}" data-bs-toggle="modal" data-bs-target="#modal_update"><i class="fa-solid fa-pen-to-square"></i> Edit</a></li>
                             <li><a class="dropdown-item btn-delete" href="#!" data-id="{{$course->course_id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
 
                           </ul>

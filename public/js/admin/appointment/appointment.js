@@ -50,7 +50,7 @@ $(function () {
 
 
     $("#search_name").on("keyup", function () {
-        datatable.column([1,2]).search(this.value).draw();
+        datatable.column(2).search(this.value).draw();
     });
 
     $("#search_status").on("change", function () {

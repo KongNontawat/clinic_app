@@ -20,9 +20,9 @@
 					</p>
 					<h3 class="mt-3">Social Media</h3>
 					<div class="d-flex">
-						<a href="#!"><i class="bi bi-facebook me-2" style="font-size: 20px;"></i></a>
-						<a href="#!"><i class="bi bi-line me-2" style="font-size: 20px;"></i></a>
-						<a href="#!"><i class="bi bi-instagram me-2" style="font-size: 20px;"></i></a>
+						<a href="#!"><i class="fa-brands fa-facebook me-2" style="font-size: 20px;"></i></a>
+						<a href="#!"><i class="fa-brands fa-line me-2" style="font-size: 20px;"></i></a>
+						<a href="#!"><i class="fab fa-instagram me-2" style="font-size: 20px;"></i></a>
 					</div>
 				</div>
 

@@ -287,7 +287,7 @@
 				<div class="card">
 					<img class="img-fluid" src="https://image.makewebeasy.net/makeweb/m_750x0/51KrHvmMb/DefaultData/iStock_1159699813.jpg?v=202012190947" alt="alternative">
 					<div class="card-body">
-						<h5 class="card-title">เลเซอร์รักษาสิว</h5>
+						<h5 class="card-title text-center">เลเซอร์รักษาสิว</h5>
 						<p class="card-text">Vent new at or happiness commanded daughters as is handsome an <a class="blue no-line" href="article.html">...Read more</a></p>
 					</div>
 				</div>

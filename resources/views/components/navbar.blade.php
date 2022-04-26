@@ -15,7 +15,7 @@
 		<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav ms-auto navbar-nav-scroll">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+					<a class="nav-link " aria-current="page" href="{{ route('home') }}">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('promotion') }}">Promotion</a>

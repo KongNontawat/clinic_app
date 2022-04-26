@@ -8,12 +8,12 @@
 	<img class="decoration-star" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
 	<img class="decoration-star-2" src="https://technext.github.io/yavin/images/decoration-star.svg" alt="alternative">
 	<div class="container">
-		<h1 class="text-center">Promotion</h1>
+		<h1 class="text-center" style="font-weight: 500;font-size: 60px;">Promotion <hr></h1>
 	</div>
 </header>
 <!-- Content -->
-<div class="container mb-5">
-	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div class="container mt-5 mb-5">
+	<!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -38,7 +38,13 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
+	</div> -->
+	<div class="promotion">
+	<img class="mb-3" src="{{asset('image/promotion1.png')}}">
+	<img class="mb-3" src="{{asset('image/promotion4.png')}}">
+	<img class="mb-3" src="{{asset('image/promotion3.png')}}">
 	</div>
+	
 </div>
 
 <!-- end Content -->

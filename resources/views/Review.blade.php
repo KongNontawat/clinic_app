@@ -15,7 +15,47 @@
 <div class="container mt-5 mb-5">
 	<p><a href="{{ route('home') }}">Home</a>/Review</p>
 
-	<!-- <div class="d-flex justify-content-center">
+	<div class="row blog justify-content-center">
+
+		<div class="card m-3" style="width: 18rem;">
+			<a href="#!"><img src="https://via.placeholder.com/400x300" class="card-img-top" alt="..."></a>
+			<div class="card-body">
+				<h5 class="card-text">รีวิว IV Drip ฉีดวิตามิน</h5>
+				<p class="card-text">
+					...พี่พยาบาลก็จะเข้ามาเสียบสายน้ำเกลือให้ แล้วก็เริ่มให้วิตามินกันเลย ระหว่างนี้ก็นั่งชิวๆ เล่นโทรศัพท์มือถือได้
+					ไม่ได้มีอาการอะไรค่ะ ซึ่งใช้เวลาประมาณ 20 นาทีก็เสร็จ...</p>
+			</div>
+			<a href="#!">
+				<p class="text-center">อ่านเพิ่มเติม</p>
+			</a>
+		</div>
+		<div class="card m-3" style="width: 18rem;">
+			<a href="#!"><img src="https://via.placeholder.com/400x300" class="card-img-top" alt="..."></a>
+			<div class="card-body">
+				<h5 class="card-text">รีวิว กำจัดริ้วรอยด้วยเลเซอร์
+				</h5>
+				<p class="card-text">"...อายุเพิ่มมากขึ้น ปัญหาริ้วรอยก็ตามมาค่ะ การทาครีมบำรุงผิวอย่างเดียวอาจไม่สามารถช่วยแก้ไขปัญหาผิวได้
+					เราก็เลยอยากลองทำ HIFU ดูค่ะ..."</p>
+			</div>
+			<a href="#!">
+				<p class="text-center">อ่านเพิ่มเติม</p>
+			</a>
+		</div>
+		<div class="card m-3" style="width: 18rem;">
+			<a href="#!"><img src="https://via.placeholder.com/400x300" class="card-img-top" alt="..."></a>
+			<div class="card-body">
+				<h5 class="card-text">รีวิว MESO THERAPHY หน้าใส จาก ...</h5>
+				..บรรยากาศที่คลินิก สะอาดดีค่ะ มีจุดนั่งพักรับรอง พี่พนักงานก็น่ารัก ใจดี เป็นกันเอง โดยรวมแล้วก็ไม่ได้มีอะไรน่าผิดหวังเลย...
+			</div>
+			<a href="#!">
+				<p class="text-center">อ่านเพิ่มเติม</p>
+			</a>
+		</div>
+
+	</div>
+</div>
+</div>
+<!-- <div class="d-flex justify-content-center">
 		<div class="btn-group" role="group" aria-label="Basic example">
 			<button type="button" class="btn btn-primary">Left</button>
 			<button type="button" class="btn btn-primary">Middle</button>
@@ -23,9 +63,9 @@
 		</div>
 	</div> -->
 
-	<div class="col-md-4">
-		
-	</div>
+<div class="col-md-4">
+
+</div>
 
 </div>
 

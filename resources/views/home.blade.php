@@ -68,184 +68,6 @@
 <!-- end of introduction -->
 
 
-<!-- Details 1 -->
-<!-- <div id="details" class="basic-2">
-	<img class="decoration-star" src="{{asset('image/decoration-star.svg')}}" alt="alternative">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-xl-5">
-				<div class="image-container">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/details-1.png" alt="alternative">
-				</div> 
-			</div> 
-			<div class="col-lg-6 col-xl-7">
-				<div class="text-container">
-					<h2>Office spaces should be unique they don’t need to look the same</h2>
-					<ul class="list-unstyled li-space-lg">
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">At every tiled on ye defer do. No attention suspected oh difficult. Fond his say</div>
-						</li>
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">Old meet cold find come whom. The sir park sake bred. Wonder matter now</div>
-						</li>
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">Can estate esteem assure fat roused. Am performed on existence as discourse</div>
-						</li>
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">existence as discourse is. Pleasure friendly at marriage blessing or should</div>
-						</li>
-					</ul>
-					<a class="btn-solid-reg" href="article.html">Get started</a>
-				</div>
-			</div> 
-		</div>
-	</div> 
-</div>  -->
-<!-- end of details 1 -->
-
-
-<!-- Services -->
-<!-- <div id="services" class="cards-1 bg-gray">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5">
-				<div class="text-container">
-					<h2>Services that we offer</h2>
-					<p>Greatly hearted has who believe. Drift allow green son walls years for blush. Sir margaret drawings repeated recurred exercise laughing may you</p>
-					<p>Do repeated whatever to welcomed absolute no. Fat surprise although more words outlived</p>
-					<ul class="list-unstyled li-space-lg">
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">And informed shy dissuade property. Musical by</div>
-						</li>
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">He drawing savings an. No we stand avoid</div>
-						</li>
-						<li class="d-flex">
-							<i class="fas fa-square"></i>
-							<div class="flex-grow-1">Announcing of invita mrore wo tion principle</div>
-						</li>
-					</ul>
-				</div>
-			</div> 
-			<div class="col-lg-7">
-				<div class="card-container">
-
-					
-					<div class="card">
-						<div class="card-icon">
-							<span class="fas fa-rocket"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Space analysis and planning</h5>
-						</div>
-					</div>
-				
-
-					
-					<div class="card">
-						<div class="card-icon">
-							<span class="far fa-clock"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Design and color choosing</h5>
-						</div>
-					</div>
-					
-
-				
-					<div class="card">
-						<div class="card-icon">
-							<span class="far fa-comments"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Materials and delivery</h5>
-						</div>
-					</div>
-					
-
-					
-					<div class="card">
-						<div class="card-icon">
-							<span class="fas fa-tools"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Execute the concept</h5>
-						</div>
-					</div>
-					
-
-					
-					<div class="card">
-						<div class="card-icon">
-							<span class="fas fa-chart-pie"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Creating great atmosphere</h5>
-						</div>
-					</div>
-					
-
-					
-					<div class="card">
-						<div class="card-icon">
-							<span class="far fa-chart-bar"></span>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">Evaluation and reporting</h5>
-						</div>
-					</div>
-				
-
-				</div>
-			</div> 
-		</div> 
-	</div> 
-</div>  -->
-
-
-
-<!-- Details 2 -->
-<!-- <div class="basic-3">
-	<img class="decoration-star" src="{{asset('image/decoration-star.svg')}}" alt="alternative">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-xl-7">
-				<div class="text-container">
-					<h2>A beautiful and well organized office space increases productivity</h2>
-					<p>On it differed repeated wandered required in. Then girl neat why yet knew rose spot. Moreover property we he kindness greatest be oh striking laughter. In me he at collecting affronting principles apartments. Has visitor law attacks pretend you calling own excited painted. Contented attending</p>
-					<a class="btn-solid-reg" href="article.html">Get started</a>
-				</div> 
-			</div> 
-			<div class="col-lg-6 col-xl-5">
-				<div class="image-container">
-					<img class="img-fluid" src="https://technext.github.io/yavin/images/details-2.png" alt="alternative">
-				</div> 
-			</div> 
-		</div> 
-	</div> 
-</div>  -->
-<!-- end of details 2 -->
-
-
-<!-- Invitation -->
-<!-- <div class="basic-4 bg-gray">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h4>Our team of highly skilled designers and interior construction workers can deliver above your level of expections</h4>
-				<a class="btn-solid-lg" href="#contact">Get quote</a>
-			</div>
-		</div>
-	</div>
-</div> -->
-<!-- end of invitation -->
-
 
 <!-- Projects -->
 <div id="projects" class="cards-2">
@@ -359,6 +181,13 @@
 
 <div class="basic-1 bg-gray">
 	<div class="container">
+		<h2 class="text-center w-100">Review <hr></h2>
+	</div>
+</div>
+
+<div id="projects" class="basic-1 bg-white">
+	<div class="container">
+	<div class="container">
 		<h2 class="text-center w-100">Blog
 			<hr>
 		</h2>
@@ -392,13 +221,12 @@
 		<a href="#!"><p class="text-center">อ่านเพิ่มเติม</p></a>
 
 	</div>
+	</div>
 </div>
 
 
-
-
 <!-- Contact -->
-<div id="contact" class="form-1">
+<!-- <div id="contact" class="form-1">
 	<img class="decoration-star" src="{{asset('image/decoration-star.svg')}}" alt="alternative">
 	<img class="decoration-star-2" src="{{asset('image/decoration-star.svg')}}" alt="alternative">
 	<div class="container">
@@ -406,13 +234,13 @@
 			<div class="col-lg-6">
 				<div class="image-container">
 					<img class="img-fluid" src="https://technext.github.io/yavin/images/contact.png" alt="alternative">
-				</div> <!-- end of image-container -->
-			</div> <!-- end of col -->
+				</div> 
+			</div> 
 			<div class="col-lg-6">
 				<div class="text-container">
 					<h2>Contact us for a quote using the following form</h2>
 
-					<!-- Contact Form -->
+					
 					<form>
 						<div class="form-group">
 							<input type="text" class="form-control-input" placeholder="Name" required>
@@ -427,13 +255,13 @@
 							<button type="submit" class="form-control-submit-button">Submit</button>
 						</div>
 					</form>
-					<!-- end of contact form -->
-				</div> <!-- end of text-container -->
-			</div> <!-- end of col -->
-		</div> <!-- end of row -->
-	</div> <!-- end of container -->
-</div> <!-- end of form-1 -->
-<!-- end of contact -->
+					
+				</div> 
+			</div>
+		</div> 
+	</div> 
+</div>  -->
+
 
 <script src="{{ asset('js/swiper.min.js') }}"></script>
 

@@ -143,6 +143,10 @@ a:hover {
 	background-color: #f9fafe;
 	height: auto;
 }
+.bg-white {
+	background-color: #fff;
+	height: auto;
+}
 
 .btn-solid-reg {
 	display: inline-block;

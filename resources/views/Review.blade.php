@@ -15,13 +15,13 @@
 <div class="container mt-5 mb-5">
 	<p><a href="{{ route('home') }}">Home</a>/Review</p>
 
-	<div class="d-flex justify-content-center">
+	<!-- <div class="d-flex justify-content-center">
 		<div class="btn-group" role="group" aria-label="Basic example">
 			<button type="button" class="btn btn-primary">Left</button>
 			<button type="button" class="btn btn-primary">Middle</button>
 			<button type="button" class="btn btn-primary">Right</button>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="col-md-4">
 		

@@ -3,7 +3,7 @@
 	<div class="container">
 
 		<!-- Image Logo -->
-		<a class="navbar-brand logo-image" href="index.html"><img src="{{asset('/image/LogoBeautyCare.png')}}" alt="alternative"></a>
+		<a class="navbar-brand logo-image" href="index.html"><img src="{{asset('/image/LogoBeautyCare.png')}}" alt="alternative" ></a>
 
 		<!-- Text Logo - Use this if you don't have a graphic logo -->
 		<!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -21,7 +21,7 @@
 					<a class="nav-link" href="{{ route('promotion') }}">Promotion</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Review</a>
+					<a class="nav-link" href="{{ route('review') }}">Review</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
